@@ -2,6 +2,7 @@
 
 **TO DO**
 * ListBox event handlers - not working
+* Add logging - Serilog - https://github.com/serilog/serilog
 * Credits/About screen
 * Button for hint letters - clickedBtnGetLetter(int nCount)
 * Button for fetching next puzzle
