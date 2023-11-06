@@ -24,6 +24,11 @@ namespace CyberPuzzles.Crossword.Constants
         public const int nCURRENT_NONE = 3;
 
 
+        //Font sizes
+        public const int FNT_SML = 8;
+        public const int FNT_MED = 14;
+        public const int FNT_LGE = 16;
+        
         //Crossword dimension constants
         public const int nMAX_CROSS_WIDTH = 291;
         public const int nMAX_CROSS_HEIGHT = 291;
