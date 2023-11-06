@@ -3,7 +3,8 @@
 **TO DO**
 * ListBox event handlers - not working
 * Credits/About screen
-* Hint button or Ctrl-H for help - clickedBtnGetLetter(int nCount)
+* Button for hint letters - clickedBtnGetLetter(int nCount)
+* Button for fetching next puzzle
 * API for fetching puzzle data from Storage account or Azure function?- allow for button to get next puzzle 
 https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=visual-studio%2Cmanaged-identity%2Croles-azure-portal%2Csign-in-azure-cli%2Cidentity-visual-studio
 
