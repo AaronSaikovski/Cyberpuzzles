@@ -38,33 +38,5 @@ public sealed partial class Crossword
 
     #endregion
 
-    private void DrawListHeaders()
-    {
-        //Quick
-        //if (szPuzzleType.equals("QX"))
-        //{
-        //    g.setFont(fntListhead);
-        //    g.setColor(Color.black);
-        //    g.drawString("Clues Across", ptTopAcross.x, ptTopAcross.y);
-        //    g.drawString("Clues Down", ptTopDown.x, ptTopDown.y);
-        //}
-
-        ////TV
-        //else if (szPuzzleType.equals("TX"))
-        //{ //TV
-        //    g.setFont(fntListhead);
-        //    g.setColor(Color.white);
-        //    g.drawString("Clues Across", ptTopAcross.x, ptTopAcross.y);
-        //    g.drawString("Clues Down", ptTopDown.x, ptTopDown.y);
-        //}
-
-        ////Junior
-        //else if (szPuzzleType.equals("JX"))
-        //{
-        //    g.setFont(fntListhead);
-        //    g.setColor(Color.black);
-        //    g.drawString("Clues Across", ptTopAcross.x, ptTopAcross.y);
-        //    g.drawString("Clues Down", ptTopDown.x, ptTopDown.y);
-        //}
-    }
+    
 }

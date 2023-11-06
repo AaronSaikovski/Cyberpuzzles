@@ -6,7 +6,7 @@ namespace CyberPuzzles.Crossword.App;
 
 public sealed partial class Crossword
 {
-    #region Initialisers
+    #region InitListBoxes
 
     private void InitListBoxes()
     {

@@ -7,7 +7,7 @@ namespace CyberPuzzles.Crossword.App;
 
 public sealed partial class Crossword
 {
-    #region Load_Assets
+    #region LoadImages
 
     private void LoadImages()
     {
@@ -15,7 +15,11 @@ public sealed partial class Crossword
         imgSquareWord = Content.Load<Texture2D>("images/wordlite");
         imgNormalSquare = Content.Load<Texture2D>("images/normsq");
     }
+    
+    #endregion
 
+    
+    #region LoadFonts
     private void LoadFonts()
     {
         //Read fonts from FS

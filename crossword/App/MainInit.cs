@@ -9,7 +9,6 @@ public sealed partial class Crossword
         //load fonts
         LoadFonts();
 
-
         //Load images
         LoadImages();
 
