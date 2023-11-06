@@ -1,6 +1,0 @@
-@CrosswordDataAPI_HostAddress = http://localhost:5258
-
-GET {{CrosswordDataAPI_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
