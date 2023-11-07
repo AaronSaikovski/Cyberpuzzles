@@ -20,8 +20,8 @@ namespace CyberPuzzles.Crossword.InputHandlers
 {
 	public class MouseHandler : IMouseHandler
     {
-		
-
+        #region Mouse_Handler
+        
         //Crossword instance
         private readonly Crossword.App.Crossword _crossword;
 
@@ -29,13 +29,12 @@ namespace CyberPuzzles.Crossword.InputHandlers
         {
             //get the instance of the crossword object
             _crossword = crossword;
-
         }
 
         public void HandleLeftMouseClick(MouseState mouseState, MouseState origin)
         {
             //throw new NotImplementedException();
-            //Console.WriteLine("left mouse click");
+            
         }
 
         public void HandleLeftMouseDoubleClick(MouseState mouseState, MouseState origin)
@@ -45,15 +44,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
 
         public void HandleLeftMouseDown(MouseState mouseState)
         {
-            //Check if the mouse action is inside the main rect
-            // if (_crossword.RectCrossWord.Contains(origin.Position))
-            // {
-            //     //Console.WriteLine("Inside rect!");
-            //     _crossword.MouseDown(origin.X, origin.Y);
-            // }
-            
-            //nMouseX = x - nCrossOffsetX;
-            //nMouseY = y - nCrossOffsetY;
+           
         }
 
         public void HandleLeftMouseDragDone(MouseState mouseState, MouseState originalMouseState)
@@ -146,6 +137,8 @@ namespace CyberPuzzles.Crossword.InputHandlers
         {
             //throw new NotImplementedException();
         }
+        
+        #endregion
     }
 }
 

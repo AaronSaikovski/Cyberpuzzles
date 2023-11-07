@@ -6,7 +6,7 @@
     <PublishReadyToRun>false</PublishReadyToRun>
     <TieredCompilation>false</TieredCompilation>
     <Authors>Aaron Saikovski</Authors>
-    <LangVersion>11</LangVersion>
+    <LangVersion>12</LangVersion>
     <Nullable>disable</Nullable>
   </PropertyGroup>
   <PropertyGroup>
