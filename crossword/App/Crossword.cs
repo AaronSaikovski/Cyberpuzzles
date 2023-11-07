@@ -48,30 +48,30 @@ namespace CyberPuzzles.Crossword.App
         //Data set variables
         public string SzPuzzleType;
         public int NNumCols , NNumRows, NNumAcross, NNumDown, PuzzleId;
-        int[] _colRef, _rowRef, _quesNum;
-        bool[] _bDataIsAcross;
-        string[] _szClues , _szAnswers;
+        private int[] _colRef, _rowRef, _quesNum;
+        private bool[] _bDataIsAcross;
+        private string[] _szClues , _szAnswers;
         readonly int[] _nCosts = { 0, 0, 0, 0, 0, 0 };
-        string _szGetLetters, _szTmpGetLetters, _szBlurb;
-        public int NNumQuestions;
+        private string _szGetLetters, _szTmpGetLetters, _szBlurb;
+        private int NNumQuestions;
 
         //Data set instance variable
-        DatasetUdt[] _udtDataSet;
+        private DatasetUdt[] _udtDataSet;
 
         //Square instance variable
-        Square[,] _sqPuzzleSquares;
+        private Square[,] _sqPuzzleSquares;
 
         //ClueAnswer Instance variable
-        public ClueAnswers[] CaPuzzleClueAnswers;
+        private ClueAnswers[] CaPuzzleClueAnswers;
 
         //Highlight Constants
-        public int NCurrentLetter = 1;
-        public int NCurrentWord = 2;
-        public int NCurrentNone = 3;
+        private int NCurrentLetter = 1;
+        private int NCurrentWord = 2;
+        private int NCurrentNone = 3;
 
         //Crossword dimension constants
-        public int NMaxCrossWidth = 291;
-        public int NMaxCrossHeight = 291;
+        private int NMaxCrossWidth = 291;
+        private int NMaxCrossHeight = 291;
 
         //string[,] strGuesses = null;
         public Square SqCurrentSquare;
@@ -79,44 +79,44 @@ namespace CyberPuzzles.Crossword.App
         public bool BIsFinished;
 
         //Square width and height constants
-        public static int NSquareWidth;
-        public static int NSquareHeight;
+        private static int NSquareWidth;
+        private static int NSquareHeight;
 
         //X and Y Offsets for the square's answer number.
-        public int NXnumOffset = 2, NYnumOffset = 9;
+        private int NXnumOffset = 2, NYnumOffset = 9;
 
 
 
         
 
         //Status of row/column orientation (Across or Down)
-        public bool BIsAcross = true;  
+        private bool BIsAcross = true;  
 
         //Mouse Coords
         public int NMouseX;
         public int NMouseY;
 
         //Tab key variable
-        public int NTabPress;
+        private int NTabPress;
 
         //Scoring variable
-        public int NScore;
+        private int NScore;
  
 
         //Component focus variable
-        public int NFocusState;    
+        private int NFocusState;    
 
         //mouseMove String
-        public string SzPuzzleTitle;
+        private string SzPuzzleTitle;
 
         //Number of times Hint has been accessed by the user
         //int nUserHintPress;
 
         // Crossword score
-        public int NCrosswordScore;
+        private int NCrosswordScore;
 
         //More puzzles in set boolean flag
-        bool _bMorePuzzles;
+        private bool _bMorePuzzles;
 
         //Parser class
         private CrosswordParser _mrParser;
@@ -128,8 +128,8 @@ namespace CyberPuzzles.Crossword.App
 
      
         //list boxes
-        public ListBox LstClueAcross;
-        public ListBox LstClueDown;
+        private ListBox LstClueAcross;
+        private ListBox LstClueDown;
 
         //Panel for UI
         private Panel _mainPanel;
@@ -145,9 +145,9 @@ namespace CyberPuzzles.Crossword.App
 
 
         // Define a color for the rectangles
-        Color _rectangleColor = Color.White;
-        Color _rectangleBlack = Color.Black;
-        Texture2D _blackTexture;
+        private Color _rectangleColor = Color.White;
+        private Color _rectangleBlack = Color.Black;
+        private Texture2D _blackTexture;
 
         //Fonts
         private DynamicSpriteFont _fntnumFont;   //small number font
@@ -158,12 +158,12 @@ namespace CyberPuzzles.Crossword.App
 
 
         //Keyboard handler
-        readonly KeyboardInput _keyboardInput;
-        readonly KeyboardInputHandler _keyboardInputHandler;
+        private readonly KeyboardInput _keyboardInput;
+        private readonly KeyboardInputHandler _keyboardInputHandler;
 
         //Mouse handler
-        readonly MouseInput _mouseInput;
-        readonly MouseInputHandler _mouseInputHandler;
+        private readonly MouseInput _mouseInput;
+        private readonly MouseInputHandler _mouseInputHandler;
 
         //Labels
         private Label _currentScoreLabel;

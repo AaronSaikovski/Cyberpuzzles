@@ -41,7 +41,7 @@ public sealed partial class Crossword
             Left = RectCrossWord.Right + CwSettings.MainOffsetX,
             TextColor = Color.Black,
             Height = CwSettings.ClLabelHeight,
-            Top = CwSettings.ClListboxHeight + CwSettings.ClLabelHeight + (CwSettings.ClListSpacer * 3)
+            Top = CwSettings.ClListboxHeight + CwSettings.ClLabelHeight + CwSettings.ClListSpacer * 3
         };
 
         //Down
