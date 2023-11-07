@@ -2,6 +2,7 @@ using CyberPuzzles.Crossword.Constants;
 using CyberPuzzles.Crossword.Datasets;
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
+using Myra.Graphics2D.UI.Styles;
 
 namespace CyberPuzzles.Crossword.App;
 
@@ -17,6 +18,17 @@ public sealed partial class Crossword
 
         //List box elements
         InitListBoxes();
+
+        // HintButton = new TextButton();
+        // HintButton.Text = "Get Hint"; 
+        // HintButton.Id = "HintButton";
+        // //HintButton..Background = Color.Gray;
+        // HintButton.TextColor = Color.White;
+        // //HintButton.ApplyWidgetStyle(new LabelStyle(new ButtonStyle(());
+        // HintButton.Left = RectCrossWord.Left;
+        // HintButton.Top = RectCrossWord.Bottom + CwSettings.ClListSpacer * 2;
+        // _mainPanel.Widgets.Add(HintButton);
+        
         
         //Crossword Parsed Dataset
         //

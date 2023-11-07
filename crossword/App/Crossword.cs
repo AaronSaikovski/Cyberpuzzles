@@ -174,7 +174,8 @@ namespace CyberPuzzles.Crossword.App
         //Crossword Rectangles for mouse handling
         //Rectangle variable
         public Rectangle RectCrossWord;
-        
+        //public TextButton HintButton;
+
         
         //Crossword Width and Height variables
         private int _nCrosswordWidth, _nCrosswordHeight, _nCrosswordOffset=6;
