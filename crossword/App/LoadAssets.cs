@@ -11,9 +11,9 @@ public sealed partial class Crossword
 
     private void LoadImages()
     {
-        imgHighliteSquare = Content.Load<Texture2D>("images/sqlite");
-        imgSquareWord = Content.Load<Texture2D>("images/wordlite");
-        imgNormalSquare = Content.Load<Texture2D>("images/normsq");
+        _imgHighliteSquare = Content.Load<Texture2D>("images/sqlite");
+        _imgSquareWord = Content.Load<Texture2D>("images/wordlite");
+        _imgNormalSquare = Content.Load<Texture2D>("images/normsq");
     }
     
     #endregion
@@ -35,19 +35,19 @@ public sealed partial class Crossword
         fntHelveticaSystem.AddFont(fntHelveticaPlain);
 
         //Small number font
-        fntnumFont = fntHelveticaBoldSystem.GetFont(CWSettings.FNT_SML);
+        _fntnumFont = fntHelveticaBoldSystem.GetFont(CwSettings.FntSml);
 
         //Char entered by user.    
-        fntFont = fntHelveticaBoldSystem.GetFont(CWSettings.FNT_LGE);
+        _fntFont = fntHelveticaBoldSystem.GetFont(CwSettings.FntLge);
 
         //Crossword score      
-        fntScore = fntHelveticaBoldSystem.GetFont(CWSettings.FNT_LGE);
+        _fntScore = fntHelveticaBoldSystem.GetFont(CwSettings.FntLge);
 
         //Across/Down listbox Headers
-        fntListhead = fntHelveticaBoldSystem.GetFont(CWSettings.FNT_MED);
+        _fntListhead = fntHelveticaBoldSystem.GetFont(CwSettings.FntMed);
 
         //List font
-        fntListFont = fntHelveticaSystem.GetFont(CWSettings.FNT_MED);
+        _fntListFont = fntHelveticaSystem.GetFont(CwSettings.FntMed);
     }
     #endregion
 }

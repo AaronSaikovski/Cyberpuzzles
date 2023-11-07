@@ -5,7 +5,7 @@ namespace CyberPuzzles.Crossword.App;
 
 public sealed partial class Crossword
 {
-    #region Initialisers
+    #region InitPuzzleData
 
     private void InitPuzzleData()
     {
@@ -14,41 +14,41 @@ public sealed partial class Crossword
         _mrParser = new CrosswordParser();
 
         // Get the Puzzle Data
-        szPuzData = CrosswordData.GetCrosswordData(); //FetchPuzzleData();
+        SzPuzData = CrosswordData.GetCrosswordData(); //FetchPuzzleData();
 
         // Parse the Data
-        while (szPuzData != null && !_mrParser.ParseData(szPuzData))
+        while (SzPuzData != null && !_mrParser.ParseData(SzPuzData))
         {
         }
 
         //PuzzleType
-        szPuzzleType = _mrParser.PuzzleType;
+        SzPuzzleType = _mrParser.PuzzleType;
 
         //Number of Columns
-        nNumCols = _mrParser.NumCols;
+        NNumCols = _mrParser.NumCols;
 
         //Number of rows
-        nNumRows = _mrParser.NumRows;
+        NNumRows = _mrParser.NumRows;
 
         //Num Across
-        nNumAcross = _mrParser.NumAcross;
+        NNumAcross = _mrParser.NumAcross;
 
         //Num Down
-        nNumDown = _mrParser.NumDown;
+        NNumDown = _mrParser.NumDown;
 
         //Puzzle ID
-        puzzleId = _mrParser.PuzzleId;
+        PuzzleId = _mrParser.PuzzleId;
 
         //Number of questions
-        nNumQuestions = _mrParser.NumQuestions;
+        NNumQuestions = _mrParser.NumQuestions;
 
         //Declare dimensions for arrays of crossword data
-        _szClues = new string[nNumQuestions];
-        _szAnswers = new string[nNumQuestions];
-        _colRef = new int[nNumQuestions];
-        _rowRef = new int[nNumQuestions];
-        _bDataIsAcross = new bool[nNumQuestions];
-        _quesNum = new int[nNumQuestions];
+        _szClues = new string[NNumQuestions];
+        _szAnswers = new string[NNumQuestions];
+        _colRef = new int[NNumQuestions];
+        _rowRef = new int[NNumQuestions];
+        _bDataIsAcross = new bool[NNumQuestions];
+        _quesNum = new int[NNumQuestions];
     }
 
     #endregion

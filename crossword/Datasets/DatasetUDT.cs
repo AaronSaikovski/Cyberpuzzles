@@ -42,16 +42,16 @@ namespace CyberPuzzles.Crossword.Datasets
         #region Constructor
 
         //Dataset Constructor
-        public DatasetUdt(int coordAcross, int coordDown, string Answer, string Clue,
-                            bool isAcross, int QuestionNum)
+        public DatasetUdt(int coordAcross, int coordDown, string answer, string clue,
+                            bool isAcross, int questionNum)
         {
 
             this.CoordAcross = coordAcross;
             this.CoordDown = coordDown;
-            this.Answer = Answer;
-            this.Clue = Clue;
+            this.Answer = answer;
+            this.Clue = clue;
             this.IsAcross = isAcross;
-            this.QuestionNum = QuestionNum;
+            this.QuestionNum = questionNum;
 
         }
 

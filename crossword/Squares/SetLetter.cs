@@ -9,12 +9,12 @@ public partial class Square
     public void SetLetter(char ch, bool bIsAcross)
     {
         ChLetter = ch;
-        bIsDirty = true;
+        BIsDirty = true;
 
         if (bIsAcross)
         {
             // set square to green for correct color
-            clForeColour = clAcross.GetChar(this).Equals(char.ToUpper(ChLetter))
+            ClForeColour = ClAcross.GetChar(this).Equals(char.ToUpper(ChLetter))
                 ? Color.LightGreen
                 : //todo - set as an enum
                 //clForeColour = Color.black;
@@ -25,7 +25,7 @@ public partial class Square
         else
         {
             // set square to green for correct color
-            clForeColour = clDown.GetChar(this).Equals(char.ToUpper(ChLetter))
+            ClForeColour = ClDown.GetChar(this).Equals(char.ToUpper(ChLetter))
                 ? Color.LightGreen
                 : //todo - set as an enum
                 //clForeColour = Color.black;

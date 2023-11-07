@@ -12,7 +12,7 @@ public sealed partial class Crossword
     protected override void Initialize()
     {
         //Panel for UI
-        _MainPanel = new Panel();
+        _mainPanel = new Panel();
 
         //set the Window title
         this.Window.Title = "CyberPuzzles Crossword";
@@ -28,15 +28,15 @@ public sealed partial class Crossword
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         MyraEnvironment.Game = this;
 
-        blackTexture = new Texture2D(GraphicsDevice, 1, 1);
-        blackTexture.SetData(new[] { Color.Black });
+        _blackTexture = new Texture2D(GraphicsDevice, 1, 1);
+        _blackTexture.SetData(new[] { Color.Black });
 
         //Initialise everything
         MainInit();
 
         // add panel to desktop
         _desktop = new Desktop();
-        _desktop.Root = _MainPanel;
+        _desktop.Root = _mainPanel;
     }
 
     protected override void Update(GameTime gameTime)
@@ -57,7 +57,7 @@ public sealed partial class Crossword
         GraphicsDevice.Clear(Color.White);
 
         //If buffer dirty...draw the crossword
-        if (bBufferDirty)
+        if (BBufferDirty)
         {
             DrawCrossword();
         }

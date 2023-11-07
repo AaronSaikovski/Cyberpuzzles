@@ -19,15 +19,15 @@ public sealed partial class Crossword
                         //If Across then allow operations on the across list
                         case Keys.Up:
                         {
-                            if (lstClueAcross.SelectedIndex != 0)
+                            if (LstClueAcross.SelectedIndex != 0)
                             {
-                                lstClueAcross.SelectedIndex = lstClueAcross.SelectedIndex - 1;
+                                LstClueAcross.SelectedIndex = LstClueAcross.SelectedIndex - 1;
                             }
 
                             break;
                         }
                         case Keys.Down:
-                            lstClueAcross.SelectedIndex = lstClueAcross.SelectedIndex + 1;
+                            LstClueAcross.SelectedIndex = LstClueAcross.SelectedIndex + 1;
                             break;
                     }
                    
@@ -38,15 +38,15 @@ public sealed partial class Crossword
                         //if Down
                         case Keys.Up:
                         {
-                            if (lstClueDown.SelectedIndex != 0)
+                            if (LstClueDown.SelectedIndex != 0)
                             {
-                                lstClueDown.SelectedIndex = lstClueDown.SelectedIndex - 1;
+                                LstClueDown.SelectedIndex = LstClueDown.SelectedIndex - 1;
                             }
 
                             break;
                         }
                         case Keys.Down:
-                            lstClueDown.SelectedIndex = lstClueDown.SelectedIndex + 1;
+                            LstClueDown.SelectedIndex = LstClueDown.SelectedIndex + 1;
                             break;
                     }
 

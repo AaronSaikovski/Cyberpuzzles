@@ -6,15 +6,15 @@ public partial class Square
 
     public Square GetNextSq(bool bIsAcross)
     {
-        return !bIsAcross ? clDown != null ? clDown.GetNextSq(this) : this :
-            clAcross != null ? clAcross.GetNextSq(this) : this;
+        return !bIsAcross ? ClDown != null ? ClDown.GetNextSq(this) : this :
+            ClAcross != null ? ClAcross.GetNextSq(this) : this;
     }
 
     public Square GetPrevSq(bool bIsAcross)
     {
         if (bIsAcross)
-            return clAcross != null ? clAcross.GetPrevSq(this) : this;
-        return clDown != null ? clDown.GetPrevSq(this) : this;
+            return ClAcross != null ? ClAcross.GetPrevSq(this) : this;
+        return ClDown != null ? ClDown.GetPrevSq(this) : this;
     }
 
     #endregion

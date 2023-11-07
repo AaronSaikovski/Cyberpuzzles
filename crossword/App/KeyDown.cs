@@ -1,5 +1,4 @@
-using System;
-using CyberPuzzles.Crossword.Constants;
+
 using Microsoft.Xna.Framework.Input;
 
 namespace CyberPuzzles.Crossword.App;
@@ -12,57 +11,57 @@ public sealed partial class Crossword
         public void KeyDown(Keys[] keysDown, Keys keyInFocus)
         {
             //if puzzle is finished...eat the event
-            if (bPuzzleFinished) return;
+            if (BPuzzleFinished) return;
             switch (keyInFocus)
             {
                 //Spacebar pressed to change orientation...bIsAcross.
                 case Keys.Space:
                 {
                     //Deselect the listbox based on direction
-                    if (!bIsAcross)
-                        lstClueDown.SelectedIndex = -1;
+                    if (!BIsAcross)
+                        LstClueDown.SelectedIndex = -1;
                     else
-                        lstClueAcross.SelectedIndex = -1;
+                        LstClueAcross.SelectedIndex = -1;
 
                     //Sets the highlighting of the square.
-                    sqCurrentSquare.GetClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
+                    SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, false);
 
                     //Change orientation if possible
-                    if (bIsAcross)
+                    if (BIsAcross)
                     {
-                        if (sqCurrentSquare.CanFlipDirection(bIsAcross))
-                            bIsAcross = false;
+                        if (SqCurrentSquare.CanFlipDirection(BIsAcross))
+                            BIsAcross = false;
                     }
                     else
                     {
-                        if (sqCurrentSquare.CanFlipDirection(bIsAcross))
-                            bIsAcross = true;
+                        if (SqCurrentSquare.CanFlipDirection(BIsAcross))
+                            BIsAcross = true;
                     }
 
                     //Sets the highlighting of the square.
-                    sqCurrentSquare.GetClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, true);
+                    SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, true);
                     break;
                 }
                 //Set the focus if the tab key is pressed
-                case Keys.Tab when nTabPress == 0:
+                case Keys.Tab when NTabPress == 0:
                     //Give the Across list the focus
-                    lstClueAcross.SelectedIndex = 0;
-                    nTabPress = 1;
-                    nFocusState = 1;
+                    LstClueAcross.SelectedIndex = 0;
+                    NTabPress = 1;
+                    NFocusState = 1;
                     break;
                 //Give the Down list the focus
-                case Keys.Tab when nTabPress == 1:
-                    lstClueDown.SelectedIndex = 0;
-                    nTabPress = 2;
-                    nFocusState = 2;
+                case Keys.Tab when NTabPress == 1:
+                    LstClueDown.SelectedIndex = 0;
+                    NTabPress = 2;
+                    NFocusState = 2;
                     break;
                 //Give the applet back the focus
                 case Keys.Tab:
                 {
-                    if (nTabPress == 2)
+                    if (NTabPress == 2)
                     {
-                        nTabPress = 0;
-                        nFocusState = 0;
+                        NTabPress = 0;
+                        NFocusState = 0;
                     }
 
                     break;
@@ -71,14 +70,24 @@ public sealed partial class Crossword
 
             //Only allow list box navigation if they have the focus.
             //Up and down arrows for the listbox navigation
-            if (nFocusState is 1 or 2)
+            // if (lstClueAcross.IsKeyboardFocused || lstClueAcross.IsMouseInside)
+            // {
+            //     NavigateList(bIsAcross, keyInFocus);
+            // }
+            // else if (nFocusState == 0)
+            // {
+            //     NavigatePuzzle(keyInFocus);
+            // }
+            //Only allow list box navigation if they have the focus.
+            //Up and down arrows for the listbox navigation
+            if (NFocusState is 1 or 2)
             {
-                NavigateList(bIsAcross, keyInFocus);
+                NavigateList(BIsAcross, keyInFocus);
             }
 
 
             //If the applet has the focus then allow the arrow keys to navigate around
-            if (nFocusState == 0)
+            if (NFocusState == 0)
             {
                 NavigatePuzzle(keyInFocus);
             }
@@ -88,23 +97,23 @@ public sealed partial class Crossword
             {
                 //Delete present square's contents if Delete key is pressed
                 case Keys.Delete:
-                    sqCurrentSquare.SetLetter(' ', bIsAcross);
+                    SqCurrentSquare.SetLetter(' ', BIsAcross);
                     break;
                 //Check to see if a backspace was entered
                 case Keys.Back:
-                    sqCurrentSquare.SetLetter(' ', bIsAcross);
-                    sqCurrentSquare = sqCurrentSquare.GetPrevSq(bIsAcross);
-                    sqCurrentSquare.GetClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, true);
+                    SqCurrentSquare.SetLetter(' ', BIsAcross);
+                    SqCurrentSquare = SqCurrentSquare.GetPrevSq(BIsAcross);
+                    SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, true);
                     break;
                 case >= Keys.A and <= Keys.Z:
                     //Sets the letter in the current square
-                    sqCurrentSquare.SetLetter(char.ToUpper((char)keyInFocus), bIsAcross);
+                    SqCurrentSquare.SetLetter(char.ToUpper((char)keyInFocus), BIsAcross);
 
                     //get next sq or myself(same sq)  if not available
-                    sqCurrentSquare = sqCurrentSquare.GetNextSq(bIsAcross);
+                    SqCurrentSquare = SqCurrentSquare.GetNextSq(BIsAcross);
 
                     //Sets the highlighting of the square.
-                    sqCurrentSquare.GetClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, true);
+                    SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, true);
                     break;
             }
 

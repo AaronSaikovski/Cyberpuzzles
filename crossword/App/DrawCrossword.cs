@@ -14,69 +14,69 @@ public sealed partial class Crossword
         _spriteBatch.Begin();
 
         //Draw the main rectangle
-        _spriteBatch.Draw(blackTexture, RectCrossWord, rectangleColor);
+        _spriteBatch.Draw(_blackTexture, RectCrossWord, _rectangleColor);
 
         //Build the squares
-        for (var i = 0; i < nNumRows; i++)
+        for (var i = 0; i < NNumRows; i++)
         {
-            for (var j = 0; j < nNumCols; j++)
+            for (var j = 0; j < NNumCols; j++)
             {
-                PuzzleSquares[i, j] = new Rectangle(_sqPuzzleSquares[i, j].XCoord, _sqPuzzleSquares[i, j].YCoord,
-                    CWSettings.SquareWidth, CWSettings.SquareHeight);
+                _puzzleSquares[i, j] = new Rectangle(_sqPuzzleSquares[i, j].XCoord, _sqPuzzleSquares[i, j].YCoord,
+                    CwSettings.SquareWidth, CwSettings.SquareHeight);
 
                 //Check to see if a char is allowed
-                if (_sqPuzzleSquares[i, j].bIsCharAllowed)
+                if (_sqPuzzleSquares[i, j].BIsCharAllowed)
                 {
                     //Check to see if a repaint is required
-                    if (!_sqPuzzleSquares[i, j].bIsDirty) continue;
-                    if (_sqPuzzleSquares[i, j].clBackColour.Equals(Color.White))
+                    if (!_sqPuzzleSquares[i, j].BIsDirty) continue;
+                    if (_sqPuzzleSquares[i, j].ClBackColour.Equals(Color.White))
                     {
-                        _spriteBatch.Draw(imgNormalSquare, PuzzleSquares[i, j], rectangleColor);
+                        _spriteBatch.Draw(_imgNormalSquare, _puzzleSquares[i, j], _rectangleColor);
                     }
 
-                    if (_sqPuzzleSquares[i, j].clBackColour.Equals(Color.Yellow))
+                    if (_sqPuzzleSquares[i, j].ClBackColour.Equals(Color.Yellow))
                     {
-                        _spriteBatch.Draw(imgSquareWord, PuzzleSquares[i, j], rectangleColor);
+                        _spriteBatch.Draw(_imgSquareWord, _puzzleSquares[i, j], _rectangleColor);
                     }
 
-                    if (_sqPuzzleSquares[i, j].clBackColour.Equals(Color.Cyan))
+                    if (_sqPuzzleSquares[i, j].ClBackColour.Equals(Color.Cyan))
                     {
-                        _spriteBatch.Draw(imgHighliteSquare, PuzzleSquares[i, j], rectangleColor);
+                        _spriteBatch.Draw(_imgHighliteSquare, _puzzleSquares[i, j], _rectangleColor);
                     }
 
                     //small number font
                     //hack walking across object boundaries
 
-                    if (_sqPuzzleSquares[i, j].clAcross != null)
+                    if (_sqPuzzleSquares[i, j].ClAcross != null)
                     {
-                        if (_sqPuzzleSquares[i, j].clAcross.SqAnswerSquares[0] == _sqPuzzleSquares[i, j])
+                        if (_sqPuzzleSquares[i, j].ClAcross.SqAnswerSquares[0] == _sqPuzzleSquares[i, j])
                         {
-                            _spriteBatch.DrawString(fntnumFont,
-                                _sqPuzzleSquares[i, j].clAcross.QuestionNumber.ToString(),
-                                new Vector2(PuzzleSquares[i, j].X + CWSettings.SML_NUM_OFFSET_X,
-                                    PuzzleSquares[i, j].Y + CWSettings.SML_NUM_OFFSET_Y), Color.Black);
+                            _spriteBatch.DrawString(_fntnumFont,
+                                _sqPuzzleSquares[i, j].ClAcross.QuestionNumber.ToString(),
+                                new Vector2(_puzzleSquares[i, j].X + CwSettings.SmlNumOffsetX,
+                                    _puzzleSquares[i, j].Y + CwSettings.SmlNumOffsetY), Color.Black);
                         }
                     }
 
-                    if (_sqPuzzleSquares[i, j].clDown != null)
+                    if (_sqPuzzleSquares[i, j].ClDown != null)
                     {
-                        if (_sqPuzzleSquares[i, j].clDown.SqAnswerSquares[0] == _sqPuzzleSquares[i, j])
+                        if (_sqPuzzleSquares[i, j].ClDown.SqAnswerSquares[0] == _sqPuzzleSquares[i, j])
                         {
-                            _spriteBatch.DrawString(fntnumFont, _sqPuzzleSquares[i, j].clDown.QuestionNumber.ToString(),
-                                new Vector2(PuzzleSquares[i, j].X + CWSettings.SML_NUM_OFFSET_X,
-                                    PuzzleSquares[i, j].Y + CWSettings.SML_NUM_OFFSET_Y), Color.Black);
+                            _spriteBatch.DrawString(_fntnumFont, _sqPuzzleSquares[i, j].ClDown.QuestionNumber.ToString(),
+                                new Vector2(_puzzleSquares[i, j].X + CwSettings.SmlNumOffsetX,
+                                    _puzzleSquares[i, j].Y + CwSettings.SmlNumOffsetY), Color.Black);
                         }
                     }
 
                     //Char entered by user.
-                    _spriteBatch.DrawString(fntFont, char.ToUpper(_sqPuzzleSquares[i, j].ChLetter).ToString(),
-                        new Vector2(PuzzleSquares[i, j].X + CWSettings.SQ_CHAR_OFFSET_X,
-                            PuzzleSquares[i, j].Y + CWSettings.SQ_CHAR_OFFSET_Y), _sqPuzzleSquares[i, j].clForeColour);
+                    _spriteBatch.DrawString(_fntFont, char.ToUpper(_sqPuzzleSquares[i, j].ChLetter).ToString(),
+                        new Vector2(_puzzleSquares[i, j].X + CwSettings.SqCharOffsetX,
+                            _puzzleSquares[i, j].Y + CwSettings.SqCharOffsetY), _sqPuzzleSquares[i, j].ClForeColour);
                 }
                 else
                 {
                     // Black square
-                    _spriteBatch.Draw(blackTexture, PuzzleSquares[i, j], rectangleColor);
+                    _spriteBatch.Draw(_blackTexture, _puzzleSquares[i, j], _rectangleColor);
                 }
             }
         }
@@ -84,7 +84,7 @@ public sealed partial class Crossword
         _spriteBatch.End();
 
 
-        bNewBackFlush = false;
+        BNewBackFlush = false;
     }
 
     #endregion

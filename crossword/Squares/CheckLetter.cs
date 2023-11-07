@@ -9,8 +9,8 @@ public partial class Square
     public void CheckLetter(char chCorrectLetter)
     {
         if (!IsPopulated()) return;
-        clForeColour = ChLetter == chCorrectLetter ? Color.Green : Color.Red;
-        bIsDirty = true;
+        ClForeColour = ChLetter == chCorrectLetter ? Color.Green : Color.Red;
+        BIsDirty = true;
     }
     
     #endregion

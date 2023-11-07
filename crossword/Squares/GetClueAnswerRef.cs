@@ -8,7 +8,7 @@ public partial class Square
 
     public ClueAnswers GetClueAnswerRef(bool bIsAcross)
     {
-        return bIsAcross ? clAcross : clDown;
+        return bIsAcross ? ClAcross : ClDown;
     }
 
     #endregion

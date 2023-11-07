@@ -9,35 +9,35 @@ public sealed partial class Crossword
 
     public void UpdateCrosswordScore()
     {
-        nCrosswordScore = 0;
-        for (var i = 0; i < nNumQuestions; i++)
+        NCrosswordScore = 0;
+        for (var i = 0; i < NNumQuestions; i++)
         {
-            if (caPuzzleClueAnswers[i].IsCorrect())
+            if (CaPuzzleClueAnswers[i].IsCorrect())
             {
-                nCrosswordScore++;
+                NCrosswordScore++;
             }
 
-            caPuzzleClueAnswers[i].CheckWord();
+            CaPuzzleClueAnswers[i].CheckWord();
         }
 
-        if (nCrosswordScore == nNumQuestions)
+        if (NCrosswordScore == NNumQuestions)
         {
-            bIsFinished = true;
+            BIsFinished = true;
         }
     }
 
     private void DrawCrosswordScore()
     {
-        if (!bIsFinished)
+        if (!BIsFinished)
         {
             //Current score label
-            _MainPanel.Widgets.Remove(CurrentScoreLabel);
-            CurrentScoreLabel.Text = "Your Score: " + nCrosswordScore;
-            CurrentScoreLabel.TextColor = Color.Red;
-            CurrentScoreLabel.Left = 300 + 250;
-            CurrentScoreLabel.Font = fntScore;
-            CurrentScoreLabel.Top = CWSettings.MAIN_OFFSET_Y;
-            _MainPanel.Widgets.Add(CurrentScoreLabel);
+            _mainPanel.Widgets.Remove(_currentScoreLabel);
+            _currentScoreLabel.Text = "Your Score: " + NCrosswordScore;
+            _currentScoreLabel.TextColor = Color.Red;
+            _currentScoreLabel.Left = 300 + 250;
+            _currentScoreLabel.Font = _fntScore;
+            _currentScoreLabel.Top = CwSettings.MainOffsetY;
+            _mainPanel.Widgets.Add(_currentScoreLabel);
 
 
             //Max score label
@@ -52,13 +52,13 @@ public sealed partial class Crossword
         else
         {
             //Current score label
-            _MainPanel.Widgets.Remove(CurrentScoreLabel);
-            CurrentScoreLabel.Text = "GAME OVER!";
-            CurrentScoreLabel.TextColor = Color.Red;
-            CurrentScoreLabel.Left = 300 + 250;
-            CurrentScoreLabel.Font = fntScore;
-            CurrentScoreLabel.Top = CWSettings.MAIN_OFFSET_Y;
-            _MainPanel.Widgets.Add(CurrentScoreLabel);
+            _mainPanel.Widgets.Remove(_currentScoreLabel);
+            _currentScoreLabel.Text = "GAME OVER!";
+            _currentScoreLabel.TextColor = Color.Red;
+            _currentScoreLabel.Left = 300 + 250;
+            _currentScoreLabel.Font = _fntScore;
+            _currentScoreLabel.Top = CwSettings.MainOffsetY;
+            _mainPanel.Widgets.Add(_currentScoreLabel);
 
             //Max score label - remove             
             //panel.Widgets.Remove(MaxScoreLabel);
@@ -66,13 +66,13 @@ public sealed partial class Crossword
 
 
         //Max score label
-        _MainPanel.Widgets.Remove(MaxScoreLabel);
-        MaxScoreLabel.Text = "Max Score: " + nNumQuestions;
-        MaxScoreLabel.TextColor = Color.Red;
-        MaxScoreLabel.Left = 300 + 250;
-        MaxScoreLabel.Font = fntScore;
-        MaxScoreLabel.Top = CWSettings.MAIN_OFFSET_Y + 20;
-        _MainPanel.Widgets.Add(MaxScoreLabel);
+        _mainPanel.Widgets.Remove(_maxScoreLabel);
+        _maxScoreLabel.Text = "Max Score: " + NNumQuestions;
+        _maxScoreLabel.TextColor = Color.Red;
+        _maxScoreLabel.Left = 300 + 250;
+        _maxScoreLabel.Font = _fntScore;
+        _maxScoreLabel.Top = CwSettings.MainOffsetY + 20;
+        _mainPanel.Widgets.Add(_maxScoreLabel);
     }
 
     #endregion

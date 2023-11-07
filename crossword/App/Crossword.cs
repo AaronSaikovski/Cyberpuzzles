@@ -31,29 +31,29 @@ namespace CyberPuzzles.Crossword.App
         #region Fields       
 
         //Puzzle State machines
-        public bool bPuzzleFinished, bSetFinished;
+        public bool BPuzzleFinished, BSetFinished;
 
         //Next Puzzle is currently unavailable flag
-        public bool bIsNextPuzzleReady = true;
+        public bool BIsNextPuzzleReady = true;
 
         //String for Puzzle ID of last puzzle in set
-        public string szPuzData;
+        public string SzPuzData;
 
         //Repaint variables
-        public bool bBufferDirty , bInitCrossword;
+        public bool BBufferDirty , BInitCrossword;
 
         //Image imBackBuffer;
-        public bool bNewBackFlush;
+        public bool BNewBackFlush;
 
         //Data set variables
-        public string szPuzzleType;
-        public int nNumCols , nNumRows, nNumAcross, nNumDown, puzzleId;
+        public string SzPuzzleType;
+        public int NNumCols , NNumRows, NNumAcross, NNumDown, PuzzleId;
         int[] _colRef, _rowRef, _quesNum;
         bool[] _bDataIsAcross;
         string[] _szClues , _szAnswers;
-        readonly int[] nCosts = { 0, 0, 0, 0, 0, 0 };
+        readonly int[] _nCosts = { 0, 0, 0, 0, 0, 0 };
         string _szGetLetters, _szTmpGetLetters, _szBlurb;
-        public int nNumQuestions;
+        public int NNumQuestions;
 
         //Data set instance variable
         DatasetUdt[] _udtDataSet;
@@ -62,81 +62,81 @@ namespace CyberPuzzles.Crossword.App
         Square[,] _sqPuzzleSquares;
 
         //ClueAnswer Instance variable
-        public ClueAnswers[] caPuzzleClueAnswers;
+        public ClueAnswers[] CaPuzzleClueAnswers;
 
         //Highlight Constants
-        public int nCURRENT_LETTER = 1;
-        public int nCURRENT_WORD = 2;
-        public int nCURRENT_NONE = 3;
+        public int NCurrentLetter = 1;
+        public int NCurrentWord = 2;
+        public int NCurrentNone = 3;
 
         //Crossword dimension constants
-        public int nMAX_CROSS_WIDTH = 291;
-        public int nMAX_CROSS_HEIGHT = 291;
+        public int NMaxCrossWidth = 291;
+        public int NMaxCrossHeight = 291;
 
         //string[,] strGuesses = null;
-        public Square sqCurrentSquare;
+        public Square SqCurrentSquare;
 
-        public bool bIsFinished;
+        public bool BIsFinished;
 
         //Square width and height constants
-        public static int nSquareWidth;
-        public static int nSquareHeight;
+        public static int NSquareWidth;
+        public static int NSquareHeight;
 
         //X and Y Offsets for the square's answer number.
-        public int nXNUM_OFFSET = 2, nYNUM_OFFSET = 9;
+        public int NXnumOffset = 2, NYnumOffset = 9;
 
 
 
         
 
         //Status of row/column orientation (Across or Down)
-        public bool bIsAcross = true;  
+        public bool BIsAcross = true;  
 
         //Mouse Coords
-        public int nMouseX;
-        public int nMouseY;
+        public int NMouseX;
+        public int NMouseY;
 
         //Tab key variable
-        public int nTabPress;
+        public int NTabPress;
 
         //Scoring variable
-        public int nScore;
+        public int NScore;
  
 
         //Component focus variable
-        public int nFocusState;    
+        public int NFocusState;    
 
         //mouseMove String
-        public string szPuzzleTitle;
+        public string SzPuzzleTitle;
 
         //Number of times Hint has been accessed by the user
         //int nUserHintPress;
 
         // Crossword score
-        public int nCrosswordScore;
+        public int NCrosswordScore;
 
         //More puzzles in set boolean flag
-        bool bMorePuzzles;
+        bool _bMorePuzzles;
 
         //Parser class
         private CrosswordParser _mrParser;
 
         //Images to use forx Crossword squares
-        private Texture2D imgSquareWord;
-        private Texture2D imgHighliteSquare;
-        private Texture2D imgNormalSquare;
+        private Texture2D _imgSquareWord;
+        private Texture2D _imgHighliteSquare;
+        private Texture2D _imgNormalSquare;
 
      
         //list boxes
-        public ListBox lstClueAcross;
-        public ListBox lstClueDown;
+        public ListBox LstClueAcross;
+        public ListBox LstClueDown;
 
         //Panel for UI
-        private Panel _MainPanel;
+        private Panel _mainPanel;
 
 
         //Puzzle squares
-        private Rectangle[,] PuzzleSquares;
+        private Rectangle[,] _puzzleSquares;
 
         // Monogame graphics
         private GraphicsDeviceManager _graphics;
@@ -145,31 +145,31 @@ namespace CyberPuzzles.Crossword.App
 
 
         // Define a color for the rectangles
-        Color rectangleColor = Color.White;
-        Color rectangleBlack = Color.Black;
-        Texture2D blackTexture;
+        Color _rectangleColor = Color.White;
+        Color _rectangleBlack = Color.Black;
+        Texture2D _blackTexture;
 
         //Fonts
-        private DynamicSpriteFont fntnumFont;   //small number font
-        private DynamicSpriteFont fntFont;      //Char entered by user.
-        private DynamicSpriteFont fntScore;     //Crossword score
-        private DynamicSpriteFont fntListhead;  //Across/Down listbox Headers
-        private DynamicSpriteFont fntListFont;  // ListBox font
+        private DynamicSpriteFont _fntnumFont;   //small number font
+        private DynamicSpriteFont _fntFont;      //Char entered by user.
+        private DynamicSpriteFont _fntScore;     //Crossword score
+        private DynamicSpriteFont _fntListhead;  //Across/Down listbox Headers
+        private DynamicSpriteFont _fntListFont;  // ListBox font
 
 
         //Keyboard handler
         readonly KeyboardInput _keyboardInput;
-        readonly KeyboardHandler _keyboardHandler;
+        readonly KeyboardInputHandler _keyboardInputHandler;
 
         //Mouse handler
         readonly MouseInput _mouseInput;
-        readonly MouseHandler _mouseHandler;
+        readonly MouseInputHandler _mouseInputHandler;
 
         //Labels
-        private Label CurrentScoreLabel;
-        private Label MaxScoreLabel;
-        private Label ClueAcrossLabel;
-        private Label ClueDownLabel;
+        private Label _currentScoreLabel;
+        private Label _maxScoreLabel;
+        private Label _clueAcrossLabel;
+        private Label _clueDownLabel;
 
         //Crossword Rectangles for mouse handling
         //Rectangle variable
@@ -177,12 +177,12 @@ namespace CyberPuzzles.Crossword.App
         
         
         //Crossword Width and Height variables
-        private int nCrosswordWidth, nCrosswordHeight, nCrosswordOffset=6;
+        private int _nCrosswordWidth, _nCrosswordHeight, _nCrosswordOffset=6;
         
         //Offset constants
-        private int nCROSS_BORDER_WIDTH = 3;
-        private int nCrossOffsetX = 5;
-        private int nCrossOffsetY = 5;
+        private int _nCrossBorderWidth = 3;
+        private int _nCrossOffsetX = 5;
+        private int _nCrossOffsetY = 5;
         
         #endregion
 
@@ -197,13 +197,13 @@ namespace CyberPuzzles.Crossword.App
 
             //Keyboard handlers
             _keyboardInput = new KeyboardInput();
-            _keyboardHandler = new KeyboardHandler(this); //Pass in crossword instance object
-            _keyboardInput.Subscribe(_keyboardHandler);
+            _keyboardInputHandler = new KeyboardInputHandler(this); //Pass in crossword instance object
+            _keyboardInput.Subscribe(_keyboardInputHandler);
 
             //Mouse handlers
             _mouseInput = new MouseInput();
-            _mouseHandler = new MouseHandler(this); //Pass in crossword instance object
-            _mouseInput.Subscribe(_mouseHandler);
+            _mouseInputHandler = new MouseInputHandler(this); //Pass in crossword instance object
+            _mouseInput.Subscribe(_mouseInputHandler);
         }
         #endregion
        

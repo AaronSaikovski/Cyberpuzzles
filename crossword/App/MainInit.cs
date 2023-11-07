@@ -22,44 +22,44 @@ public sealed partial class Crossword
         //build the crossword data
         BuildCrossword();
 
-        bNewBackFlush = true;
+        BNewBackFlush = true;
 
 
         //Show the lists
-        lstClueAcross.Visible = true;
-        lstClueDown.Visible = true;
+        LstClueAcross.Visible = true;
+        LstClueDown.Visible = true;
 
         //Set the initial active square
-        sqCurrentSquare = caPuzzleClueAnswers[0].GetSquare();
+        SqCurrentSquare = CaPuzzleClueAnswers[0].GetSquare();
 
         //Return the orientation
-        bIsAcross = caPuzzleClueAnswers[0].BIsAcross;
+        BIsAcross = CaPuzzleClueAnswers[0].BIsAcross;
 
         //Highlight the default square...if allowed
-        caPuzzleClueAnswers[0].HighlightSquares(sqCurrentSquare, true);
+        CaPuzzleClueAnswers[0].HighlightSquares(SqCurrentSquare, true);
 
         //Set the default across list item to be the first item in the list
-        lstClueAcross.SelectedIndex = 0;
+        LstClueAcross.SelectedIndex = 0;
 
 
         //Forces dirty squares
-        for (var i = 0; i < nNumRows; i++)
+        for (var i = 0; i < NNumRows; i++)
         {
             //down
-            for (var j = 0; j < nNumCols; j++)
+            for (var j = 0; j < NNumCols; j++)
             {
-                _sqPuzzleSquares[i, j].bIsDirty = true;
+                _sqPuzzleSquares[i, j].BIsDirty = true;
             }
         }
 
 
         //Set index to bubble out
         //nBubbleOut = 1;
-        bBufferDirty = true;
-        bNewBackFlush = true;
+        BBufferDirty = true;
+        BNewBackFlush = true;
 
         //Get next puzzle ID
-        bMorePuzzles = true; // getNextPuzzleData();
+        _bMorePuzzles = true; // getNextPuzzleData();
     }
 
     #endregion

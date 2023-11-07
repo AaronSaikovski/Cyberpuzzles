@@ -6,7 +6,7 @@ public partial class Square
 
     public bool CanFlipDirection(bool bIsAcross)
     {
-        return (bIsAcross && clDown != null) || (!bIsAcross && clAcross != null);
+        return (bIsAcross && ClDown != null) || (!bIsAcross && ClAcross != null);
     }
 
     #endregion

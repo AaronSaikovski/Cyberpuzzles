@@ -18,14 +18,14 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CyberPuzzles.Crossword.InputHandlers
 {
-	public class MouseHandler : IMouseHandler
+	public class MouseInputHandler : IMouseHandler
     {
-        #region Mouse_Handler
+        #region Mouse_Input_Handler
         
         //Crossword instance
         private readonly Crossword.App.Crossword _crossword;
 
-        public MouseHandler(Crossword.App.Crossword crossword)
+        public MouseInputHandler(Crossword.App.Crossword crossword)
         {
             //get the instance of the crossword object
             _crossword = crossword;

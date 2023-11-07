@@ -11,35 +11,35 @@ public partial class Square
         switch (highlightType)
         {
             case 1: //Current Letter
-                if (!clBackColour.Equals(Color.Cyan))
+                if (!ClBackColour.Equals(Color.Cyan))
                 {
-                    clBackColour = Color.Cyan;
-                    bIsDirty = true;
+                    ClBackColour = Color.Cyan;
+                    BIsDirty = true;
                 }
 
                 break;
             case 2: //Current Word
-                if (!clBackColour.Equals(Color.Yellow))
+                if (!ClBackColour.Equals(Color.Yellow))
                 {
-                    clBackColour = Color.Yellow;
-                    bIsDirty = true;
+                    ClBackColour = Color.Yellow;
+                    BIsDirty = true;
                 }
 
                 break;
             case 3: //Current None
-                if (!clBackColour.Equals(Color.White))
+                if (!ClBackColour.Equals(Color.White))
                 {
-                    clBackColour = Color.White;
-                    bIsDirty = true;
+                    ClBackColour = Color.White;
+                    BIsDirty = true;
                 }
 
                 break;
             default: //Something went wrong....
-                if (!clBackColour.Equals(Color.Red))
+                if (!ClBackColour.Equals(Color.Red))
                 {
                     //Console.WriteLine("Bogus color: " + nHighlightType);
-                    clBackColour = Color.Red;
-                    bIsDirty = true;
+                    ClBackColour = Color.Red;
+                    BIsDirty = true;
                 }
 
                 break;

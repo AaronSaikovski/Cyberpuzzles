@@ -15,8 +15,8 @@ public sealed partial class Crossword
     /// <returns></returns>
     public bool MouseDown(int x, int y)
     {
-        nMouseX = x - nCrossOffsetX;
-        nMouseY = y - nCrossOffsetY;
+        NMouseX = x - _nCrossOffsetX;
+        NMouseY = y - _nCrossOffsetY;
         return true;
     }
 
@@ -29,57 +29,57 @@ public sealed partial class Crossword
     public bool MouseUp(int x, int y)
     {
         //If the individual puzzle has finished...eat the event
-        if (bPuzzleFinished) return true;
+        if (BPuzzleFinished) return true;
         try
         {
             //Exception handling added as an ArrayIndexOutOfBoundException occurs
-            var sqSelSquare = _sqPuzzleSquares[(x - nCrossOffsetX) / CWSettings.SquareWidth,
-                (y - nCrossOffsetY) / CWSettings.SquareHeight];
+            var sqSelSquare = _sqPuzzleSquares[(x - _nCrossOffsetX) / CwSettings.SquareWidth,
+                (y - _nCrossOffsetY) / CwSettings.SquareHeight];
 
-            if (!sqSelSquare.bIsCharAllowed) return true;
+            if (!sqSelSquare.BIsCharAllowed) return true;
             //clear current highlights
-            sqCurrentSquare.GetClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
+            SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, false);
 
             //Deselect the listbox based on direction
-            if (!bIsAcross)
-                lstClueDown.SelectedIndex = -1;
+            if (!BIsAcross)
+                LstClueDown.SelectedIndex = -1;
             else
-                lstClueAcross.SelectedIndex = -1;
+                LstClueAcross.SelectedIndex = -1;
 
             //test if same sq and flip if possible
-            if (sqSelSquare == sqCurrentSquare)
+            if (sqSelSquare == SqCurrentSquare)
             {
-                if (sqSelSquare.CanFlipDirection(bIsAcross))
-                    bIsAcross = !bIsAcross;
+                if (sqSelSquare.CanFlipDirection(BIsAcross))
+                    BIsAcross = !BIsAcross;
             }
             else
-                switch (bIsAcross)
+                switch (BIsAcross)
                 {
-                    case true when sqSelSquare.clAcross == null:
-                    case false when sqSelSquare.clDown == null:
-                        bIsAcross = !bIsAcross;
+                    case true when sqSelSquare.ClAcross == null:
+                    case false when sqSelSquare.ClDown == null:
+                        BIsAcross = !BIsAcross;
                         break;
                 }
 
             //set new current sq & highlight them
-            sqCurrentSquare = sqSelSquare;
-            sqCurrentSquare.GetClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, true);
+            SqCurrentSquare = sqSelSquare;
+            SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, true);
 
             //Find index to Clue Answer for highlighting in List boxes
-            var tmpClueAnswer = sqSelSquare.GetClueAnswerRef(bIsAcross);
+            var tmpClueAnswer = sqSelSquare.GetClueAnswerRef(BIsAcross);
             var clueAnswerIdx = 0;
-            for (var k = 0; k < nNumQuestions; k++)
+            for (var k = 0; k < NNumQuestions; k++)
             {
-                if (tmpClueAnswer != caPuzzleClueAnswers[k]) continue;
+                if (tmpClueAnswer != CaPuzzleClueAnswers[k]) continue;
                 clueAnswerIdx = k;
                 break;
             }
 
             //Selects the item in the list box relative to ClueAnswer and direction
-            if (bIsAcross)
-                lstClueAcross.SelectedIndex = clueAnswerIdx;
+            if (BIsAcross)
+                LstClueAcross.SelectedIndex = clueAnswerIdx;
             else
-                lstClueDown.SelectedIndex = clueAnswerIdx - lstClueAcross.Items.Count;
+                LstClueDown.SelectedIndex = clueAnswerIdx - LstClueAcross.Items.Count;
 
             return true;
         }

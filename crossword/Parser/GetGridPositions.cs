@@ -7,15 +7,15 @@ public sealed partial class CrosswordParser
 {
     private void GetGridPositions(IReadOnlyList<string> strData)
     {
-        var PuzzleTempStr = strData[3];
-        NumQuestions = Helpers.CountOccurrences(PuzzleTempStr, '#');
+        var puzzleTempStr = strData[3];
+        NumQuestions = Helpers.CountOccurrences(puzzleTempStr, '#');
         ColRef = new int[NumQuestions];
         RowRef = new int[NumQuestions];
         IsAcross = new int[NumQuestions];
         QuesNum = new int[NumQuestions];
         
         //split string 
-        var gridPosTmp = PuzzleTempStr.Split('#');
+        var gridPosTmp = puzzleTempStr.Split('#');
 
         for (var tokIdx = 0; tokIdx < NumQuestions; tokIdx++)
         {

@@ -13,46 +13,46 @@ public sealed partial class Crossword
         //List box elements
 
         //Across Label
-        ClueAcrossLabel = new Label
+        _clueAcrossLabel = new Label
         {
             Text = "Across",
-            Font = fntListhead,
-            Left = RectCrossWord.Right + CWSettings.MAIN_OFFSET_X,
+            Font = _fntListhead,
+            Left = RectCrossWord.Right + CwSettings.MainOffsetX,
             TextColor = Color.Black,
-            Height = CWSettings.CL_LABEL_HEIGHT,
-            Top = CWSettings.MAIN_OFFSET_Y - (CWSettings.CL_LIST_SPACER * 3)
+            Height = CwSettings.ClLabelHeight,
+            Top = CwSettings.MainOffsetY - CwSettings.ClListSpacer * 3
         };
 
         //Across ListBox
-        lstClueAcross = new ListBox
+        LstClueAcross = new ListBox
         {
-            Left = RectCrossWord.Right + CWSettings.MAIN_OFFSET_X,
-            Top = CWSettings.MAIN_OFFSET_Y,
+            Left = RectCrossWord.Right + CwSettings.MainOffsetX,
+            Top = CwSettings.MainOffsetY,
             AcceptsKeyboardFocus = true,
             SelectionMode = SelectionMode.Single,
-            Height = CWSettings.CL_LISTBOX_HEIGHT
+            Height = CwSettings.ClListboxHeight
         };
 
         //Down Label
-        ClueDownLabel = new Label
+        _clueDownLabel = new Label
         {
             Text = "Down",
-            Font = fntListhead,
-            Left = RectCrossWord.Right + CWSettings.MAIN_OFFSET_X,
+            Font = _fntListhead,
+            Left = RectCrossWord.Right + CwSettings.MainOffsetX,
             TextColor = Color.Black,
-            Height = CWSettings.CL_LABEL_HEIGHT,
-            Top = CWSettings.CL_LISTBOX_HEIGHT + CWSettings.CL_LABEL_HEIGHT + (CWSettings.CL_LIST_SPACER * 3)
+            Height = CwSettings.ClLabelHeight,
+            Top = CwSettings.ClListboxHeight + CwSettings.ClLabelHeight + (CwSettings.ClListSpacer * 3)
         };
 
         //Down
-        lstClueDown = new ListBox
+        LstClueDown = new ListBox
         {
-            Left = RectCrossWord.Right + CWSettings.MAIN_OFFSET_Y,
-            Top = CWSettings.CL_LISTBOX_HEIGHT + CWSettings.CL_LABEL_HEIGHT + (CWSettings.CL_LIST_SPACER * 2) +
-                  CWSettings.CL_LABEL_HEIGHT,
+            Left = RectCrossWord.Right + CwSettings.MainOffsetY,
+            Top = CwSettings.ClListboxHeight + CwSettings.ClLabelHeight + CwSettings.ClListSpacer * 2 +
+                  CwSettings.ClLabelHeight,
             AcceptsKeyboardFocus = true,
             SelectionMode = SelectionMode.Single,
-            Height = CWSettings.CL_LISTBOX_HEIGHT
+            Height = CwSettings.ClListboxHeight
         };
 
         ////List box event handlers
@@ -60,18 +60,18 @@ public sealed partial class Crossword
         //lstClueAcross.SelectedIndexChanged += selChangeLstClueAcross;
 
         //Set the listbox fonts
-        lstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = fntListFont;
-        lstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = fntListFont;
+        LstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
+        LstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
 
         ////Populate and add lists
-        _MainPanel.Widgets.Add(ClueAcrossLabel);
-        _MainPanel.Widgets.Add(lstClueAcross);
-        _MainPanel.Widgets.Add(ClueDownLabel);
-        _MainPanel.Widgets.Add(lstClueDown);
-        lstClueAcross.SelectedIndex = 0;
-        lstClueDown.SelectedIndex = -1;
-        lstClueAcross.Visible = false;
-        lstClueDown.Visible = false;
+        _mainPanel.Widgets.Add(_clueAcrossLabel);
+        _mainPanel.Widgets.Add(LstClueAcross);
+        _mainPanel.Widgets.Add(_clueDownLabel);
+        _mainPanel.Widgets.Add(LstClueDown);
+        LstClueAcross.SelectedIndex = 0;
+        LstClueDown.SelectedIndex = -1;
+        LstClueAcross.Visible = false;
+        LstClueDown.Visible = false;
     }
 
     #endregion

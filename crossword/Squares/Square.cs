@@ -22,10 +22,10 @@ namespace CyberPuzzles.Crossword.Squares
         public char ChLetter { get; set; }
 
         //public char chNumber = ' ';
-        public Color clForeColour = Color.Black;
-        public Color clBackColour = Color.Black;
-        public bool bIsDirty = true, bIsCharAllowed;
-        public ClueAnswers clAcross ,clDown;
+        public Color ClForeColour = Color.Black;
+        public Color ClBackColour = Color.Black;
+        public bool BIsDirty = true, BIsCharAllowed;
+        public ClueAnswers ClAcross ,ClDown;
         #endregion
 
         /*---------------------------------------------------------------*/

@@ -12,12 +12,12 @@ public sealed partial class ClueAnswers
         for (var i = 0; i < SzAnswer.Length; i++)
         {
             if (!bSetHighLighted)
-                SqAnswerSquares[i].SetHighlighted(CWSettings.nCURRENT_NONE);
+                SqAnswerSquares[i].SetHighlighted(CwSettings.NCurrentNone);
             else
             {
                 SqAnswerSquares[i].SetHighlighted(SqAnswerSquares[i] == sq
-                    ? CWSettings.nCURRENT_LETTER
-                    : CWSettings.nCURRENT_WORD);
+                    ? CwSettings.NCurrentLetter
+                    : CwSettings.NCurrentWord);
             }
         }
     }

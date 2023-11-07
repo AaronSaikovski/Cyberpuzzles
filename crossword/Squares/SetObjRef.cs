@@ -10,13 +10,13 @@ public partial class Square
     public void SetObjectRef(bool bIsAcross, ClueAnswers cl)
     {
         if (bIsAcross)
-            clAcross = cl;
+            ClAcross = cl;
         else
-            clDown = cl;
+            ClDown = cl;
 
-        bIsCharAllowed = true;
-        bIsDirty = true;
-        clBackColour = Color.White;
+        BIsCharAllowed = true;
+        BIsDirty = true;
+        ClBackColour = Color.White;
     }
 
     #endregion

@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-
+﻿
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
 //      Module:     CrosswordData.cs                                      //
@@ -44,15 +42,15 @@ namespace CyberPuzzles.Crossword.PuzzleData
             //// Specify the folder path
             var folderPath = @"./datafiles";
 
-            string TestPuzzleData;
+            string testPuzzleData;
 
             //TestPuzzleData = ReadRandomFile(folderPath);
 
             // Testing!
-            TestPuzzleData = "761*QX000001*0909*0 0 1 1#4 1 1 6#0 2 1 7#2 3 1 9#0 5 1 11#4 6 1 16#0 7 1 17#4 8 1 18#0 0 2 1#2 0 2 2#4 0 2 3#6 0 2 4#8 0 2 5#3 2 2 8#5 3 2 10#0 5 2 11#2 5 2 12#4 5 2 13#6 5 2 14#8 5 2 15*Forward#Strictly accurate#Australian marsupial#Moving to avoid#Not accepted conduct#Astonish greatly#Provide meals#Occurrence#Pretend#Public way#Beer froth#Full-length dress#Adult male deer#Crazy#Metric unit of mass#Skin irritation#Friend#Uncommon#Inland body of water#Bench*FORTH#EXACT#KOALA#DODGING#IMMORAL#AMAZE#CATER#EVENT#FAKE#ROAD#HEAD#MAXI#STAG#LOCO#GRAM#ITCH#MATE#RARE#LAKE#SEAT*ZCDEFGHIKLMNORSTVXA*30 1 1 0 1 5*Use the clues to solve this crossword and earn CyberSilver. If you have not played our crosswords before and want help, then click the HELP button. Have fun!";
+            testPuzzleData = "761*QX000001*0909*0 0 1 1#4 1 1 6#0 2 1 7#2 3 1 9#0 5 1 11#4 6 1 16#0 7 1 17#4 8 1 18#0 0 2 1#2 0 2 2#4 0 2 3#6 0 2 4#8 0 2 5#3 2 2 8#5 3 2 10#0 5 2 11#2 5 2 12#4 5 2 13#6 5 2 14#8 5 2 15*Forward#Strictly accurate#Australian marsupial#Moving to avoid#Not accepted conduct#Astonish greatly#Provide meals#Occurrence#Pretend#Public way#Beer froth#Full-length dress#Adult male deer#Crazy#Metric unit of mass#Skin irritation#Friend#Uncommon#Inland body of water#Bench*FORTH#EXACT#KOALA#DODGING#IMMORAL#AMAZE#CATER#EVENT#FAKE#ROAD#HEAD#MAXI#STAG#LOCO#GRAM#ITCH#MATE#RARE#LAKE#SEAT*ZCDEFGHIKLMNORSTVXA*30 1 1 0 1 5*Use the clues to solve this crossword and earn CyberSilver. If you have not played our crosswords before and want help, then click the HELP button. Have fun!";
 
             //TestPuzzleData = "692*QX000004*0909*0 0 1 1#4 0 1 3#0 2 1 5#2 3 1 8#0 5 1 10#3 6 1 14#0 8 1 15#6 8 1 16#0 0 2 1#2 0 2 2#4 0 2 3#7 0 2 4#3 2 2 6#5 2 2 7#1 4 2 9#4 5 2 11#6 5 2 12#8 5 2 13*Drinking instrument#Commemorative badge#Tropical fruit#Digestibles#Made suitable#Test#Snake's poison#Produced by a chicken#3D square#Type of tree#Small#Behind#Modify to suit#Monastery#Love#Passenger vehicle#Completed#Adult male deer*CUP#MEDAL#BANANA#EDIBLES#ADAPTED#TRYOUT#VENOM#EGG#CUBE#PINE#MINI#AFTER#ADAPT#ABBEY#ADORE#TRAM#DONE#STAG*NCBEDFGILMAOPRSTUVY*30 1 1 0 1 5*Use the clues to solve this crossword and earn CyberSilver. If you have not played our crosswords before and want help, then click the HELP button. Have fun!";
-            return TestPuzzleData;
+            return testPuzzleData;
         }
         #endregion
 

@@ -17,14 +17,14 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CyberPuzzles.Crossword.InputHandlers
 { 
-    public class KeyboardHandler : IKeyboardHandler
+    public class KeyboardInputHandler : IKeyboardHandler
     {
-        #region Keyboard_Handler
+        #region Keyboard_Input_Handler
         
         //Crossword instance
         private readonly Crossword.App.Crossword _crossword;
 
-        public KeyboardHandler(Crossword.App.Crossword crossword)
+        public KeyboardInputHandler(Crossword.App.Crossword crossword)
 		{
             //get the instance of the crossword object
             _crossword = crossword;
@@ -41,7 +41,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
             else
             {
                 // check if game is finished
-                if (!_crossword.bIsFinished)
+                if (!_crossword.BIsFinished)
                 {
                     //handle key down..normal keys
                     _crossword.KeyDown(keysDown, keyInFocus);

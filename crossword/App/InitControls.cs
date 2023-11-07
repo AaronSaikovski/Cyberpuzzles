@@ -12,7 +12,7 @@ public sealed partial class Crossword
     private void InitControls()
     {
         //Init the main rectangle
-        RectCrossWord = new Rectangle(nCrossOffsetX, nCrossOffsetY, nCrosswordWidth, nCrosswordHeight);
+        RectCrossWord = new Rectangle(_nCrossOffsetX, _nCrossOffsetY, _nCrosswordWidth, _nCrosswordHeight);
 
 
         //List box elements
@@ -21,14 +21,14 @@ public sealed partial class Crossword
         //Crossword Parsed Dataset
         //
         //Dimension array for crossword data
-         _udtDataSet = new DatasetUdt[nNumQuestions];
-         for (var i = 0; i < nNumQuestions; i++)
+         _udtDataSet = new DatasetUdt[NNumQuestions];
+         for (var i = 0; i < NNumQuestions; i++)
              _udtDataSet[i] = new DatasetUdt(_rowRef[i], _colRef[i], _szAnswers[i], _szClues[i], _bDataIsAcross[i],
                  _quesNum[i]);
 
         // init labels
-        CurrentScoreLabel = new Label();
-        MaxScoreLabel = new Label();
+        _currentScoreLabel = new Label();
+        _maxScoreLabel = new Label();
     }
 
     #endregion
