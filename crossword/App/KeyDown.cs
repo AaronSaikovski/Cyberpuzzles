@@ -11,35 +11,35 @@ public sealed partial class Crossword
         public void KeyDown(Keys[] keysDown, Keys keyInFocus)
         {
             //if puzzle is finished...eat the event
-            if (BPuzzleFinished) return;
+            if (IsPuzzleFinished) return;
             switch (keyInFocus)
             {
                 //Spacebar pressed to change orientation...bIsAcross.
                 case Keys.Space:
                 {
                     //Deselect the listbox based on direction
-                    if (!BIsAcross)
+                    if (!IsAcross)
                         LstClueDown.SelectedIndex = -1;
                     else
                         LstClueAcross.SelectedIndex = -1;
 
                     //Sets the highlighting of the square.
-                    SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, false);
+                    SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
 
                     //Change orientation if possible
-                    if (BIsAcross)
+                    if (IsAcross)
                     {
-                        if (SqCurrentSquare.CanFlipDirection(BIsAcross))
-                            BIsAcross = false;
+                        if (SqCurrentSquare.CanFlipDirection(IsAcross))
+                            IsAcross = false;
                     }
                     else
                     {
-                        if (SqCurrentSquare.CanFlipDirection(BIsAcross))
-                            BIsAcross = true;
+                        if (SqCurrentSquare.CanFlipDirection(IsAcross))
+                            IsAcross = true;
                     }
 
                     //Sets the highlighting of the square.
-                    SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, true);
+                    SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
                     break;
                 }
                 //Set the focus if the tab key is pressed
@@ -82,7 +82,7 @@ public sealed partial class Crossword
             //Up and down arrows for the listbox navigation
             if (NFocusState is 1 or 2)
             {
-                NavigateList(BIsAcross, keyInFocus);
+                NavigateList(IsAcross, keyInFocus);
             }
 
 
@@ -97,23 +97,23 @@ public sealed partial class Crossword
             {
                 //Delete present square's contents if Delete key is pressed
                 case Keys.Delete:
-                    SqCurrentSquare.SetLetter(' ', BIsAcross);
+                    SqCurrentSquare.SetLetter(' ', IsAcross);
                     break;
                 //Check to see if a backspace was entered
                 case Keys.Back:
-                    SqCurrentSquare.SetLetter(' ', BIsAcross);
-                    SqCurrentSquare = SqCurrentSquare.GetPrevSq(BIsAcross);
-                    SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, true);
+                    SqCurrentSquare.SetLetter(' ', IsAcross);
+                    SqCurrentSquare = SqCurrentSquare.GetPrevSq(IsAcross);
+                    SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
                     break;
                 case >= Keys.A and <= Keys.Z:
                     //Sets the letter in the current square
-                    SqCurrentSquare.SetLetter(char.ToUpper((char)keyInFocus), BIsAcross);
+                    SqCurrentSquare.SetLetter(char.ToUpper((char)keyInFocus), IsAcross);
 
                     //get next sq or myself(same sq)  if not available
-                    SqCurrentSquare = SqCurrentSquare.GetNextSq(BIsAcross);
+                    SqCurrentSquare = SqCurrentSquare.GetNextSq(IsAcross);
 
                     //Sets the highlighting of the square.
-                    SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, true);
+                    SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
                     break;
             }
 

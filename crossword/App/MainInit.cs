@@ -33,7 +33,7 @@ public sealed partial class Crossword
         SqCurrentSquare = CaPuzzleClueAnswers[0].GetSquare();
 
         //Return the orientation
-        BIsAcross = CaPuzzleClueAnswers[0].BIsAcross;
+        IsAcross = CaPuzzleClueAnswers[0].BIsAcross;
 
         //Highlight the default square...if allowed
         CaPuzzleClueAnswers[0].HighlightSquares(SqCurrentSquare, true);

@@ -55,9 +55,9 @@ public sealed partial class Crossword
             Height = CwSettings.ClListboxHeight
         };
 
-        ////List box event handlers
-        //lstClueDown.SelectedIndexChanged += selChangeLstClueDown;
-        //lstClueAcross.SelectedIndexChanged += selChangeLstClueAcross;
+        //List box event handlers
+        //LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
+        //LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
 
         //Set the listbox fonts
         LstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;

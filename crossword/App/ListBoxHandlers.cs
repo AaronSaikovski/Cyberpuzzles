@@ -6,34 +6,35 @@ public sealed partial class Crossword
 {
     #region ListBox_EventHandlers
 
-    private void SelChangeLstClueAcross(object sender, EventArgs args)
+    // Event handler for the Across listbox
+    private void SelChangeListClueAcross(object sender, EventArgs args)
     {
         if (LstClueAcross.SelectedIndex == null) return;
-        SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, false);
+        SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
 
-        if (!BIsAcross)
-        {
-            BIsAcross = true;
+        if (IsAcross){
+            IsAcross=true;
             LstClueDown.SelectedIndex = -1;
         }
-
         SqCurrentSquare = CaPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].GetSquare();
         CaPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(SqCurrentSquare, true);
+        
     }
 
-    private void SelChangeLstClueDown(object sender, EventArgs args)
+    //Event handler for the Down listbox
+    private void SelChangeListClueDown(object sender, EventArgs args)
     {
         if (LstClueDown.SelectedIndex == null) return;
-        SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, false);
-        if (BIsAcross)
+        SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
+        
+        if (IsAcross)
         {
-            BIsAcross = false;
+            IsAcross = false;
             LstClueAcross.SelectedIndex = -1;
         }
 
         SqCurrentSquare = CaPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex].GetSquare();
-        CaPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
-            .HighlightSquares(SqCurrentSquare, true);
+        CaPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex].HighlightSquares(SqCurrentSquare, true);
     }
 
     #endregion

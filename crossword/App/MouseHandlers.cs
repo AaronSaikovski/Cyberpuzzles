@@ -29,7 +29,7 @@ public sealed partial class Crossword
     public bool MouseUp(int x, int y)
     {
         //If the individual puzzle has finished...eat the event
-        if (BPuzzleFinished) return true;
+        if (IsPuzzleFinished) return true;
         try
         {
             //Exception handling added as an ArrayIndexOutOfBoundException occurs
@@ -38,35 +38,35 @@ public sealed partial class Crossword
 
             if (!sqSelSquare.BIsCharAllowed) return true;
             //clear current highlights
-            SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, false);
+            SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
 
             //Deselect the listbox based on direction
-            if (!BIsAcross)
-                LstClueDown.SelectedIndex = -1;
+            if (!IsAcross)
+               LstClueDown.SelectedIndex = -1;
             else
-                LstClueAcross.SelectedIndex = -1;
+                 LstClueAcross.SelectedIndex = -1;
 
             //test if same sq and flip if possible
             if (sqSelSquare == SqCurrentSquare)
             {
-                if (sqSelSquare.CanFlipDirection(BIsAcross))
-                    BIsAcross = !BIsAcross;
+                if (sqSelSquare.CanFlipDirection(IsAcross))
+                    IsAcross = !IsAcross;
             }
             else
-                switch (BIsAcross)
+                switch (IsAcross)
                 {
                     case true when sqSelSquare.ClAcross == null:
                     case false when sqSelSquare.ClDown == null:
-                        BIsAcross = !BIsAcross;
+                        IsAcross = !IsAcross;
                         break;
                 }
 
             //set new current sq & highlight them
             SqCurrentSquare = sqSelSquare;
-            SqCurrentSquare.GetClueAnswerRef(BIsAcross).HighlightSquares(SqCurrentSquare, true);
+            SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
 
             //Find index to Clue Answer for highlighting in List boxes
-            var tmpClueAnswer = sqSelSquare.GetClueAnswerRef(BIsAcross);
+            var tmpClueAnswer = sqSelSquare.GetClueAnswerRef(IsAcross);
             var clueAnswerIdx = 0;
             for (var k = 0; k < NNumQuestions; k++)
             {
@@ -76,7 +76,7 @@ public sealed partial class Crossword
             }
 
             //Selects the item in the list box relative to ClueAnswer and direction
-            if (BIsAcross)
+            if (IsAcross)
                 LstClueAcross.SelectedIndex = clueAnswerIdx;
             else
                 LstClueDown.SelectedIndex = clueAnswerIdx - LstClueAcross.Items.Count;

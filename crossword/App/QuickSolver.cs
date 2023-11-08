@@ -10,7 +10,7 @@ public sealed partial class Crossword
     {
         try
         {
-            if (BPuzzleFinished || BSetFinished) return;
+            if (IsPuzzleFinished || IsSetFinished) return;
             for (var p = 0; p < NNumQuestions; p++)
             {
                 for (var j = 0; j < NNumQuestions; j++)
@@ -33,7 +33,7 @@ public sealed partial class Crossword
             if (NScore == NNumQuestions)
             {
                 //Flag that we have finished
-                BPuzzleFinished = true;
+                IsPuzzleFinished = true;
             }
         }
         catch (Exception e)

@@ -31,7 +31,7 @@ namespace CyberPuzzles.Crossword.App
         #region Fields       
 
         //Puzzle State machines
-        public bool BPuzzleFinished, BSetFinished;
+        public bool IsPuzzleFinished, IsSetFinished;
 
         //Next Puzzle is currently unavailable flag
         public bool BIsNextPuzzleReady = true;
@@ -90,7 +90,7 @@ namespace CyberPuzzles.Crossword.App
         
 
         //Status of row/column orientation (Across or Down)
-        private bool BIsAcross = true;  
+        private bool IsAcross = true;  
 
         //Mouse Coords
         public int NMouseX;
