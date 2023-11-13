@@ -2,8 +2,8 @@
 
 **TO DO**
 * Button for fetching next puzzle - calls API
-* API for fetching puzzle data from Storage account or Azure function?- allow for button to get next puzzle 
-https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=visual-studio%2Cmanaged-identity%2Croles-azure-portal%2Csign-in-azure-cli%2Cidentity-visual-studio
+* Simple Azure function to fetch data file from Azure block blob storage - consumption plan
+
 
 * Background graphics 
 * Credits/About screen
