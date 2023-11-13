@@ -12,6 +12,10 @@ public sealed partial class Crossword
         {
             //if puzzle is finished...eat the event
             if (IsPuzzleFinished) return;
+
+            //reset focus state
+            NFocusState = 0;
+            
             switch (keyInFocus)
             {
                 //Spacebar pressed to change orientation...bIsAcross.
@@ -78,19 +82,22 @@ public sealed partial class Crossword
             // {
             //     NavigatePuzzle(keyInFocus);
             // }
+            
+        
             //Only allow list box navigation if they have the focus.
             //Up and down arrows for the listbox navigation
-            if (NFocusState is 1 or 2)
-            {
-                NavigateList(IsAcross, keyInFocus);
-            }
+            // if (NFocusState is 1 or 2)
+            // {
+            //     NavigateList(IsAcross, keyInFocus);
+            // }
 
-
+            //TODO: suspect a bug here - NFocusState
             //If the applet has the focus then allow the arrow keys to navigate around
-            if (NFocusState == 0)
-            {
-                NavigatePuzzle(keyInFocus);
-            }
+            // if (NFocusState == 0)
+            // {
+            //     NavigatePuzzle(keyInFocus);
+            // }
+            NavigatePuzzle(keyInFocus);
 
 
             switch (keyInFocus)

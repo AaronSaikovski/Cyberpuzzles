@@ -1,4 +1,5 @@
 using System;
+using System.Net.Mail;
 using CyberPuzzles.Crossword.Constants;
 
 namespace CyberPuzzles.Crossword.App;
@@ -43,8 +44,8 @@ public sealed partial class Crossword
             //Deselect the listbox based on direction
             if (!IsAcross)
                LstClueDown.SelectedIndex = -1;
-            else
-                 LstClueAcross.SelectedIndex = -1;
+            else 
+                LstClueAcross.SelectedIndex = -1;
 
             //test if same sq and flip if possible
             if (sqSelSquare == SqCurrentSquare)
