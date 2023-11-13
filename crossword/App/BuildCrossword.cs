@@ -13,22 +13,22 @@ public sealed partial class Crossword
     private void BuildCrossword()
     {
         //Init squares
-        _sqPuzzleSquares = new Square[NNumRows, NNumCols];
-        _puzzleSquares = new Rectangle[NNumRows, NNumCols];
+        _sqPuzzleSquares = new Square[_NumRows, _NumCols];
+        _puzzleSquares = new Rectangle[_NumRows, _NumCols];
 
 
         if (BNewBackFlush)
         {
             if (BInitCrossword)
-                for (var i = 0; i < NNumRows; i++) //down
-                for (var j = 0; j < NNumCols; j++) //across
+                for (var i = 0; i < _NumRows; i++) //down
+                for (var j = 0; j < _NumCols; j++) //across
                     _sqPuzzleSquares[i, j].BIsDirty = true;
         }
 
         //Initialise the arrays
-        for (var i = 0; i < NNumRows; i++)
+        for (var i = 0; i < _NumRows; i++)
         {
-            for (var j = 0; j < NNumCols; j++)
+            for (var j = 0; j < _NumCols; j++)
             {
                 _sqPuzzleSquares[i, j] = new Square();
                 _sqPuzzleSquares[i, j].CreateSquare(_nCrossOffsetX + i * CwSettings.SquareWidth,
@@ -37,9 +37,9 @@ public sealed partial class Crossword
         }
 
         //Init ClueAnswers
-        CaPuzzleClueAnswers = new ClueAnswers[NNumQuestions]; //Need to work out dimensions
+        CaPuzzleClueAnswers = new ClueAnswers[_NumQuestions]; //Need to work out dimensions
 
-        for (var i = 0; i < NNumQuestions; i++)
+        for (var i = 0; i < _NumQuestions; i++)
         {
             //Need to build a temp object of sqAnswerSquares[]
             var sqAnswerSquares = new Square[_udtDataSet[i].Answer.Length];

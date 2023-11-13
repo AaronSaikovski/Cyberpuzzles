@@ -47,13 +47,13 @@ namespace CyberPuzzles.Crossword.App
 
         //Data set variables
         public string SzPuzzleType;
-        public int NNumCols , NNumRows, NNumAcross, NNumDown, PuzzleId;
+        public int _NumCols , _NumRows, _NumAcross, _NumDown, _PuzzleId;
         private int[] _colRef, _rowRef, _quesNum;
         private bool[] _bDataIsAcross;
         private string[] _szClues , _szAnswers;
         readonly int[] _nCosts = { 0, 0, 0, 0, 0, 0 };
         private string _szGetLetters, _szTmpGetLetters, _szBlurb;
-        private int NNumQuestions;
+        private int _NumQuestions;
 
         //Data set instance variable
         private DatasetUdt[] _udtDataSet;

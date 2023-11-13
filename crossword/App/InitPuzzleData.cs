@@ -25,30 +25,30 @@ public sealed partial class Crossword
         SzPuzzleType = _mrParser.PuzzleType;
 
         //Number of Columns
-        NNumCols = _mrParser.NumCols;
+        _NumCols = _mrParser.NumCols;
 
         //Number of rows
-        NNumRows = _mrParser.NumRows;
+        _NumRows = _mrParser.NumRows;
 
         //Num Across
-        NNumAcross = _mrParser.NumAcross;
+        _NumAcross = _mrParser.NumAcross;
 
         //Num Down
-        NNumDown = _mrParser.NumDown;
+        _NumDown = _mrParser.NumDown;
 
         //Puzzle ID
-        PuzzleId = _mrParser.PuzzleId;
+        _PuzzleId = _mrParser.PuzzleId;
 
         //Number of questions
-        NNumQuestions = _mrParser.NumQuestions;
+        _NumQuestions = _mrParser.NumQuestions;
 
         //Declare dimensions for arrays of crossword data
-        _szClues = new string[NNumQuestions];
-        _szAnswers = new string[NNumQuestions];
-        _colRef = new int[NNumQuestions];
-        _rowRef = new int[NNumQuestions];
-        _bDataIsAcross = new bool[NNumQuestions];
-        _quesNum = new int[NNumQuestions];
+        _szClues = new string[_NumQuestions];
+        _szAnswers = new string[_NumQuestions];
+        _colRef = new int[_NumQuestions];
+        _rowRef = new int[_NumQuestions];
+        _bDataIsAcross = new bool[_NumQuestions];
+        _quesNum = new int[_NumQuestions];
     }
 
     #endregion

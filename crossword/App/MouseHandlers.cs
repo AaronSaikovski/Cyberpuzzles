@@ -69,7 +69,7 @@ public sealed partial class Crossword
             //Find index to Clue Answer for highlighting in List boxes
             var tmpClueAnswer = sqSelSquare.GetClueAnswerRef(IsAcross);
             var clueAnswerIdx = 0;
-            for (var k = 0; k < NNumQuestions; k++)
+            for (var k = 0; k < _NumQuestions; k++)
             {
                 if (tmpClueAnswer != CaPuzzleClueAnswers[k]) continue;
                 clueAnswerIdx = k;

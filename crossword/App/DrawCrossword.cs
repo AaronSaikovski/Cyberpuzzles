@@ -17,9 +17,9 @@ public sealed partial class Crossword
         _spriteBatch.Draw(_blackTexture, RectCrossWord, _rectangleColor);
 
         //Build the squares
-        for (var i = 0; i < NNumRows; i++)
+        for (var i = 0; i < _NumRows; i++)
         {
-            for (var j = 0; j < NNumCols; j++)
+            for (var j = 0; j < _NumCols; j++)
             {
                 _puzzleSquares[i, j] = new Rectangle(_sqPuzzleSquares[i, j].XCoord, _sqPuzzleSquares[i, j].YCoord,
                     CwSettings.SquareWidth, CwSettings.SquareHeight);

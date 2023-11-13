@@ -13,7 +13,7 @@ public sealed partial class Crossword
     private void InitHintButton()
     {
         HintButton = new TextButton();
-        HintButton.Text = "Get Hint Letter";
+        HintButton.Text = "Get Hint Letters";
         HintButton.Id = "HintButton";
         HintButton.TextColor = Color.White;
         HintButton.OverTextColor = Color.Yellow;

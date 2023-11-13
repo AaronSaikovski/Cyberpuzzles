@@ -43,10 +43,10 @@ public sealed partial class Crossword
 
 
         //Forces dirty squares
-        for (var i = 0; i < NNumRows; i++)
+        for (var i = 0; i < _NumRows; i++)
         {
             //down
-            for (var j = 0; j < NNumCols; j++)
+            for (var j = 0; j < _NumCols; j++)
             {
                 _sqPuzzleSquares[i, j].BIsDirty = true;
             }

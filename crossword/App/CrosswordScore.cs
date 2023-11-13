@@ -10,7 +10,7 @@ public sealed partial class Crossword
     public void UpdateCrosswordScore()
     {
         NCrosswordScore = 0;
-        for (var i = 0; i < NNumQuestions; i++)
+        for (var i = 0; i < _NumQuestions; i++)
         {
             if (CaPuzzleClueAnswers[i].IsCorrect())
             {
@@ -20,7 +20,7 @@ public sealed partial class Crossword
             CaPuzzleClueAnswers[i].CheckWord();
         }
 
-        if (NCrosswordScore == NNumQuestions)
+        if (NCrosswordScore == _NumQuestions)
         {
             BIsFinished = true;
         }
@@ -38,16 +38,6 @@ public sealed partial class Crossword
             _currentScoreLabel.Font = _fntScore;
             _currentScoreLabel.Top = CwSettings.MainOffsetY;
             _mainPanel.Widgets.Add(_currentScoreLabel);
-
-
-            //Max score label
-            //panel.Widgets.Remove(MaxScoreLabel);
-            //MaxScoreLabel.Text = "Max Score: " + nNumQuestions.ToString();
-            //MaxScoreLabel.TextColor = Color.Red;
-            //MaxScoreLabel.Left = 300 + 250;
-            //MaxScoreLabel.Font = fntScore;
-            //MaxScoreLabel.Top = Constants.MAIN_OFFSET_Y + 20;
-            //panel.Widgets.Add(MaxScoreLabel);
         }
         else
         {
@@ -59,15 +49,12 @@ public sealed partial class Crossword
             _currentScoreLabel.Font = _fntScore;
             _currentScoreLabel.Top = CwSettings.MainOffsetY;
             _mainPanel.Widgets.Add(_currentScoreLabel);
-
-            //Max score label - remove             
-            //panel.Widgets.Remove(MaxScoreLabel);
         }
 
 
         //Max score label
         _mainPanel.Widgets.Remove(_maxScoreLabel);
-        _maxScoreLabel.Text = "Max Score: " + NNumQuestions;
+        _maxScoreLabel.Text = "Max Score: " + _NumQuestions;
         _maxScoreLabel.TextColor = Color.Red;
         _maxScoreLabel.Left = 300 + 250;
         _maxScoreLabel.Font = _fntScore;

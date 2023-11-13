@@ -27,8 +27,8 @@ public sealed partial class Crossword
         //Crossword Parsed Dataset
         //
         //Dimension array for crossword data
-         _udtDataSet = new DatasetUdt[NNumQuestions];
-         for (var i = 0; i < NNumQuestions; i++)
+         _udtDataSet = new DatasetUdt[_NumQuestions];
+         for (var i = 0; i < _NumQuestions; i++)
              _udtDataSet[i] = new DatasetUdt(_rowRef[i], _colRef[i], _szAnswers[i], _szClues[i], _bDataIsAcross[i],
                  _quesNum[i]);
 

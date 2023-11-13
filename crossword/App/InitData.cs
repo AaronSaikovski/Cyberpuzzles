@@ -10,7 +10,7 @@ public sealed partial class Crossword
     private void InitData()
     {
         //Initialise arrays of crossword data
-        for (var i = 0; i < NNumQuestions; i++)
+        for (var i = 0; i < _NumQuestions; i++)
         {
             _colRef[i] = _mrParser.ColRef[i];
             _rowRef[i] = _mrParser.RowRef[i];
@@ -40,8 +40,8 @@ public sealed partial class Crossword
 
 
         //Initialise dimension variables
-        _nCrosswordWidth = NNumCols * CwSettings.SquareWidth;
-        _nCrosswordHeight = NNumRows * CwSettings.SquareHeight;
+        _nCrosswordWidth = _NumCols * CwSettings.SquareWidth;
+        _nCrosswordHeight = _NumRows * CwSettings.SquareHeight;
 
         // offsets
         _nCrossOffsetX = CwSettings.MainOffsetX;
@@ -53,8 +53,8 @@ public sealed partial class Crossword
         if (!BNewBackFlush) return;
         {
             if (!BInitCrossword) return;
-            for (var i = 0; i < NNumRows; i++) //down
-            for (var j = 0; j < NNumCols; j++) //across
+            for (var i = 0; i < _NumRows; i++) //down
+            for (var j = 0; j < _NumCols; j++) //across
                 _sqPuzzleSquares[i, j].BIsDirty = true;
         }
         
