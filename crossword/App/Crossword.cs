@@ -84,9 +84,6 @@ namespace CyberPuzzles.Crossword.App
 
         //X and Y Offsets for the square's answer number.
         private int NXnumOffset = 2, NYnumOffset = 9;
-
-
-
         
 
         //Status of row/column orientation (Across or Down)
@@ -174,7 +171,12 @@ namespace CyberPuzzles.Crossword.App
         //Crossword Rectangles for mouse handling
         //Rectangle variable
         public Rectangle RectCrossWord;
-        //public TextButton HintButton;
+        
+        //Hint Button
+        public TextButton HintButton;
+        
+        //Get Next Puzzle Button
+        public TextButton GetNextPuzzleButton;
 
         
         //Crossword Width and Height variables

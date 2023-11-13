@@ -15,20 +15,14 @@ public sealed partial class Crossword
         //Init the main rectangle
         RectCrossWord = new Rectangle(_nCrossOffsetX, _nCrossOffsetY, _nCrosswordWidth, _nCrosswordHeight);
 
-
         //List box elements
         InitListBoxes();
-
-        // HintButton = new TextButton();
-        // HintButton.Text = "Get Hint"; 
-        // HintButton.Id = "HintButton";
-        // //HintButton..Background = Color.Gray;
-        // HintButton.TextColor = Color.White;
-        // //HintButton.ApplyWidgetStyle(new LabelStyle(new ButtonStyle(());
-        // HintButton.Left = RectCrossWord.Left;
-        // HintButton.Top = RectCrossWord.Bottom + CwSettings.ClListSpacer * 2;
-        // _mainPanel.Widgets.Add(HintButton);
+      
+        //Init Hint Button
+        InitHintButton();
         
+        //Init next puzzle button
+        InitGetNextPuzzleButton();
         
         //Crossword Parsed Dataset
         //

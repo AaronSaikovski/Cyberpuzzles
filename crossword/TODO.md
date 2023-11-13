@@ -1,7 +1,6 @@
 ﻿**CW.Net**
 
 **TO DO**
-1. ListBox event handlers - not working
 2. Button for hint letters - clickedBtnGetLetter(int nCount)
 3. Button for fetching next puzzle 
 4. Credits/About screen 
@@ -17,10 +16,12 @@ https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-d
 
 **KNOWN BUGS**
 * Font chars not centred in squares - parked for now
+* Square repaint bug on keyboard/mouse navigation - investigating
 
 
 **DONE**
-* Mouse support - might need parent rectangle
+* Mouse support - might need parent rectangle 
+* ListBox event handlers
 * Listbox Headers 
 * Listboxes need to be positioned dynamically (X,Y)
 * Fix listbox X,Y coords - make more dynamic
