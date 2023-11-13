@@ -3,8 +3,6 @@
 **TO DO**
 * Button for fetching next puzzle - calls API
 * Simple Azure function to fetch data file from Azure block blob storage - consumption plan
-
-
 * Background graphics 
 * Credits/About screen
 * Big refactor/Memory optimisation
