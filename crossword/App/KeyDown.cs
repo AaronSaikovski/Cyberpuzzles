@@ -47,29 +47,29 @@ public sealed partial class Crossword
                     break;
                 }
                 //Set the focus if the tab key is pressed
-                case Keys.Tab when NTabPress == 0:
-                    //Give the Across list the focus
-                    LstClueAcross.SelectedIndex = 0;
-                    NTabPress = 1;
-                    NFocusState = 1;
-                    break;
-                //Give the Down list the focus
-                case Keys.Tab when NTabPress == 1:
-                    LstClueDown.SelectedIndex = 0;
-                    NTabPress = 2;
-                    NFocusState = 2;
-                    break;
+                // case Keys.Tab when NTabPress == 0:
+                //     //Give the Across list the focus
+                //     LstClueAcross.SelectedIndex = 0;
+                //     NTabPress = 1;
+                //     NFocusState = 1;
+                //     break;
+                // //Give the Down list the focus
+                // case Keys.Tab when NTabPress == 1:
+                //     LstClueDown.SelectedIndex = 0;
+                //     NTabPress = 2;
+                //     NFocusState = 2;
+                //     break;
                 //Give the applet back the focus
-                case Keys.Tab:
-                {
-                    if (NTabPress == 2)
-                    {
-                        NTabPress = 0;
-                        NFocusState = 0;
-                    }
-
-                    break;
-                }
+                // case Keys.Tab:
+                // {
+                //     if (NTabPress == 2)
+                //     {
+                //         NTabPress = 0;
+                //         NFocusState = 0;
+                //     }
+                //
+                //     break;
+                // }
             }
 
             //Only allow list box navigation if they have the focus.
@@ -99,7 +99,7 @@ public sealed partial class Crossword
             // }
             NavigatePuzzle(keyInFocus);
 
-
+            //BUG:??
             switch (keyInFocus)
             {
                 //Delete present square's contents if Delete key is pressed

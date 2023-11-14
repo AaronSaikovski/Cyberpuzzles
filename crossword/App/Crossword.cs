@@ -10,7 +10,7 @@ using Myra.Graphics2D.UI;
 //Custom namespaces
 using CyberPuzzles.Crossword.InputHandlers;
 using CyberPuzzles.Crossword.Parser;
-using CyberPuzzles.Crossword.Datasets;
+
 
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
@@ -54,7 +54,7 @@ namespace CyberPuzzles.Crossword.App
         private int _NumQuestions;
 
         //Data set instance variable
-        private DatasetUdt[] _udtDataSet;
+        private nDatasetUDT[] _udtDataSet;
 
         //Square instance variable
         private Square[,] _sqPuzzleSquares;

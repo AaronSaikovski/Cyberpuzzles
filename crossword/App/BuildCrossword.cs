@@ -42,31 +42,31 @@ public sealed partial class Crossword
         for (var i = 0; i < _NumQuestions; i++)
         {
             //Need to build a temp object of sqAnswerSquares[]
-            var sqAnswerSquares = new Square[_udtDataSet[i].Answer.Length];
-            for (var j = 0; j < _udtDataSet[i].Answer.Length; j++)
+            var sqAnswerSquares = new Square[_udtDataSet[i].szAnswer.Length];
+            for (var j = 0; j < _udtDataSet[i].szAnswer.Length; j++)
             {
                 //Need to work out number
                 //Build the Clue/Answer sets
                 if (_udtDataSet[i].IsAcross)
                 {
-                    sqAnswerSquares[j] = _sqPuzzleSquares[_udtDataSet[i].CoordDown + j, _udtDataSet[i].CoordAcross];
+                    sqAnswerSquares[j] = _sqPuzzleSquares[_udtDataSet[i].nCoordDown + j, _udtDataSet[i].nCoordAcross];
                     if (j == 0)
-                        LstClueAcross.Items.Add(new ListItem(_udtDataSet[i].QuestionNum + ". " + _udtDataSet[i].Clue,
+                        LstClueAcross.Items.Add(new ListItem(_udtDataSet[i].nQuestionNum + ". " + _udtDataSet[i].szClue,
                             Color.White));
                 }
                 else
                 {
-                    sqAnswerSquares[j] = _sqPuzzleSquares[_udtDataSet[i].CoordDown, _udtDataSet[i].CoordAcross + j];
+                    sqAnswerSquares[j] = _sqPuzzleSquares[_udtDataSet[i].nCoordDown, _udtDataSet[i].nCoordAcross + j];
                     if (j == 0)
-                        LstClueDown.Items.Add(new ListItem(_udtDataSet[i].QuestionNum + ". " + _udtDataSet[i].Clue,
+                        LstClueDown.Items.Add(new ListItem(_udtDataSet[i].nQuestionNum + ". " + _udtDataSet[i].szClue,
                             Color.White));
                 }
             }
 
             //Build the Clue/Answer references
             CaPuzzleClueAnswers[i] = new ClueAnswer();
-            CaPuzzleClueAnswers[i].setObjectRef(_udtDataSet[i].Answer,
-                _udtDataSet[i].Clue, _udtDataSet[i].QuestionNum,
+            CaPuzzleClueAnswers[i].setObjectRef(_udtDataSet[i].szAnswer,
+                _udtDataSet[i].szClue, _udtDataSet[i].nQuestionNum,
                 _udtDataSet[i].IsAcross, sqAnswerSquares);
         }
 
