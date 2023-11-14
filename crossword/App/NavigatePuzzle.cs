@@ -18,19 +18,19 @@ public sealed partial class Crossword
                 LstClueAcross.SelectedIndex = null;
     
             //Sets the highlighting of the square.
-            SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
+            SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
 
             //If left arrow key pressed get prev sq
             if (keyInFocus == Keys.Left)
             {
                 if (IsAcross)
                 {
-                    SqCurrentSquare = SqCurrentSquare.GetPrevSq(IsAcross);
+                    SqCurrentSquare = SqCurrentSquare.getPrevsq(IsAcross);
                 }
                 else
                 {
-                    SqCurrentSquare = SqCurrentSquare.GetPrevSq(!IsAcross);
-                    if (SqCurrentSquare.ClDown == null)
+                    SqCurrentSquare = SqCurrentSquare.getPrevsq(!IsAcross);
+                    if (SqCurrentSquare.clDown == null)
                         IsAcross = !IsAcross;
                 }
             }
@@ -40,12 +40,12 @@ public sealed partial class Crossword
             {
                 if (IsAcross)
                 {
-                    SqCurrentSquare = SqCurrentSquare.GetNextSq(IsAcross);
+                    SqCurrentSquare = SqCurrentSquare.getNextsq(IsAcross);
                 }
                 else
                 {
-                    SqCurrentSquare = SqCurrentSquare.GetNextSq(!IsAcross);
-                    if (SqCurrentSquare.ClDown == null)
+                    SqCurrentSquare = SqCurrentSquare.getNextsq(!IsAcross);
+                    if (SqCurrentSquare.clDown == null)
                         IsAcross = !IsAcross;
                 }
                 
@@ -56,15 +56,15 @@ public sealed partial class Crossword
             {
                 if (IsAcross)
                 {
-                    SqCurrentSquare = SqCurrentSquare.GetPrevSq(!IsAcross);
-                    if (SqCurrentSquare.ClAcross == null)
+                    SqCurrentSquare = SqCurrentSquare.getPrevsq(!IsAcross);
+                    if (SqCurrentSquare.clAcross == null)
                     {
                         IsAcross = !IsAcross;
                     }
                 }
                 else
                 {
-                    SqCurrentSquare = SqCurrentSquare.GetPrevSq(IsAcross);
+                    SqCurrentSquare = SqCurrentSquare.getPrevsq(IsAcross);
                 }
 
             }
@@ -74,26 +74,26 @@ public sealed partial class Crossword
             {
                 if (IsAcross)
                 {
-                    SqCurrentSquare = SqCurrentSquare.GetNextSq(!IsAcross);
-                    if (SqCurrentSquare.ClAcross == null)
+                    SqCurrentSquare = SqCurrentSquare.getNextsq(!IsAcross);
+                    if (SqCurrentSquare.clAcross == null)
                     {
                         IsAcross = !IsAcross;
                     }
                 }
                 else
                 {
-                    SqCurrentSquare = SqCurrentSquare.GetNextSq(IsAcross);
+                    SqCurrentSquare = SqCurrentSquare.getNextsq(IsAcross);
                 }
             }
     
             //Sets the highlighting of the square.
-            SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
+            SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
     
             ///////////////////////////////////////
             //Listbox linkage stuff
             //
             //Find index to Clue Answer for highlighting in List boxes
-            var tmp = SqCurrentSquare.GetClueAnswerRef(IsAcross);
+            var tmp = SqCurrentSquare.getClueAnswerRef(IsAcross);
             var clueAnswerIdx = 0;
             for (var k = 0; k < _NumQuestions; k++)
             {

@@ -15,13 +15,13 @@ namespace CyberPuzzles.Crossword.Constants
     {
 
         //Square width and height constants
-        public const int SquareWidth = 27;
-        public const int SquareHeight = 27;
+        public const int nSquareWidth = 27;
+        public const int nSquareHeight = 27;
 
         //Highlight Constants
-        public const int NCurrentLetter = 1;
-        public const int NCurrentWord = 2;
-        public const int NCurrentNone = 3;
+        public const int nCURRENT_LETTER = 1;
+        public const int nCURRENT_WORD = 2;
+        public const int nCURRENT_NONE = 3;
 
 
         //Font sizes

@@ -40,8 +40,8 @@ public sealed partial class Crossword
 
 
         //Initialise dimension variables
-        _nCrosswordWidth = _NumCols * CwSettings.SquareWidth;
-        _nCrosswordHeight = _NumRows * CwSettings.SquareHeight;
+        _nCrosswordWidth = _NumCols * CwSettings.nSquareWidth;
+        _nCrosswordHeight = _NumRows * CwSettings.nSquareHeight;
 
         // offsets
         _nCrossOffsetX = CwSettings.MainOffsetX;
@@ -55,7 +55,7 @@ public sealed partial class Crossword
             if (!BInitCrossword) return;
             for (var i = 0; i < _NumRows; i++) //down
             for (var j = 0; j < _NumCols; j++) //across
-                _sqPuzzleSquares[i, j].BIsDirty = true;
+                _sqPuzzleSquares[i, j].bIsDirty = true;
         }
         
        

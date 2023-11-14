@@ -17,7 +17,7 @@ public sealed partial class Crossword
         if (LstClueAcross.IsKeyboardFocused || LstClueAcross.IsMouseInside)
         {
             //if (LstClueAcross.SelectedIndex == null) return;
-            SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
+            SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
         
             if (IsAcross)
             {
@@ -25,7 +25,7 @@ public sealed partial class Crossword
                 LstClueDown.SelectedIndex = null;
             }
         
-            SqCurrentSquare = CaPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].GetSquare();
+            SqCurrentSquare = CaPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].getSquare();
             CaPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(SqCurrentSquare, true);
         
         }
@@ -45,7 +45,7 @@ public sealed partial class Crossword
         if (LstClueDown.IsKeyboardFocused || LstClueDown.IsMouseInside)
         {
             //if (LstClueDown.SelectedIndex == null) return;
-            SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
+            SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
         
             if (IsAcross)
             {
@@ -54,7 +54,7 @@ public sealed partial class Crossword
             }
         
             SqCurrentSquare = CaPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
-                .GetSquare();
+                .getSquare();
             CaPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
                  .HighlightSquares(SqCurrentSquare, true);
             

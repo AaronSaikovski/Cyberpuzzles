@@ -12,12 +12,12 @@ public sealed partial class Crossword
         NCrosswordScore = 0;
         for (var i = 0; i < _NumQuestions; i++)
         {
-            if (CaPuzzleClueAnswers[i].IsCorrect())
+            if (CaPuzzleClueAnswers[i].isCorrect())
             {
                 NCrosswordScore++;
             }
 
-            CaPuzzleClueAnswers[i].CheckWord();
+            CaPuzzleClueAnswers[i].checkWord();
         }
 
         if (NCrosswordScore == _NumQuestions)

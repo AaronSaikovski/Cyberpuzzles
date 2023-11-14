@@ -18,7 +18,7 @@ public sealed partial class Crossword
                     char chHintLetter = _szTmpGetLetters[0];
                     _szTmpGetLetters = _szTmpGetLetters.Substring(1);
                     for(int i = 0; i<_NumQuestions; i++) {
-                        bTmpResult = CaPuzzleClueAnswers[i].CheckHint(chHintLetter);
+                        bTmpResult = CaPuzzleClueAnswers[i].checkHint(chHintLetter);
                         if(bTmpResult) {
                             bHintSupplied = true;
                         }

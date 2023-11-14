@@ -30,10 +30,10 @@ public sealed partial class Crossword
         LstClueDown.Visible = true;
 
         //Set the initial active square
-        SqCurrentSquare = CaPuzzleClueAnswers[0].GetSquare();
+        SqCurrentSquare = CaPuzzleClueAnswers[0].getSquare();
 
         //Return the orientation
-        IsAcross = CaPuzzleClueAnswers[0].BIsAcross;
+        IsAcross = CaPuzzleClueAnswers[0].bIsAcross;
 
         //Highlight the default square...if allowed
         CaPuzzleClueAnswers[0].HighlightSquares(SqCurrentSquare, true);
@@ -48,7 +48,7 @@ public sealed partial class Crossword
             //down
             for (var j = 0; j < _NumCols; j++)
             {
-                _sqPuzzleSquares[i, j].BIsDirty = true;
+                _sqPuzzleSquares[i, j].bIsDirty = true;
             }
         }
 

@@ -1,6 +1,6 @@
-using CyberPuzzles.Crossword.ClueAnswer;
+
 using CyberPuzzles.Crossword.Constants;
-using CyberPuzzles.Crossword.Squares;
+
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
 
@@ -22,7 +22,7 @@ public sealed partial class Crossword
             if (BInitCrossword)
                 for (var i = 0; i < _NumRows; i++) //down
                 for (var j = 0; j < _NumCols; j++) //across
-                    _sqPuzzleSquares[i, j].BIsDirty = true;
+                    _sqPuzzleSquares[i, j].bIsDirty = true;
         }
 
         //Initialise the arrays
@@ -31,13 +31,13 @@ public sealed partial class Crossword
             for (var j = 0; j < _NumCols; j++)
             {
                 _sqPuzzleSquares[i, j] = new Square();
-                _sqPuzzleSquares[i, j].CreateSquare(_nCrossOffsetX + i * CwSettings.SquareWidth,
-                    _nCrossOffsetY + j * CwSettings.SquareHeight);
+                _sqPuzzleSquares[i, j].CreateSquare(_nCrossOffsetX + i * CwSettings.nSquareWidth,
+                    _nCrossOffsetY + j * CwSettings.nSquareHeight);
             }
         }
 
         //Init ClueAnswers
-        CaPuzzleClueAnswers = new ClueAnswers[_NumQuestions]; //Need to work out dimensions
+        CaPuzzleClueAnswers = new ClueAnswer[_NumQuestions]; //Need to work out dimensions
 
         for (var i = 0; i < _NumQuestions; i++)
         {
@@ -64,8 +64,8 @@ public sealed partial class Crossword
             }
 
             //Build the Clue/Answer references
-            CaPuzzleClueAnswers[i] = new ClueAnswers();
-            CaPuzzleClueAnswers[i].SetObjectRef(_udtDataSet[i].Answer,
+            CaPuzzleClueAnswers[i] = new ClueAnswer();
+            CaPuzzleClueAnswers[i].setObjectRef(_udtDataSet[i].Answer,
                 _udtDataSet[i].Clue, _udtDataSet[i].QuestionNum,
                 _udtDataSet[i].IsAcross, sqAnswerSquares);
         }

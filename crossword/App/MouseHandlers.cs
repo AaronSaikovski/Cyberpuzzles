@@ -34,12 +34,12 @@ public sealed partial class Crossword
         try
         {
             //Exception handling added as an ArrayIndexOutOfBoundException occurs
-            var sqSelSquare = _sqPuzzleSquares[(x - _nCrossOffsetX) / CwSettings.SquareWidth,
-                (y - _nCrossOffsetY) / CwSettings.SquareHeight];
+            var sqSelSquare = _sqPuzzleSquares[(x - _nCrossOffsetX) / CwSettings.nSquareWidth,
+                (y - _nCrossOffsetY) / CwSettings.nSquareHeight];
 
-            if (!sqSelSquare.BIsCharAllowed) return true;
+            if (!sqSelSquare.bIsCharAllowed) return true;
             //clear current highlights
-            SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
+            SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
 
             //Deselect the listbox based on direction
             if (!IsAcross)
@@ -56,18 +56,18 @@ public sealed partial class Crossword
             else
                 switch (IsAcross)
                 {
-                    case true when sqSelSquare.ClAcross == null:
-                    case false when sqSelSquare.ClDown == null:
+                    case true when sqSelSquare.clAcross == null:
+                    case false when sqSelSquare.clDown == null:
                         IsAcross = !IsAcross;
                         break;
                 }
 
             //set new current sq & highlight them
             SqCurrentSquare = sqSelSquare;
-            SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
+            SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
 
             //Find index to Clue Answer for highlighting in List boxes
-            var tmpClueAnswer = sqSelSquare.GetClueAnswerRef(IsAcross);
+            var tmpClueAnswer = sqSelSquare.getClueAnswerRef(IsAcross);
             var clueAnswerIdx = 0;
             for (var k = 0; k < _NumQuestions; k++)
             {

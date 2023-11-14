@@ -19,7 +19,7 @@ public sealed partial class Crossword
                     var chHintLetter = _szTmpGetLetters[0];
                     _szTmpGetLetters = _szTmpGetLetters[1..];
                     for (var i = 0; i < _NumQuestions; i++)
-                        CaPuzzleClueAnswers[i].CheckHint(chHintLetter);
+                        CaPuzzleClueAnswers[i].checkHint(chHintLetter);
                 }
             }
 
@@ -27,7 +27,7 @@ public sealed partial class Crossword
             UpdateCrosswordScore();
 
             for (var i = 0; i < _NumQuestions; i++)
-                CaPuzzleClueAnswers[i].CheckWord();
+                CaPuzzleClueAnswers[i].checkWord();
 
             //If the crossword score == the number of questions, then it is the end of the game
             if (NScore == _NumQuestions)

@@ -28,7 +28,7 @@ public sealed partial class Crossword
                         LstClueAcross.SelectedIndex = -1;
 
                     //Sets the highlighting of the square.
-                    SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
+                    SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
 
                     //Change orientation if possible
                     if (IsAcross)
@@ -43,7 +43,7 @@ public sealed partial class Crossword
                     }
 
                     //Sets the highlighting of the square.
-                    SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
+                    SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
                     break;
                 }
                 //Set the focus if the tab key is pressed
@@ -104,23 +104,23 @@ public sealed partial class Crossword
             {
                 //Delete present square's contents if Delete key is pressed
                 case Keys.Delete:
-                    SqCurrentSquare.SetLetter(' ', IsAcross);
+                    SqCurrentSquare.setLetter(' ', IsAcross);
                     break;
                 //Check to see if a backspace was entered
                 case Keys.Back:
-                    SqCurrentSquare.SetLetter(' ', IsAcross);
-                    SqCurrentSquare = SqCurrentSquare.GetPrevSq(IsAcross);
-                    SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
+                    SqCurrentSquare.setLetter(' ', IsAcross);
+                    SqCurrentSquare = SqCurrentSquare.getPrevsq(IsAcross);
+                    SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
                     break;
                 case >= Keys.A and <= Keys.Z:
                     //Sets the letter in the current square
-                    SqCurrentSquare.SetLetter(char.ToUpper((char)keyInFocus), IsAcross);
+                    SqCurrentSquare.setLetter(char.ToUpper((char)keyInFocus), IsAcross);
 
                     //get next sq or myself(same sq)  if not available
-                    SqCurrentSquare = SqCurrentSquare.GetNextSq(IsAcross);
+                    SqCurrentSquare = SqCurrentSquare.getNextsq(IsAcross);
 
                     //Sets the highlighting of the square.
-                    SqCurrentSquare.GetClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
+                    SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
                     break;
             }
 
