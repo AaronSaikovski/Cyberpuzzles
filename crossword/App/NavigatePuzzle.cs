@@ -13,9 +13,9 @@ public sealed partial class Crossword
         {
             //Deselect the listbox based on direction
             if (!bIsAcross)
-                LstClueDown.SelectedIndex = null;
+                LstClueDown.SelectedIndex = -1;
             else
-                LstClueAcross.SelectedIndex = null;
+                LstClueAcross.SelectedIndex = -1;
     
             //Sets the highlighting of the square.
             sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);

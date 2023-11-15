@@ -45,7 +45,20 @@ public sealed partial class Crossword
                     }
                     
                     //If the applet has the focus then allow the arrow keys to navigate around
-                    NavigatePuzzle(keyInFocus);
+                    //NavigatePuzzle(keyInFocus);
+                    
+                    
+                    //Only allow list box navigation if they have the focus.
+                    //Up and down arrows for the listbox navigation
+                    if ((nFocusState == 1) || (nFocusState == 2)) {
+                        NavigateList(bIsAcross, keyInFocus);
+                    }
+
+
+                    //If the applet has the focus then allow the arrow keys to navigate around
+                    if (nFocusState == 0){
+                        NavigatePuzzle(keyInFocus);
+                    }
                     
                     //Delete present square's contents if Delete key is pressed
                     if (keyInFocus == Keys.Delete){

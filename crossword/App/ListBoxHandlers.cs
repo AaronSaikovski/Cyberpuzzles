@@ -9,25 +9,24 @@ public sealed partial class Crossword
     // Event handler for the Across listbox
     private void SelChangeListClueAcross(object sender, EventArgs args)
     {
-        if (LstClueAcross.SelectedIndex == null) return;
-
-        //set focus state
-        nFocusState = 1;
-
-        if (LstClueAcross.IsKeyboardFocused || LstClueAcross.IsMouseInside)
+        try
         {
-            //if (LstClueAcross.SelectedIndex == null) return;
             sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
-        
-            if (bIsAcross)
+
+            if (LstClueAcross.SelectedIndex != null)
             {
-                bIsAcross = true;
-                LstClueDown.SelectedIndex = null;
+                if (!bIsAcross){
+                    bIsAcross=true;
+                    LstClueDown.SelectedIndex = -1;
+                }
+                sqCurrentSquare = caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].getSquare();
+                caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(sqCurrentSquare, true);
             }
-        
-            sqCurrentSquare = caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].getSquare();
-            caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(sqCurrentSquare, true);
-        
+        }
+        catch (Exception e) {
+
+            //Catch the exception
+            Console.WriteLine("Exception " + e + " occurred in method SelChangeListClueAcross");
         }
 
     }
@@ -35,35 +34,33 @@ public sealed partial class Crossword
     //Event handler for the Down listbox
     private void SelChangeListClueDown(object sender, EventArgs args)
     {
-     
-        if (LstClueDown.SelectedIndex == null) return;
-        
-        //set focus state
-        nFocusState = 1;
-        
-        //LstClueAcross.SelectedIndex = -1;
-        if (LstClueDown.IsKeyboardFocused || LstClueDown.IsMouseInside)
+        try
         {
-            //if (LstClueDown.SelectedIndex == null) return;
             sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
-        
-            if (bIsAcross)
+
+            if (LstClueDown.SelectedIndex != null)
             {
-                bIsAcross = false;
-                LstClueAcross.SelectedIndex = null;
+                if (bIsAcross)
+                {
+                    bIsAcross = false;
+                    LstClueAcross.SelectedIndex = -1;
+                }
+
+                sqCurrentSquare = caPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
+                    .getSquare();
+                caPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
+                    .HighlightSquares(sqCurrentSquare, true);
             }
-        
-            sqCurrentSquare = caPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
-                .getSquare();
-            caPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
-                 .HighlightSquares(sqCurrentSquare, true);
-            
-        
-        
         }
+        catch (Exception e) {
+
+            //Catch the exception
+            Console.WriteLine("Exception " + e + " occurred in method SelChangeListClueDown");
+        }
+        
+
     }
 
     #endregion
-
     
 }
