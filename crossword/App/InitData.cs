@@ -9,7 +9,7 @@ public sealed partial class Crossword
     private void InitData()
     {
         //Initialise arrays of crossword data
-        for (var i = 0; i < _NumQuestions; i++)
+        for (var i = 0; i < nNumQuestions; i++)
         {
             _colRef[i] = _mrParser.ColRef[i];
             _rowRef[i] = _mrParser.RowRef[i];
@@ -43,8 +43,8 @@ public sealed partial class Crossword
         _nCrosswordHeight = _NumRows * CwSettings.nSquareHeight;
 
         // offsets
-        _nCrossOffsetX = CwSettings.MainOffsetX;
-        _nCrossOffsetY = CwSettings.MainOffsetY;
+        nCrossOffsetX = CwSettings.MainOffsetX;
+        nCrossOffsetY = CwSettings.MainOffsetY;
         //nCrossOffsetX = (int)(nMAX_CROSS_WIDTH/2) - (int)((nCrosswordWidth +(2*nCROSS_BORDER_WIDTH))/2);
         //nCrossOffsetY = (int)(nMAX_CROSS_HEIGHT/2) - (int)((nCrosswordHeight +(2*nCROSS_BORDER_WIDTH))/2);
 
@@ -54,7 +54,7 @@ public sealed partial class Crossword
             if (!BInitCrossword) return;
             for (var i = 0; i < _NumRows; i++) //down
             for (var j = 0; j < _NumCols; j++) //across
-                _sqPuzzleSquares[i, j].bIsDirty = true;
+                sqPuzzleSquares[i, j].bIsDirty = true;
         }
         
        

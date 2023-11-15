@@ -18,8 +18,8 @@ public sealed partial class Crossword
         HintButton.TextColor = Color.White;
         HintButton.OverTextColor = Color.Yellow;
         //HintButton.ApplyWidgetStyle(new LabelStyle(new ButtonStyle(());
-        HintButton.Left = RectCrossWord.Left;
-        HintButton.Top = RectCrossWord.Bottom + CwSettings.ClListSpacer * 2;
+        HintButton.Left = rectCrossWord.Left;
+        HintButton.Top = rectCrossWord.Bottom + CwSettings.ClListSpacer * 2;
         
         HintButton.Click += HintButtonClick;
         _mainPanel.Widgets.Add(HintButton);
@@ -35,8 +35,8 @@ public sealed partial class Crossword
         GetNextPuzzleButton.TextColor = Color.White;
         GetNextPuzzleButton.OverTextColor = Color.Yellow;
         //HintButton.ApplyWidgetStyle(new LabelStyle(new ButtonStyle(());
-        GetNextPuzzleButton.Left = RectCrossWord.Left;
-        GetNextPuzzleButton.Top = RectCrossWord.Bottom + CwSettings.ClListSpacer * 8;
+        GetNextPuzzleButton.Left = rectCrossWord.Left;
+        GetNextPuzzleButton.Top = rectCrossWord.Bottom + CwSettings.ClListSpacer * 8;
         
         GetNextPuzzleButton.Click += NextPuzzleButtonClick;
         _mainPanel.Widgets.Add(GetNextPuzzleButton);

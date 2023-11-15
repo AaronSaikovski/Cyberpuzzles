@@ -60,7 +60,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
         public void HandleLeftMouseUp(MouseState mouseState, MouseState origin)
         {
             //Check if the mouse action is inside the main rect
-            if (_crossword.RectCrossWord.Contains(origin.Position))
+            if (_crossword.rectCrossWord.Contains(origin.Position))
             {
                 //Console.WriteLine("Inside rect!");
                 _crossword.MouseUp(origin.X, origin.Y);

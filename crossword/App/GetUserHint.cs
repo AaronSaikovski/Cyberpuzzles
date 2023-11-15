@@ -14,11 +14,10 @@ public sealed partial class Crossword
             while((!bHintSupplied)&&(!bAllHintLettersChecked)){
              
                 if(_szTmpGetLetters.Length > 0){
-                    //char chHintLetter = _szTmpGetLetters.charAt(0);
                     char chHintLetter = _szTmpGetLetters[0];
                     _szTmpGetLetters = _szTmpGetLetters.Substring(1);
-                    for(int i = 0; i<_NumQuestions; i++) {
-                        bTmpResult = CaPuzzleClueAnswers[i].checkHint(chHintLetter);
+                    for(int i = 0; i<nNumQuestions; i++) {
+                        bTmpResult = caPuzzleClueAnswers[i].checkHint(chHintLetter);
                         if(bTmpResult) {
                             bHintSupplied = true;
                         }

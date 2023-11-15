@@ -40,15 +40,15 @@ public sealed partial class Crossword
         _PuzzleId = _mrParser.PuzzleId;
 
         //Number of questions
-        _NumQuestions = _mrParser.NumQuestions;
+        nNumQuestions = _mrParser.NumQuestions;
 
         //Declare dimensions for arrays of crossword data
-        _szClues = new string[_NumQuestions];
-        _szAnswers = new string[_NumQuestions];
-        _colRef = new int[_NumQuestions];
-        _rowRef = new int[_NumQuestions];
-        _bDataIsAcross = new bool[_NumQuestions];
-        _quesNum = new int[_NumQuestions];
+        _szClues = new string[nNumQuestions];
+        _szAnswers = new string[nNumQuestions];
+        _colRef = new int[nNumQuestions];
+        _rowRef = new int[nNumQuestions];
+        _bDataIsAcross = new bool[nNumQuestions];
+        _quesNum = new int[nNumQuestions];
     }
 
     #endregion

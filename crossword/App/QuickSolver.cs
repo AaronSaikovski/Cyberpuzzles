@@ -10,30 +10,30 @@ public sealed partial class Crossword
     {
         try
         {
-            if (IsPuzzleFinished || IsSetFinished) return;
-            for (var p = 0; p < _NumQuestions; p++)
+            if (bPuzzleFinished || bSetFinished) return;
+            for (var p = 0; p < nNumQuestions; p++)
             {
-                for (var j = 0; j < _NumQuestions; j++)
+                for (var j = 0; j < nNumQuestions; j++)
                 {
                     if (_szTmpGetLetters.Length <= 0) continue;
                     var chHintLetter = _szTmpGetLetters[0];
                     _szTmpGetLetters = _szTmpGetLetters[1..];
-                    for (var i = 0; i < _NumQuestions; i++)
-                        CaPuzzleClueAnswers[i].checkHint(chHintLetter);
+                    for (var i = 0; i < nNumQuestions; i++)
+                        caPuzzleClueAnswers[i].checkHint(chHintLetter);
                 }
             }
 
             //Increment the score if the answer is correct
             UpdateCrosswordScore();
 
-            for (var i = 0; i < _NumQuestions; i++)
-                CaPuzzleClueAnswers[i].checkWord();
+            for (var i = 0; i < nNumQuestions; i++)
+                caPuzzleClueAnswers[i].checkWord();
 
             //If the crossword score == the number of questions, then it is the end of the game
-            if (NScore == _NumQuestions)
+            if (NScore == nNumQuestions)
             {
                 //Flag that we have finished
-                IsPuzzleFinished = true;
+                bPuzzleFinished = true;
             }
         }
         catch (Exception e)

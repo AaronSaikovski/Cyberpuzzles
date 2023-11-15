@@ -17,7 +17,7 @@ public sealed partial class Crossword
         {
             Text = "Across",
             Font = _fntListhead,
-            Left = RectCrossWord.Right + CwSettings.MainOffsetX,
+            Left = rectCrossWord.Right + CwSettings.MainOffsetX,
             TextColor = Color.Black,
             Height = CwSettings.ClLabelHeight,
             Top = CwSettings.MainOffsetY - CwSettings.ClListSpacer * 3
@@ -26,7 +26,7 @@ public sealed partial class Crossword
         //Across ListBox
         LstClueAcross = new ListBox
         {
-            Left = RectCrossWord.Right + CwSettings.MainOffsetX,
+            Left = rectCrossWord.Right + CwSettings.MainOffsetX,
             Top = CwSettings.MainOffsetY,
             AcceptsKeyboardFocus = true,
             SelectionMode = SelectionMode.Single,
@@ -38,7 +38,7 @@ public sealed partial class Crossword
         {
             Text = "Down",
             Font = _fntListhead,
-            Left = RectCrossWord.Right + CwSettings.MainOffsetX,
+            Left = rectCrossWord.Right + CwSettings.MainOffsetX,
             TextColor = Color.Black,
             Height = CwSettings.ClLabelHeight,
             Top = CwSettings.ClListboxHeight + CwSettings.ClLabelHeight + CwSettings.ClListSpacer * 3
@@ -47,7 +47,7 @@ public sealed partial class Crossword
         //Down
         LstClueDown = new ListBox
         {
-            Left = RectCrossWord.Right + CwSettings.MainOffsetY,
+            Left = rectCrossWord.Right + CwSettings.MainOffsetY,
             Top = CwSettings.ClListboxHeight + CwSettings.ClLabelHeight + CwSettings.ClListSpacer * 2 +
                   CwSettings.ClLabelHeight,
             AcceptsKeyboardFocus = true,

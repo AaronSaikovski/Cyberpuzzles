@@ -14,32 +14,32 @@ public sealed partial class Crossword
         _spriteBatch.Begin();
 
         //Draw the main rectangle
-        _spriteBatch.Draw(_blackTexture, RectCrossWord, _rectangleColor);
+        _spriteBatch.Draw(_blackTexture, rectCrossWord, _rectangleColor);
 
         //Build the squares
         for (var i = 0; i < _NumRows; i++)
         {
             for (var j = 0; j < _NumCols; j++)
             {
-                _puzzleSquares[i, j] = new Rectangle(_sqPuzzleSquares[i, j].nXCoord, _sqPuzzleSquares[i, j].nYCoord,
+                _puzzleSquares[i, j] = new Rectangle(sqPuzzleSquares[i, j].nXCoord, sqPuzzleSquares[i, j].nYCoord,
                     CwSettings.nSquareWidth, CwSettings.nSquareHeight);
 
                 //Check to see if a char is allowed
-                if (_sqPuzzleSquares[i, j].bIsCharAllowed)
+                if (sqPuzzleSquares[i, j].bIsCharAllowed)
                 {
                     //Check to see if a repaint is required
-                    if (!_sqPuzzleSquares[i, j].bIsDirty) continue;
-                    if (_sqPuzzleSquares[i, j].clBackColour.Equals(Color.White))
+                    if (!sqPuzzleSquares[i, j].bIsDirty) continue;
+                    if (sqPuzzleSquares[i, j].clBackColour.Equals(Color.White))
                     {
                         _spriteBatch.Draw(_imgNormalSquare, _puzzleSquares[i, j], _rectangleColor);
                     }
 
-                    if (_sqPuzzleSquares[i, j].clBackColour.Equals(Color.Yellow))
+                    if (sqPuzzleSquares[i, j].clBackColour.Equals(Color.Yellow))
                     {
                         _spriteBatch.Draw(_imgSquareWord, _puzzleSquares[i, j], _rectangleColor);
                     }
 
-                    if (_sqPuzzleSquares[i, j].clBackColour.Equals(Color.Cyan))
+                    if (sqPuzzleSquares[i, j].clBackColour.Equals(Color.Cyan))
                     {
                         _spriteBatch.Draw(_imgHighliteSquare, _puzzleSquares[i, j], _rectangleColor);
                     }
@@ -47,31 +47,31 @@ public sealed partial class Crossword
                     //small number font
                     //hack walking across object boundaries
 
-                    if (_sqPuzzleSquares[i, j].clAcross != null)
+                    if (sqPuzzleSquares[i, j].clAcross != null)
                     {
-                        if (_sqPuzzleSquares[i, j].clAcross.sqAnswerSquares[0] == _sqPuzzleSquares[i, j])
+                        if (sqPuzzleSquares[i, j].clAcross.sqAnswerSquares[0] == sqPuzzleSquares[i, j])
                         {
                             _spriteBatch.DrawString(_fntnumFont,
-                                _sqPuzzleSquares[i, j].clAcross.nQuestionNumber.ToString(),
+                                sqPuzzleSquares[i, j].clAcross.nQuestionNumber.ToString(),
                                 new Vector2(_puzzleSquares[i, j].X + CwSettings.SmlNumOffsetX,
                                     _puzzleSquares[i, j].Y + CwSettings.SmlNumOffsetY), Color.Black);
                         }
                     }
 
-                    if (_sqPuzzleSquares[i, j].clDown != null)
+                    if (sqPuzzleSquares[i, j].clDown != null)
                     {
-                        if (_sqPuzzleSquares[i, j].clDown.sqAnswerSquares[0] == _sqPuzzleSquares[i, j])
+                        if (sqPuzzleSquares[i, j].clDown.sqAnswerSquares[0] == sqPuzzleSquares[i, j])
                         {
-                            _spriteBatch.DrawString(_fntnumFont, _sqPuzzleSquares[i, j].clDown.nQuestionNumber.ToString(),
+                            _spriteBatch.DrawString(_fntnumFont, sqPuzzleSquares[i, j].clDown.nQuestionNumber.ToString(),
                                 new Vector2(_puzzleSquares[i, j].X + CwSettings.SmlNumOffsetX,
                                     _puzzleSquares[i, j].Y + CwSettings.SmlNumOffsetY), Color.Black);
                         }
                     }
 
                     //Char entered by user.
-                    _spriteBatch.DrawString(_fntFont, char.ToUpper(_sqPuzzleSquares[i, j].chLetter).ToString(),
+                    _spriteBatch.DrawString(_fntFont, char.ToUpper(sqPuzzleSquares[i, j].chLetter).ToString(),
                         new Vector2(_puzzleSquares[i, j].X + CwSettings.SqCharOffsetX,
-                            _puzzleSquares[i, j].Y + CwSettings.SqCharOffsetY), _sqPuzzleSquares[i, j].clForeColour);
+                            _puzzleSquares[i, j].Y + CwSettings.SqCharOffsetY), sqPuzzleSquares[i, j].clForeColour);
                 }
                 else
                 {

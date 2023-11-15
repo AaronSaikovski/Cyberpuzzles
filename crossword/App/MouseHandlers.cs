@@ -1,5 +1,7 @@
 using System;
 using System.Net.Mail;
+using CyberPuzzles.Crossword.App.ClueAnswers;
+using CyberPuzzles.Crossword.App.Squares;
 using CyberPuzzles.Crossword.Constants;
 
 namespace CyberPuzzles.Crossword.App;
@@ -16,8 +18,8 @@ public sealed partial class Crossword
     /// <returns></returns>
     public bool MouseDown(int x, int y)
     {
-        NMouseX = x - _nCrossOffsetX;
-        NMouseY = y - _nCrossOffsetY;
+        NMouseX = x - nCrossOffsetX;
+        NMouseY = y - nCrossOffsetY;
         return true;
     }
 
@@ -27,71 +29,81 @@ public sealed partial class Crossword
     /// <param name="x"></param>
     /// <param name="y"></param>
     /// <returns></returns>
+     //Mouseup event
     public bool MouseUp(int x, int y)
     {
-        //If the individual puzzle has finished...eat the event
-        if (IsPuzzleFinished) return true;
-        try
-        {
-            //Exception handling added as an ArrayIndexOutOfBoundException occurs
-            var sqSelSquare = _sqPuzzleSquares[(x - _nCrossOffsetX) / CwSettings.nSquareWidth,
-                (y - _nCrossOffsetY) / CwSettings.nSquareHeight];
+        bBufferDirty = true;
 
-            if (!sqSelSquare.bIsCharAllowed) return true;
-            //clear current highlights
-            SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
+        //if puzzle is finished...eat the event
+        if (!bSetFinished) {
 
-            //Deselect the listbox based on direction
-            if (!IsAcross)
-               LstClueDown.SelectedIndex = -1;
-            else 
-                LstClueAcross.SelectedIndex = -1;
+            //Check that the mouse event occurred within our specified rectangle
+            if(rectCrossWord.Contains(x, y)) {
 
-            //test if same sq and flip if possible
-            if (sqSelSquare == SqCurrentSquare)
-            {
-                if (sqSelSquare.CanFlipDirection(IsAcross))
-                    IsAcross = !IsAcross;
+                //If the individual puzzle has finished...eat the event
+                if (!bPuzzleFinished) {
+
+                    //Exception handling added as an ArrayIndexOutOfBoundException occurs
+                    Square sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX)/CwSettings.nSquareWidth,(y - nCrossOffsetY)/CwSettings.nSquareHeight];
+                    try {
+                        if (sqSelSquare.bIsCharAllowed){
+
+                            //clear current highlights
+                            sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
+
+                            //Deselect the listbox based on direction
+                            if (!bIsAcross)
+                                LstClueDown.SelectedIndex = -1;
+                            else
+                                LstClueAcross.SelectedIndex = -1;
+
+                            //test if same sq and flip if possible
+                            if (sqSelSquare == sqCurrentSquare){
+                                if (sqSelSquare.CanFlipDirection(bIsAcross))
+                                    bIsAcross = !bIsAcross;
+                            }
+                            else
+                                if ((bIsAcross) && (sqSelSquare.clAcross == null))
+                                    bIsAcross = !bIsAcross;
+                                else if ((!bIsAcross) && (sqSelSquare.clDown == null))
+                                    bIsAcross = !bIsAcross;
+
+                            //set new current sq & highlight them
+                            sqCurrentSquare = sqSelSquare;
+                            sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, true);
+
+                            //Find index to Clue Answer for highlighting in List boxes
+                            ClueAnswer tmpClueAnswer = sqSelSquare.getClueAnswerRef(bIsAcross);
+                            int ClueAnswerIdx = 0;
+                            for (int k = 0; k < nNumQuestions; k++){
+                                if (tmpClueAnswer == caPuzzleClueAnswers[k]){
+                                    ClueAnswerIdx = k;
+                                    break;
+                                }
+                            }
+
+                            //Selects the item in the list box relative to ClueAnswer and direction
+                            if(bIsAcross)
+                                LstClueAcross.SelectedIndex = ClueAnswerIdx;
+                            else
+                                LstClueDown.SelectedIndex = (ClueAnswerIdx - LstClueAcross.Items.Count);
+
+                        }
+                        return true;
+                    }
+
+                    catch (Exception e) {
+                        //Catch the exception
+                        Console.WriteLine("Exception " + e + " occurred in method mouseUp");
+                    }
+               }
+
             }
-            else
-                switch (IsAcross)
-                {
-                    case true when sqSelSquare.clAcross == null:
-                    case false when sqSelSquare.clDown == null:
-                        IsAcross = !IsAcross;
-                        break;
-                }
-
-            //set new current sq & highlight them
-            SqCurrentSquare = sqSelSquare;
-            SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, true);
-
-            //Find index to Clue Answer for highlighting in List boxes
-            var tmpClueAnswer = sqSelSquare.getClueAnswerRef(IsAcross);
-            var clueAnswerIdx = 0;
-            for (var k = 0; k < _NumQuestions; k++)
-            {
-                if (tmpClueAnswer != CaPuzzleClueAnswers[k]) continue;
-                clueAnswerIdx = k;
-                break;
-            }
-
-            //Selects the item in the list box relative to ClueAnswer and direction
-            if (IsAcross)
-                LstClueAcross.SelectedIndex = clueAnswerIdx;
-            else
-                LstClueDown.SelectedIndex = clueAnswerIdx - LstClueAcross.Items.Count;
-
-            return true;
-        }
-        catch (Exception e)
-        {
-            //Catch the exception
-            Console.WriteLine("Exception " + e + " occurred in method mouseUp");
         }
 
-        return true; //??
+         return true;
     }
+
 
     #endregion
 }

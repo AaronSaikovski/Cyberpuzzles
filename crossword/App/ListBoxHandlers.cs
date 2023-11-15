@@ -17,16 +17,16 @@ public sealed partial class Crossword
         if (LstClueAcross.IsKeyboardFocused || LstClueAcross.IsMouseInside)
         {
             //if (LstClueAcross.SelectedIndex == null) return;
-            SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
+            sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
         
-            if (IsAcross)
+            if (bIsAcross)
             {
-                IsAcross = true;
+                bIsAcross = true;
                 LstClueDown.SelectedIndex = null;
             }
         
-            SqCurrentSquare = CaPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].getSquare();
-            CaPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(SqCurrentSquare, true);
+            sqCurrentSquare = caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].getSquare();
+            caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(sqCurrentSquare, true);
         
         }
 
@@ -45,18 +45,18 @@ public sealed partial class Crossword
         if (LstClueDown.IsKeyboardFocused || LstClueDown.IsMouseInside)
         {
             //if (LstClueDown.SelectedIndex == null) return;
-            SqCurrentSquare.getClueAnswerRef(IsAcross).HighlightSquares(SqCurrentSquare, false);
+            sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
         
-            if (IsAcross)
+            if (bIsAcross)
             {
-                IsAcross = false;
+                bIsAcross = false;
                 LstClueAcross.SelectedIndex = null;
             }
         
-            SqCurrentSquare = CaPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
+            sqCurrentSquare = caPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
                 .getSquare();
-            CaPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
-                 .HighlightSquares(SqCurrentSquare, true);
+            caPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
+                 .HighlightSquares(sqCurrentSquare, true);
             
         
         

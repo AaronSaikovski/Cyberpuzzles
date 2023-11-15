@@ -39,7 +39,6 @@
   <ItemGroup>
     <Folder Include="fonts\" />
     <Folder Include="InputHandlers\" />
-    <Folder Include="UI\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="fonts\Dialog.ttf">

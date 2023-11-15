@@ -17,7 +17,6 @@ public sealed partial class Crossword
     }
     
     #endregion
-
     
     #region LoadFonts
     private void LoadFonts()

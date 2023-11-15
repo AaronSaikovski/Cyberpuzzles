@@ -57,7 +57,7 @@ public sealed partial class Crossword
         GraphicsDevice.Clear(Color.White);
 
         //If buffer dirty...draw the crossword
-        if (BBufferDirty)
+        if (bBufferDirty)
         {
             DrawCrossword();
         }

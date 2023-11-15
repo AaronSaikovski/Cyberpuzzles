@@ -15,7 +15,7 @@ public sealed partial class Crossword
     private void BuildCrossword()
     {
         //Init squares
-        _sqPuzzleSquares = new Square[_NumRows, _NumCols];
+        sqPuzzleSquares = new Square[_NumRows, _NumCols];
         _puzzleSquares = new Rectangle[_NumRows, _NumCols];
 
 
@@ -24,7 +24,7 @@ public sealed partial class Crossword
             if (BInitCrossword)
                 for (var i = 0; i < _NumRows; i++) //down
                 for (var j = 0; j < _NumCols; j++) //across
-                    _sqPuzzleSquares[i, j].bIsDirty = true;
+                    sqPuzzleSquares[i, j].bIsDirty = true;
         }
 
         //Initialise the arrays
@@ -32,16 +32,16 @@ public sealed partial class Crossword
         {
             for (var j = 0; j < _NumCols; j++)
             {
-                _sqPuzzleSquares[i, j] = new Square();
-                _sqPuzzleSquares[i, j].CreateSquare(_nCrossOffsetX + i * CwSettings.nSquareWidth,
-                    _nCrossOffsetY + j * CwSettings.nSquareHeight);
+                sqPuzzleSquares[i, j] = new Square();
+                sqPuzzleSquares[i, j].CreateSquare(nCrossOffsetX + i * CwSettings.nSquareWidth,
+                    nCrossOffsetY + j * CwSettings.nSquareHeight);
             }
         }
 
         //Init ClueAnswers
-        CaPuzzleClueAnswers = new ClueAnswer[_NumQuestions]; //Need to work out dimensions
+        caPuzzleClueAnswers = new ClueAnswer[nNumQuestions]; //Need to work out dimensions
 
-        for (var i = 0; i < _NumQuestions; i++)
+        for (var i = 0; i < nNumQuestions; i++)
         {
             //Need to build a temp object of sqAnswerSquares[]
             var sqAnswerSquares = new Square[_udtDataSet[i].szAnswer.Length];
@@ -51,14 +51,14 @@ public sealed partial class Crossword
                 //Build the Clue/Answer sets
                 if (_udtDataSet[i].IsAcross)
                 {
-                    sqAnswerSquares[j] = _sqPuzzleSquares[_udtDataSet[i].nCoordDown + j, _udtDataSet[i].nCoordAcross];
+                    sqAnswerSquares[j] = sqPuzzleSquares[_udtDataSet[i].nCoordDown + j, _udtDataSet[i].nCoordAcross];
                     if (j == 0)
                         LstClueAcross.Items.Add(new ListItem(_udtDataSet[i].nQuestionNum + ". " + _udtDataSet[i].szClue,
                             Color.White));
                 }
                 else
                 {
-                    sqAnswerSquares[j] = _sqPuzzleSquares[_udtDataSet[i].nCoordDown, _udtDataSet[i].nCoordAcross + j];
+                    sqAnswerSquares[j] = sqPuzzleSquares[_udtDataSet[i].nCoordDown, _udtDataSet[i].nCoordAcross + j];
                     if (j == 0)
                         LstClueDown.Items.Add(new ListItem(_udtDataSet[i].nQuestionNum + ". " + _udtDataSet[i].szClue,
                             Color.White));
@@ -66,8 +66,8 @@ public sealed partial class Crossword
             }
 
             //Build the Clue/Answer references
-            CaPuzzleClueAnswers[i] = new ClueAnswer();
-            CaPuzzleClueAnswers[i].setObjectRef(_udtDataSet[i].szAnswer,
+            caPuzzleClueAnswers[i] = new ClueAnswer();
+            caPuzzleClueAnswers[i].setObjectRef(_udtDataSet[i].szAnswer,
                 _udtDataSet[i].szClue, _udtDataSet[i].nQuestionNum,
                 _udtDataSet[i].IsAcross, sqAnswerSquares);
         }

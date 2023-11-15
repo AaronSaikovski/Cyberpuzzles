@@ -30,13 +30,13 @@ public sealed partial class Crossword
         LstClueDown.Visible = true;
 
         //Set the initial active square
-        SqCurrentSquare = CaPuzzleClueAnswers[0].getSquare();
+        sqCurrentSquare = caPuzzleClueAnswers[0].getSquare();
 
         //Return the orientation
-        IsAcross = CaPuzzleClueAnswers[0].bIsAcross;
+        bIsAcross = caPuzzleClueAnswers[0].bIsAcross;
 
         //Highlight the default square...if allowed
-        CaPuzzleClueAnswers[0].HighlightSquares(SqCurrentSquare, true);
+        caPuzzleClueAnswers[0].HighlightSquares(sqCurrentSquare, true);
 
         //Set the default across list item to be the first item in the list
         LstClueAcross.SelectedIndex = 0;
@@ -48,14 +48,14 @@ public sealed partial class Crossword
             //down
             for (var j = 0; j < _NumCols; j++)
             {
-                _sqPuzzleSquares[i, j].bIsDirty = true;
+                sqPuzzleSquares[i, j].bIsDirty = true;
             }
         }
 
 
         //Set index to bubble out
         //nBubbleOut = 1;
-        BBufferDirty = true;
+        bBufferDirty = true;
         BNewBackFlush = true;
 
         //Get next puzzle ID

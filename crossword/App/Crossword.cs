@@ -32,7 +32,7 @@ namespace CyberPuzzles.Crossword.App
         #region Fields       
 
         //Puzzle State machines
-        public bool IsPuzzleFinished, IsSetFinished;
+        public bool bPuzzleFinished, bSetFinished;
 
         //Next Puzzle is currently unavailable flag
         public bool BIsNextPuzzleReady = true;
@@ -41,7 +41,7 @@ namespace CyberPuzzles.Crossword.App
         public string SzPuzData;
 
         //Repaint variables
-        public bool BBufferDirty , BInitCrossword;
+        public bool bBufferDirty , BInitCrossword;
 
         //Image imBackBuffer;
         public bool BNewBackFlush;
@@ -54,16 +54,16 @@ namespace CyberPuzzles.Crossword.App
         private string[] _szClues , _szAnswers;
         readonly int[] _nCosts = { 0, 0, 0, 0, 0, 0 };
         private string _szGetLetters, _szTmpGetLetters, _szBlurb;
-        private int _NumQuestions;
+        public int nNumQuestions;
 
         //Data set instance variable
         private nDatasetUDT[] _udtDataSet;
 
         //Square instance variable
-        private Square[,] _sqPuzzleSquares;
+        public Square[,] sqPuzzleSquares;
 
         //ClueAnswer Instance variable
-        private ClueAnswer[] CaPuzzleClueAnswers;
+        private ClueAnswer[] caPuzzleClueAnswers;
 
         //Highlight Constants
         private int NCurrentLetter = 1;
@@ -75,7 +75,7 @@ namespace CyberPuzzles.Crossword.App
         private int NMaxCrossHeight = 291;
 
         //string[,] strGuesses = null;
-        public Square SqCurrentSquare;
+        public Square sqCurrentSquare;
 
         public bool BIsFinished;
 
@@ -88,7 +88,7 @@ namespace CyberPuzzles.Crossword.App
         
 
         //Status of row/column orientation (Across or Down)
-        private bool IsAcross = true;  
+        public bool bIsAcross = true;  
 
         //Mouse Coords
         public int NMouseX;
@@ -171,7 +171,7 @@ namespace CyberPuzzles.Crossword.App
 
         //Crossword Rectangles for mouse handling
         //Rectangle variable
-        public Rectangle RectCrossWord;
+        public Rectangle rectCrossWord;
         
         //Hint Button
         public TextButton HintButton;
@@ -185,8 +185,8 @@ namespace CyberPuzzles.Crossword.App
         
         //Offset constants
         private int _nCrossBorderWidth = 3;
-        private int _nCrossOffsetX = 5;
-        private int _nCrossOffsetY = 5;
+        private int nCrossOffsetX = 5;
+        private int nCrossOffsetY = 5;
         
         #endregion
 
