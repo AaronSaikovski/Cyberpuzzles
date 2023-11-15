@@ -12,7 +12,7 @@ public sealed partial class Crossword
         if (LstClueAcross.SelectedIndex == null) return;
 
         //set focus state
-        NFocusState = 1;
+        nFocusState = 1;
 
         if (LstClueAcross.IsKeyboardFocused || LstClueAcross.IsMouseInside)
         {
@@ -39,7 +39,7 @@ public sealed partial class Crossword
         if (LstClueDown.SelectedIndex == null) return;
         
         //set focus state
-        NFocusState = 1;
+        nFocusState = 1;
         
         //LstClueAcross.SelectedIndex = -1;
         if (LstClueDown.IsKeyboardFocused || LstClueDown.IsMouseInside)

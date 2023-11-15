@@ -102,7 +102,7 @@ namespace CyberPuzzles.Crossword.App
  
 
         //Component focus variable
-        private int NFocusState;    
+        public int nFocusState;    
 
         //mouseMove String
         private string SzPuzzleTitle;

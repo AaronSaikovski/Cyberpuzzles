@@ -14,7 +14,7 @@ public sealed partial class Crossword
             if (!bPuzzleFinished)
             {
                 //reset focus state
-                NFocusState = 0;
+                nFocusState = 0;
                 
                 try
                 {
