@@ -1,9 +1,3 @@
-using System;
-using CyberPuzzles.Crossword.Constants;
-using Microsoft.Xna.Framework;
-
-namespace CyberPuzzles.Crossword.App;
-
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
 //      Module:     Square.java                                           //
@@ -13,6 +7,16 @@ namespace CyberPuzzles.Crossword.App;
 //      Purpose:    Defines a Square and it's attributes                  //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
+
+using System;
+using CyberPuzzles.Crossword.Constants;
+using Microsoft.Xna.Framework;
+
+using CyberPuzzles.Crossword.App.ClueAnswers;
+
+namespace CyberPuzzles.Crossword.App.Squares;
+
+
 
 /*---------------------------------------------------------------*/
 
@@ -27,14 +31,13 @@ public class Square  {
     public Color clBackColour = Color.Black;
     public bool bIsDirty = true, bIsCharAllowed = false;
     public ClueAnswer clAcross = null, clDown = null;
-
-    //private final static int i = QuickCrossword.nCURRENT_LETTER;
+    
 
     /*---------------------------------------------------------------*/
 
     //Square Constructor
-    public Square() {
-    }
+    // public Square() {
+    // }
 
     /*---------------------------------------------------------------*/
 

@@ -1,22 +1,23 @@
-using System;
-using CyberPuzzles.Crossword.Constants;
-
-namespace CyberPuzzles.Crossword.App;
-
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
-//      Module:     ClueAnswer.java                                       //
-//      Author:     Aaron Saikovski                                       //
+//      Module:     ClueAnswer.cs                                         //
+//      Authors:    Aaron Saikovski & Bryan Richards                      //
 //      Date:       26/02/97                                              //
 //      Version:    1.0                                                   //
 //      Purpose:    Clue + Answer references class                        //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
+using System;
+using CyberPuzzles.Crossword.Constants;
+using CyberPuzzles.Crossword.App.Squares;
+
+namespace CyberPuzzles.Crossword.App.ClueAnswers;
+
 /*---------------------------------------------------------------*/
 
 //ClueAnswer Class
-public class ClueAnswer {
+public sealed class ClueAnswer {
     public string szAnswer = null;
     public string szClue = null;
     public int nQuestionNumber = 0;
@@ -50,7 +51,7 @@ public class ClueAnswer {
     /*---------------------------------------------------------------*/
 
     //Sets the object reference.
-    public void setObjectRef(String szAnswer, String szClue, int nQuestionNumber,
+    public void setObjectRef(string szAnswer, string szClue, int nQuestionNumber,
                                 bool bIsAcross, Square[] sqAnswerSquares){
 
         this.szAnswer = szAnswer;
