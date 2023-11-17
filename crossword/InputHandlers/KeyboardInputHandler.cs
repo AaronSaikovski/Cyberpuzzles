@@ -1,5 +1,4 @@
-﻿using System;
-using InputHandlers.Keyboard;
+﻿using InputHandlers.Keyboard;
 using Microsoft.Xna.Framework.Input;
 
 

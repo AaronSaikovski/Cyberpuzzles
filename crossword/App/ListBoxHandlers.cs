@@ -11,7 +11,7 @@ public sealed partial class Crossword
     {
         try
         {
-            sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
+            sqCurrentSquare.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
 
             if (LstClueAcross.SelectedIndex != null)
             {
@@ -26,7 +26,7 @@ public sealed partial class Crossword
         catch (Exception e) {
 
             //Catch the exception
-            Console.WriteLine("Exception " + e + " occurred in method SelChangeListClueAcross");
+            Console.WriteLine($"Exception {e} occurred in method SelChangeListClueAcross");
         }
 
     }
@@ -41,7 +41,7 @@ public sealed partial class Crossword
 
             if (LstClueDown.SelectedIndex != null)
             {
-                sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
+                sqCurrentSquare.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
                 
                 if (bIsAcross)
                 {
@@ -58,7 +58,7 @@ public sealed partial class Crossword
         catch (Exception e) {
 
             //Catch the exception
-            Console.WriteLine("Exception " + e + " occurred in method SelChangeListClueDown");
+            Console.WriteLine($"Exception {e} occurred in method SelChangeListClueDown");
         }
         
 

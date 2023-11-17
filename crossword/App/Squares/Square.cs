@@ -136,8 +136,8 @@ public sealed class Square  {
         switch (bIsAcross)
         {
             //if square is an intersection
-            case true when (clDown != null):
-            case false when (clAcross != null):
+            case true when clDown != null:
+            case false when clAcross != null:
                 return true;
             default:
                 return false;
@@ -210,12 +210,12 @@ public sealed class Square  {
     /*---------------------------------------------------------------*/
 
     //Gets the next available square
-    public Square getNextsq(bool bIsAcross){
+    public Square getNextsq(bool bIsAcross)
+    {
         if (bIsAcross)
             return clAcross != null ? clAcross.getNextsq(this) : this;
-        else
-            return clDown != null ? clDown.getNextsq(this) : this;
-        
+        return clDown != null ? clDown.getNextsq(this) : this;
+
         // if (bIsAcross)
         //     if(clAcross != null)
         //         return clAcross.getNextsq(this);

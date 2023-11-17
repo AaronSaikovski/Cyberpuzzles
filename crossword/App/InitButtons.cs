@@ -12,15 +12,17 @@ public sealed partial class Crossword
     
     private void InitHintButton()
     {
-        HintButton = new TextButton();
-        HintButton.Text = "Get Hint Letters";
-        HintButton.Id = "HintButton";
-        HintButton.TextColor = Color.White;
-        HintButton.OverTextColor = Color.Yellow;
-        //HintButton.ApplyWidgetStyle(new LabelStyle(new ButtonStyle(());
-        HintButton.Left = rectCrossWord.Left;
-        HintButton.Top = rectCrossWord.Bottom + CwSettings.ClListSpacer * 2;
-        
+        HintButton = new TextButton
+        {
+            Text = "Get Hint Letters",
+            Id = "HintButton",
+            TextColor = Color.White,
+            OverTextColor = Color.Yellow,
+            //HintButton.ApplyWidgetStyle(new LabelStyle(new ButtonStyle(());
+            Left = rectCrossWord.Left,
+            Top = rectCrossWord.Bottom + CwSettings.ClListSpacer * 2
+        };
+
         HintButton.Click += HintButtonClick;
         _mainPanel.Widgets.Add(HintButton);
     }
@@ -29,15 +31,17 @@ public sealed partial class Crossword
     #region InitGetNextPuzzleButton
     private void InitGetNextPuzzleButton()
     {
-        GetNextPuzzleButton = new TextButton();
-        GetNextPuzzleButton.Text = "Get Next Puzzle";
-        GetNextPuzzleButton.Id = "NextPuzzleButton";
-        GetNextPuzzleButton.TextColor = Color.White;
-        GetNextPuzzleButton.OverTextColor = Color.Yellow;
-        //HintButton.ApplyWidgetStyle(new LabelStyle(new ButtonStyle(());
-        GetNextPuzzleButton.Left = rectCrossWord.Left;
-        GetNextPuzzleButton.Top = rectCrossWord.Bottom + CwSettings.ClListSpacer * 8;
-        
+        GetNextPuzzleButton = new TextButton
+        {
+            Text = "Get Next Puzzle",
+            Id = "NextPuzzleButton",
+            TextColor = Color.White,
+            OverTextColor = Color.Yellow,
+            //HintButton.ApplyWidgetStyle(new LabelStyle(new ButtonStyle(());
+            Left = rectCrossWord.Left,
+            Top = rectCrossWord.Bottom + CwSettings.ClListSpacer * 8
+        };
+
         GetNextPuzzleButton.Click += NextPuzzleButtonClick;
         _mainPanel.Widgets.Add(GetNextPuzzleButton);
     }

@@ -18,7 +18,7 @@ public sealed partial class Crossword
                 LstClueAcross.SelectedIndex = -1;
     
             //Sets the highlighting of the square.
-            sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
+            sqCurrentSquare.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
 
             //If left arrow key pressed get prev sq
             if (keyInFocus == Keys.Left)
@@ -87,7 +87,7 @@ public sealed partial class Crossword
             }
     
             //Sets the highlighting of the square.
-            sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, true);
+            sqCurrentSquare.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, true);
     
             ///////////////////////////////////////
             //Listbox linkage stuff

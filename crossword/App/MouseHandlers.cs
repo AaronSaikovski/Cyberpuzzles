@@ -1,7 +1,4 @@
 using System;
-using System.Net.Mail;
-using CyberPuzzles.Crossword.App.ClueAnswers;
-using CyberPuzzles.Crossword.App.Squares;
 using CyberPuzzles.Crossword.Constants;
 
 namespace CyberPuzzles.Crossword.App;
@@ -9,19 +6,13 @@ namespace CyberPuzzles.Crossword.App;
 public sealed partial class Crossword
 {
     #region Mouse_Handlers
-
-    /// <summary>
-    /// Mouse down event
-    /// </summary>
-    /// <param name="x"></param>
-    /// <param name="y"></param>
-    /// <returns></returns>
-    public bool MouseDown(int x, int y)
-    {
-        NMouseX = x - nCrossOffsetX;
-        NMouseY = y - nCrossOffsetY;
-        return true;
-    }
+    
+    // public bool MouseDown(int x, int y)
+    // {
+    //     NMouseX = x - nCrossOffsetX;
+    //     NMouseY = y - nCrossOffsetY;
+    //     return true;
+    // }
 
     /// <summary>
     /// MouseUp Handler
@@ -44,12 +35,12 @@ public sealed partial class Crossword
                 if (!bPuzzleFinished) {
 
                     //Exception handling added as an ArrayIndexOutOfBoundException occurs
-                    Square sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX)/CwSettings.nSquareWidth,(y - nCrossOffsetY)/CwSettings.nSquareHeight];
+                    var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX)/CwSettings.nSquareWidth,(y - nCrossOffsetY)/CwSettings.nSquareHeight];
                     try {
                         if (sqSelSquare.bIsCharAllowed){
 
                             //clear current highlights
-                            sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
+                            sqCurrentSquare.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
 
                             //Deselect the listbox based on direction
                             if (!bIsAcross)
@@ -70,12 +61,12 @@ public sealed partial class Crossword
 
                             //set new current sq & highlight them
                             sqCurrentSquare = sqSelSquare;
-                            sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, true);
+                            sqCurrentSquare.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, true);
 
                             //Find index to Clue Answer for highlighting in List boxes
-                            ClueAnswer tmpClueAnswer = sqSelSquare.getClueAnswerRef(bIsAcross);
-                            int ClueAnswerIdx = 0;
-                            for (int k = 0; k < nNumQuestions; k++){
+                            var tmpClueAnswer = sqSelSquare.getClueAnswerRef(bIsAcross);
+                            var ClueAnswerIdx = 0;
+                            for (var k = 0; k < nNumQuestions; k++){
                                 if (tmpClueAnswer == caPuzzleClueAnswers[k]){
                                     ClueAnswerIdx = k;
                                     break;
@@ -94,14 +85,14 @@ public sealed partial class Crossword
 
                     catch (Exception e) {
                         //Catch the exception
-                        Console.WriteLine("Exception " + e + " occurred in method mouseUp");
+                        Console.WriteLine($"Exception {e} occurred in method mouseUp");
                     }
-               }
+                }
 
             }
         }
 
-         return true;
+        return true;
     }
 
 

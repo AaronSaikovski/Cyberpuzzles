@@ -29,20 +29,26 @@ public sealed partial class Crossword
                             LstClueAcross.SelectedIndex = -1;
 
                         //Sets the highlighting of the square.
-                        sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
+                        if (sqCurrentSquare != null)
+                        {
+                            sqCurrentSquare.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
 
-                        //Change orientation if possible
-                        if(bIsAcross){
-                            if (sqCurrentSquare.CanFlipDirection(bIsAcross))
-                                bIsAcross = false;
-                        }
-                        else{
-                            if (sqCurrentSquare.CanFlipDirection(bIsAcross))
-                                bIsAcross = true;
-                        }
+                            //Change orientation if possible
+                            if (bIsAcross)
+                            {
+                                if (sqCurrentSquare.CanFlipDirection(bIsAcross))
+                                    bIsAcross = false;
+                            }
+                            else
+                            {
+                                if (sqCurrentSquare.CanFlipDirection(bIsAcross))
+                                    bIsAcross = true;
+                            }
 
-                        //Sets the highlighting of the square.
-                        sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, true);
+                            //Sets the highlighting of the square.
+                            sqCurrentSquare.getClueAnswerRef(bIsAcross)
+                                ?.HighlightSquares(sqCurrentSquare, true);
+                        }
                     }
                     
                     //If the applet has the focus then allow the arrow keys to navigate around
@@ -63,29 +69,29 @@ public sealed partial class Crossword
                     
                     //Delete present square's contents if Delete key is pressed
                     if (keyInFocus == Keys.Delete){
-                        sqCurrentSquare.setLetter(' ', bIsAcross);
+                        sqCurrentSquare?.setLetter(' ', bIsAcross);
                     }
                     
                     //Check to see if a backspace was entered
                     if (keyInFocus == Keys.Back){
-                        sqCurrentSquare.setLetter(' ', bIsAcross);
-                        sqCurrentSquare = sqCurrentSquare.getPrevsq(bIsAcross);
-                        sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, true);
+                        sqCurrentSquare?.setLetter(' ', bIsAcross);
+                        sqCurrentSquare = sqCurrentSquare?.getPrevsq(bIsAcross);
+                        sqCurrentSquare?.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, true);
                      
                     }
                     
                     //Check that the char falls into our range.
                     //if ((key >= 'A' && key <= 'Z') || (key >= 'a' && key <= 'z')) {
-                    if ((keyInFocus >= Keys.A && keyInFocus <= Keys.Z)) 
+                    if (keyInFocus is >= Keys.A and <= Keys.Z) 
                     {
                         //Sets the letter in the current square
-                        sqCurrentSquare.setLetter(char.ToUpper((char)keyInFocus), bIsAcross);
+                        sqCurrentSquare?.setLetter(char.ToUpper((char)keyInFocus), bIsAcross);
 
                         //get next sq or myself(same sq)  if not available
-                        sqCurrentSquare = sqCurrentSquare.getNextsq(bIsAcross);
+                        sqCurrentSquare = sqCurrentSquare?.getNextsq(bIsAcross);
 
                         //Sets the highlighting of the square.
-                        sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, true);
+                        sqCurrentSquare?.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, true);
 
                     }
                     //update score
@@ -94,7 +100,7 @@ public sealed partial class Crossword
                 catch (Exception e) {
 
                     //Catch the exception
-                    Console.WriteLine("Exception " + e + " occurred in method keyDown");
+                    Console.WriteLine($"Exception {e} occurred in method keyDown");
                 }
                 
             }

@@ -7,7 +7,7 @@ public sealed partial class Crossword
 {
     #region CrosswordScore
 
-    public void UpdateCrosswordScore()
+    private void UpdateCrosswordScore()
     {
         NCrosswordScore = 0;
         for (var i = 0; i < nNumQuestions; i++)
@@ -32,7 +32,7 @@ public sealed partial class Crossword
         {
             //Current score label
             _mainPanel.Widgets.Remove(_currentScoreLabel);
-            _currentScoreLabel.Text = "Your Score: " + NCrosswordScore;
+            _currentScoreLabel.Text = $"Your Score: {NCrosswordScore}";
             _currentScoreLabel.TextColor = Color.Red;
             _currentScoreLabel.Left = 300 + 250;
             _currentScoreLabel.Font = _fntScore;

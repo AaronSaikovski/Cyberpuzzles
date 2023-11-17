@@ -17,7 +17,7 @@ public sealed partial class Crossword
         SzPuzData = CrosswordData.GetCrosswordData(); //FetchPuzzleData();
 
         // Parse the Data
-        while (SzPuzData != null && !_mrParser.ParseData(SzPuzData))
+        while (!_mrParser.ParseData(SzPuzData))
         {
         }
 

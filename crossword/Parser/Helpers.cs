@@ -17,7 +17,7 @@ namespace CyberPuzzles.Crossword.Parsers
         public static int CountOccurrences(string inputString, char targetChar)
          {
              if (inputString.Length <= 0) throw new ArgumentOutOfRangeException(nameof(inputString));
-             if (targetChar  <= 0) throw new ArgumentOutOfRangeException(nameof(targetChar));
+             if (targetChar <= 0) throw new ArgumentOutOfRangeException(nameof(targetChar));
              return inputString.Count(c => c == targetChar);
          }
         #endregion
