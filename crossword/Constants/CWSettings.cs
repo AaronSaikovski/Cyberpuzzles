@@ -9,6 +9,9 @@
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
+
+using Microsoft.Xna.Framework;
+
 namespace CyberPuzzles.Crossword.Constants
 {
     public class CwSettings
@@ -53,6 +56,10 @@ namespace CyberPuzzles.Crossword.Constants
         public const int ClListboxHeight = 180;
         public const int ClListSpacer = 5;
         
+        //Colors for square letters
+        public static Color SqCorrect = Color.White;
+        public static Color SqError = Color.Red;
+
     }
 }
 
