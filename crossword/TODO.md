@@ -1,6 +1,8 @@
 ﻿**CW.Net**
 
 **TO DO**
+* big, Chunky square graphics
+* make squares bigger
 * Button for fetching next puzzle - calls API
 * Simple Azure function to fetch data file from Azure block blob storage - consumption plan
 * Background graphics 
