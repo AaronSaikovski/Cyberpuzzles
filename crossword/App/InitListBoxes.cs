@@ -56,8 +56,8 @@ public sealed partial class Crossword
         };
 
         //List box event handlers
-        LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
-        LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
+        //LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
+        //LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
 
         //Set the listbox fonts
         LstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;

@@ -13,6 +13,7 @@ public sealed partial class Crossword
         {
             if (!bPuzzleFinished)
             {
+                //need to set the focus state
                 //reset focus state
                 nFocusState = 0;
                 

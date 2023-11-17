@@ -36,10 +36,13 @@ public sealed partial class Crossword
     {
         try
         {
-            sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
+            //causing an exception
+            //sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
 
             if (LstClueDown.SelectedIndex != null)
             {
+                sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
+                
                 if (bIsAcross)
                 {
                     bIsAcross = false;

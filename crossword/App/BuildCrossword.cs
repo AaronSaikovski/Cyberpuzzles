@@ -44,32 +44,32 @@ public sealed partial class Crossword
         for (var i = 0; i < nNumQuestions; i++)
         {
             //Need to build a temp object of sqAnswerSquares[]
-            var sqAnswerSquares = new Square[_udtDataSet[i].szAnswer.Length];
-            for (var j = 0; j < _udtDataSet[i].szAnswer.Length; j++)
+            var sqAnswerSquares = new Square[_puzzleDataset[i].Answer.Length];
+            for (var j = 0; j < _puzzleDataset[i].Answer.Length; j++)
             {
                 //Need to work out number
                 //Build the Clue/Answer sets
-                if (_udtDataSet[i].IsAcross)
+                if (_puzzleDataset[i].IsAcross)
                 {
-                    sqAnswerSquares[j] = sqPuzzleSquares[_udtDataSet[i].nCoordDown + j, _udtDataSet[i].nCoordAcross];
+                    sqAnswerSquares[j] = sqPuzzleSquares[_puzzleDataset[i].CoordDown + j, _puzzleDataset[i].CoordAcross];
                     if (j == 0)
-                        LstClueAcross.Items.Add(new ListItem(_udtDataSet[i].nQuestionNum + ". " + _udtDataSet[i].szClue,
+                        LstClueAcross.Items.Add(new ListItem(_puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
                             Color.White));
                 }
                 else
                 {
-                    sqAnswerSquares[j] = sqPuzzleSquares[_udtDataSet[i].nCoordDown, _udtDataSet[i].nCoordAcross + j];
+                    sqAnswerSquares[j] = sqPuzzleSquares[_puzzleDataset[i].CoordDown, _puzzleDataset[i].CoordAcross + j];
                     if (j == 0)
-                        LstClueDown.Items.Add(new ListItem(_udtDataSet[i].nQuestionNum + ". " + _udtDataSet[i].szClue,
+                        LstClueDown.Items.Add(new ListItem(_puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
                             Color.White));
                 }
             }
 
             //Build the Clue/Answer references
             caPuzzleClueAnswers[i] = new ClueAnswer();
-            caPuzzleClueAnswers[i].setObjectRef(_udtDataSet[i].szAnswer,
-                _udtDataSet[i].szClue, _udtDataSet[i].nQuestionNum,
-                _udtDataSet[i].IsAcross, sqAnswerSquares);
+            caPuzzleClueAnswers[i].setObjectRef(_puzzleDataset[i].Answer,
+                _puzzleDataset[i].Clue, _puzzleDataset[i].QuestionNum,
+                _puzzleDataset[i].IsAcross, sqAnswerSquares);
         }
 
         BInitCrossword = true;

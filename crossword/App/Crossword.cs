@@ -56,8 +56,8 @@ namespace CyberPuzzles.Crossword.App
         private string _szGetLetters, _szTmpGetLetters, _szBlurb;
         public int nNumQuestions;
 
-        //Data set instance variable
-        private nDatasetUDT[] _udtDataSet;
+        //Puzzle Dataset instance
+        private PuzzleDataset[] _puzzleDataset;
 
         //Square instance variable
         public Square[,] sqPuzzleSquares;
