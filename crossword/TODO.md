@@ -1,7 +1,7 @@
 ﻿**CW.Net**
 
 **TO DO**
-* big, Chunky square graphics
+* big, Chunky square graphics - or remove images and just make white squares with black text?
 * make squares bigger
 * Button for fetching next puzzle - calls API
 * Simple Azure function to fetch data file from Azure block blob storage - consumption plan
