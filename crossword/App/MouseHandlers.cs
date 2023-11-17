@@ -53,9 +53,9 @@ public sealed partial class Crossword
 
                             //Deselect the listbox based on direction
                             if (!bIsAcross)
-                                LstClueDown.SelectedIndex = -1;
+                                LstClueDown.SelectedIndex = 0;
                             else
-                                LstClueAcross.SelectedIndex = -1;
+                                LstClueAcross.SelectedIndex = 0;
 
                             //test if same sq and flip if possible
                             if (sqSelSquare == sqCurrentSquare){

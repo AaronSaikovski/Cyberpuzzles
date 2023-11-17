@@ -15,8 +15,8 @@ namespace CyberPuzzles.Crossword.Constants
     {
 
         //Square width and height constants
-        public const int nSquareWidth = 27;
-        public const int nSquareHeight = 27;
+        public const int nSquareWidth = 30;
+        public const int nSquareHeight = 30;
 
         //Highlight Constants
         public const int nCURRENT_LETTER = 1;
@@ -45,8 +45,8 @@ namespace CyberPuzzles.Crossword.Constants
 
 
         //Square char offset
-        public const float SqCharOffsetX = 8f;
-        public const float SqCharOffsetY = 6f;
+        public const float SqCharOffsetX = 9f;
+        public const float SqCharOffsetY = 7f;
 
         //ClueList offsets/sizes
         public const int ClLabelHeight = 20;

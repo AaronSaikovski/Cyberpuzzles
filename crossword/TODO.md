@@ -13,11 +13,11 @@
 **KNOWN BUGS**
 * Font chars not centred in squares - parked for now
 * Square repaint bug on keyboard/mouse navigation - investigating
+* ListBox event handlers - BUG
 
 
 **DONE**
-* Mouse support - might need parent rectangle 
-* ListBox event handlers
+* Mouse support - might need parent rectangle
 * Button for hint letters - clickedBtnGetLetter(int nCount)
 * Listbox Headers 
 * Listboxes need to be positioned dynamically (X,Y)
