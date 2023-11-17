@@ -9,9 +9,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System;
-using CyberPuzzles.Crossword.Constants;
 using Microsoft.Xna.Framework;
-
 using CyberPuzzles.Crossword.App.ClueAnswers;
 
 namespace CyberPuzzles.Crossword.App.Squares;
@@ -21,51 +19,60 @@ namespace CyberPuzzles.Crossword.App.Squares;
 /*---------------------------------------------------------------*/
 
 //Square class
-public class Square  {
-    public int nXCoord= 0 , nYCoord = 0, nXCharOffset = 0, nYCharOffset = 0;
-
-    //implement wrapper functions to get these variables
-    public char chLetter = ' ';
-    public char chNumber = ' ';
-    public Color clForeColour = Color.Black;
-    public Color clBackColour = Color.Black;
-    public bool bIsDirty = true, bIsCharAllowed = false;
-    public ClueAnswer clAcross = null, clDown = null;
+public sealed class Square  {
     
+    #region getters_setters
+    
+    public int nXCoord { get; set; }
+    public int nYCoord { get; set; }
+    
+    //public int nXCharOffset { get; set; }
+    
+    //public int nYCharOffset { get; set; }
+    
+    public char chLetter { get; set; }
+    
+    //public char chNumber { get; set; }
 
-    /*---------------------------------------------------------------*/
+    public Color clForeColour { get; set; } = Color.Black;
+    public Color clBackColour { get; set; } = Color.Black;
 
-    //Square Constructor
-    // public Square() {
-    // }
+    public bool bIsDirty { get; set; } = true;
 
+    public bool bIsCharAllowed { get; set; }
+
+    public ClueAnswer? clAcross { get; set; }
+    public ClueAnswer? clDown { get; set; }
+    
+    #endregion
+  
     /*---------------------------------------------------------------*/
 
     //Allocates graphics memory for blank square
-    public void CreateSquare(int nXCoord, int nYCoord){
-        this.nXCoord = nXCoord;
-        this.nYCoord = nYCoord;
+    public void CreateSquare(int xCoord, int yCoord){
+        nXCoord = xCoord;
+        nYCoord = yCoord;
     }
 
     /*---------------------------------------------------------------*/
 
     //Checks to see if the current action occurs within a square.
-    public bool IsClickInsideMe(int nXMouseCoord, int nYMouseCoord){
-        if((nXCoord + 1 <= nXMouseCoord) && (nXMouseCoord <= (nXCoord + (CwSettings.nSquareWidth) - 1))
-                && (nYCoord +1 <= nYMouseCoord) && (nYMouseCoord <= (nYCoord + (CwSettings.nSquareHeight)) - 1))
-            return true;
-        else
-            return false;
-    }
+    // public bool IsClickInsideMe(int nXMouseCoord, int nYMouseCoord){
+    //     if((nXCoord + 1 <= nXMouseCoord) && (nXMouseCoord <= (nXCoord + (CwSettings.nSquareWidth) - 1))
+    //             && (nYCoord +1 <= nYMouseCoord) && (nYMouseCoord <= (nYCoord + (CwSettings.nSquareHeight)) - 1))
+    //         return true;
+    //     else
+    //         return false;
+    // }
 
     /*---------------------------------------------------------------*/
 
     //Set the object reference to clueanswer object
     public void setObjectRef(bool bIsAcross, ClueAnswer cl){
         if (bIsAcross)
-            this.clAcross = cl;
+            clAcross = cl;
         else
-            this.clDown = cl;
+            clDown = cl;
 
         bIsCharAllowed = true;
         bIsDirty = true;
@@ -78,71 +85,90 @@ public class Square  {
     //Sets the background colour of a square
     public void setHighlighted(int nHighlightType){
         switch (nHighlightType) {
-        case 1 : //Current Letter
-            if (!this.clBackColour.Equals(Color.Cyan)){
-                this.clBackColour = Color.Cyan;
-                bIsDirty = true;
-            }
-            break;
-        case 2 : //Current Word
-            if (!this.clBackColour.Equals(Color.Yellow)){
-                this.clBackColour = Color.Yellow;
-                bIsDirty = true;
-            }
-            break;
-        case 3 : //Current None
-            if (!this.clBackColour.Equals(Color.White)){
-                this.clBackColour = Color.White;
-                bIsDirty = true;
-            }
-            break;
-        default : //Something went wrong....
-            if (!this.clBackColour.Equals(Color.Red)){
-                Console.WriteLine("Bogus color: " + nHighlightType);
-                this.clBackColour = Color.Red;
-                bIsDirty = true;
-            }
+            case 1 : //Current Letter
+                if (!clBackColour.Equals(Color.Cyan)){
+                    clBackColour = Color.Cyan;
+                    bIsDirty = true;
+                }
+                break;
+            case 2 : //Current Word
+                if (!clBackColour.Equals(Color.Yellow)){
+                    clBackColour = Color.Yellow;
+                    bIsDirty = true;
+                }
+                break;
+            case 3 : //Current None
+                if (!clBackColour.Equals(Color.White)){
+                    clBackColour = Color.White;
+                    bIsDirty = true;
+                }
+                break;
+            default : //Something went wrong....
+                if (clBackColour.Equals(Color.Red)){
+                    Console.WriteLine($"Bogus color: {nHighlightType}");
+                    clBackColour = Color.Red;
+                    bIsDirty = true;
+                }
 
-            break;
-        }
+                break;
+            }
 
     }
 
     /*---------------------------------------------------------------*/
 
     //returns the Clue/Answer reference
-    public ClueAnswer getClueAnswerRef(bool bIsAcross){
-        if (bIsAcross)
-            return clAcross;
-        else
-            return clDown;
+    public ClueAnswer? getClueAnswerRef(bool bIsAcross)
+    {
+        return bIsAcross ? clAcross : clDown;
+        
+        // if (bIsAcross)
+        //     return clAcross;
+        // else
+        //     return clDown;
     }
 
     /*---------------------------------------------------------------*/
 
     //Can the current orientation be flipped.
-    public bool CanFlipDirection(bool bIsAcross){
-        //if square is an intersection
-        if ((bIsAcross) && (clDown != null))
-            return true;
-        else if ((!bIsAcross) && (clAcross != null))
-            return true;
-        else
-            return false;
+    public bool CanFlipDirection(bool bIsAcross)
+    {
+        switch (bIsAcross)
+        {
+            //if square is an intersection
+            case true when (clDown != null):
+            case false when (clAcross != null):
+                return true;
+            default:
+                return false;
+        }
+        
+        // if ((bIsAcross) && (clDown != null))
+        //     return true;
+        // else if ((!bIsAcross) && (clAcross != null))
+        //     return true;
+        // else
+        //     return false;
     }
 
     /*---------------------------------------------------------------*/
 
     //Check for correctness of letter based on input char parameter and toggles colour accordingly
-    public void checkLetter(char chCorrectLetter){
-        if(chLetter != ' '){
-            if(chLetter == chCorrectLetter)
-                clForeColour = Color.Green;
-            else
-                clForeColour = Color.Red;
+    public void checkLetter(char chCorrectLetter)
+    {
+        if (chLetter == ' ') return;
+        clForeColour = chLetter == chCorrectLetter ? Color.Green : Color.Red;
 
-            bIsDirty = true;
-        }
+        bIsDirty = true;
+        
+        // if(chLetter != ' '){
+        //     if(chLetter == chCorrectLetter)
+        //         clForeColour = Color.Green;
+        //     else
+        //         clForeColour = Color.Red;
+        //
+        //     bIsDirty = true;
+        // }
     }
 
     /*---------------------------------------------------------------*/
@@ -154,58 +180,30 @@ public class Square  {
     public void setLetter(char ch, bool bIsAcross){
         chLetter = ch;
         bIsDirty = true;
-
-        if (bIsAcross) {
-            if (clAcross.getChar(this).Equals(char.ToUpper(chLetter)))
-            {
-                
-            //if (String.valueOf((char)clAcross.getChar(this)).equals(String.valueOf((char)chLetter).toUpperCase())){
-                //If assistant is On then set correct colour to Green
-                //if (bIsAssistantOn) {
-                //    clForeColour = Color.green;
-                //}
-                //else {
-                    clForeColour = Color.Black;
-                //}
-
-            }
-
-            else {
-                //if (bIsAssistantOn) {
-                //    clForeColour = Color.red;
-                //}
-                //else {
-                    clForeColour = Color.Black;
-                //}
-            }
-
-        }
-        else {
-
-            if (clDown.getChar(this).Equals(char.ToUpper(chLetter)))
-            {
-                
-                
-            //if (String.valueOf((char)clDown.getChar(this)).equals(String.valueOf((char)chLetter).toUpperCase())){
-
-                //If assistant is On then set correct colour to Green
-                /*if (bIsAssistantOn) {
-                    clForeColour = Color.green;
-                }*/
-                //else{
-                    clForeColour = Color.Black;
-                //}
-            }
-            else {
-                /*if (bIsAssistantOn) { //Change colour based on Assistant state
-                    clForeColour = Color.red;
-                }*/
-                //else {
-                    clForeColour = Color.Black;
-                //}
-
-            }
-        }
+        clForeColour = Color.Black;
+        // if (bIsAcross) {
+        //     // if (clAcross.getChar(this).Equals(char.ToUpper(chLetter)))
+        //     // {
+        //     //     clForeColour = Color.Black;
+        //     // }
+        //     //
+        //     // else {
+        //     //     clForeColour = Color.Black;
+        //     // }
+        //     clForeColour = Color.Black;
+        //
+        // }
+        // else {
+        //
+        //     // if (clDown.getChar(this).Equals(char.ToUpper(chLetter)))
+        //     // {
+        //     //     clForeColour = Color.Black;
+        //     // }
+        //     // else {
+        //     //     clForeColour = Color.Black;
+        //     // }
+        //     clForeColour = Color.Black;
+        // }
 
     }
 
@@ -214,15 +212,20 @@ public class Square  {
     //Gets the next available square
     public Square getNextsq(bool bIsAcross){
         if (bIsAcross)
-            if(clAcross != null)
-                return clAcross.getNextsq(this);
-            else
-                return this;
+            return clAcross != null ? clAcross.getNextsq(this) : this;
         else
-            if(clDown != null)
-                return clDown.getNextsq(this);
-            else
-                return this;
+            return clDown != null ? clDown.getNextsq(this) : this;
+        
+        // if (bIsAcross)
+        //     if(clAcross != null)
+        //         return clAcross.getNextsq(this);
+        //     else
+        //         return this;
+        // else
+        // if(clDown != null)
+        //     return clDown.getNextsq(this);
+        // else
+        //     return this;
     }
 
     /*---------------------------------------------------------------*/
@@ -230,27 +233,35 @@ public class Square  {
     //Gets the previous available square
     public Square getPrevsq(bool bIsAcross){
         if (bIsAcross)
-            if(clAcross != null)
-                return clAcross.getPrevsq(this);
-            else
-                return this;
+            return clAcross != null ? clAcross.getPrevsq(this) : this;
         else
-            if(clDown != null)
-                return clDown.getPrevsq(this);
-            else
-                return this;
+            return clDown != null ? clDown.getPrevsq(this) : this;
+        
+        // if (bIsAcross)
+        //     if(clAcross != null)
+        //         return clAcross.getPrevsq(this);
+        //     else
+        //         return this;
+        // else
+        // if(clDown != null)
+        //     return clDown.getPrevsq(this);
+        // else
+        //     return this;
     }
 
     /*---------------------------------------------------------------*/
 
     //Returns boolean true/false based on square's contents
-    public bool isPopulated(){
-        if (chLetter == ' '){
-            return false;
-        }
-        else{
-            return true;
-        }
+    public bool isPopulated()
+    {
+        return chLetter != ' ';
+        
+        // if (chLetter == ' '){
+        //     return false;
+        // }
+        // else{
+        //     return true;
+        // }
     }
 
     /*---------------------------------------------------------------*/

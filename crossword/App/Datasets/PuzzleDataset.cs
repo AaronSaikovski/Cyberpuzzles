@@ -5,12 +5,16 @@ namespace CyberPuzzles.Crossword.App.Datasets;
 /// </summary>
 public sealed class PuzzleDataset
 {
+    #region getters_setters
     public int CoordAcross { get; set; }
     public int CoordDown { get; set; }
     public string Answer { get; set; } 
     public string Clue{ get; set; }
     public bool IsAcross { get; set; }
     public int QuestionNum { get; set; }
+
+    #endregion
+ 
 
     
     /// <summary>
