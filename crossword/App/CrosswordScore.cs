@@ -7,6 +7,9 @@ public sealed partial class Crossword
 {
     #region CrosswordScore
 
+    /// <summary>
+    /// Updates the crossword score
+    /// </summary>
     private void UpdateCrosswordScore()
     {
         CrosswordScore = 0;
@@ -26,6 +29,9 @@ public sealed partial class Crossword
         }
     }
 
+    /// <summary>
+    /// Draws the crossword score and updates the values
+    /// </summary>
     private void DrawCrosswordScore()
     {
         if (!IsFinished)
