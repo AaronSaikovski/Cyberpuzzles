@@ -37,6 +37,7 @@
     <PackageReference Include="InputHandlers.MonoGame" Version="1.7.0" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\InputHandlers\" />
     <Folder Include="fonts\" />
   </ItemGroup>
   <ItemGroup>

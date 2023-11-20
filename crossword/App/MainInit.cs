@@ -44,14 +44,15 @@ public sealed partial class Crossword
         LstClueAcross.SelectedIndex = 0;
 
         //Forces dirty squares
-        for (var i = 0; i < _NumRows; i++)
-        {
-            //down
-            for (var j = 0; j < _NumCols; j++)
-            {
-                sqPuzzleSquares[i, j].IsDirty = true;
-            }
-        }
+        // for (var i = 0; i < _NumRows; i++)
+        // {
+        //     //down
+        //     for (var j = 0; j < _NumCols; j++)
+        //     {
+        //         sqPuzzleSquares[i, j].IsDirty = true;
+        //     }
+        // }
+        ForceDirtySquares();
 
 
         //Set index to bubble out
@@ -61,6 +62,22 @@ public sealed partial class Crossword
 
         //Get next puzzle ID
         _bMorePuzzles = true; // getNextPuzzleData();
+    }
+
+    /// <summary>
+    /// Forces dirty squares
+    /// </summary>
+    private void ForceDirtySquares()
+    {
+        //Forces dirty squares
+        for (var i = 0; i < _NumRows; i++)
+        {
+            //down
+            for (var j = 0; j < _NumCols; j++)
+            {
+                sqPuzzleSquares[i, j].IsDirty = true;
+            }
+        }
     }
 
     #endregion

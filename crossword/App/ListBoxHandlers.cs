@@ -4,7 +4,7 @@ namespace CyberPuzzles.Crossword.App;
 
 public sealed partial class Crossword
 {
-    #region ListBox_EventHandlers
+    #region SelChangeListClueAcross
 
     // Event handler for the Across listbox
     private void SelChangeListClueAcross(object sender, EventArgs args)
@@ -30,6 +30,10 @@ public sealed partial class Crossword
         }
 
     }
+    
+    #endregion
+    
+    #region SelChangeListClueDown
 
     //Event handler for the Down listbox
     private void SelChangeListClueDown(object sender, EventArgs args)

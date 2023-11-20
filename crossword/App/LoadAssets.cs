@@ -9,6 +9,9 @@ public sealed partial class Crossword
 {
     #region LoadImages
 
+    /// <summary>
+    /// Loads the images
+    /// </summary>
     private void LoadImages()
     {
         _imgHighliteSquare = Content.Load<Texture2D>("images/sqlite");
