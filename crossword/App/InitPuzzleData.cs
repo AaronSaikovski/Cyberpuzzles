@@ -49,6 +49,7 @@ public sealed partial class Crossword
         _rowRef = new int[NumQuestions];
         _bDataIsAcross = new bool[NumQuestions];
         _quesNum = new int[NumQuestions];
+
     }
 
     #endregion

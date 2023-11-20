@@ -37,7 +37,6 @@ public sealed partial class Crossword
             Id = "NextPuzzleButton",
             TextColor = Color.White,
             OverTextColor = Color.Yellow,
-            //HintButton.ApplyWidgetStyle(new LabelStyle(new ButtonStyle(());
             Left = rectCrossWord.Left,
             Top = rectCrossWord.Bottom + CwSettings.ClListSpacer * 8
         };

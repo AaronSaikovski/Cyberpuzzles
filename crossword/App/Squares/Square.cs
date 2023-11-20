@@ -38,8 +38,8 @@ public sealed class Square
     public ClueAnswer? ClueAnswerDown { get; set; }
     
     #endregion
-  
-   
+
+    #region CreateSquare
     /// <summary>
     /// Allocates  memory for blank square
     /// </summary>
@@ -49,7 +49,10 @@ public sealed class Square
         this.xCoord = xCoord;
         this.yCoord = yCoord;
     }
+    
+    #endregion
 
+    #region SetObjectRef
     /// <summary>
     /// Set the object reference to clueanswer object
     /// </summary>
@@ -66,7 +69,9 @@ public sealed class Square
         BackColour = Color.White;
 
     }
+    #endregion
 
+    #region SetHighlighted
     /// <summary>
     /// Sets the background colour of a square
     /// </summary>
@@ -102,7 +107,9 @@ public sealed class Square
             }
 
     }
-   
+    #endregion
+
+    #region GetClueAnswerRef
     /// <summary>
     /// returns the Clue/Answer reference
     /// </summary>
@@ -112,8 +119,9 @@ public sealed class Square
     {
         return isAcross ? ClueAnswerAcross : ClueAnswerDown;
     }
-    
-   
+    #endregion
+
+    #region CanFlipDirection
     /// <summary>
     /// Can the current orientation be flipped.
     /// </summary>
@@ -131,7 +139,9 @@ public sealed class Square
                 return false;
         }
     }
+    #endregion
 
+    #region CheckLetter
     /// <summary>
     /// Check for correctness of letter based on input char parameter and toggles colour accordingly
     /// </summary>
@@ -142,8 +152,9 @@ public sealed class Square
         ForeColour = Letter == correctLetter ? CwSettings.SqCorrect : CwSettings.SqError;
         IsDirty = true;
     }
+    #endregion
 
- 
+    #region SetLetter
     /// <summary>
     /// Set the colour for a letter.
     /// </summary>
@@ -153,33 +164,10 @@ public sealed class Square
         Letter = letter;
         IsDirty = true;
         ForeColour = Color.Black;
-        // if (bIsAcross) {
-        //     // if (clAcross.getChar(this).Equals(char.ToUpper(chLetter)))
-        //     // {
-        //     //     clForeColour = Color.Black;
-        //     // }
-        //     //
-        //     // else {
-        //     //     clForeColour = Color.Black;
-        //     // }
-        //     clForeColour = Color.Black;
-        //
-        // }
-        // else {
-        //
-        //     // if (clDown.getChar(this).Equals(char.ToUpper(chLetter)))
-        //     // {
-        //     //     clForeColour = Color.Black;
-        //     // }
-        //     // else {
-        //     //     clForeColour = Color.Black;
-        //     // }
-        //     clForeColour = Color.Black;
-        // }
-
     }
+    #endregion
 
- 
+    #region GetNextSq
     /// <summary>
     /// Gets the next available square
     /// </summary>
@@ -191,8 +179,10 @@ public sealed class Square
             return ClueAnswerAcross != null ? ClueAnswerAcross.GetNextsq(this) : this;
         return ClueAnswerDown != null ? ClueAnswerDown.GetNextsq(this) : this;
     }
-
    
+    #endregion
+    
+    #region GetPrevSq
     /// <summary>
     /// /Gets the previous available square
     /// </summary>
@@ -204,14 +194,6 @@ public sealed class Square
         else
             return ClueAnswerDown != null ? ClueAnswerDown.GetPrevsq(this) : this;
     }
-    
-    /// <summary>
-    /// Returns boolean true/false based on square's contents
-    /// </summary>
-    /// <returns></returns>
-    public bool IsPopulated()
-    {
-        return Letter != ' ';
-    }
+    #endregion
     
 }

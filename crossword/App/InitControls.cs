@@ -10,6 +10,9 @@ public sealed partial class Crossword
 {
     #region InitControls
 
+    /// <summary>
+    /// Inits the controls
+    /// </summary>
     private void InitControls()
     {
         //Init the main rectangle
