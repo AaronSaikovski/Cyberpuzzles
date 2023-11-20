@@ -19,7 +19,7 @@ public sealed partial class Crossword
                     bIsAcross=true;
                     LstClueDown.SelectedIndex = -1;
                 }
-                sqCurrentSquare = caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].getSquare();
+                sqCurrentSquare = caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].GetSquare();
                 caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(sqCurrentSquare, true);
             }
         }
@@ -50,7 +50,7 @@ public sealed partial class Crossword
                 }
 
                 sqCurrentSquare = caPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
-                    .getSquare();
+                    .GetSquare();
                 caPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
                     .HighlightSquares(sqCurrentSquare, true);
             }

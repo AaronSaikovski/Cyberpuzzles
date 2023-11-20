@@ -51,10 +51,10 @@ public sealed partial class Crossword
 
                         if (sqPuzzleSquares[i, j].clAcross != null)
                         {
-                            if (sqPuzzleSquares[i, j].clAcross?.sqAnswerSquares?[0] == sqPuzzleSquares[i, j])
+                            if (sqPuzzleSquares[i, j].clAcross?.SqAnswerSquares?[0] == sqPuzzleSquares[i, j])
                             {
                                 _spriteBatch.DrawString(_fntnumFont,
-                                    sqPuzzleSquares[i, j].clAcross?.nQuestionNumber.ToString(),
+                                    sqPuzzleSquares[i, j].clAcross?.QuestionNumber.ToString(),
                                     new Vector2(_puzzleSquares[i, j].X + CwSettings.SmlNumOffsetX,
                                         _puzzleSquares[i, j].Y + CwSettings.SmlNumOffsetY), Color.Black);
                             }
@@ -62,10 +62,10 @@ public sealed partial class Crossword
 
                         if (sqPuzzleSquares?[i, j].clDown != null)
                         {
-                            if (sqPuzzleSquares[i, j].clDown?.sqAnswerSquares?[0] == sqPuzzleSquares[i, j])
+                            if (sqPuzzleSquares[i, j].clDown?.SqAnswerSquares?[0] == sqPuzzleSquares[i, j])
                             {
                                 _spriteBatch.DrawString(_fntnumFont,
-                                    sqPuzzleSquares[i, j].clDown?.nQuestionNumber.ToString(),
+                                    sqPuzzleSquares[i, j].clDown?.QuestionNumber.ToString(),
                                     new Vector2(_puzzleSquares[i, j].X + CwSettings.SmlNumOffsetX,
                                         _puzzleSquares[i, j].Y + CwSettings.SmlNumOffsetY), Color.Black);
                             }

@@ -30,10 +30,10 @@ public sealed partial class Crossword
         LstClueDown.Visible = true;
 
         //Set the initial active square
-        sqCurrentSquare = caPuzzleClueAnswers[0].getSquare();
+        sqCurrentSquare = caPuzzleClueAnswers[0].GetSquare();
 
         //Return the orientation
-        bIsAcross = caPuzzleClueAnswers[0].bIsAcross;
+        bIsAcross = caPuzzleClueAnswers[0].IsAcross;
 
         //Highlight the default square...if allowed
         caPuzzleClueAnswers[0].HighlightSquares(sqCurrentSquare, true);

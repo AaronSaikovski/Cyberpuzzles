@@ -18,7 +18,7 @@ public sealed partial class Crossword
                     _szTmpGetLetters = _szTmpGetLetters[1..];
                     for(var i = 0; i<nNumQuestions; i++)
                     {
-                        var bTmpResult = caPuzzleClueAnswers[i].checkHint(chHintLetter);
+                        var bTmpResult = caPuzzleClueAnswers[i].CheckHint(chHintLetter);
                         if(bTmpResult) {
                             bHintSupplied = true;
                         }

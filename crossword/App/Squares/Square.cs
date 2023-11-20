@@ -213,8 +213,8 @@ public sealed class Square  {
     public Square getNextsq(bool bIsAcross)
     {
         if (bIsAcross)
-            return clAcross != null ? clAcross.getNextsq(this) : this;
-        return clDown != null ? clDown.getNextsq(this) : this;
+            return clAcross != null ? clAcross.GetNextsq(this) : this;
+        return clDown != null ? clDown.GetNextsq(this) : this;
 
         // if (bIsAcross)
         //     if(clAcross != null)
@@ -233,9 +233,9 @@ public sealed class Square  {
     //Gets the previous available square
     public Square getPrevsq(bool bIsAcross){
         if (bIsAcross)
-            return clAcross != null ? clAcross.getPrevsq(this) : this;
+            return clAcross != null ? clAcross.GetPrevsq(this) : this;
         else
-            return clDown != null ? clDown.getPrevsq(this) : this;
+            return clDown != null ? clDown.GetPrevsq(this) : this;
         
         // if (bIsAcross)
         //     if(clAcross != null)
