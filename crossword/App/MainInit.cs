@@ -22,7 +22,7 @@ public sealed partial class Crossword
         //build the crossword data
         BuildCrossword();
 
-        BNewBackFlush = true;
+        NewBackFlush = true;
 
 
         //Show the lists
@@ -56,7 +56,7 @@ public sealed partial class Crossword
         //Set index to bubble out
         //nBubbleOut = 1;
         bBufferDirty = true;
-        BNewBackFlush = true;
+        NewBackFlush = true;
 
         //Get next puzzle ID
         _bMorePuzzles = true; // getNextPuzzleData();

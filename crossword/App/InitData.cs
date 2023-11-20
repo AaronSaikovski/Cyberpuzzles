@@ -49,9 +49,9 @@ public sealed partial class Crossword
         //nCrossOffsetY = (int)(nMAX_CROSS_HEIGHT/2) - (int)((nCrosswordHeight +(2*nCROSS_BORDER_WIDTH))/2);
 
         //set squares as dirty
-        if (!BNewBackFlush) return;
+        if (!NewBackFlush) return;
         {
-            if (!BInitCrossword) return;
+            if (!InitCrossword) return;
             for (var i = 0; i < _NumRows; i++) //down
             for (var j = 0; j < _NumCols; j++) //across
                 sqPuzzleSquares[i, j].IsDirty = true;

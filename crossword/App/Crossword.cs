@@ -41,10 +41,10 @@ namespace CyberPuzzles.Crossword.App
         public string SzPuzData;
 
         //Repaint variables
-        public bool bBufferDirty , BInitCrossword;
+        public bool bBufferDirty , InitCrossword;
 
         //Image imBackBuffer;
-        public bool BNewBackFlush;
+        public bool NewBackFlush;
 
         //Data set variables
         public string SzPuzzleType;

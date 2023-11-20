@@ -11,36 +11,35 @@ namespace CyberPuzzles.Crossword.App;
 public sealed partial class Crossword
 {
     #region BuildCrossword
-
+    /// <summary>
+    /// Builds the crossword object
+    /// </summary>
     private void BuildCrossword()
     {
         //Init squares
         sqPuzzleSquares = new Square[_NumRows, _NumCols];
         _puzzleSquares = new Rectangle[_NumRows, _NumCols];
-
-
-        if (BNewBackFlush)
-        {
-            if (BInitCrossword)
-                for (var i = 0; i < _NumRows; i++) //down
-                for (var j = 0; j < _NumCols; j++) //across
-                    sqPuzzleSquares[i, j].IsDirty = true;
-        }
-
-        //Initialise the arrays
-        for (var i = 0; i < _NumRows; i++)
-        {
-            for (var j = 0; j < _NumCols; j++)
-            {
-                sqPuzzleSquares[i, j] = new Square();
-                sqPuzzleSquares[i, j].CreateSquare(nCrossOffsetX + i * CwSettings.nSquareWidth,
-                    nCrossOffsetY + j * CwSettings.nSquareHeight);
-            }
-        }
-
+        
         //Init ClueAnswers
         caPuzzleClueAnswers = new ClueAnswer[nNumQuestions]; //Need to work out dimensions
+       
+        //Initialise the arrays
+        InitArrays();
+        
+        //Init the ClueAnswers
+        InitClueAnswers();
 
+        InitCrossword = true;
+    }
+    #endregion
+
+
+    #region InitClueAnswers
+    /// <summary>
+    /// Inits the ClueAnswers
+    /// </summary>
+    private void InitClueAnswers()
+    {
         for (var i = 0; i < nNumQuestions; i++)
         {
             //Need to build a temp object of sqAnswerSquares[]
@@ -71,9 +70,32 @@ public sealed partial class Crossword
                 _puzzleDataset[i].Clue, _puzzleDataset[i].QuestionNum,
                 _puzzleDataset[i].IsAcross, sqAnswerSquares);
         }
-
-        BInitCrossword = true;
     }
+    #endregion
 
+    #region InitArrays
+    /// <summary>
+    /// Inits the arrays
+    /// </summary>
+    private void InitArrays()
+    {
+        for (var i = 0; i < _NumRows; i++)
+        {
+            for (var j = 0; j < _NumCols; j++)
+            {
+                sqPuzzleSquares[i, j] = new Square();
+
+                //Set SQs to dirty
+                if (NewBackFlush || InitCrossword)
+                {
+                    sqPuzzleSquares[i, j].IsDirty = true;
+                }
+
+                //Create squares
+                sqPuzzleSquares[i, j].CreateSquare(nCrossOffsetX + i * CwSettings.nSquareWidth,
+                    nCrossOffsetY + j * CwSettings.nSquareHeight);
+            }
+        }
+    }
     #endregion
 }

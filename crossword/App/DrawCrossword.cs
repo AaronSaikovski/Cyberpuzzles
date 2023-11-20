@@ -90,7 +90,7 @@ public sealed partial class Crossword
         _spriteBatch.End();
 
 
-        BNewBackFlush = false;
+        NewBackFlush = false;
     }
 
     #endregion
