@@ -25,7 +25,6 @@ namespace CyberPuzzles.Crossword.Parser
     
     public sealed partial class CrosswordParser
     {
-        
         #region Fields
 
         //Instance variables for holding parsed QuickCrossword data

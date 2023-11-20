@@ -7,8 +7,7 @@ namespace CyberPuzzles.Crossword.App;
 
 public sealed partial class Crossword
 {
-    #region monogame_methods
-
+    #region Initialize
     protected override void Initialize()
     {
         //Panel for UI
@@ -22,7 +21,9 @@ public sealed partial class Crossword
 
         base.Initialize();
     }
+    #endregion
 
+    #region LoadContent
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -38,7 +39,9 @@ public sealed partial class Crossword
         _desktop = new Desktop();
         _desktop.Root = _mainPanel;
     }
+    #endregion
 
+    #region Update
     protected override void Update(GameTime gameTime)
     {
         // Game Logic lives here
@@ -51,7 +54,9 @@ public sealed partial class Crossword
 
         base.Update(gameTime);
     }
+    #endregion
 
+    #region Draw
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.White);

@@ -13,7 +13,7 @@
 * Readme on how to build and deploy on Windows, Mac and Linux
 
 **KNOWN BUGS**
-* Font chars not centred in squares - parked for now
+* Font chars not centred in squares
 * Square repaint bug on keyboard/mouse navigation - investigating
 * ListBox event handlers - BUG
 

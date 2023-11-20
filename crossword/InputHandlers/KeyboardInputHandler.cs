@@ -1,8 +1,4 @@
-﻿using InputHandlers.Keyboard;
-using Microsoft.Xna.Framework.Input;
-
-
-////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////
 //                                                                        //
 //      Module:     KeyboardHandler.cs                                    //
 //      Authors:    Aaron Saikovski                                       //
@@ -13,6 +9,8 @@ using Microsoft.Xna.Framework.Input;
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
+using InputHandlers.Keyboard;
+using Microsoft.Xna.Framework.Input;
 
 namespace CyberPuzzles.Crossword.InputHandlers
 { 
@@ -45,10 +43,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
                     //handle key down..normal keys
                     _crossword.KeyDown(keysDown, keyInFocus);
                 }
-               
-            }             
-
-         
+            }           
         }
 
         public void HandleKeyboardKeyLost(Keys[] keysDown, KeyboardModifier keyboardModifier)

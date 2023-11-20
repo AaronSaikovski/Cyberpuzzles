@@ -103,6 +103,5 @@ public sealed partial class Crossword
         //LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
     }
     #endregion
-
     
 }

@@ -1,11 +1,4 @@
-﻿
-using InputHandlers.Mouse;
-using Microsoft.Xna.Framework.Input;
-
-
-//custom namespaces
-
-////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////
 //                                                                        //
 //      Module:     MouseHandler.cs                                      //
 //      Authors:    Aaron Saikovski                                       //
@@ -15,6 +8,9 @@ using Microsoft.Xna.Framework.Input;
 //      Ref:        https://github.com/DavidFidge/InputHandlers           //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
+
+using InputHandlers.Mouse;
+using Microsoft.Xna.Framework.Input;
 
 namespace CyberPuzzles.Crossword.InputHandlers
 {

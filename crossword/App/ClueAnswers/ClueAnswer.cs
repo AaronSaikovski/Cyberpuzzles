@@ -22,7 +22,6 @@ namespace CyberPuzzles.Crossword.App.ClueAnswers;
 public sealed class ClueAnswer 
 {
     #region getters_setters
-
     public string? Answer { get; set; }
     public string? Clue { get; set; }
     
@@ -34,7 +33,6 @@ public sealed class ClueAnswer
     
     #endregion
     
-
     #region HighlightSquares
     /// <summary>
     /// /Highlights the current word and sets active square

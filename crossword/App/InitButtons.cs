@@ -7,9 +7,10 @@ namespace CyberPuzzles.Crossword.App;
 
 public sealed partial class Crossword
 {
-    
     #region InitHintButton
-    
+    /// <summary>
+    /// Init hint button
+    /// </summary>
     private void InitHintButton()
     {
         HintButton = new TextButton
@@ -29,6 +30,9 @@ public sealed partial class Crossword
     #endregion
 
     #region InitGetNextPuzzleButton
+    /// <summary>
+    /// Init get next puzzle button
+    /// </summary>
     private void InitGetNextPuzzleButton()
     {
         GetNextPuzzleButton = new TextButton
@@ -44,6 +48,5 @@ public sealed partial class Crossword
         GetNextPuzzleButton.Click += NextPuzzleButtonClick;
         _mainPanel.Widgets.Add(GetNextPuzzleButton);
     }
-    
     #endregion
 }

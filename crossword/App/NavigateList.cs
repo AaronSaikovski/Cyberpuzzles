@@ -5,7 +5,7 @@ namespace CyberPuzzles.Crossword.App;
 
 public sealed partial class Crossword
 {
-
+    #region NavigateList
     /// <summary>
     /// Allows up and down navigation of the listbox contents.
     /// </summary>
@@ -13,7 +13,6 @@ public sealed partial class Crossword
     /// <param name="keyInFocus"></param>
     private void NavigateList(bool bIsAcross, Keys keyInFocus)
     {
-
         try 
         {
             if (bIsAcross) { //If Across then allow operations on the across list
@@ -56,4 +55,5 @@ public sealed partial class Crossword
             Console.WriteLine("Exception " + e + " occurred in method NavigateList");
         }
     }
+    #endregion
 }

@@ -3,7 +3,6 @@ namespace CyberPuzzles.Crossword.App;
 public sealed partial class Crossword
 {
     #region MainInit
-
     /// <summary>
     /// MainInit - Main initialiser
     /// </summary>
@@ -53,7 +52,9 @@ public sealed partial class Crossword
         //Get next puzzle ID
         _bMorePuzzles = true; // getNextPuzzleData();
     }
+    #endregion
 
+    #region ForceDirtySquares
     /// <summary>
     /// Forces dirty squares
     /// </summary>
