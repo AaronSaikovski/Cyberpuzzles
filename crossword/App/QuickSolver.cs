@@ -6,6 +6,9 @@ public sealed partial class Crossword
 {
     #region QuickSolver
 
+    /// <summary>
+    /// Quicksolver
+    /// </summary>
     public void QuickSolver()
     {
         try

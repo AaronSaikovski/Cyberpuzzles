@@ -4,6 +4,9 @@ public sealed partial class Crossword
 {
     #region MainInit
 
+    /// <summary>
+    /// MainInit - Main initialiser
+    /// </summary>
     private void MainInit()
     {
         //load fonts
@@ -17,7 +20,6 @@ public sealed partial class Crossword
 
         //Init the controls
         InitControls();
-
 
         //build the crossword data
         BuildCrossword();
@@ -40,7 +42,6 @@ public sealed partial class Crossword
 
         //Set the default across list item to be the first item in the list
         LstClueAcross.SelectedIndex = 0;
-
 
         //Forces dirty squares
         for (var i = 0; i < _NumRows; i++)

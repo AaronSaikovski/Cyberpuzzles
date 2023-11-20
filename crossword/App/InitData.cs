@@ -2,10 +2,14 @@ using CyberPuzzles.Crossword.Constants;
 
 namespace CyberPuzzles.Crossword.App;
 
+
 public sealed partial class Crossword
 {
     #region InitData
 
+    /// <summary>
+    /// Inits the Crossword data
+    /// </summary>
     private void InitData()
     {
         //Initialise arrays of crossword data
@@ -37,7 +41,6 @@ public sealed partial class Crossword
         //Initialise Blurb
         _szBlurb = _mrParser.SzBlurb;
 
-
         //Initialise dimension variables
         _nCrosswordWidth = _NumCols * CwSettings.nSquareWidth;
         _nCrosswordHeight = _NumRows * CwSettings.nSquareHeight;
@@ -45,8 +48,7 @@ public sealed partial class Crossword
         // offsets
         nCrossOffsetX = CwSettings.MainOffsetX;
         nCrossOffsetY = CwSettings.MainOffsetY;
-        //nCrossOffsetX = (int)(nMAX_CROSS_WIDTH/2) - (int)((nCrosswordWidth +(2*nCROSS_BORDER_WIDTH))/2);
-        //nCrossOffsetY = (int)(nMAX_CROSS_HEIGHT/2) - (int)((nCrosswordHeight +(2*nCROSS_BORDER_WIDTH))/2);
+
 
         //set squares as dirty
         if (!NewBackFlush) return;

@@ -33,7 +33,6 @@ public sealed partial class Crossword
     }
     #endregion
 
-
     #region InitClueAnswers
     /// <summary>
     /// Inits the ClueAnswers
