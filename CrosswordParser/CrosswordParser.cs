@@ -10,7 +10,6 @@
 //////////////////////////////////////////////////////////////////////////////
 
 
-using CyberPuzzles.Crossword.Parsers;
 
 namespace CyberPuzzles.Crossword.Parser
 {
@@ -38,20 +37,18 @@ namespace CyberPuzzles.Crossword.Parser
         public int[] RowRef { get; set; }
         public int[] IsAcross { get; set; }
         public int[] QuesNum { get; set; }
-        public string[] SzClues { get; set; }
-        public string[] SzAnswers { get; set; }
+        public string[] Clues { get; set; }
+        public string[] Answers { get; set; }
 
         public int[] Costs { get; } = { 0, 0, 0, 0, 0, 0 };
 
-        public string SzGetLetters { get; set; }
-        public string SzBlurb { get; set; }
+        public string GetLetters { get; set; }
+        public string Blurb { get; set; }
         public int NumQuestions { get; set; }
 
         public int NumBytes { get; set; }
 
         #endregion
-
-
        
     }
 

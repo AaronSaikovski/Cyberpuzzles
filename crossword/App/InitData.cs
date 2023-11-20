@@ -18,11 +18,11 @@ public sealed partial class Crossword
         InitCosts();
 
         //Initialise Hint letters
-        _szGetLetters = _mrParser.SzGetLetters;
-        _szTmpGetLetters = _mrParser.SzGetLetters;
+        _szGetLetters = _mrParser.GetLetters;
+        _szTmpGetLetters = _mrParser.GetLetters;
 
         //Initialise Blurb
-        _szBlurb = _mrParser.SzBlurb;
+        _szBlurb = _mrParser.Blurb;
 
         //Initialise dimension variables
         _nCrosswordWidth = _NumCols * CwSettings.nSquareWidth;
@@ -86,8 +86,8 @@ public sealed partial class Crossword
                 _ => _bDataIsAcross[i]
             };
             _quesNum[i] = _mrParser.QuesNum[i];
-            _szClues[i] = _mrParser.SzClues[i];
-            _szAnswers[i] = _mrParser.SzAnswers[i];
+            _szClues[i] = _mrParser.Clues[i];
+            _szAnswers[i] = _mrParser.Answers[i];
         }
     }
     #endregion

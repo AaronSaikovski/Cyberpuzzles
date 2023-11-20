@@ -10,10 +10,10 @@ public sealed partial class CrosswordParser
         string[] answertemp;
         puzzletempstr = strData[5];
         answertemp = puzzletempstr.Split("#");
-        SzAnswers = new string[NumQuestions];
+        Answers = new string[NumQuestions];
         for (var k = 0; k < NumQuestions; k++)
         {
-            SzAnswers[k] = answertemp[k];
+            Answers[k] = answertemp[k];
         }
     }
 }

@@ -4,8 +4,8 @@ namespace CyberPuzzles.Crossword.Parser;
 
 public sealed partial class CrosswordParser
 {
-    private void GetBlurb(IReadOnlyList<string> strData)
+    private void GetHintLetters(IReadOnlyList<string> strData)
     {
-        SzBlurb = strData[8];
+        GetLetters = strData[6];
     }
 }
