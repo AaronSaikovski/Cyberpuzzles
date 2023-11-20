@@ -4,14 +4,18 @@ namespace CyberPuzzles.Crossword.App;
 
 public sealed partial class Crossword
 {
-    //Hint implementation
-    private void GetHintLetters(int nCount) {
+    #region GetHintLetters
+    /// <summary>
+    /// Hint implementation
+    /// </summary>
+    /// <param name="count"></param>
+    private void GetHintLetters(int count) {
         try {
 
             //local vars
-            bool bHintSupplied=false, bAllHintLettersChecked=false;
+            bool HintSupplied=false, AllHintLettersChecked=false;
 
-            while(!bHintSupplied&&(!bAllHintLettersChecked)){
+            while(!HintSupplied&&(!AllHintLettersChecked)){
              
                 if(_szTmpGetLetters.Length > 0){
                     var chHintLetter = _szTmpGetLetters[0];
@@ -20,18 +24,18 @@ public sealed partial class Crossword
                     {
                         var bTmpResult = caPuzzleClueAnswers[i].CheckHint(chHintLetter);
                         if(bTmpResult) {
-                            bHintSupplied = true;
+                            HintSupplied = true;
                         }
                     }
-                    nCount++;
-                    if(nCount == _szGetLetters.Length)
-                        bAllHintLettersChecked = true;
+                    count++;
+                    if(count == _szGetLetters.Length)
+                        AllHintLettersChecked = true;
                 }
                 else
                 {
                     _szTmpGetLetters = _szGetLetters;
-                    GetHintLetters(nCount);
-                    bHintSupplied = true;
+                    GetHintLetters(count);
+                    HintSupplied = true;
 
                 }
             }
@@ -39,39 +43,8 @@ public sealed partial class Crossword
         catch (Exception e) { //Catch the exception
             Console.WriteLine("Exception " + e + " occurred in method GetHintLetters()");
         }
-        
-        // try {
-        //
-        //     //local vars
-        //     bool bHintSupplied=false, bAllHintLettersChecked=false, bTmpResult;
-        //
-        //     while((!bHintSupplied)&&(!bAllHintLettersChecked)){
-        //      
-        //         if(_szTmpGetLetters.Length > 0){
-        //             char chHintLetter = _szTmpGetLetters[0];
-        //             _szTmpGetLetters = _szTmpGetLetters.Substring(1);
-        //             for(int i = 0; i<nNumQuestions; i++) {
-        //                 bTmpResult = caPuzzleClueAnswers[i].checkHint(chHintLetter);
-        //                 if(bTmpResult) {
-        //                     bHintSupplied = true;
-        //                 }
-        //             }
-        //             nCount++;
-        //             if(nCount == _szGetLetters.Length)
-        //                 bAllHintLettersChecked = true;
-        //         }
-        //         else
-        //         {
-        //             _szTmpGetLetters = _szGetLetters;
-        //             GetHintLetters(nCount);
-        //             bHintSupplied = true;
-        //
-        //         }
-        //     }
-        // }
-        // catch (Exception e) { //Catch the exception
-        //     Console.WriteLine("Exception " + e + " occurred in method GetHintLetters()");
-        // }
+       
     }
+    #endregion
     
 }

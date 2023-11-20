@@ -5,7 +5,7 @@ namespace CyberPuzzles.Crossword.App;
 
 public sealed partial class Crossword
 {
-    #region CrosswordScore
+    #region UpdateCrosswordScore
 
     /// <summary>
     /// Updates the crossword score
@@ -29,6 +29,10 @@ public sealed partial class Crossword
         }
     }
 
+    #endregion
+
+
+    #region DrawCrosswordScore
     /// <summary>
     /// Draws the crossword score and updates the values
     /// </summary>
@@ -67,6 +71,5 @@ public sealed partial class Crossword
         _maxScoreLabel.Top = CwSettings.MainOffsetY + 20;
         _mainPanel.Widgets.Add(_maxScoreLabel);
     }
-
     #endregion
 }
