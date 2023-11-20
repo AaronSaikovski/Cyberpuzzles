@@ -12,41 +12,41 @@ public sealed partial class Crossword
         try
         {
             //Deselect the listbox based on direction
-            if (!bIsAcross)
+            if (!IsAcross)
                 LstClueDown.SelectedIndex = -1;
             else
                 LstClueAcross.SelectedIndex = -1;
     
             //Sets the highlighting of the square.
-            sqCurrentSquare.GetClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
+            SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
 
             //If left arrow key pressed get prev sq
             if (keyInFocus == Keys.Left)
             {
-                if (bIsAcross)
+                if (IsAcross)
                 {
-                    sqCurrentSquare = sqCurrentSquare.GetPrevSq(bIsAcross);
+                    SqCurrentSquare = SqCurrentSquare.GetPrevSq(IsAcross);
                 }
                 else
                 {
-                    sqCurrentSquare = sqCurrentSquare.GetPrevSq(!bIsAcross);
-                    if (sqCurrentSquare.ClueAnswerDown == null)
-                        bIsAcross = !bIsAcross;
+                    SqCurrentSquare = SqCurrentSquare.GetPrevSq(!IsAcross);
+                    if (SqCurrentSquare.ClueAnswerDown == null)
+                        IsAcross = !IsAcross;
                 }
             }
 
             //If right arrow pressed get next sq
             if (keyInFocus == Keys.Right)
             {
-                if (bIsAcross)
+                if (IsAcross)
                 {
-                    sqCurrentSquare = sqCurrentSquare.GetNextSq(bIsAcross);
+                    SqCurrentSquare = SqCurrentSquare.GetNextSq(IsAcross);
                 }
                 else
                 {
-                    sqCurrentSquare = sqCurrentSquare.GetNextSq(!bIsAcross);
-                    if (sqCurrentSquare.ClueAnswerDown == null)
-                        bIsAcross = !bIsAcross;
+                    SqCurrentSquare = SqCurrentSquare.GetNextSq(!IsAcross);
+                    if (SqCurrentSquare.ClueAnswerDown == null)
+                        IsAcross = !IsAcross;
                 }
                 
             }
@@ -54,17 +54,17 @@ public sealed partial class Crossword
             //If up arrow key pressed
             if (keyInFocus == Keys.Up)
             {
-                if (bIsAcross)
+                if (IsAcross)
                 {
-                    sqCurrentSquare = sqCurrentSquare.GetPrevSq(!bIsAcross);
-                    if (sqCurrentSquare.ClueAnswerAcross == null)
+                    SqCurrentSquare = SqCurrentSquare.GetPrevSq(!IsAcross);
+                    if (SqCurrentSquare.ClueAnswerAcross == null)
                     {
-                        bIsAcross = !bIsAcross;
+                        IsAcross = !IsAcross;
                     }
                 }
                 else
                 {
-                    sqCurrentSquare = sqCurrentSquare.GetPrevSq(bIsAcross);
+                    SqCurrentSquare = SqCurrentSquare.GetPrevSq(IsAcross);
                 }
 
             }
@@ -72,30 +72,30 @@ public sealed partial class Crossword
             //If down arrow pressed get next sq
             if (keyInFocus == Keys.Down)
             {
-                if (bIsAcross)
+                if (IsAcross)
                 {
-                    sqCurrentSquare = sqCurrentSquare.GetNextSq(!bIsAcross);
-                    if (sqCurrentSquare.ClueAnswerAcross == null)
+                    SqCurrentSquare = SqCurrentSquare.GetNextSq(!IsAcross);
+                    if (SqCurrentSquare.ClueAnswerAcross == null)
                     {
-                        bIsAcross = !bIsAcross;
+                        IsAcross = !IsAcross;
                     }
                 }
                 else
                 {
-                    sqCurrentSquare = sqCurrentSquare.GetNextSq(bIsAcross);
+                    SqCurrentSquare = SqCurrentSquare.GetNextSq(IsAcross);
                 }
             }
     
             //Sets the highlighting of the square.
-            sqCurrentSquare.GetClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, true);
+            SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
     
             ///////////////////////////////////////
             //Listbox linkage stuff
             //
             //Find index to Clue Answer for highlighting in List boxes
-            var tmp = sqCurrentSquare.GetClueAnswerRef(bIsAcross);
+            var tmp = SqCurrentSquare.GetClueAnswerRef(IsAcross);
             var clueAnswerIdx = 0;
-            for (var k = 0; k < nNumQuestions; k++)
+            for (var k = 0; k < NumQuestions; k++)
             {
                 if (tmp == caPuzzleClueAnswers[k])
                 {
@@ -107,7 +107,7 @@ public sealed partial class Crossword
     
             //Selects the item in the list box relative to the ClueAnswer
             //and the orientation.
-            if (bIsAcross)
+            if (IsAcross)
                 LstClueAcross.SelectedIndex = clueAnswerIdx;
             else
                 LstClueDown.SelectedIndex = clueAnswerIdx - LstClueAcross.Items.Count;

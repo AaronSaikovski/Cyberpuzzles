@@ -11,16 +11,16 @@ public sealed partial class Crossword
     {
         try
         {
-            sqCurrentSquare.GetClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
+            SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
 
             if (LstClueAcross.SelectedIndex != null)
             {
-                if (!bIsAcross){
-                    bIsAcross=true;
+                if (!IsAcross){
+                    IsAcross=true;
                     LstClueDown.SelectedIndex = -1;
                 }
-                sqCurrentSquare = caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].GetSquare();
-                caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(sqCurrentSquare, true);
+                SqCurrentSquare = caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].GetSquare();
+                caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(SqCurrentSquare, true);
             }
         }
         catch (Exception e) {
@@ -41,18 +41,18 @@ public sealed partial class Crossword
 
             if (LstClueDown.SelectedIndex != null)
             {
-                sqCurrentSquare.GetClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
+                SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
                 
-                if (bIsAcross)
+                if (IsAcross)
                 {
-                    bIsAcross = false;
+                    IsAcross = false;
                     LstClueAcross.SelectedIndex = -1;
                 }
 
-                sqCurrentSquare = caPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
+                SqCurrentSquare = caPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
                     .GetSquare();
                 caPuzzleClueAnswers[LstClueAcross.Items.Count + (int)LstClueDown.SelectedIndex]
-                    .HighlightSquares(sqCurrentSquare, true);
+                    .HighlightSquares(SqCurrentSquare, true);
             }
         }
         catch (Exception e) {

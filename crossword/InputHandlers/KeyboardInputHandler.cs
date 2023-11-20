@@ -40,7 +40,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
             else
             {
                 // check if game is finished
-                if (!_crossword.BIsFinished)
+                if (!_crossword.IsFinished)
                 {
                     //handle key down..normal keys
                     _crossword.KeyDown(keysDown, keyInFocus);

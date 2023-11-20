@@ -32,13 +32,13 @@ namespace CyberPuzzles.Crossword.App
         #region Fields       
 
         //Puzzle State machines
-        public bool bPuzzleFinished, bSetFinished;
+        public bool PuzzleFinished, SetFinished;
 
         //Next Puzzle is currently unavailable flag
-        public bool BIsNextPuzzleReady = true;
+        public bool IsNextPuzzleReady = true;
 
         //String for Puzzle ID of last puzzle in set
-        public string SzPuzData;
+        public string PuzzleData;
 
         //Repaint variables
         public bool bBufferDirty , InitCrossword;
@@ -47,14 +47,14 @@ namespace CyberPuzzles.Crossword.App
         public bool NewBackFlush;
 
         //Data set variables
-        public string SzPuzzleType;
+        public string PuzzleType;
         public int _NumCols , _NumRows, _NumAcross, _NumDown, _PuzzleId;
         private int[] _colRef, _rowRef, _quesNum;
         private bool[] _bDataIsAcross;
         private string[] _szClues , _szAnswers;
         readonly int[] _nCosts = { 0, 0, 0, 0, 0, 0 };
         private string _szGetLetters, _szTmpGetLetters, _szBlurb;
-        public int nNumQuestions;
+        public int NumQuestions;
 
         //Puzzle Dataset instance
         private PuzzleDataset[] _puzzleDataset;
@@ -66,29 +66,29 @@ namespace CyberPuzzles.Crossword.App
         private ClueAnswer[] caPuzzleClueAnswers;
 
         //Highlight Constants
-        private int NCurrentLetter = 1;
-        private int NCurrentWord = 2;
-        private int NCurrentNone = 3;
+        private int CurrentLetter = 1;
+        private int CurrentWord = 2;
+        private int CurrentNone = 3;
 
         //Crossword dimension constants
-        private int NMaxCrossWidth = 291;
-        private int NMaxCrossHeight = 291;
+        private int MaxCrossWidth = 291;
+        private int MaxCrossHeight = 291;
 
         //string[,] strGuesses = null;
-        public Square sqCurrentSquare;
+        public Square SqCurrentSquare;
 
-        public bool BIsFinished;
+        public bool IsFinished;
 
         //Square width and height constants
-        private static int NSquareWidth;
-        private static int NSquareHeight;
+        private static int SquareWidth;
+        private static int SquareHeight;
 
         //X and Y Offsets for the square's answer number.
-        private int NXnumOffset = 2, NYnumOffset = 9;
+        //private int NXnumOffset = 2, NYnumOffset = 9;
         
 
         //Status of row/column orientation (Across or Down)
-        public bool bIsAcross = true;  
+        public bool IsAcross = true;  
 
         //Mouse Coords
         public int NMouseX;
@@ -98,20 +98,20 @@ namespace CyberPuzzles.Crossword.App
         private int NTabPress;
 
         //Scoring variable
-        private int NScore;
+        //private int Score;
  
 
         //Component focus variable
-        public int nFocusState;    
+        public int FocusState;    
 
         //mouseMove String
-        private string SzPuzzleTitle;
+        private string PuzzleTitle;
 
         //Number of times Hint has been accessed by the user
         //int nUserHintPress;
 
         // Crossword score
-        private int NCrosswordScore;
+        private int CrosswordScore;
 
         //More puzzles in set boolean flag
         private bool _bMorePuzzles;

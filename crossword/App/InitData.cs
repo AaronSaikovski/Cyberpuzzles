@@ -9,7 +9,7 @@ public sealed partial class Crossword
     private void InitData()
     {
         //Initialise arrays of crossword data
-        for (var i = 0; i < nNumQuestions; i++)
+        for (var i = 0; i < NumQuestions; i++)
         {
             _colRef[i] = _mrParser.ColRef[i];
             _rowRef[i] = _mrParser.RowRef[i];

@@ -21,7 +21,7 @@ public sealed partial class Crossword
         _puzzleSquares = new Rectangle[_NumRows, _NumCols];
         
         //Init ClueAnswers
-        caPuzzleClueAnswers = new ClueAnswer[nNumQuestions]; //Need to work out dimensions
+        caPuzzleClueAnswers = new ClueAnswer[NumQuestions]; //Need to work out dimensions
        
         //Initialise the arrays
         InitArrays();
@@ -40,7 +40,7 @@ public sealed partial class Crossword
     /// </summary>
     private void InitClueAnswers()
     {
-        for (var i = 0; i < nNumQuestions; i++)
+        for (var i = 0; i < NumQuestions; i++)
         {
             //Need to build a temp object of sqAnswerSquares[]
             var sqAnswerSquares = new Square[_puzzleDataset[i].Answer.Length];

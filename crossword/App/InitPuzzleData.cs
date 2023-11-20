@@ -14,15 +14,15 @@ public sealed partial class Crossword
         _mrParser = new CrosswordParser();
 
         // Get the Puzzle Data
-        SzPuzData = CrosswordData.GetCrosswordData(); //FetchPuzzleData();
+        PuzzleData = CrosswordData.GetCrosswordData(); //FetchPuzzleData();
 
         // Parse the Data
-        while (!_mrParser.ParseData(SzPuzData))
+        while (!_mrParser.ParseData(PuzzleData))
         {
         }
 
         //PuzzleType
-        SzPuzzleType = _mrParser.PuzzleType;
+        PuzzleType = _mrParser.PuzzleType;
 
         //Number of Columns
         _NumCols = _mrParser.NumCols;
@@ -40,15 +40,15 @@ public sealed partial class Crossword
         _PuzzleId = _mrParser.PuzzleId;
 
         //Number of questions
-        nNumQuestions = _mrParser.NumQuestions;
+        NumQuestions = _mrParser.NumQuestions;
 
         //Declare dimensions for arrays of crossword data
-        _szClues = new string[nNumQuestions];
-        _szAnswers = new string[nNumQuestions];
-        _colRef = new int[nNumQuestions];
-        _rowRef = new int[nNumQuestions];
-        _bDataIsAcross = new bool[nNumQuestions];
-        _quesNum = new int[nNumQuestions];
+        _szClues = new string[NumQuestions];
+        _szAnswers = new string[NumQuestions];
+        _colRef = new int[NumQuestions];
+        _rowRef = new int[NumQuestions];
+        _bDataIsAcross = new bool[NumQuestions];
+        _quesNum = new int[NumQuestions];
     }
 
     #endregion

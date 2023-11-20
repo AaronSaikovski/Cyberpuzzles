@@ -30,13 +30,13 @@ public sealed partial class Crossword
         LstClueDown.Visible = true;
 
         //Set the initial active square
-        sqCurrentSquare = caPuzzleClueAnswers[0].GetSquare();
+        SqCurrentSquare = caPuzzleClueAnswers[0].GetSquare();
 
         //Return the orientation
-        bIsAcross = caPuzzleClueAnswers[0].IsAcross;
+        IsAcross = caPuzzleClueAnswers[0].IsAcross;
 
         //Highlight the default square...if allowed
-        caPuzzleClueAnswers[0].HighlightSquares(sqCurrentSquare, true);
+        caPuzzleClueAnswers[0].HighlightSquares(SqCurrentSquare, true);
 
         //Set the default across list item to be the first item in the list
         LstClueAcross.SelectedIndex = 0;

@@ -9,30 +9,30 @@ public sealed partial class Crossword
 
     private void UpdateCrosswordScore()
     {
-        NCrosswordScore = 0;
-        for (var i = 0; i < nNumQuestions; i++)
+        CrosswordScore = 0;
+        for (var i = 0; i < NumQuestions; i++)
         {
             if (caPuzzleClueAnswers[i].IsCorrect())
             {
-                NCrosswordScore++;
+                CrosswordScore++;
             }
 
             caPuzzleClueAnswers[i].CheckWord();
         }
 
-        if (NCrosswordScore == nNumQuestions)
+        if (CrosswordScore == NumQuestions)
         {
-            BIsFinished = true;
+            IsFinished = true;
         }
     }
 
     private void DrawCrosswordScore()
     {
-        if (!BIsFinished)
+        if (!IsFinished)
         {
             //Current score label
             _mainPanel.Widgets.Remove(_currentScoreLabel);
-            _currentScoreLabel.Text = $"Your Score: {NCrosswordScore}";
+            _currentScoreLabel.Text = $"Your Score: {CrosswordScore}";
             _currentScoreLabel.TextColor = Color.Red;
             _currentScoreLabel.Left = 300 + 250;
             _currentScoreLabel.Font = _fntScore;
@@ -54,7 +54,7 @@ public sealed partial class Crossword
 
         //Max score label
         _mainPanel.Widgets.Remove(_maxScoreLabel);
-        _maxScoreLabel.Text = "Max Score: " + nNumQuestions;
+        _maxScoreLabel.Text = "Max Score: " + NumQuestions;
         _maxScoreLabel.TextColor = Color.Red;
         _maxScoreLabel.Left = 300 + 250;
         _maxScoreLabel.Font = _fntScore;

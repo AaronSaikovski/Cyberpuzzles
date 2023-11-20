@@ -10,15 +10,15 @@ public sealed partial class Crossword
     {
         try
         {
-            if (bPuzzleFinished || bSetFinished) return;
-            for (var p = 0; p < nNumQuestions; p++)
+            if (PuzzleFinished || SetFinished) return;
+            for (var p = 0; p < NumQuestions; p++)
             {
-                for (var j = 0; j < nNumQuestions; j++)
+                for (var j = 0; j < NumQuestions; j++)
                 {
                     if (_szTmpGetLetters.Length <= 0) continue;
                     var chHintLetter = _szTmpGetLetters[0];
                     _szTmpGetLetters = _szTmpGetLetters[1..];
-                    for (var i = 0; i < nNumQuestions; i++)
+                    for (var i = 0; i < NumQuestions; i++)
                         caPuzzleClueAnswers[i].CheckHint(chHintLetter);
                 }
             }
@@ -26,14 +26,14 @@ public sealed partial class Crossword
             //Increment the score if the answer is correct
             UpdateCrosswordScore();
 
-            for (var i = 0; i < nNumQuestions; i++)
+            for (var i = 0; i < NumQuestions; i++)
                 caPuzzleClueAnswers[i].CheckWord();
 
             //If the crossword score == the number of questions, then it is the end of the game
-            if (NScore == nNumQuestions)
+            if (CrosswordScore == NumQuestions)
             {
                 //Flag that we have finished
-                bPuzzleFinished = true;
+                PuzzleFinished = true;
             }
         }
         catch (Exception e)
