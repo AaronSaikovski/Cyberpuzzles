@@ -44,19 +44,9 @@ public sealed partial class Crossword
         LstClueAcross.SelectedIndex = 0;
 
         //Forces dirty squares
-        // for (var i = 0; i < _NumRows; i++)
-        // {
-        //     //down
-        //     for (var j = 0; j < _NumCols; j++)
-        //     {
-        //         sqPuzzleSquares[i, j].IsDirty = true;
-        //     }
-        // }
         ForceDirtySquares();
 
-
         //Set index to bubble out
-        //nBubbleOut = 1;
         bBufferDirty = true;
         NewBackFlush = true;
 
