@@ -11,7 +11,7 @@ public sealed partial class Crossword
     {
         try
         {
-            sqCurrentSquare.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
+            sqCurrentSquare.GetClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
 
             if (LstClueAcross.SelectedIndex != null)
             {
@@ -41,7 +41,7 @@ public sealed partial class Crossword
 
             if (LstClueDown.SelectedIndex != null)
             {
-                sqCurrentSquare.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
+                sqCurrentSquare.GetClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
                 
                 if (bIsAcross)
                 {

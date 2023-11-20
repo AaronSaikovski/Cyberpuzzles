@@ -31,7 +31,7 @@ public sealed partial class Crossword
                         //Sets the highlighting of the square.
                         if (sqCurrentSquare != null)
                         {
-                            sqCurrentSquare.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
+                            sqCurrentSquare.GetClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
 
                             //Change orientation if possible
                             if (bIsAcross)
@@ -46,7 +46,7 @@ public sealed partial class Crossword
                             }
 
                             //Sets the highlighting of the square.
-                            sqCurrentSquare.getClueAnswerRef(bIsAcross)
+                            sqCurrentSquare.GetClueAnswerRef(bIsAcross)
                                 ?.HighlightSquares(sqCurrentSquare, true);
                         }
                     }
@@ -69,14 +69,14 @@ public sealed partial class Crossword
                     
                     //Delete present square's contents if Delete key is pressed
                     if (keyInFocus == Keys.Delete){
-                        sqCurrentSquare?.setLetter(' ', bIsAcross);
+                        sqCurrentSquare?.SetLetter(' ', bIsAcross);
                     }
                     
                     //Check to see if a backspace was entered
                     if (keyInFocus == Keys.Back){
-                        sqCurrentSquare?.setLetter(' ', bIsAcross);
-                        sqCurrentSquare = sqCurrentSquare?.getPrevsq(bIsAcross);
-                        sqCurrentSquare?.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, true);
+                        sqCurrentSquare?.SetLetter(' ', bIsAcross);
+                        sqCurrentSquare = sqCurrentSquare?.GetPrevSq(bIsAcross);
+                        sqCurrentSquare?.GetClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, true);
                      
                     }
                     
@@ -85,13 +85,13 @@ public sealed partial class Crossword
                     if (keyInFocus is >= Keys.A and <= Keys.Z) 
                     {
                         //Sets the letter in the current square
-                        sqCurrentSquare?.setLetter(char.ToUpper((char)keyInFocus), bIsAcross);
+                        sqCurrentSquare?.SetLetter(char.ToUpper((char)keyInFocus), bIsAcross);
 
                         //get next sq or myself(same sq)  if not available
-                        sqCurrentSquare = sqCurrentSquare?.getNextsq(bIsAcross);
+                        sqCurrentSquare = sqCurrentSquare?.GetNextSq(bIsAcross);
 
                         //Sets the highlighting of the square.
-                        sqCurrentSquare?.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, true);
+                        sqCurrentSquare?.GetClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, true);
 
                     }
                     //update score

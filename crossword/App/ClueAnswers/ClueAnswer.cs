@@ -4,7 +4,7 @@
 //      Authors:            Aaron Saikovski & Bryan Richards              //
 //      Original Date:      26/02/97                                      //
 //      Version:            1.0                                           //
-//      Purpose:            Clue + Answer references class                 //
+//      Purpose:            Clue + Answer references class                //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
@@ -40,10 +40,10 @@ public sealed class ClueAnswer
         for (var i = 0; i < Answer.Length; i++)
         {
             if (!setHighLighted)
-                SqAnswerSquares?[i].setHighlighted(CwSettings.nCURRENT_NONE);
+                SqAnswerSquares?[i].SetHighlighted(CwSettings.nCURRENT_NONE);
             else
             {
-                SqAnswerSquares?[i].setHighlighted(SqAnswerSquares?[i] == sq
+                SqAnswerSquares?[i].SetHighlighted(SqAnswerSquares?[i] == sq
                     ? CwSettings.nCURRENT_LETTER
                     : CwSettings.nCURRENT_WORD);
             }
@@ -88,7 +88,7 @@ public sealed class ClueAnswer
 
                 // Assign the created Square to the array element
                 // The original code `this.sqAnswerSquares[k] = sqAnswerSquares[k];` seems redundant, so omitted
-                SqAnswerSquares[k].setObjectRef(this.IsAcross, this);
+                SqAnswerSquares[k].SetObjectRef(this.IsAcross, this);
             });
         }
         catch (Exception e) {
@@ -149,7 +149,7 @@ public sealed class ClueAnswer
     /// <returns></returns>
     public bool IsCorrect()
     {
-        if (Answer != null) return !Answer.Where((t, i) => SqAnswerSquares != null && SqAnswerSquares[i].chLetter != t).Any();
+        if (Answer != null) return !Answer.Where((t, i) => SqAnswerSquares != null && SqAnswerSquares[i].Letter != t).Any();
         return true;
     }
 
@@ -168,9 +168,9 @@ public sealed class ClueAnswer
         //Parallel for loop
         Parallel.For(0, szAnswerLength, i =>
         {
-            if (SqAnswerSquares != null && (Answer[i] == hintLetter) && (SqAnswerSquares[i].chLetter != hintLetter))
+            if (SqAnswerSquares != null && (Answer[i] == hintLetter) && (SqAnswerSquares[i].Letter != hintLetter))
             {
-                SqAnswerSquares[i].setLetter(hintLetter, IsAcross);
+                SqAnswerSquares[i].SetLetter(hintLetter, IsAcross);
                 bResult = true;
             }
         });
@@ -185,7 +185,7 @@ public sealed class ClueAnswer
     {
         if (Answer == null) return;
         for (var i = 0; i < Answer.Length; i++)
-            SqAnswerSquares?[i].checkLetter(Answer[i]);
+            SqAnswerSquares?[i].CheckLetter(Answer[i]);
     }
     
 }

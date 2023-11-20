@@ -37,10 +37,10 @@ public sealed partial class Crossword
                     //Exception handling added as an ArrayIndexOutOfBoundException occurs
                     var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX)/CwSettings.nSquareWidth,(y - nCrossOffsetY)/CwSettings.nSquareHeight];
                     try {
-                        if (sqSelSquare.bIsCharAllowed){
+                        if (sqSelSquare.IsCharAllowed){
 
                             //clear current highlights
-                            sqCurrentSquare.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
+                            sqCurrentSquare.GetClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, false);
 
                             //Deselect the listbox based on direction
                             if (!bIsAcross)
@@ -54,17 +54,17 @@ public sealed partial class Crossword
                                     bIsAcross = !bIsAcross;
                             }
                             else
-                                if ((bIsAcross) && (sqSelSquare.clAcross == null))
+                                if ((bIsAcross) && (sqSelSquare.ClueAnswerAcross == null))
                                     bIsAcross = !bIsAcross;
-                                else if ((!bIsAcross) && (sqSelSquare.clDown == null))
+                                else if ((!bIsAcross) && (sqSelSquare.ClueAnswerDown == null))
                                     bIsAcross = !bIsAcross;
 
                             //set new current sq & highlight them
                             sqCurrentSquare = sqSelSquare;
-                            sqCurrentSquare.getClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, true);
+                            sqCurrentSquare.GetClueAnswerRef(bIsAcross)?.HighlightSquares(sqCurrentSquare, true);
 
                             //Find index to Clue Answer for highlighting in List boxes
-                            var tmpClueAnswer = sqSelSquare.getClueAnswerRef(bIsAcross);
+                            var tmpClueAnswer = sqSelSquare.GetClueAnswerRef(bIsAcross);
                             var ClueAnswerIdx = 0;
                             for (var k = 0; k < nNumQuestions; k++){
                                 if (tmpClueAnswer == caPuzzleClueAnswers[k]){

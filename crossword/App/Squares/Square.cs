@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
-//      Module:     Square.java                                           //
-//      Author:     Aaron Saikovski                                       //
-//      Date:       23/01/97                                              //
-//      Version:    1.0                                                   //
-//      Purpose:    Defines a Square and it's attributes                  //
+//      Module:             Square.cs                                     //
+//      Authors:            Aaron Saikovski & Bryan Richards              //
+//      Original Date:      23/01/97                                      //
+//      Version:            1.0                                           //
+//      Purpose:           Defines a Square and it's attributes            //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
@@ -15,172 +15,144 @@ using CyberPuzzles.Crossword.Constants;
 
 namespace CyberPuzzles.Crossword.App.Squares;
 
-
-
-/*---------------------------------------------------------------*/
-
 //Square class
-public sealed class Square  {
-    
+public sealed class Square 
+{
     #region getters_setters
     
-    public int nXCoord { get; set; }
-    public int nYCoord { get; set; }
+    public int xCoord { get; set; }
+    public int yCoord { get; set; }
     
-    //public int nXCharOffset { get; set; }
+   
+    public char Letter { get; set; }
     
-    //public int nYCharOffset { get; set; }
-    
-    public char chLetter { get; set; }
-    
-    //public char chNumber { get; set; }
 
-    public Color clForeColour { get; set; } = Color.Black;
-    public Color clBackColour { get; set; } = Color.Black;
+    public Color ForeColour { get; set; } = Color.Black;
+    public Color BackColour { get; set; } = Color.Black;
 
-    public bool bIsDirty { get; set; } = true;
+    public bool IsDirty { get; set; } = true;
 
-    public bool bIsCharAllowed { get; set; }
+    public bool IsCharAllowed { get; set; }
 
-    public ClueAnswer? clAcross { get; set; }
-    public ClueAnswer? clDown { get; set; }
+    public ClueAnswer? ClueAnswerAcross { get; set; }
+    public ClueAnswer? ClueAnswerDown { get; set; }
     
     #endregion
   
-    /*---------------------------------------------------------------*/
-
-    //Allocates graphics memory for blank square
+   
+    /// <summary>
+    /// Allocates  memory for blank square
+    /// </summary>
+    /// <param name="xCoord"></param>
+    /// <param name="yCoord"></param>
     public void CreateSquare(int xCoord, int yCoord){
-        nXCoord = xCoord;
-        nYCoord = yCoord;
+        this.xCoord = xCoord;
+        this.yCoord = yCoord;
     }
 
-    /*---------------------------------------------------------------*/
-
-    //Checks to see if the current action occurs within a square.
-    // public bool IsClickInsideMe(int nXMouseCoord, int nYMouseCoord){
-    //     if((nXCoord + 1 <= nXMouseCoord) && (nXMouseCoord <= (nXCoord + (CwSettings.nSquareWidth) - 1))
-    //             && (nYCoord +1 <= nYMouseCoord) && (nYMouseCoord <= (nYCoord + (CwSettings.nSquareHeight)) - 1))
-    //         return true;
-    //     else
-    //         return false;
-    // }
-
-    /*---------------------------------------------------------------*/
-
-    //Set the object reference to clueanswer object
-    public void setObjectRef(bool bIsAcross, ClueAnswer cl){
-        if (bIsAcross)
-            clAcross = cl;
+    /// <summary>
+    /// Set the object reference to clueanswer object
+    /// </summary>
+    /// <param name="isAcross"></param>
+    /// <param name="clueAnswer"></param>
+    public void SetObjectRef(bool isAcross, ClueAnswer clueAnswer){
+        if (isAcross)
+            ClueAnswerAcross = clueAnswer;
         else
-            clDown = cl;
+            ClueAnswerDown = clueAnswer;
 
-        bIsCharAllowed = true;
-        bIsDirty = true;
-        clBackColour = Color.White;
+        IsCharAllowed = true;
+        IsDirty = true;
+        BackColour = Color.White;
 
     }
 
-    /*---------------------------------------------------------------*/
-
-    //Sets the background colour of a square
-    public void setHighlighted(int nHighlightType){
-        switch (nHighlightType) {
+    /// <summary>
+    /// Sets the background colour of a square
+    /// </summary>
+    /// <param name="highlightType"></param>
+    public void SetHighlighted(int highlightType){
+        switch (highlightType) {
             case 1 : //Current Letter
-                if (!clBackColour.Equals(Color.Cyan)){
-                    clBackColour = Color.Cyan;
-                    bIsDirty = true;
+                if (!BackColour.Equals(Color.Cyan)){
+                    BackColour = Color.Cyan;
+                    IsDirty = true;
                 }
                 break;
             case 2 : //Current Word
-                if (!clBackColour.Equals(Color.Yellow)){
-                    clBackColour = Color.Yellow;
-                    bIsDirty = true;
+                if (!BackColour.Equals(Color.Yellow)){
+                    BackColour = Color.Yellow;
+                    IsDirty = true;
                 }
                 break;
             case 3 : //Current None
-                if (!clBackColour.Equals(Color.White)){
-                    clBackColour = Color.White;
-                    bIsDirty = true;
+                if (!BackColour.Equals(Color.White)){
+                    BackColour = Color.White;
+                    IsDirty = true;
                 }
                 break;
             default : //Something went wrong....
-                if (clBackColour.Equals(Color.Red)){
-                    Console.WriteLine($"Bogus color: {nHighlightType}");
-                    clBackColour = Color.Red;
-                    bIsDirty = true;
+                if (BackColour.Equals(Color.Red)){
+                    Console.WriteLine($"Bogus color: {highlightType}");
+                    BackColour = Color.Red;
+                    IsDirty = true;
                 }
 
                 break;
             }
 
     }
-
-    /*---------------------------------------------------------------*/
-
-    //returns the Clue/Answer reference
-    public ClueAnswer? getClueAnswerRef(bool bIsAcross)
+   
+    /// <summary>
+    /// returns the Clue/Answer reference
+    /// </summary>
+    /// <param name="isAcross"></param>
+    /// <returns></returns>
+    public ClueAnswer? GetClueAnswerRef(bool isAcross)
     {
-        return bIsAcross ? clAcross : clDown;
-        
-        // if (bIsAcross)
-        //     return clAcross;
-        // else
-        //     return clDown;
+        return isAcross ? ClueAnswerAcross : ClueAnswerDown;
     }
-
-    /*---------------------------------------------------------------*/
-
-    //Can the current orientation be flipped.
-    public bool CanFlipDirection(bool bIsAcross)
+    
+   
+    /// <summary>
+    /// Can the current orientation be flipped.
+    /// </summary>
+    /// <param name="isAcross"></param>
+    /// <returns></returns>
+    public bool CanFlipDirection(bool isAcross)
     {
-        switch (bIsAcross)
+        switch (isAcross)
         {
             //if square is an intersection
-            case true when clDown != null:
-            case false when clAcross != null:
+            case true when ClueAnswerDown != null:
+            case false when ClueAnswerAcross != null:
                 return true;
             default:
                 return false;
         }
-        
-        // if ((bIsAcross) && (clDown != null))
-        //     return true;
-        // else if ((!bIsAcross) && (clAcross != null))
-        //     return true;
-        // else
-        //     return false;
     }
 
-    /*---------------------------------------------------------------*/
-
-    //Check for correctness of letter based on input char parameter and toggles colour accordingly
-    public void checkLetter(char chCorrectLetter)
+    /// <summary>
+    /// Check for correctness of letter based on input char parameter and toggles colour accordingly
+    /// </summary>
+    /// <param name="correctLetter"></param>
+    public void CheckLetter(char correctLetter)
     {
-        if (chLetter == ' ') return;
-        clForeColour = chLetter == chCorrectLetter ? CwSettings.SqCorrect : CwSettings.SqError;
-        bIsDirty = true;
-        
-        // if(chLetter != ' '){
-        //     if(chLetter == chCorrectLetter)
-        //         clForeColour = Color.Green;
-        //     else
-        //         clForeColour = Color.Red;
-        //
-        //     bIsDirty = true;
-        // }
+        if (Letter == ' ') return;
+        ForeColour = Letter == correctLetter ? CwSettings.SqCorrect : CwSettings.SqError;
+        IsDirty = true;
     }
 
-    /*---------------------------------------------------------------*/
-
-    //Set the colour for a letter.
-    //
-    ////Set the colour for a letter..based also on assistant state
-    //public void setLetter(char ch, boolean bIsAcross, boolean bIsAssistantOn){
-    public void setLetter(char ch, bool bIsAcross){
-        chLetter = ch;
-        bIsDirty = true;
-        clForeColour = Color.Black;
+ 
+    /// <summary>
+    /// Set the colour for a letter.
+    /// </summary>
+    /// <param name="letter"></param>
+    /// <param name="isAcross"></param>
+    public void SetLetter(char letter, bool isAcross){
+        Letter = letter;
+        IsDirty = true;
+        ForeColour = Color.Black;
         // if (bIsAcross) {
         //     // if (clAcross.getChar(this).Equals(char.ToUpper(chLetter)))
         //     // {
@@ -207,64 +179,39 @@ public sealed class Square  {
 
     }
 
-    /*---------------------------------------------------------------*/
-
-    //Gets the next available square
-    public Square getNextsq(bool bIsAcross)
+ 
+    /// <summary>
+    /// Gets the next available square
+    /// </summary>
+    /// <param name="isAcross"></param>
+    /// <returns></returns>
+    public Square GetNextSq(bool isAcross)
     {
-        if (bIsAcross)
-            return clAcross != null ? clAcross.GetNextsq(this) : this;
-        return clDown != null ? clDown.GetNextsq(this) : this;
-
-        // if (bIsAcross)
-        //     if(clAcross != null)
-        //         return clAcross.getNextsq(this);
-        //     else
-        //         return this;
-        // else
-        // if(clDown != null)
-        //     return clDown.getNextsq(this);
-        // else
-        //     return this;
+        if (isAcross)
+            return ClueAnswerAcross != null ? ClueAnswerAcross.GetNextsq(this) : this;
+        return ClueAnswerDown != null ? ClueAnswerDown.GetNextsq(this) : this;
     }
 
-    /*---------------------------------------------------------------*/
-
-    //Gets the previous available square
-    public Square getPrevsq(bool bIsAcross){
-        if (bIsAcross)
-            return clAcross != null ? clAcross.GetPrevsq(this) : this;
+   
+    /// <summary>
+    /// /Gets the previous available square
+    /// </summary>
+    /// <param name="isAcross"></param>
+    /// <returns></returns>
+    public Square GetPrevSq(bool isAcross){
+        if (isAcross)
+            return ClueAnswerAcross != null ? ClueAnswerAcross.GetPrevsq(this) : this;
         else
-            return clDown != null ? clDown.GetPrevsq(this) : this;
-        
-        // if (bIsAcross)
-        //     if(clAcross != null)
-        //         return clAcross.getPrevsq(this);
-        //     else
-        //         return this;
-        // else
-        // if(clDown != null)
-        //     return clDown.getPrevsq(this);
-        // else
-        //     return this;
+            return ClueAnswerDown != null ? ClueAnswerDown.GetPrevsq(this) : this;
     }
-
-    /*---------------------------------------------------------------*/
-
-    //Returns boolean true/false based on square's contents
-    public bool isPopulated()
+    
+    /// <summary>
+    /// Returns boolean true/false based on square's contents
+    /// </summary>
+    /// <returns></returns>
+    public bool IsPopulated()
     {
-        return chLetter != ' ';
-        
-        // if (chLetter == ' '){
-        //     return false;
-        // }
-        // else{
-        //     return true;
-        // }
+        return Letter != ' ';
     }
-
-    /*---------------------------------------------------------------*/
-
+    
 }
-
