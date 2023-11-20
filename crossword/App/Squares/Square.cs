@@ -176,8 +176,8 @@ public sealed class Square
     public Square GetNextSq(bool isAcross)
     {
         if (isAcross)
-            return ClueAnswerAcross != null ? ClueAnswerAcross.GetNextsq(this) : this;
-        return ClueAnswerDown != null ? ClueAnswerDown.GetNextsq(this) : this;
+            return ClueAnswerAcross != null ? ClueAnswerAcross.GetNextSq(this) : this;
+        return ClueAnswerDown != null ? ClueAnswerDown.GetNextSq(this) : this;
     }
    
     #endregion
@@ -190,9 +190,9 @@ public sealed class Square
     /// <returns></returns>
     public Square GetPrevSq(bool isAcross){
         if (isAcross)
-            return ClueAnswerAcross != null ? ClueAnswerAcross.GetPrevsq(this) : this;
+            return ClueAnswerAcross != null ? ClueAnswerAcross.GetPrevSq(this) : this;
         else
-            return ClueAnswerDown != null ? ClueAnswerDown.GetPrevsq(this) : this;
+            return ClueAnswerDown != null ? ClueAnswerDown.GetPrevSq(this) : this;
     }
     #endregion
     

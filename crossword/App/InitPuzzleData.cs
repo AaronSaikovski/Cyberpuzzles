@@ -7,6 +7,9 @@ public sealed partial class Crossword
 {
     #region InitPuzzleData
 
+    /// <summary>
+    /// Inits the puzzle data
+    /// </summary>
     private void InitPuzzleData()
     {
         //Parser class

@@ -16,19 +16,26 @@ using CyberPuzzles.Crossword.App.Squares;
 
 namespace CyberPuzzles.Crossword.App.ClueAnswers;
 
-/*---------------------------------------------------------------*/
-
 /// <summary>
 /// ClueAnswer Class
 /// </summary>
 public sealed class ClueAnswer 
 {
-    public string? Answer;
-    public string? Clue;
-    public int QuestionNumber;
-    public bool IsAcross = true;
-    public Square[]? SqAnswerSquares;
+    #region getters_setters
 
+    public string? Answer { get; set; }
+    public string? Clue { get; set; }
+    
+    public int QuestionNumber { get; set; }
+
+    public bool IsAcross { get; set; } = true;
+    
+    public Square[]? SqAnswerSquares { get; set; }
+    
+    #endregion
+    
+
+    #region HighlightSquares
     /// <summary>
     /// /Highlights the current word and sets active square
     /// </summary>
@@ -49,9 +56,9 @@ public sealed class ClueAnswer
             }
         }
     }
-    
+    #endregion
 
-    //
+    #region SetObjectRef
     /// <summary>
     /// Sets the object reference.
     /// </summary>
@@ -60,7 +67,7 @@ public sealed class ClueAnswer
     /// <param name="QuestionNumber"></param>
     /// <param name="IsAcross"></param>
     /// <param name="SqAnswerSquares"></param>
-    public void setObjectRef(string Answer, string Clue, int QuestionNumber,
+    public void SetObjectRef(string Answer, string Clue, int QuestionNumber,
                                 bool IsAcross, Square[] SqAnswerSquares)
     {
 
@@ -95,8 +102,9 @@ public sealed class ClueAnswer
             Console.WriteLine("Exception " + e + "occurred in method setObjectRef");
         }
     }
-    
-    
+    #endregion
+
+    #region GetSquare
     /// <summary>
     /// Gets the first square referenced by my answer.
     /// </summary>
@@ -105,16 +113,16 @@ public sealed class ClueAnswer
     {
         return SqAnswerSquares?[0];
     }
-    
+    #endregion
 
+    #region GetNextSq
     /// <summary>
     /// Returns the next square
     /// </summary>
     /// <param name="sq"></param>
     /// <returns></returns>
-    public Square GetNextsq(Square sq)
+    public Square GetNextSq(Square sq)
     {
-        
         var i = 0;
         while (Answer != null && i < Answer.Length){
             if (sq == SqAnswerSquares?[i])
@@ -125,13 +133,15 @@ public sealed class ClueAnswer
         return sq;
 
     }
+    #endregion
 
+    #region GetPrevSq
     /// <summary>
     /// Returns the previous square
     /// </summary>
     /// <param name="sq"></param>
     /// <returns></returns>
-    public Square GetPrevsq(Square sq)
+    public Square GetPrevSq(Square sq)
     {
         if (Answer == null) return sq;
         var i = (Answer.Length -1);
@@ -142,7 +152,9 @@ public sealed class ClueAnswer
 
         return sq;
     }
-    
+    #endregion
+
+    #region IsCorrect
     /// <summary>
     /// Returns true if all answer letters are correct and false otherwise
     /// </summary>
@@ -152,15 +164,17 @@ public sealed class ClueAnswer
         if (Answer != null) return !Answer.Where((t, i) => SqAnswerSquares != null && SqAnswerSquares[i].Letter != t).Any();
         return true;
     }
+    #endregion
 
-
+    #region CheckHint
     /// <summary>
     /// Sets the Hint letter if Get Letter is pressed
     /// </summary>
     /// <param name="hintLetter"></param>
     /// <returns></returns>
     public bool CheckHint(char hintLetter){
-        var bResult = false;
+        if (hintLetter <= 0) throw new ArgumentOutOfRangeException(nameof(hintLetter));
+        var foundResult = false;
         
         // Assuming szAnswer and sqAnswerSquares are declared and initialized somewhere
         int szAnswerLength = Answer.Length;
@@ -171,13 +185,15 @@ public sealed class ClueAnswer
             if (SqAnswerSquares != null && (Answer[i] == hintLetter) && (SqAnswerSquares[i].Letter != hintLetter))
             {
                 SqAnswerSquares[i].SetLetter(hintLetter, IsAcross);
-                bResult = true;
+                foundResult = true;
             }
         });
 
-        return bResult;
+        return foundResult;
     }
+    #endregion
 
+    #region CheckWord
     /// <summary>
     /// Sets the letter colour if Check words is pressed.
     /// </summary>
@@ -187,5 +203,6 @@ public sealed class ClueAnswer
         for (var i = 0; i < Answer.Length; i++)
             SqAnswerSquares?[i].CheckLetter(Answer[i]);
     }
+    #endregion
     
 }

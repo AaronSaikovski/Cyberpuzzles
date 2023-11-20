@@ -65,7 +65,7 @@ public sealed partial class Crossword
 
             //Build the Clue/Answer references
             caPuzzleClueAnswers[i] = new ClueAnswer();
-            caPuzzleClueAnswers[i].setObjectRef(_puzzleDataset[i].Answer,
+            caPuzzleClueAnswers[i].SetObjectRef(_puzzleDataset[i].Answer,
                 _puzzleDataset[i].Clue, _puzzleDataset[i].QuestionNum,
                 _puzzleDataset[i].IsAcross, sqAnswerSquares);
         }

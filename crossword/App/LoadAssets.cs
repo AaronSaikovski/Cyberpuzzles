@@ -8,7 +8,6 @@ namespace CyberPuzzles.Crossword.App;
 public sealed partial class Crossword
 {
     #region LoadImages
-
     /// <summary>
     /// Loads the images
     /// </summary>
