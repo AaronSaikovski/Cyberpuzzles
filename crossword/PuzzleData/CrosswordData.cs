@@ -1,7 +1,7 @@
 ﻿
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
-//      Module:     CrosswordData.cs                                      //
+//      Module:     CrosswordDataSvc.cs                                      //
 //      Authors:    Aaron Saikovski & Bryan Richards                      //
 //      Date:       31/10/2023                                            //
 //      Purpose:    Gets Crossword puzzle data from a datasource.         //

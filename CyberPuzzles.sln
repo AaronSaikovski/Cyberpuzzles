@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword", "crossword\Cros
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrosswordParser", "CrosswordParser\CrosswordParser.csproj", "{18F576F0-748B-414B-9039-FA6E17170365}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrosswordData", "CrosswordData\CrosswordData.csproj", "{B53EE5F7-E852-47C0-814E-6E559D43A774}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrosswordDataSvc", "CrosswordDataSvc\CrosswordDataSvc.csproj", "{B53EE5F7-E852-47C0-814E-6E559D43A774}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
