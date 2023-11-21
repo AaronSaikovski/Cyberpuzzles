@@ -4,6 +4,11 @@ namespace CyberPuzzles.Crossword.Parser;
 
 public sealed partial class CrosswordParser
 {
+    #region 
+    /// <summary>
+    /// GetAnswers
+    /// </summary>
+    /// <param name="strData"></param>
     private void GetAnswers(IReadOnlyList<string> strData)
     {
         string puzzletempstr;
@@ -16,4 +21,5 @@ public sealed partial class CrosswordParser
             Answers[k] = answertemp[k];
         }
     }
+    #endregion
 }

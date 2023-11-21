@@ -1,0 +1,6 @@
+@CrosswordData_HostAddress = http://localhost:5194
+
+GET {{CrosswordData_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
