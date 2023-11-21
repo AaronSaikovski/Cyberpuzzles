@@ -9,11 +9,11 @@ public sealed partial class Crossword
     {
         GetHintLetters(0);
     }
-    
+
     private void NextPuzzleButtonClick(object sender, EventArgs args)
     {
         Console.WriteLine("next puzz pressed");
     }
-    
-    
+
+
 }

@@ -17,9 +17,9 @@ public sealed partial class Crossword
         _imgSquareWord = Content.Load<Texture2D>("images/wordlite");
         _imgNormalSquare = Content.Load<Texture2D>("images/normsq");
     }
-    
+
     #endregion
-    
+
     #region LoadFonts
     private void LoadFonts()
     {

@@ -13,45 +13,52 @@ public sealed partial class Crossword
     /// <param name="keyInFocus"></param>
     private void NavigateList(bool bIsAcross, Keys keyInFocus)
     {
-        try 
+        try
         {
-            if (bIsAcross) { //If Across then allow operations on the across list
+            if (bIsAcross)
+            { //If Across then allow operations on the across list
                 if (keyInFocus == Keys.Up)
                 {
-                    if (LstClueAcross.SelectedIndex != null){
-                        LstClueAcross.SelectedIndex = LstClueAcross.SelectedIndex - 1;
+                    if (LstClueAcross.SelectedIndex != null)
+                    {
+                        LstClueAcross.SelectedIndex--;
                         //TODO - add handler
                         //selChangeLstClueAcross(evt);
                         //SelChangeListClueAcross();
                     }
                 }
-                else if (keyInFocus == Keys.Down){
-                    LstClueAcross.SelectedIndex = LstClueAcross.SelectedIndex + 1;
+                else if (keyInFocus == Keys.Down)
+                {
+                    LstClueAcross.SelectedIndex++;
                     //TODO - add handler
                     //selChangeLstClueAcross(evt);
                     //SelChangeListClueAcross();
                 }
 
             }
-            else if (!bIsAcross) { //if Down
-                if (keyInFocus == Keys.Up) 
+            else if (!bIsAcross)
+            { //if Down
+                if (keyInFocus == Keys.Up)
                 {
-                    if (LstClueDown.SelectedIndex != null){
-                        LstClueDown.SelectedIndex = LstClueDown.SelectedIndex - 1;
+                    if (LstClueDown.SelectedIndex != null)
+                    {
+                        LstClueDown.SelectedIndex--;
                         //TODO - add handler
                         //selChangeLstClueDown(evt);
                         //SelChangeListClueAcross();
                     }
                 }
-                else if (keyInFocus == Keys.Down){
-                    LstClueDown.SelectedIndex = LstClueDown.SelectedIndex + 1;
+                else if (keyInFocus == Keys.Down)
+                {
+                    LstClueDown.SelectedIndex++;
                     //TODO - add handler
                     //selChangeLstClueDown(evt);
                     //SelChangeListClueAcross();
                 }
             }
         }
-        catch (Exception e) { //Catch the exception
+        catch (Exception e)
+        { //Catch the exception
             Console.WriteLine("Exception " + e + " occurred in method NavigateList");
         }
     }

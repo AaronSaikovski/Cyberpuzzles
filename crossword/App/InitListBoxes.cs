@@ -13,13 +13,13 @@ public sealed partial class Crossword
     private void InitListBoxes()
     {
         //List box elements
-        
+
         //List box across
         InitListBoxAcross();
-        
+
         //List box down
         InitListBoxDown();
-      
+
         //Populate and add lists
         _mainPanel.Widgets.Add(_clueAcrossLabel);
         _mainPanel.Widgets.Add(LstClueAcross);
@@ -30,7 +30,7 @@ public sealed partial class Crossword
         LstClueAcross.Visible = false;
         LstClueDown.Visible = false;
     }
-    
+
     #endregion
 
     #region InitListBoxDown
@@ -60,10 +60,10 @@ public sealed partial class Crossword
             SelectionMode = SelectionMode.Single,
             Height = CwSettings.ClListboxHeight
         };
-        
+
         //set the font
         LstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
-        
+
         //List box event handlers
         //LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
     }
@@ -95,13 +95,13 @@ public sealed partial class Crossword
             SelectionMode = SelectionMode.Single,
             Height = CwSettings.ClListboxHeight
         };
-        
+
         //set the font
         LstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
-        
+
         //List box event handlers
         //LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
     }
     #endregion
-    
+
 }

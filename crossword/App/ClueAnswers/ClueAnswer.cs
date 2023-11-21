@@ -19,20 +19,20 @@ namespace CyberPuzzles.Crossword.App.ClueAnswers;
 /// <summary>
 /// ClueAnswer Class
 /// </summary>
-public sealed class ClueAnswer 
+public sealed class ClueAnswer
 {
     #region getters_setters
     public string? Answer { get; set; }
     public string? Clue { get; set; }
-    
+
     public int QuestionNumber { get; set; }
 
     public bool IsAcross { get; set; } = true;
-    
+
     public Square[]? SqAnswerSquares { get; set; }
-    
+
     #endregion
-    
+
     #region HighlightSquares
     /// <summary>
     /// /Highlights the current word and sets active square
@@ -76,10 +76,11 @@ public sealed class ClueAnswer
 
         //Initialise the answer squares array.
         this.SqAnswerSquares = new Square[Answer.Length];
-        
+
         //Copy the array
-        try {
-            
+        try
+        {
+
             // Assuming szAnswer and sqAnswerSquares are declared and initialized somewhere
             int szAnswerLength = Answer.Length;
 
@@ -96,7 +97,8 @@ public sealed class ClueAnswer
                 SqAnswerSquares[k].SetObjectRef(this.IsAcross, this);
             });
         }
-        catch (Exception e) {
+        catch (Exception e)
+        {
             Console.WriteLine("Exception " + e + "occurred in method setObjectRef");
         }
     }
@@ -122,7 +124,8 @@ public sealed class ClueAnswer
     public Square GetNextSq(Square sq)
     {
         var i = 0;
-        while (Answer != null && i < Answer.Length){
+        while (Answer != null && i < Answer.Length)
+        {
             if (sq == SqAnswerSquares?[i])
                 if (i < Answer.Length - 1)
                     return SqAnswerSquares[i + 1];
@@ -142,8 +145,9 @@ public sealed class ClueAnswer
     public Square GetPrevSq(Square sq)
     {
         if (Answer == null) return sq;
-        var i = (Answer.Length -1);
-        while (i > -1){
+        var i = (Answer.Length - 1);
+        while (i > -1)
+        {
             if (sq == SqAnswerSquares?[i]) return i != 0 ? SqAnswerSquares[i - 1] : sq;
             i--;
         }
@@ -170,10 +174,11 @@ public sealed class ClueAnswer
     /// </summary>
     /// <param name="hintLetter"></param>
     /// <returns></returns>
-    public bool CheckHint(char hintLetter){
+    public bool CheckHint(char hintLetter)
+    {
         if (hintLetter <= 0) throw new ArgumentOutOfRangeException(nameof(hintLetter));
         var foundResult = false;
-        
+
         // Assuming szAnswer and sqAnswerSquares are declared and initialized somewhere
         int szAnswerLength = Answer.Length;
 
@@ -202,5 +207,5 @@ public sealed class ClueAnswer
             SqAnswerSquares?[i].CheckLetter(Answer[i]);
     }
     #endregion
-    
+
 }

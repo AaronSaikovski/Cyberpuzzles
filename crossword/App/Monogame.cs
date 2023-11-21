@@ -15,7 +15,7 @@ public sealed partial class Crossword
 
         //set the Window title
         Window.Title = "CyberPuzzles Crossword";
-        
+
         //Init the puzzle data
         InitPuzzleData();
 
@@ -36,8 +36,10 @@ public sealed partial class Crossword
         MainInit();
 
         // add panel to desktop
-        _desktop = new Desktop();
-        _desktop.Root = _mainPanel;
+        _desktop = new Desktop
+        {
+            Root = _mainPanel
+        };
     }
     #endregion
 

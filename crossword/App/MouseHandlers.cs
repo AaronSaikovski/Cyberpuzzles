@@ -18,18 +18,23 @@ public sealed partial class Crossword
         bBufferDirty = true;
 
         //if puzzle is finished...eat the event
-        if (!SetFinished) {
+        if (!SetFinished)
+        {
 
             //Check that the mouse event occurred within our specified rectangle
-            if(rectCrossWord.Contains(x, y)) {
+            if (rectCrossWord.Contains(x, y))
+            {
 
                 //If the individual puzzle has finished...eat the event
-                if (!PuzzleFinished) {
+                if (!PuzzleFinished)
+                {
 
                     //Exception handling added as an ArrayIndexOutOfBoundException occurs
-                    var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX)/CwSettings.nSquareWidth,(y - nCrossOffsetY)/CwSettings.nSquareHeight];
-                    try {
-                        if (sqSelSquare.IsCharAllowed){
+                    var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / CwSettings.nSquareWidth, (y - nCrossOffsetY) / CwSettings.nSquareHeight];
+                    try
+                    {
+                        if (sqSelSquare.IsCharAllowed)
+                        {
 
                             //clear current highlights
                             SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
@@ -39,7 +44,7 @@ public sealed partial class Crossword
 
                             //test if same sq and flip if possible
                             CheckFlip(sqSelSquare);
-                           
+
                             //Set new current sq & highlight 
                             SetNewCurrentSquare(sqSelSquare);
 
@@ -52,7 +57,8 @@ public sealed partial class Crossword
                         return true;
                     }
 
-                    catch (Exception e) {
+                    catch (Exception e)
+                    {
                         //Catch the exception
                         Console.WriteLine($"Exception {e} occurred in method mouseUp");
                     }
@@ -150,5 +156,5 @@ public sealed partial class Crossword
             IsAcross = !IsAcross;
     }
     #endregion
-    
+
 }

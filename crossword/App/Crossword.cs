@@ -41,18 +41,18 @@ namespace CyberPuzzles.Crossword.App
         public string PuzzleData;
 
         //Repaint variables
-        public bool bBufferDirty , InitCrossword;
+        public bool bBufferDirty, InitCrossword;
 
         //Image imBackBuffer;
         public bool NewBackFlush;
 
         //Data set variables
         public string PuzzleType;
-        public int _NumCols , _NumRows, _NumAcross, _NumDown, _PuzzleId;
+        public int _NumCols, _NumRows, _NumAcross, _NumDown, _PuzzleId;
         private int[] _colRef, _rowRef, _quesNum;
         private bool[] _bDataIsAcross;
-        private string[] _szClues , _szAnswers;
-        readonly int[] _nCosts = { 0, 0, 0, 0, 0, 0 };
+        private string[] _szClues, _szAnswers;
+        readonly int[] _nCosts = [0, 0, 0, 0, 0, 0];
         private string _szGetLetters, _szTmpGetLetters, _szBlurb;
         public int NumQuestions;
 
@@ -66,13 +66,13 @@ namespace CyberPuzzles.Crossword.App
         private ClueAnswer[] caPuzzleClueAnswers;
 
         //Highlight Constants
-        private int CurrentLetter = 1;
-        private int CurrentWord = 2;
-        private int CurrentNone = 3;
+        private readonly int CurrentLetter = 1;
+        private readonly int CurrentWord = 2;
+        private readonly int CurrentNone = 3;
 
         //Crossword dimension constants
-        private int MaxCrossWidth = 291;
-        private int MaxCrossHeight = 291;
+        private readonly int MaxCrossWidth = 291;
+        private readonly int MaxCrossHeight = 291;
 
         //string[,] strGuesses = null;
         public Square SqCurrentSquare;
@@ -80,32 +80,32 @@ namespace CyberPuzzles.Crossword.App
         public bool IsFinished;
 
         //Square width and height constants
-        private static int SquareWidth;
-        private static int SquareHeight;
+        private static readonly int SquareWidth;
+        private static readonly int SquareHeight;
 
         //X and Y Offsets for the square's answer number.
         //private int NXnumOffset = 2, NYnumOffset = 9;
-        
+
 
         //Status of row/column orientation (Across or Down)
-        public bool IsAcross = true;  
+        public bool IsAcross = true;
 
         //Mouse Coords
         public int NMouseX;
         public int NMouseY;
 
         //Tab key variable
-        private int NTabPress;
+        private readonly int NTabPress;
 
         //Scoring variable
         //private int Score;
- 
+
 
         //Component focus variable
-        public int FocusState;    
+        public int FocusState;
 
         //mouseMove String
-        private string PuzzleTitle;
+        private readonly string PuzzleTitle;
 
         //Number of times Hint has been accessed by the user
         //int nUserHintPress;
@@ -124,7 +124,7 @@ namespace CyberPuzzles.Crossword.App
         private Texture2D _imgHighliteSquare;
         private Texture2D _imgNormalSquare;
 
-     
+
         //list boxes
         private ListBox LstClueAcross;
         private ListBox LstClueDown;
@@ -137,7 +137,7 @@ namespace CyberPuzzles.Crossword.App
         private Rectangle[,] _puzzleSquares;
 
         // Monogame graphics
-        private GraphicsDeviceManager _graphics;
+        private readonly GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private Desktop _desktop;
 
@@ -172,22 +172,24 @@ namespace CyberPuzzles.Crossword.App
         //Crossword Rectangles for mouse handling
         //Rectangle variable
         public Rectangle rectCrossWord;
-        
+
         //Hint Button
         public TextButton HintButton;
-        
+
         //Get Next Puzzle Button
         public TextButton GetNextPuzzleButton;
 
-        
+
         //Crossword Width and Height variables
-        private int _nCrosswordWidth, _nCrosswordHeight, _nCrosswordOffset=6;
-        
+        private int _nCrosswordWidth;
+        private int _nCrosswordHeight;
+        private readonly int _nCrosswordOffset = 6;
+
         //Offset constants
-        private int _nCrossBorderWidth = 3;
+        private readonly int _nCrossBorderWidth = 3;
         private int nCrossOffsetX = 5;
         private int nCrossOffsetY = 5;
-        
+
         #endregion
 
         #region main_constructor
@@ -210,6 +212,6 @@ namespace CyberPuzzles.Crossword.App
             _mouseInput.Subscribe(_mouseInputHandler);
         }
         #endregion
-       
+
     }
 }

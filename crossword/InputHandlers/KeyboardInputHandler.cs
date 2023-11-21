@@ -13,20 +13,14 @@ using InputHandlers.Keyboard;
 using Microsoft.Xna.Framework.Input;
 
 namespace CyberPuzzles.Crossword.InputHandlers
-{ 
-    public class KeyboardInputHandler : IKeyboardHandler
+{
+    public class KeyboardInputHandler(Crossword.App.Crossword crossword) : IKeyboardHandler
     {
         #region Keyboard_Input_Handler
-        
+
         //Crossword instance
-        private readonly Crossword.App.Crossword _crossword;
+        private readonly Crossword.App.Crossword _crossword = crossword;
 
-        public KeyboardInputHandler(Crossword.App.Crossword crossword)
-		{
-            //get the instance of the crossword object
-            _crossword = crossword;
-
-        }
         public void HandleKeyboardKeyDown(Keys[] keysDown, Keys keyInFocus, KeyboardModifier keyboardModifier)
         {
             //Implement cheat - Ctrl+B
@@ -43,7 +37,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
                     //handle key down..normal keys
                     _crossword.KeyDown(keysDown, keyInFocus);
                 }
-            }           
+            }
         }
 
         public void HandleKeyboardKeyLost(Keys[] keysDown, KeyboardModifier keyboardModifier)
@@ -53,7 +47,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
 
         public void HandleKeyboardKeyRepeat(Keys repeatingKey, KeyboardModifier keyboardModifier)
         {
-          
+
         }
 
         //Keyup event
@@ -61,7 +55,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
         {
             //do nothing
         }
-        
+
         #endregion
     }
 }

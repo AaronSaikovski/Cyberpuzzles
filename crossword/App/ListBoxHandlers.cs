@@ -15,24 +15,26 @@ public sealed partial class Crossword
 
             if (LstClueAcross.SelectedIndex != null)
             {
-                if (!IsAcross){
-                    IsAcross=true;
+                if (!IsAcross)
+                {
+                    IsAcross = true;
                     LstClueDown.SelectedIndex = -1;
                 }
                 SqCurrentSquare = caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].GetSquare();
                 caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(SqCurrentSquare, true);
             }
         }
-        catch (Exception e) {
+        catch (Exception e)
+        {
 
             //Catch the exception
             Console.WriteLine($"Exception {e} occurred in method SelChangeListClueAcross");
         }
 
     }
-    
+
     #endregion
-    
+
     #region SelChangeListClueDown
 
     //Event handler for the Down listbox
@@ -46,7 +48,7 @@ public sealed partial class Crossword
             if (LstClueDown.SelectedIndex != null)
             {
                 SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
-                
+
                 if (IsAcross)
                 {
                     IsAcross = false;
@@ -59,15 +61,16 @@ public sealed partial class Crossword
                     .HighlightSquares(SqCurrentSquare, true);
             }
         }
-        catch (Exception e) {
+        catch (Exception e)
+        {
 
             //Catch the exception
             Console.WriteLine($"Exception {e} occurred in method SelChangeListClueDown");
         }
-        
+
 
     }
 
     #endregion
-    
+
 }

@@ -48,8 +48,8 @@ public sealed partial class Crossword
         {
             if (!InitCrossword) return;
             for (var i = 0; i < _NumRows; i++) //down
-            for (var j = 0; j < _NumCols; j++) //across
-                sqPuzzleSquares[i, j].IsDirty = true;
+                for (var j = 0; j < _NumCols; j++) //across
+                    sqPuzzleSquares[i, j].IsDirty = true;
         }
     }
     #endregion

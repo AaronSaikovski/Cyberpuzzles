@@ -34,10 +34,10 @@ public sealed partial class Crossword
 
             //Sets the highlighting of the square.
             SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
-    
+
             //Listbox linkage stuff
             UpdateListBoxLinkage();
-        
+
         }
         catch (Exception e)
         {
@@ -192,5 +192,5 @@ public sealed partial class Crossword
     }
     #endregion
 
-    
+
 }

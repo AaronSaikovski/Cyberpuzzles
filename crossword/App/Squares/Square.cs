@@ -16,16 +16,16 @@ using CyberPuzzles.Crossword.Constants;
 namespace CyberPuzzles.Crossword.App.Squares;
 
 //Square class
-public sealed class Square 
+public sealed class Square
 {
     #region getters_setters
-    
+
     public int xCoord { get; set; }
     public int yCoord { get; set; }
-    
-   
+
+
     public char Letter { get; set; }
-    
+
 
     public Color ForeColour { get; set; } = Color.Black;
     public Color BackColour { get; set; } = Color.Black;
@@ -36,7 +36,7 @@ public sealed class Square
 
     public ClueAnswer? ClueAnswerAcross { get; set; }
     public ClueAnswer? ClueAnswerDown { get; set; }
-    
+
     #endregion
 
     #region CreateSquare
@@ -45,11 +45,12 @@ public sealed class Square
     /// </summary>
     /// <param name="xCoord"></param>
     /// <param name="yCoord"></param>
-    public void CreateSquare(int xCoord, int yCoord){
+    public void CreateSquare(int xCoord, int yCoord)
+    {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
     }
-    
+
     #endregion
 
     #region SetObjectRef
@@ -58,7 +59,8 @@ public sealed class Square
     /// </summary>
     /// <param name="isAcross"></param>
     /// <param name="clueAnswer"></param>
-    public void SetObjectRef(bool isAcross, ClueAnswer clueAnswer){
+    public void SetObjectRef(bool isAcross, ClueAnswer clueAnswer)
+    {
         if (isAcross)
             ClueAnswerAcross = clueAnswer;
         else
@@ -76,35 +78,41 @@ public sealed class Square
     /// Sets the background colour of a square
     /// </summary>
     /// <param name="highlightType"></param>
-    public void SetHighlighted(int highlightType){
-        switch (highlightType) {
-            case 1 : //Current Letter
-                if (!BackColour.Equals(Color.Cyan)){
+    public void SetHighlighted(int highlightType)
+    {
+        switch (highlightType)
+        {
+            case 1: //Current Letter
+                if (!BackColour.Equals(Color.Cyan))
+                {
                     BackColour = Color.Cyan;
                     IsDirty = true;
                 }
                 break;
-            case 2 : //Current Word
-                if (!BackColour.Equals(Color.Yellow)){
+            case 2: //Current Word
+                if (!BackColour.Equals(Color.Yellow))
+                {
                     BackColour = Color.Yellow;
                     IsDirty = true;
                 }
                 break;
-            case 3 : //Current None
-                if (!BackColour.Equals(Color.White)){
+            case 3: //Current None
+                if (!BackColour.Equals(Color.White))
+                {
                     BackColour = Color.White;
                     IsDirty = true;
                 }
                 break;
-            default : //Something went wrong....
-                if (BackColour.Equals(Color.Red)){
+            default: //Something went wrong....
+                if (BackColour.Equals(Color.Red))
+                {
                     Console.WriteLine($"Bogus color: {highlightType}");
                     BackColour = Color.Red;
                     IsDirty = true;
                 }
 
                 break;
-            }
+        }
 
     }
     #endregion
@@ -160,7 +168,8 @@ public sealed class Square
     /// </summary>
     /// <param name="letter"></param>
     /// <param name="isAcross"></param>
-    public void SetLetter(char letter, bool isAcross){
+    public void SetLetter(char letter, bool isAcross)
+    {
         Letter = letter;
         IsDirty = true;
         ForeColour = Color.Black;
@@ -179,21 +188,22 @@ public sealed class Square
             return ClueAnswerAcross != null ? ClueAnswerAcross.GetNextSq(this) : this;
         return ClueAnswerDown != null ? ClueAnswerDown.GetNextSq(this) : this;
     }
-   
+
     #endregion
-    
+
     #region GetPrevSq
     /// <summary>
     /// /Gets the previous available square
     /// </summary>
     /// <param name="isAcross"></param>
     /// <returns></returns>
-    public Square GetPrevSq(bool isAcross){
+    public Square GetPrevSq(bool isAcross)
+    {
         if (isAcross)
             return ClueAnswerAcross != null ? ClueAnswerAcross.GetPrevSq(this) : this;
         else
             return ClueAnswerDown != null ? ClueAnswerDown.GetPrevSq(this) : this;
     }
     #endregion
-    
+
 }

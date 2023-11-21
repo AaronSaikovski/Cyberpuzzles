@@ -9,26 +9,31 @@ public sealed partial class Crossword
     /// Hint implementation
     /// </summary>
     /// <param name="count"></param>
-    private void GetHintLetters(int count) {
-        try {
+    private void GetHintLetters(int count)
+    {
+        try
+        {
 
             //local vars
-            bool HintSupplied=false, AllHintLettersChecked=false;
+            bool HintSupplied = false, AllHintLettersChecked = false;
 
-            while(!HintSupplied&&(!AllHintLettersChecked)){
-             
-                if(_szTmpGetLetters.Length > 0){
+            while (!HintSupplied && (!AllHintLettersChecked))
+            {
+
+                if (_szTmpGetLetters.Length > 0)
+                {
                     var chHintLetter = _szTmpGetLetters[0];
                     _szTmpGetLetters = _szTmpGetLetters[1..];
-                    for(var i = 0; i<NumQuestions; i++)
+                    for (var i = 0; i < NumQuestions; i++)
                     {
                         var bTmpResult = caPuzzleClueAnswers[i].CheckHint(chHintLetter);
-                        if(bTmpResult) {
+                        if (bTmpResult)
+                        {
                             HintSupplied = true;
                         }
                     }
                     count++;
-                    if(count == _szGetLetters.Length)
+                    if (count == _szGetLetters.Length)
                         AllHintLettersChecked = true;
                 }
                 else
@@ -40,11 +45,12 @@ public sealed partial class Crossword
                 }
             }
         }
-        catch (Exception e) { //Catch the exception
+        catch (Exception e)
+        { //Catch the exception
             Console.WriteLine("Exception " + e + " occurred in method GetHintLetters()");
         }
-       
+
     }
     #endregion
-    
+
 }

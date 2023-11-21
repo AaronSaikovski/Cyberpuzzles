@@ -38,7 +38,7 @@ public sealed partial class Crossword
                         //small number font
                         DrawSmallFontAcross(i, j);
                         DrawSmallFontDown(i, j);
-                        
+
                         //Char entered by user.
                         DrawUserChar(i, j);
                     }
@@ -54,7 +54,7 @@ public sealed partial class Crossword
         _spriteBatch.End();
         NewBackFlush = false;
     }
-    
+
     #endregion
 
     #region DrawUserChar
@@ -93,7 +93,7 @@ public sealed partial class Crossword
             }
         }
     }
-    
+
     /// <summary>
     /// Draws small font Down
     /// </summary>

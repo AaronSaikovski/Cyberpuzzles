@@ -14,23 +14,17 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CyberPuzzles.Crossword.InputHandlers
 {
-	public class MouseInputHandler : IMouseHandler
+    public class MouseInputHandler(Crossword.App.Crossword crossword) : IMouseHandler
     {
         #region Mouse_Input_Handler
-        
-        //Crossword instance
-        private readonly Crossword.App.Crossword _crossword;
 
-        public MouseInputHandler(Crossword.App.Crossword crossword)
-        {
-            //get the instance of the crossword object
-            _crossword = crossword;
-        }
+        //Crossword instance
+        private readonly Crossword.App.Crossword _crossword = crossword;
 
         public void HandleLeftMouseClick(MouseState mouseState, MouseState origin)
         {
             //throw new NotImplementedException();
-            
+
         }
 
         public void HandleLeftMouseDoubleClick(MouseState mouseState, MouseState origin)
@@ -40,7 +34,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
 
         public void HandleLeftMouseDown(MouseState mouseState)
         {
-           
+
         }
 
         public void HandleLeftMouseDragDone(MouseState mouseState, MouseState originalMouseState)
@@ -62,7 +56,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
                 _crossword.MouseUp(origin.X, origin.Y);
             }
         }
-    
+
 
         public void HandleMiddleMouseClick(MouseState mouseState, MouseState origin)
         {
@@ -133,7 +127,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
         {
             //throw new NotImplementedException();
         }
-        
+
         #endregion
     }
 }

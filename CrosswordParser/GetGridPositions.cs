@@ -13,7 +13,7 @@ public sealed partial class CrosswordParser
         RowRef = new int[NumQuestions];
         IsAcross = new int[NumQuestions];
         QuesNum = new int[NumQuestions];
-        
+
         //split string 
         var gridPosTmp = puzzleTempStr.Split('#');
 

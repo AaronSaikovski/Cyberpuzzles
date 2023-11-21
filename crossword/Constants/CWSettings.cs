@@ -31,7 +31,7 @@ namespace CyberPuzzles.Crossword.Constants
         public const int FntSml = 9;
         public const int FntMed = 14;
         public const int FntLge = 18;
-        
+
         //Crossword dimension constants
         public const int NMaxCrossWidth = 291;
         public const int NMaxCrossHeight = 291;
@@ -55,7 +55,7 @@ namespace CyberPuzzles.Crossword.Constants
         public const int ClLabelHeight = 20;
         public const int ClListboxHeight = 180;
         public const int ClListSpacer = 5;
-        
+
         //Colors for square letters
         public static Color SqCorrect = Color.White;
         public static Color SqError = Color.Red;

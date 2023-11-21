@@ -40,7 +40,6 @@ namespace CyberPuzzles.Crossword.PuzzleData
 
 
             //// Specify the folder path
-            var folderPath = @"./datafiles";
 
             string testPuzzleData;
 

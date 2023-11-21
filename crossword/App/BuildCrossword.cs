@@ -19,13 +19,13 @@ public sealed partial class Crossword
         //Init squares
         sqPuzzleSquares = new Square[_NumRows, _NumCols];
         _puzzleSquares = new Rectangle[_NumRows, _NumCols];
-        
+
         //Init ClueAnswers
         caPuzzleClueAnswers = new ClueAnswer[NumQuestions]; //Need to work out dimensions
-       
+
         //Initialise the arrays
         InitArrays();
-        
+
         //Init the ClueAnswers
         InitClueAnswers();
 
