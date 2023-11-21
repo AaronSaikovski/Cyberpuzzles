@@ -1,12 +1,14 @@
 ﻿
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
-//      Module:     CrosswordDataSvc.cs                                      //
-//      Authors:    Aaron Saikovski & Bryan Richards                      //
+//      Module:     CrosswordData.cs                                      //
+//      Authors:    Aaron Saikovski                                        //
 //      Date:       31/10/2023                                            //
 //      Purpose:    Gets Crossword puzzle data from a datasource.         //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
+
+
 
 namespace CyberPuzzles.Crossword.PuzzleData
 {
@@ -14,7 +16,11 @@ namespace CyberPuzzles.Crossword.PuzzleData
     //TODO: Make into an API?
     public partial class CrosswordData
     {
-
+        //ConfigurationManager configuration = builder.Configuration;
+        
+        // get datafile path
+        //var myKeyValue = configuration["DatafilePath"];
+        
         #region GetCrosswordData
 
         public static string GetCrosswordData()
