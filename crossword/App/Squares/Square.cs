@@ -182,7 +182,7 @@ public sealed class Square
     /// </summary>
     /// <param name="isAcross"></param>
     /// <returns></returns>
-    public Square GetNextSq(bool isAcross)
+    public Square? GetNextSq(bool isAcross)
     {
         if (isAcross)
             return ClueAnswerAcross != null ? ClueAnswerAcross.GetNextSq(this) : this;
@@ -197,7 +197,7 @@ public sealed class Square
     /// </summary>
     /// <param name="isAcross"></param>
     /// <returns></returns>
-    public Square GetPrevSq(bool isAcross)
+    public Square? GetPrevSq(bool isAcross)
     {
         if (isAcross)
             return ClueAnswerAcross != null ? ClueAnswerAcross.GetPrevSq(this) : this;

@@ -60,7 +60,7 @@ namespace CyberPuzzles.Crossword.App
         private PuzzleDataset[] _puzzleDataset;
 
         //Square instance variable
-        public Square[,] sqPuzzleSquares;
+        public Square?[,] sqPuzzleSquares;
 
         //ClueAnswer Instance variable
         private ClueAnswer[] caPuzzleClueAnswers;
@@ -75,7 +75,7 @@ namespace CyberPuzzles.Crossword.App
         private readonly int MaxCrossHeight = 291;
 
         //string[,] strGuesses = null;
-        public Square SqCurrentSquare;
+        public Square? SqCurrentSquare;
 
         public bool IsFinished;
 

@@ -42,7 +42,7 @@ public sealed partial class Crossword
         for (var i = 0; i < NumQuestions; i++)
         {
             //Need to build a temp object of sqAnswerSquares[]
-            var sqAnswerSquares = new Square[_puzzleDataset[i].Answer.Length];
+            var sqAnswerSquares = new Square?[_puzzleDataset[i].Answer.Length];
             for (var j = 0; j < _puzzleDataset[i].Answer.Length; j++)
             {
                 //Need to work out number

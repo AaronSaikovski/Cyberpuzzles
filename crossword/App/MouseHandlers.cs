@@ -105,7 +105,7 @@ public sealed partial class Crossword
     /// set new current sq &amp; highlight
     /// </summary>
     /// <param name="sqSelSquare"></param>
-    private void SetNewCurrentSquare(Square sqSelSquare)
+    private void SetNewCurrentSquare(Square? sqSelSquare)
     {
         //set new current sq & highlight t
         SqCurrentSquare = sqSelSquare;
@@ -119,7 +119,7 @@ public sealed partial class Crossword
     /// </summary>
     /// <param name="sqSelSquare"></param>
     /// <returns></returns>
-    private int FindClueAnswerIdx(Square sqSelSquare)
+    private int FindClueAnswerIdx(Square? sqSelSquare)
     {
         //Find index to Clue Answer for highlighting in List boxes
         var tmpClueAnswer = sqSelSquare.GetClueAnswerRef(IsAcross);
@@ -142,7 +142,7 @@ public sealed partial class Crossword
     /// test if same sq and flip if possible
     /// </summary>
     /// <param name="sqSelSquare"></param>
-    private void CheckFlip(Square sqSelSquare)
+    private void CheckFlip(Square? sqSelSquare)
     {
         //test if same sq and flip if possible
         if (sqSelSquare == SqCurrentSquare)

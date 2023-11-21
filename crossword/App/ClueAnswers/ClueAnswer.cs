@@ -29,7 +29,7 @@ public sealed class ClueAnswer
 
     public bool IsAcross { get; set; } = true;
 
-    public Square[]? SqAnswerSquares { get; set; }
+    public Square?[]? SqAnswerSquares { get; set; }
 
     #endregion
 
@@ -39,7 +39,7 @@ public sealed class ClueAnswer
     /// </summary>
     /// <param name="sq"></param>
     /// <param name="setHighLighted"></param>
-    public void HighlightSquares(Square sq, bool setHighLighted)
+    public void HighlightSquares(Square? sq, bool setHighLighted)
     {
         if (Answer == null) return;
         for (var i = 0; i < Answer.Length; i++)
@@ -66,7 +66,7 @@ public sealed class ClueAnswer
     /// <param name="IsAcross"></param>
     /// <param name="SqAnswerSquares"></param>
     public void SetObjectRef(string Answer, string Clue, int QuestionNumber,
-                                bool IsAcross, Square[] SqAnswerSquares)
+                                bool IsAcross, Square?[] SqAnswerSquares)
     {
 
         this.Answer = Answer;
@@ -109,7 +109,7 @@ public sealed class ClueAnswer
     /// Gets the first square referenced by my answer.
     /// </summary>
     /// <returns></returns>
-    public Square GetSquare()
+    public Square? GetSquare()
     {
         return SqAnswerSquares?[0];
     }
@@ -121,7 +121,7 @@ public sealed class ClueAnswer
     /// </summary>
     /// <param name="sq"></param>
     /// <returns></returns>
-    public Square GetNextSq(Square sq)
+    public Square? GetNextSq(Square? sq)
     {
         var i = 0;
         while (Answer != null && i < Answer.Length)
@@ -142,7 +142,7 @@ public sealed class ClueAnswer
     /// </summary>
     /// <param name="sq"></param>
     /// <returns></returns>
-    public Square GetPrevSq(Square sq)
+    public Square? GetPrevSq(Square? sq)
     {
         if (Answer == null) return sq;
         var i = (Answer.Length - 1);
