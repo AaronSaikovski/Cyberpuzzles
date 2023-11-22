@@ -18,11 +18,11 @@ public sealed partial class Crossword
         InitCosts();
 
         //Initialise Hint letters
-        _szGetLetters = _mrParser.GetLetters;
-        _szTmpGetLetters = _mrParser.GetLetters;
+        _szGetLetters = _mrParserData.GetLetters;
+        _szTmpGetLetters = _mrParserData.GetLetters;
 
         //Initialise Blurb
-        _szBlurb = _mrParser.Blurb;
+        _szBlurb = _mrParserData.Blurb;
 
         //Initialise dimension variables
         _nCrosswordWidth = _NumCols * CwSettings.nSquareWidth;
@@ -63,7 +63,7 @@ public sealed partial class Crossword
         // Initialise Cybersilver costs
         for (var i = 0; i < 6; i++)
         {
-            _nCosts[i] = _mrParser.Costs[i];
+            _nCosts[i] = _mrParserData.Costs[i];
         }
     }
     #endregion
@@ -77,17 +77,17 @@ public sealed partial class Crossword
         //Initialise arrays of crossword data
         for (var i = 0; i < NumQuestions; i++)
         {
-            _colRef[i] = _mrParser.ColRef[i];
-            _rowRef[i] = _mrParser.RowRef[i];
-            _bDataIsAcross[i] = _mrParser.IsAcross[i] switch
+            _colRef[i] = _mrParserData.ColRef[i];
+            _rowRef[i] = _mrParserData.RowRef[i];
+            _bDataIsAcross[i] = _mrParserData.IsAcross[i] switch
             {
                 1 => true,
                 2 => false,
                 _ => _bDataIsAcross[i]
             };
-            _quesNum[i] = _mrParser.QuesNum[i];
-            _szClues[i] = _mrParser.Clues[i];
-            _szAnswers[i] = _mrParser.Answers[i];
+            _quesNum[i] = _mrParserData.QuesNum[i];
+            _szClues[i] = _mrParserData.Clues[i];
+            _szAnswers[i] = _mrParserData.Answers[i];
         }
     }
     #endregion

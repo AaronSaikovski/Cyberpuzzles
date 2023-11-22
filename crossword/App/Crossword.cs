@@ -116,7 +116,7 @@ namespace CyberPuzzles.Crossword.App
         private bool _bMorePuzzles;
 
         //Parser class
-        private CrosswordParser _mrParser;
+        private Parser.PuzzleData _mrParserData;
 
         //Images to use forx Crossword squares
         private Texture2D _imgSquareWord;

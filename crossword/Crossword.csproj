@@ -68,7 +68,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CrosswordParser\CrosswordParser.csproj" />
+    <ProjectReference Include="..\Crossword.Parser\Crossword.Parser.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.Configuration">

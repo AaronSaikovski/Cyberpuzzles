@@ -14,36 +14,36 @@ public sealed partial class Crossword
     {
         //Parser class
         //Parser Implementation
-        _mrParser = new CrosswordParser();
+        _mrParserData = new Parser.PuzzleData();
 
         // Get the Puzzle Data
         PuzzleData = CrosswordData.GetCrosswordData(); //FetchPuzzleData();
 
         // Parse the Data
-        while (!_mrParser.ParseData(PuzzleData))
+        while (!_mrParserData.ParsePuzzleData(PuzzleData))
         {
         }
 
         //PuzzleType
-        PuzzleType = _mrParser.PuzzleType;
+        PuzzleType = _mrParserData.PuzzleType;
 
         //Number of Columns
-        _NumCols = _mrParser.NumCols;
+        _NumCols = _mrParserData.NumCols;
 
         //Number of rows
-        _NumRows = _mrParser.NumRows;
+        _NumRows = _mrParserData.NumRows;
 
         //Num Across
-        _NumAcross = _mrParser.NumAcross;
+        _NumAcross = _mrParserData.NumAcross;
 
         //Num Down
-        _NumDown = _mrParser.NumDown;
+        _NumDown = _mrParserData.NumDown;
 
         //Puzzle ID
-        _PuzzleId = _mrParser.PuzzleId;
+        _PuzzleId = _mrParserData.PuzzleId;
 
         //Number of questions
-        NumQuestions = _mrParser.NumQuestions;
+        NumQuestions = _mrParserData.NumQuestions;
 
         //Declare dimensions for arrays of crossword data
         _szClues = new string[NumQuestions];

@@ -1,8 +1,6 @@
-using System.Collections.Generic;
-
 namespace CyberPuzzles.Crossword.Parser;
 
-public sealed partial class CrosswordParser
+public sealed partial class PuzzleData
 {
     #region 
     /// <summary>

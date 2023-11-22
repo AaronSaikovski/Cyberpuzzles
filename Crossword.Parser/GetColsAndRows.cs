@@ -2,8 +2,12 @@ using System.Collections.Generic;
 
 namespace CyberPuzzles.Crossword.Parser;
 
-public sealed partial class CrosswordParser
+public sealed partial class PuzzleData
 {
+    /// <summary>
+    /// GetColsAndRows
+    /// </summary>
+    /// <param name="strData"></param>
     private void GetColsAndRows(IReadOnlyList<string> strData)
     {
         var puzzleTempStr = strData[2];

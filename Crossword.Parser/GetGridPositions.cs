@@ -1,14 +1,17 @@
-using System.Collections.Generic;
-using CyberPuzzles.Crossword.Parsers;
+
 
 namespace CyberPuzzles.Crossword.Parser;
 
-public sealed partial class CrosswordParser
+public sealed partial class PuzzleData
 {
+    /// <summary>
+    /// GetGridPositions
+    /// </summary>
+    /// <param name="strData"></param>
     private void GetGridPositions(IReadOnlyList<string> strData)
     {
         var puzzleTempStr = strData[3];
-        NumQuestions = Helpers.CountOccurrences(puzzleTempStr, '#');
+        NumQuestions = ParserHelper.CountOccurrences(puzzleTempStr, '#');
         ColRef = new int[NumQuestions];
         RowRef = new int[NumQuestions];
         IsAcross = new int[NumQuestions];

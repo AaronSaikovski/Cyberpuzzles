@@ -1,4 +1,4 @@
-using CyberPuzzles.Crossword.Parsers;
+using CyberPuzzles.Crossword.Parser;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,7 +31,7 @@ app.MapGet("/getcrosswordpuzzledata", () =>
             if (puzzleDataFile != null)
             {
                 //get the data file
-                var fileResult = Helpers.GetRandomDataFile(puzzleDataFile);
+                var fileResult = ParserHelper.GetRandomDataFile(puzzleDataFile);
                 return fileResult;
             }
 

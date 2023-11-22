@@ -1,11 +1,15 @@
 namespace CyberPuzzles.Crossword.Parser;
 
-public sealed partial class CrosswordParser
+public sealed partial class PuzzleData
 {
-    //Main - used to parse QuickCrossword data set from string
-    //Pre  : szParseData is NOT null
-    //Post : Returns true if data has been succesfully parsed from String and false otherwise
-    public bool ParseData(string szParseData)
+   /// <summary>
+   /// // Main - used to parse QuickCrossword data set from string
+   /// // Pre  : szParseData is NOT null
+   /// // Post : Returns true if data has been succesfully parsed from String and false otherwise
+   /// </summary>
+   /// <param name="szParseData"></param>
+   /// <returns></returns>
+    public bool ParsePuzzleData(string szParseData)
     {
         //local vars
         var strData = szParseData.Split("*");
