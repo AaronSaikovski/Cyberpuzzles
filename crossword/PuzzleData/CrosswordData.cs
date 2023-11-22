@@ -51,7 +51,7 @@ namespace CyberPuzzles.Crossword.PuzzleData
                 catch (Exception ex)
                 {
                     Console.WriteLine($"An error occurred: {ex.Message}");
-                    throw;
+                    return null;
                 }
             }
         }
