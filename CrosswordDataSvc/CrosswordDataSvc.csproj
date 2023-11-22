@@ -196,4 +196,8 @@
       </None>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\CrosswordParser\CrosswordParser.csproj" />
+    </ItemGroup>
+
 </Project>

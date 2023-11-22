@@ -1,3 +1,5 @@
+using CyberPuzzles.Crossword.Parsers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,8 +8,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
-ConfigurationManager configuration = builder.Configuration;
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -19,43 +19,25 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-//Map
+//getcrosswordpuzzledata
 app.MapGet("/getcrosswordpuzzledata", () =>
     {
-        var fileResult = GetRandomDataFile();
-        return fileResult;
+        using (ConfigurationManager configuration = builder.Configuration)
+        {
+            // get datafile path
+            var puzzleDataFile= configuration["DatafilePath"];
+        
+            //check for null data file result
+            if (puzzleDataFile != null)
+            {
+                //get the data file
+                var fileResult = Helpers.GetRandomDataFile(puzzleDataFile);
+                return fileResult;
+            }
+
+            return null;
+        }
     })
     .WithName("GetCrosswordPuzzleData");
 
 app.Run();
-
-
-//Read random data file contents from datafile path
-string? GetRandomDataFile()
-{
-    // get datafile path
-    var myKeyValue = configuration["DatafilePath"];
-
-    if (myKeyValue != null)
-    {
-        // Get a list of all files in the folder
-        var files = Directory.GetFiles(myKeyValue);
-
-        // Check if there are any files in the folder
-        if (files.Length > 0)
-        {
-            // Generate a random number to select a file
-            var random = new Random();
-            var randomIndex = random.Next(0, files.Length);
-
-            // Get the randomly selected file path
-            var selectedFilePath = files[randomIndex];
-
-            // Read the contents of the selected file
-            var fileContents = File.ReadAllText(selectedFilePath);
-            return fileContents;
-        }
-    }
-
-    return null;
-}
