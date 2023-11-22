@@ -19,6 +19,7 @@
 
 **DONE**
 * Mouse support - might need parent rectangle
+* Added basic API support
 * Button for hint letters - clickedBtnGetLetter(int nCount)
 * Listbox Headers 
 * Listboxes need to be positioned dynamically (X,Y)
