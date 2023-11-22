@@ -12,7 +12,7 @@ public sealed partial class Crossword
 
     private void NextPuzzleButtonClick(object sender, EventArgs args)
     {
-        Console.WriteLine("next puzz pressed");
+        GetNextPuzzle();
     }
 
 
