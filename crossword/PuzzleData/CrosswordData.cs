@@ -8,7 +8,7 @@
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
-
+using CyberPuzzles.Crossword.App.Config;
 
 namespace CyberPuzzles.Crossword.PuzzleData
 {
@@ -44,6 +44,13 @@ namespace CyberPuzzles.Crossword.PuzzleData
 
             ///////////////////////////////////////////////////////////////////
 
+
+            // var _conf = new ConfigurationHelper;
+            // var url = _conf.dataAPIUrl;
+            var url = ConfigurationHelper.DataApiUrl;
+            
+            
+            
 
             //// Specify the folder path
 
