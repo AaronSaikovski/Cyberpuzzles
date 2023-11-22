@@ -3,6 +3,7 @@
 **TO DO**
 * big, Chunky square graphics - or remove images and just make white squares with black text?
 * make squares bigger
+* implement API key for better security
 * Button for fetching next puzzle - calls API
 * Background graphics 
 * Credits/About screen

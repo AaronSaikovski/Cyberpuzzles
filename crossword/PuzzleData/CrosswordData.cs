@@ -10,20 +10,18 @@
 
 using System;
 using System.Net.Http;
-using System.Threading.Tasks;
 using CyberPuzzles.Crossword.App.Config;
 
 namespace CyberPuzzles.Crossword.PuzzleData
 {
-
     public partial class CrosswordData
     {
         #region CallDataApi
         /// <summary>
-        /// Calls the API
+        /// Calls the Data Svc API
         /// </summary>
         /// <returns></returns>
-        static string? CallDataApi()
+        private static string? CallDataApi()
         {
             //Use the HttpClient
             using (HttpClient client = new HttpClient())
