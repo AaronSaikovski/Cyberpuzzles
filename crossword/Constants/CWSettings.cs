@@ -29,7 +29,7 @@ namespace CyberPuzzles.Crossword.Constants
 
         //Font sizes
         public const int FntSml = 9;
-        public const int FntMed = 14;
+        public const int FntMed = 15;
         public const int FntLge = 18;
 
         //Crossword dimension constants
