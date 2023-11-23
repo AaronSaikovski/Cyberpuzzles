@@ -7,7 +7,7 @@ public sealed partial class Crossword
     #region QuickSolver
 
     /// <summary>
-    /// Quicksolver
+    /// QuickSolver
     /// </summary>
     public void QuickSolver()
     {

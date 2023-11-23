@@ -69,7 +69,7 @@ public sealed partial class Crossword
             //down
             for (var j = 0; j < _NumCols; j++)
             {
-                sqPuzzleSquares[i, j].IsDirty = true;
+                sqPuzzleSquares[i, j]!.IsDirty = true;
             }
         }
     }

@@ -82,21 +82,19 @@ public sealed partial class Crossword
         {
             for (var j = 0; j < _NumCols; j++)
             {
-                if (sqPuzzleSquares != null)
+                if (sqPuzzleSquares == null) continue;
+                sqPuzzleSquares[i, j] = new Square();
+
+                //Set SQs to dirty
+                if (NewBackFlush || InitCrossword)
                 {
-                    sqPuzzleSquares[i, j] = new Square();
-
-                    //Set SQs to dirty
-                    if (NewBackFlush || InitCrossword)
-                    {
-                        sqPuzzleSquares[i, j]!.IsDirty = true;
-                    }
-
-                    //Create squares
-                    sqPuzzleSquares[i, j]
-                        ?.CreateSquare(nCrossOffsetX + i * CwSettings.nSquareWidth,
-                        nCrossOffsetY + j * CwSettings.nSquareHeight);
+                    sqPuzzleSquares[i, j]!.IsDirty = true;
                 }
+
+                //Create squares
+                sqPuzzleSquares[i, j]
+                    ?.CreateSquare(nCrossOffsetX + i * CwSettings.nSquareWidth,
+                        nCrossOffsetY + j * CwSettings.nSquareHeight);
             }
         }
     }

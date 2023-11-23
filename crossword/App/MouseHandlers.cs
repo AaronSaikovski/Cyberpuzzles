@@ -18,46 +18,40 @@ public sealed partial class Crossword
         bBufferDirty = true;
 
         //if puzzle is finished...eat the event
-        if (!SetFinished)
+        if (SetFinished) return true;
+        //Check that the mouse event occurred within our specified rectangle
+        if (!rectCrossWord.Contains(x, y)) return true;
+        //If the individual puzzle has finished...eat the event
+        if (PuzzleFinished) return true;
+        //Exception handling added as an ArrayIndexOutOfBoundException occurs
+        var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / CwSettings.nSquareWidth, (y - nCrossOffsetY) / CwSettings.nSquareHeight];
+        try
         {
+            if (!sqSelSquare.IsCharAllowed) return true;
+            //clear current highlights
+            SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
 
-            //Check that the mouse event occurred within our specified rectangle
-            if (!rectCrossWord.Contains(x, y)) return true;
-            //If the individual puzzle has finished...eat the event
-            if (PuzzleFinished) return true;
-            //Exception handling added as an ArrayIndexOutOfBoundException occurs
-            var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / CwSettings.nSquareWidth, (y - nCrossOffsetY) / CwSettings.nSquareHeight];
-            try
-            {
-                if (sqSelSquare.IsCharAllowed)
-                {
+            //Deselect the listbox based on direction
+            DeselectListBoxItem();
 
-                    //clear current highlights
-                    SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
+            //test if same sq and flip if possible
+            CheckFlip(sqSelSquare);
 
-                    //Deselect the listbox based on direction
-                    DeselectListBoxItem();
+            //Set new current sq & highlight 
+            SetNewCurrentSquare(sqSelSquare);
 
-                    //test if same sq and flip if possible
-                    CheckFlip(sqSelSquare);
+            //Find index to Clue Answer for highlighting in List boxes
+            var ClueAnswerIdx = FindClueAnswerIdx(sqSelSquare);
 
-                    //Set new current sq & highlight 
-                    SetNewCurrentSquare(sqSelSquare);
+            //Selects the item in the list box relative to ClueAnswer and direction
+            SetListBoxClueAnswer(ClueAnswerIdx);
+            return true;
+        }
 
-                    //Find index to Clue Answer for highlighting in List boxes
-                    var ClueAnswerIdx = FindClueAnswerIdx(sqSelSquare);
-
-                    //Selects the item in the list box relative to ClueAnswer and direction
-                    SetListBoxClueAnswer(ClueAnswerIdx);
-                }
-                return true;
-            }
-
-            catch (Exception e)
-            {
-                //Catch the exception
-                Console.WriteLine($"Exception {e} occurred in method mouseUp");
-            }
+        catch (Exception e)
+        {
+            //Catch the exception
+            Console.WriteLine($"Exception {e} occurred in method mouseUp");
         }
 
         return true;
@@ -133,8 +127,9 @@ public sealed partial class Crossword
     /// test if same sq and flip if possible
     /// </summary>
     /// <param name="sqSelSquare"></param>
-    private void CheckFlip(Square? sqSelSquare)
+    private void CheckFlip(Square sqSelSquare)
     {
+        if (sqSelSquare == null) throw new ArgumentNullException(nameof(sqSelSquare));
         //test if same sq and flip if possible
         if (sqSelSquare == SqCurrentSquare)
         {

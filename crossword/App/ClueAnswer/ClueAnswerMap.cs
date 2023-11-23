@@ -101,7 +101,7 @@ public sealed class ClueAnswerMap
 
                 // Assign the created Square to the array element
                 // The original code `this.sqAnswerSquares[k] = sqAnswerSquares[k];` seems redundant, so omitted
-                if (SqAnswerSquares != null) SqAnswerSquares[k].SetObjectRef(this.IsAcross, this);
+                SqAnswerSquares?[k]?.SetObjectRef(this.IsAcross, this);
             });
         }
         catch (Exception e)
@@ -211,8 +211,9 @@ public sealed class ClueAnswerMap
     {
         if (Answer == null) return;
         for (var i = 0; i < Answer.Length; i++)
-            if (SqAnswerSquares != null)
-                SqAnswerSquares?[i].CheckLetter(Answer[i]);
+        {
+            SqAnswerSquares?[i]?.CheckLetter(Answer[i]);
+        }
     }
     #endregion
 
