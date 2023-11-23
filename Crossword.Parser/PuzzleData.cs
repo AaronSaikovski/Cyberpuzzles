@@ -30,7 +30,7 @@ public sealed partial class PuzzleData
     public string[]? Clues { get; set; }
     public string[]? Answers { get; set; }
 
-    public int[] Costs { get; } = [0, 0, 0, 0, 0, 0];
+    public int[]? Costs { get; } = [0, 0, 0, 0, 0, 0];
 
     public string? GetLetters { get; set; }
     public string? Blurb { get; set; }

@@ -22,21 +22,15 @@ app.UseHttpsRedirection();
 //getcrosswordpuzzledata
 app.MapGet("/getcrosswordpuzzledata", () =>
     {
-        using (ConfigurationManager configuration = builder.Configuration)
-        {
-            // get datafile path
-            var puzzleDataFile= configuration["DatafilePath"];
+        using var configuration = builder.Configuration;
+        // get datafile path
+        var puzzleDataFile= configuration["DatafilePath"];
         
-            //check for null data file result
-            if (puzzleDataFile != null)
-            {
-                //get the data file
-                var fileResult = ParserHelper.GetRandomDataFile(puzzleDataFile);
-                return fileResult;
-            }
-
-            return null;
-        }
+        //check for null data file result
+        if (puzzleDataFile == null) return null;
+        //get the data file
+        var fileResult = ParserHelper.GetRandomDataFile(puzzleDataFile);
+        return fileResult;
     })
     .WithName("GetCrosswordPuzzleData");
 

@@ -24,31 +24,29 @@ public static class ParserHelper
     /// </summary>
     /// <param name="puzzleData"></param>
     /// <returns></returns>
-    public static string? GetRandomDataFile(string? puzzleData)
+    public static string? GetRandomDataFile(string puzzleData)
     {
+        if (puzzleData == null) throw new ArgumentNullException(nameof(puzzleData));
         if (puzzleData is { Length: <= 0 }) throw new ArgumentOutOfRangeException(nameof(puzzleData));
             
         // Get a list of all files in the folder
         var files = Directory.GetFiles(puzzleData);
 
         // Check if there are any files in the folder
-        if (files.Length > 0)
-        {
-            // Generate a random number to select a file
-            var random = new Random();
-            var randomIndex = random.Next(0, files.Length);
+        if (files.Length <= 0) return null;
+        // Generate a random number to select a file
+        var random = new Random();
+        var randomIndex = random.Next(0, files.Length);
 
-            // Get the randomly selected file path
-            var selectedFilePath = files[randomIndex];
+        // Get the randomly selected file path
+        var selectedFilePath = files[randomIndex];
 
-            // Read the contents of the selected file
-            var fileContents = File.ReadAllText(selectedFilePath);
-            return fileContents;
-        }
-            
-           
+        // Read the contents of the selected file
+        var fileContents = File.ReadAllText(selectedFilePath);
+        return fileContents;
 
-        return null;
+
+
     }
     #endregion
 
