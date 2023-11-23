@@ -36,7 +36,7 @@ namespace CyberPuzzles.Crossword.App
         public bool IsNextPuzzleReady = true;
 
         //String for Puzzle ID of last puzzle in set
-        public string PuzzleData;
+        public string? PuzzleData;
 
         //Repaint variables
         public bool bBufferDirty, InitCrossword;
@@ -45,12 +45,12 @@ namespace CyberPuzzles.Crossword.App
         public bool NewBackFlush;
 
         //Data set variables
-        public string PuzzleType;
+        public string? PuzzleType;
         public int _NumCols, _NumRows, _NumAcross, _NumDown, _PuzzleId;
         private int[] _colRef, _rowRef, _quesNum;
         private bool[] _bDataIsAcross;
         private string[] _szClues, _szAnswers;
-        readonly int[] _nCosts = [0, 0, 0, 0, 0, 0];
+        private int[] _nCosts = [0, 0, 0, 0, 0, 0];
         private string _szGetLetters, _szTmpGetLetters, _szBlurb;
         public int NumQuestions;
 
@@ -93,7 +93,7 @@ namespace CyberPuzzles.Crossword.App
         public int NMouseY;
 
         //Tab key variable
-        private readonly int NTabPress;
+        //private readonly int NTabPress;
 
         //Scoring variable
         //private int Score;
@@ -132,7 +132,7 @@ namespace CyberPuzzles.Crossword.App
 
 
         //Puzzle squares
-        private Rectangle[,] _puzzleSquares;
+        private Rectangle[,]? _puzzleSquares;
 
         // Monogame graphics
         private readonly GraphicsDeviceManager _graphics;
