@@ -69,9 +69,11 @@ public sealed class ClueAnswerMap
     public void SetObjectRef(string Answer, string Clue, int QuestionNumber,
                                 bool IsAcross, Square?[] SqAnswerSquares)
     {
+        ArgumentNullException.ThrowIfNull(Answer);
+        ArgumentNullException.ThrowIfNull(SqAnswerSquares);
 
-        this.Answer = Answer;
-        this.Clue = Clue;
+        this.Answer = Answer ?? throw new ArgumentNullException(nameof(Answer));
+        this.Clue = Clue ?? throw new ArgumentNullException(nameof(Clue));
         this.QuestionNumber = QuestionNumber;
         this.IsAcross = IsAcross;
 
@@ -83,19 +85,23 @@ public sealed class ClueAnswerMap
         {
 
             // Assuming szAnswer and sqAnswerSquares are declared and initialized somewhere
-            int szAnswerLength = Answer.Length;
+            var szAnswerLength = Answer.Length;
 
             //Parallel for loop
             Parallel.For(0, szAnswerLength, k =>
             {
                 // Create a new Square instance
-                this.SqAnswerSquares[k] = new Square();
-                this.SqAnswerSquares[k].CreateSquare(0, 0);
-                this.SqAnswerSquares[k] = SqAnswerSquares[k];
+                var sqAnswerSquares = this.SqAnswerSquares;
+                if (sqAnswerSquares != null)
+                {
+                    sqAnswerSquares[k] = new Square();
+                    sqAnswerSquares[k]?.CreateSquare(0, 0);
+                    if (SqAnswerSquares != null) sqAnswerSquares[k] = SqAnswerSquares[k];
+                }
 
                 // Assign the created Square to the array element
                 // The original code `this.sqAnswerSquares[k] = sqAnswerSquares[k];` seems redundant, so omitted
-                SqAnswerSquares[k].SetObjectRef(this.IsAcross, this);
+                if (SqAnswerSquares != null) SqAnswerSquares[k].SetObjectRef(this.IsAcross, this);
             });
         }
         catch (Exception e)
@@ -127,9 +133,9 @@ public sealed class ClueAnswerMap
         var i = 0;
         while (Answer != null && i < Answer.Length)
         {
-            if (sq == SqAnswerSquares?[i])
+            if (SqAnswerSquares != null && sq == SqAnswerSquares?[i])
                 if (i < Answer.Length - 1)
-                    return SqAnswerSquares[i + 1];
+                    return SqAnswerSquares?[i + 1];
             i++;
         }
         return sq;
@@ -146,10 +152,10 @@ public sealed class ClueAnswerMap
     public Square? GetPrevSq(Square? sq)
     {
         if (Answer == null) return sq;
-        var i = (Answer.Length - 1);
+        var i = Answer.Length - 1;
         while (i > -1)
         {
-            if (sq == SqAnswerSquares?[i]) return i != 0 ? SqAnswerSquares[i - 1] : sq;
+            if (sq == SqAnswerSquares?[i]) return i != 0 ? SqAnswerSquares?[i - 1] : sq;
             i--;
         }
 
@@ -164,7 +170,7 @@ public sealed class ClueAnswerMap
     /// <returns></returns>
     public bool IsCorrect()
     {
-        if (Answer != null) return !Answer.Where((t, i) => SqAnswerSquares != null && SqAnswerSquares[i].Letter != t).Any();
+        if (Answer != null) return !Answer.Where((t, i) => SqAnswerSquares != null && SqAnswerSquares[i]!.Letter != t).Any();
         return true;
     }
     #endregion
@@ -181,16 +187,16 @@ public sealed class ClueAnswerMap
         var foundResult = false;
 
         // Assuming szAnswer and sqAnswerSquares are declared and initialized somewhere
-        int szAnswerLength = Answer.Length;
+        if (Answer == null) return foundResult;
+        var szAnswerLength = Answer.Length;
 
         //Parallel for loop
         Parallel.For(0, szAnswerLength, i =>
         {
-            if (SqAnswerSquares != null && (Answer[i] == hintLetter) && (SqAnswerSquares[i].Letter != hintLetter))
-            {
-                SqAnswerSquares[i].SetLetter(hintLetter, IsAcross);
-                foundResult = true;
-            }
+            if (SqAnswerSquares == null || (Answer[i] != hintLetter) ||
+                (SqAnswerSquares[i]!.Letter == hintLetter)) return;
+            SqAnswerSquares[i]?.SetLetter(hintLetter, IsAcross);
+            foundResult = true;
         });
 
         return foundResult;
@@ -205,7 +211,8 @@ public sealed class ClueAnswerMap
     {
         if (Answer == null) return;
         for (var i = 0; i < Answer.Length; i++)
-            SqAnswerSquares?[i].CheckLetter(Answer[i]);
+            if (SqAnswerSquares != null)
+                SqAnswerSquares?[i].CheckLetter(Answer[i]);
     }
     #endregion
 

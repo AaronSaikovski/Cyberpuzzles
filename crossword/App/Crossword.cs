@@ -51,7 +51,9 @@ namespace CyberPuzzles.Crossword.App
         private bool[] _bDataIsAcross;
         private string[] _szClues, _szAnswers;
         private int[] _nCosts = [0, 0, 0, 0, 0, 0];
-        private string _szGetLetters, _szTmpGetLetters, _szBlurb;
+        private string? _szGetLetters;
+        private string? _szTmpGetLetters;
+        private string? _szBlurb;
         public int NumQuestions;
 
         //Puzzle Dataset instance

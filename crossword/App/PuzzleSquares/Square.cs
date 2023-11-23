@@ -201,8 +201,7 @@ public sealed class Square
     {
         if (isAcross)
             return ClueAnswerAcross != null ? ClueAnswerAcross.GetPrevSq(this) : this;
-        else
-            return ClueAnswerDown != null ? ClueAnswerDown.GetPrevSq(this) : this;
+        return ClueAnswerDown != null ? ClueAnswerDown.GetPrevSq(this) : this;
     }
     #endregion
 

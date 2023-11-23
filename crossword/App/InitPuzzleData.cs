@@ -20,7 +20,7 @@ public sealed partial class Crossword
         PuzzleData = CrosswordData.GetCrosswordData(); 
 
         // Parse the Data
-        while (!_mrParserData.ParsePuzzleData(PuzzleData))
+        while (PuzzleData != null && !_mrParserData.ParsePuzzleData(PuzzleData))
         {
         }
 
