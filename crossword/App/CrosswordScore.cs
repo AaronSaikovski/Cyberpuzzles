@@ -37,6 +37,12 @@ public sealed partial class Crossword
     /// </summary>
     private void DrawCrosswordScore()
     {
+        // if (clearLabels)
+        // {
+        //     _mainPanel.Widgets.Remove(_currentScoreLabel);
+        //     _mainPanel.Widgets.Remove(_maxScoreLabel);
+        // }
+
         if (!IsFinished)
         {
             //Current score label

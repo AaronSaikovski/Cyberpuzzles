@@ -43,13 +43,13 @@ namespace CyberPuzzles.Crossword.Constants
 
 
         //Small number offset
-        public const float SmlNumOffsetX = 1.5f;
+        public const float SmlNumOffsetX = 1.6f;
         public const float SmlNumOffsetY = 1.5f;
 
 
         //Square char offset
         public const float SqCharOffsetX = 9f;
-        public const float SqCharOffsetY = 7f;
+        public const float SqCharOffsetY = 8.5f;
 
         //ClueList offsets/sizes
         public const int ClLabelHeight = 20;

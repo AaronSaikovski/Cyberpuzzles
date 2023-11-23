@@ -51,6 +51,9 @@ public sealed partial class Crossword
 
         //Get next puzzle ID
         _bMorePuzzles = true; // getNextPuzzleData();
+        
+        //Cleanup
+        System.GC.Collect();
     }
     #endregion
 

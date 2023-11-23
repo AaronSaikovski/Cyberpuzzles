@@ -1,7 +1,6 @@
 ﻿**CW.Net**
 
 **TO DO**
-* Button for fetching next puzzle - calls API
 * big, Chunky square graphics - or remove images and just make white squares with black text?
 * add buttons for hints and get next puzzle link buttons.
 * implement API key for better security https://www.c-sharpcorner.com/article/using-api-key-authentication-to-secure-asp-net-core-web-api/
@@ -23,6 +22,7 @@
 * Added basic API support
 * Button for hint letters - clickedBtnGetLetter(int nCount)
 * Listbox Headers 
+* Button for fetching next puzzle - calls API
 * Listboxes need to be positioned dynamically (X,Y)
 * Fix listbox X,Y coords - make more dynamic 
 * ListBox Font - how to change the font style - raised issue: https://github.com/rds1983/Myra/issues/432 - Resolved

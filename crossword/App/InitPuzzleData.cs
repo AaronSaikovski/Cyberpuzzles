@@ -17,7 +17,7 @@ public sealed partial class Crossword
         _mrParserData = new Parser.PuzzleData();
 
         // Get the Puzzle Data
-        PuzzleData = CrosswordData.GetCrosswordData(); //FetchPuzzleData();
+        PuzzleData = CrosswordData.GetCrosswordData(); 
 
         // Parse the Data
         while (!_mrParserData.ParsePuzzleData(PuzzleData))
