@@ -15,6 +15,13 @@ namespace CyberPuzzles.Crossword.Parser;
 public sealed partial class PuzzleData
 {
     #region Fields
+    
+    // public int CoordAcross { get; set; } = coordAcross;
+    // public int CoordDown { get; set; } = coordDown;
+    // public string Answer { get; set; } = answer;
+    // public string Clue { get; set; } = clue;
+    // public bool IsAcross { get; set; } = isAcross;
+    // public int QuestionNum { get; set; } = questionNum;
 
     //Instance variables for holding parsed QuickCrossword data
     public string? PuzzleType { get; set; }
