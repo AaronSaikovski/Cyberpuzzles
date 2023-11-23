@@ -19,7 +19,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
         #region Keyboard_Input_Handler
 
         //Crossword instance
-        //private readonly Crossword.App.Crossword _crossword = crossword;
+        //private readonly Crossword.Crossword _crossword = crossword;
         App.Crossword _crossword = crossword;
         
         public void HandleKeyboardKeyDown(Keys[] keysDown, Keys keyInFocus, KeyboardModifier keyboardModifier)

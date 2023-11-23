@@ -1,7 +1,7 @@
 
 using CyberPuzzles.Crossword.Constants;
-using CyberPuzzles.Crossword.ClueAnswer;
-using CyberPuzzles.Crossword.PuzzleSquares;
+using CyberPuzzles.Crossword.App.ClueAnswer;
+using CyberPuzzles.Crossword.App.PuzzleSquares;
 
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;

@@ -8,9 +8,9 @@ using Myra.Graphics2D.UI;
 
 //Custom namespaces
 using CyberPuzzles.Crossword.InputHandlers;
-using CyberPuzzles.Crossword.ClueAnswer;
-using CyberPuzzles.Crossword.PuzzleSquares;
-using CyberPuzzles.Crossword.Datasets;
+using CyberPuzzles.Crossword.App.ClueAnswer;
+using CyberPuzzles.Crossword.App.PuzzleSquares;
+using CyberPuzzles.Crossword.App.Datasets;
 
 
 ////////////////////////////////////////////////////////////////////////////

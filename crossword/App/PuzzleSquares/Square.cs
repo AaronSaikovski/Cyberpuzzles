@@ -10,10 +10,10 @@
 
 using System;
 using Microsoft.Xna.Framework;
-using CyberPuzzles.Crossword.ClueAnswer;
+using CyberPuzzles.Crossword.App.ClueAnswer;
 using CyberPuzzles.Crossword.Constants;
 
-namespace CyberPuzzles.Crossword.PuzzleSquares;
+namespace CyberPuzzles.Crossword.App.PuzzleSquares;
 
 //Square class
 public sealed class Square

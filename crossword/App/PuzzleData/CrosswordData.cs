@@ -12,7 +12,7 @@ using System;
 using System.Net.Http;
 using CyberPuzzles.Crossword.App.Config;
 
-namespace CyberPuzzles.Crossword.PuzzleData
+namespace CyberPuzzles.Crossword.App.PuzzleData
 {
     public partial class CrosswordData
     {

@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
 
-using CyberPuzzles.Crossword.Datasets;
+using CyberPuzzles.Crossword.App.Datasets;
 
 namespace CyberPuzzles.Crossword.App;
 

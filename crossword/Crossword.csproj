@@ -8,6 +8,7 @@
     <Authors>Aaron Saikovski</Authors>
     <LangVersion>12</LangVersion>
     <Nullable>enable</Nullable>
+    <RootNamespace>Crossword</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
