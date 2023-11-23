@@ -50,7 +50,7 @@ public sealed partial class Crossword
         NewBackFlush = true;
 
         //Get next puzzle ID
-        _bMorePuzzles = true; // getNextPuzzleData();
+        _bMorePuzzles = true; 
         
         //Cleanup
         System.GC.Collect();

@@ -29,8 +29,8 @@ public sealed partial class Crossword
          _mrParserData = null;
          InitPuzzleData();
            
-        //Next Puzzle is currently unavailable flag
-        IsNextPuzzleReady = true;
+         //Next Puzzle is currently unavailable flag
+         IsNextPuzzleReady = true;
 
         //list boxes
         LstClueAcross.Items.Clear();
