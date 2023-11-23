@@ -45,10 +45,11 @@ public sealed class ClueAnswerMap
         for (var i = 0; i < Answer.Length; i++)
         {
             if (!setHighLighted)
-                SqAnswerSquares?[i].SetHighlighted(CwSettings.nCURRENT_NONE);
+                SqAnswerSquares?[i]?.SetHighlighted(CwSettings.nCURRENT_NONE);
             else
             {
-                SqAnswerSquares?[i].SetHighlighted(SqAnswerSquares?[i] == sq
+                SqAnswerSquares?[i]
+                    ?.SetHighlighted(SqAnswerSquares?[i] == sq
                     ? CwSettings.nCURRENT_LETTER
                     : CwSettings.nCURRENT_WORD);
             }

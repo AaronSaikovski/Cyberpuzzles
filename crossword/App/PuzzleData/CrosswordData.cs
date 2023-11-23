@@ -29,7 +29,7 @@ namespace CyberPuzzles.Crossword.App.PuzzleData
                 try
                 {
                     //API 
-                    string apiUrl = ConfigurationHelper.DataApiUrl;
+                    string? apiUrl = ConfigurationHelper.DataApiUrl;
                     
                     // Make the GET request to the API endpoint
                     var response = client.GetAsync(apiUrl).Result;

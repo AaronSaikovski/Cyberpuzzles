@@ -9,8 +9,8 @@ public static class ConfigurationHelper
     //IConfigurationRoot
     private static IConfigurationRoot _configuration;
     
-    public static string DataApiUrl { get; }
-    public static string DataApiKey { get; }
+    public static string? DataApiUrl { get; }
+    public static string? DataApiKey { get; }
 
     #region ConfigurationHelper
     /// <summary>
