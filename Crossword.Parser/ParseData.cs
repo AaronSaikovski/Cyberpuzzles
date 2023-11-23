@@ -7,12 +7,14 @@ public sealed partial class PuzzleData
    /// // Pre  : szParseData is NOT null
    /// // Post : Returns true if data has been succesfully parsed from String and false otherwise
    /// </summary>
-   /// <param name="szParseData"></param>
+   /// <param name="puzzleData"></param>
    /// <returns></returns>
-    public bool ParsePuzzleData(string szParseData)
+    public bool ParsePuzzleData(string puzzleData)
     {
+        if (puzzleData == null) throw new ArgumentNullException(nameof(puzzleData));
+        
         //local vars
-        var strData = szParseData.Split("*");
+        var strData = puzzleData.Split("*");
 
         //Loop over for each of the tokens
         for (var tokenIdx = 0; tokenIdx < strData.Length; tokenIdx++)

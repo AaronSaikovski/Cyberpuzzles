@@ -45,8 +45,6 @@ public static class ParserHelper
         var fileContents = File.ReadAllText(selectedFilePath);
         return fileContents;
 
-
-
     }
     #endregion
 
