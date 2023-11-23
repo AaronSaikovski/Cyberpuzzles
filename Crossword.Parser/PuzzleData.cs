@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////
 //                                                                          //
-//      Module:     PuzzleData.cs                                      //
+//      Module:     PuzzleData.cs                                           //
 //      Authors:    Aaron Saikovski & Bryan Richards                        //
 //      Date:       23/01/97                                                //
 //      Version:    1.0                                                     //
