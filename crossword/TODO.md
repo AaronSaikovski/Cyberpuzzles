@@ -1,13 +1,13 @@
 ﻿**CW.Net**
 
 **TO DO**
-* big, Chunky square graphics - or remove images and just make white squares with black text?
-* make squares bigger
-* implement API key for better security
 * Button for fetching next puzzle - calls API
+* big, Chunky square graphics - or remove images and just make white squares with black text?
+* add buttons for links.
+* implement API key for better security https://www.c-sharpcorner.com/article/using-api-key-authentication-to-secure-asp-net-core-web-api/
 * Background graphics 
-* Credits/About screen
-* Big refactor/Memory optimisation
+* Credits/About screen - https://github.com/Byron1c/MonoGame-Game-Menu
+* Big refactor/Memory optimisation - remove PuzzleDataset? needed
 * GitHub action for building X-Platform
 * Test on windows
 * Readme on how to build and deploy on Windows, Mac and Linux
