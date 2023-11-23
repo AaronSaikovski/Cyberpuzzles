@@ -1,5 +1,5 @@
-using CyberPuzzles.Crossword.Parser;
-using CyberPuzzles.Crossword.PuzzleData;
+
+using CyberPuzzles.Crossword.App.PuzzleData;
 
 namespace CyberPuzzles.Crossword.App;
 
