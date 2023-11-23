@@ -30,8 +30,7 @@ public sealed partial class Crossword
     }
 
     #endregion
-
-
+    
     #region DrawCrosswordScore
     /// <summary>
     /// Draws the crossword score and updates the values

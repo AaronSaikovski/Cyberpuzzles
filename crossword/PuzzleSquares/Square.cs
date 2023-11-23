@@ -10,10 +10,10 @@
 
 using System;
 using Microsoft.Xna.Framework;
-using CyberPuzzles.Crossword.App.ClueAnswers;
+using CyberPuzzles.Crossword.ClueAnswer;
 using CyberPuzzles.Crossword.Constants;
 
-namespace CyberPuzzles.Crossword.App.Squares;
+namespace CyberPuzzles.Crossword.PuzzleSquares;
 
 //Square class
 public sealed class Square
@@ -34,8 +34,8 @@ public sealed class Square
 
     public bool IsCharAllowed { get; set; }
 
-    public ClueAnswer? ClueAnswerAcross { get; set; }
-    public ClueAnswer? ClueAnswerDown { get; set; }
+    public ClueAnswerMap? ClueAnswerAcross { get; set; }
+    public ClueAnswerMap? ClueAnswerDown { get; set; }
 
     #endregion
 
@@ -59,7 +59,7 @@ public sealed class Square
     /// </summary>
     /// <param name="isAcross"></param>
     /// <param name="clueAnswer"></param>
-    public void SetObjectRef(bool isAcross, ClueAnswer clueAnswer)
+    public void SetObjectRef(bool isAcross, ClueAnswerMap clueAnswer)
     {
         if (isAcross)
             ClueAnswerAcross = clueAnswer;
@@ -123,7 +123,7 @@ public sealed class Square
     /// </summary>
     /// <param name="isAcross"></param>
     /// <returns></returns>
-    public ClueAnswer? GetClueAnswerRef(bool isAcross)
+    public ClueAnswerMap? GetClueAnswerRef(bool isAcross)
     {
         return isAcross ? ClueAnswerAcross : ClueAnswerDown;
     }

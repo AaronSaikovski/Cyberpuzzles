@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
-//      Module:             ClueAnswer.cs                                 //
+//      Module:             ClueAnswerMap.cs                                 //
 //      Authors:            Aaron Saikovski & Bryan Richards              //
 //      Original Date:      26/02/97                                      //
 //      Version:            1.0                                           //
@@ -12,14 +12,14 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using CyberPuzzles.Crossword.Constants;
-using CyberPuzzles.Crossword.App.Squares;
+using CyberPuzzles.Crossword.PuzzleSquares;
 
-namespace CyberPuzzles.Crossword.App.ClueAnswers;
+namespace CyberPuzzles.Crossword.ClueAnswer;
 
 /// <summary>
 /// ClueAnswer Class
 /// </summary>
-public sealed class ClueAnswer
+public sealed class ClueAnswerMap
 {
     #region getters_setters
     public string? Answer { get; set; }

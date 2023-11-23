@@ -1,7 +1,7 @@
 
 using CyberPuzzles.Crossword.Constants;
-using CyberPuzzles.Crossword.App.ClueAnswers;
-using CyberPuzzles.Crossword.App.Squares;
+using CyberPuzzles.Crossword.ClueAnswer;
+using CyberPuzzles.Crossword.PuzzleSquares;
 
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
@@ -21,7 +21,7 @@ public sealed partial class Crossword
         _puzzleSquares = new Rectangle[_NumRows, _NumCols];
 
         //Init ClueAnswers
-        caPuzzleClueAnswers = new ClueAnswer[NumQuestions]; //Need to work out dimensions
+        caPuzzleClueAnswers = new ClueAnswerMap[NumQuestions]; //Need to work out dimensions
 
         //Initialise the arrays
         InitArrays();
@@ -64,7 +64,7 @@ public sealed partial class Crossword
             }
 
             //Build the Clue/Answer references
-            caPuzzleClueAnswers[i] = new ClueAnswer();
+            caPuzzleClueAnswers[i] = new ClueAnswerMap();
             caPuzzleClueAnswers[i].SetObjectRef(_puzzleDataset[i].Answer,
                 _puzzleDataset[i].Clue, _puzzleDataset[i].QuestionNum,
                 _puzzleDataset[i].IsAcross, sqAnswerSquares);

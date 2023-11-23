@@ -8,10 +8,9 @@ using Myra.Graphics2D.UI;
 
 //Custom namespaces
 using CyberPuzzles.Crossword.InputHandlers;
-using CyberPuzzles.Crossword.Parser;
-using CyberPuzzles.Crossword.App.ClueAnswers;
-using CyberPuzzles.Crossword.App.Squares;
-using CyberPuzzles.Crossword.App.Datasets;
+using CyberPuzzles.Crossword.ClueAnswer;
+using CyberPuzzles.Crossword.PuzzleSquares;
+using CyberPuzzles.Crossword.Datasets;
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -62,7 +61,7 @@ namespace CyberPuzzles.Crossword.App
         public Square?[,] sqPuzzleSquares;
 
         //ClueAnswer Instance variable
-        private ClueAnswer[] caPuzzleClueAnswers;
+        private ClueAnswerMap[] caPuzzleClueAnswers;
 
         //Highlight Constants
         private readonly int CurrentLetter = 1;

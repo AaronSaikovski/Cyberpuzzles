@@ -1,4 +1,4 @@
-namespace CyberPuzzles.Crossword.App.Datasets;
+namespace CyberPuzzles.Crossword.Datasets;
 
 /// <summary>
 /// Crossword dataset to map clues to answers.

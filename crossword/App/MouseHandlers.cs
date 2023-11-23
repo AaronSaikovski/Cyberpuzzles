@@ -1,5 +1,5 @@
 using System;
-using CyberPuzzles.Crossword.App.Squares;
+using CyberPuzzles.Crossword.PuzzleSquares;
 using CyberPuzzles.Crossword.Constants;
 
 namespace CyberPuzzles.Crossword.App;
