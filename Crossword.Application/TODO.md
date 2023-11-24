@@ -1,7 +1,7 @@
 ﻿**CW.Net**
 
 **TO DO**
-* big, Chunky square graphics - or remove images and just make white squares with black text?
+* add black line spacers between puzzle squares
 * add buttons for hints and get next puzzle link buttons.
 * implement API key for better security https://www.c-sharpcorner.com/article/using-api-key-authentication-to-secure-asp-net-core-web-api/
 * Background graphics 
@@ -19,6 +19,7 @@
 
 **DONE**
 * Mouse support - might need parent rectangle
+* * big, Chunky square graphics - or remove images and just make white squares with black text?
 * Added basic API support
 * Button for hint letters - clickedBtnGetLetter(int nCount)
 * Listbox Headers 

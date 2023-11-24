@@ -123,6 +123,7 @@ namespace CyberPuzzles.Crossword.App
         private Texture2D _imgSquareWord;
         private Texture2D _imgHighliteSquare;
         private Texture2D _imgNormalSquare;
+        private Texture2D _imgBlackSquare;
 
 
         //list boxes

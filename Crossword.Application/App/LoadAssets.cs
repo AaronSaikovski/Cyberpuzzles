@@ -13,9 +13,14 @@ public sealed partial class Crossword
     /// </summary>
     private void LoadImages()
     {
-        _imgHighliteSquare = Content.Load<Texture2D>("images/sqlite");
-        _imgSquareWord = Content.Load<Texture2D>("images/wordlite");
-        _imgNormalSquare = Content.Load<Texture2D>("images/normsq");
+        // _imgHighliteSquare = Content.Load<Texture2D>("images/sqlite");
+        // _imgSquareWord = Content.Load<Texture2D>("images/wordlite");
+        // _imgNormalSquare = Content.Load<Texture2D>("images/normsq");
+        
+        _imgBlackSquare = Content.Load<Texture2D>("images/tile_black");
+        _imgHighliteSquare = Content.Load<Texture2D>("images/tile_yellow");
+        _imgSquareWord = Content.Load<Texture2D>("images/tile_orange");
+        _imgNormalSquare = Content.Load<Texture2D>("images/tile_grey");
     }
 
     #endregion

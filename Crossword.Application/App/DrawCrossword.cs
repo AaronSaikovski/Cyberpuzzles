@@ -38,13 +38,19 @@ public sealed partial class Crossword
                     DrawSmallFontAcross(i, j);
                     DrawSmallFontDown(i, j);
 
-                    //Char entered by user.
-                    DrawUserChar(i, j);
+                    //check if squares are dirty
+                    if (sqPuzzleSquares[i, j].IsDirty)
+                    {
+                        //Char entered by user.
+                        DrawUserChar(i, j);
+                    }
+                    
                 }
                 else
                 {
                     // Black square
-                    _spriteBatch.Draw(_blackTexture, _puzzleSquares[i, j], _rectangleColor);
+                    //_spriteBatch.Draw(_blackTexture, _puzzleSquares[i, j], _rectangleColor);
+                    _spriteBatch.Draw(_imgBlackSquare, _puzzleSquares[i, j], _rectangleColor);
                 }
             }
         }

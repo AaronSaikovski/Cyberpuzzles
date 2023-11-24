@@ -18,8 +18,8 @@ namespace CyberPuzzles.Crossword.Constants
     {
 
         //Square width and height constants
-        public const int nSquareWidth = 32;
-        public const int nSquareHeight = 32;
+        public const int nSquareWidth = 40;
+        public const int nSquareHeight = 40;
 
         //Highlight Constants
         public const int nCURRENT_LETTER = 1;
@@ -30,7 +30,7 @@ namespace CyberPuzzles.Crossword.Constants
         //Font sizes
         public const int FntSml = 9;
         public const int FntMed = 15;
-        public const int FntLge = 18;
+        public const int FntLge = 20;
 
         //Crossword.Application dimension constants
         public const int NMaxCrossWidth = 291;
@@ -48,8 +48,8 @@ namespace CyberPuzzles.Crossword.Constants
 
 
         //Square char offset
-        public const float SqCharOffsetX = 9f;
-        public const float SqCharOffsetY = 8.5f;
+        public const float SqCharOffsetX = 12f;
+        public const float SqCharOffsetY = 12f;
 
         //ClueList offsets/sizes
         public const int ClLabelHeight = 20;
@@ -57,7 +57,7 @@ namespace CyberPuzzles.Crossword.Constants
         public const int ClListSpacer = 5;
 
         //Colors for square letters
-        public static Color SqCorrect = Color.White;
+        public static Color SqCorrect = Color.Green;
         public static Color SqError = Color.Red;
         
         //default puzzledata
