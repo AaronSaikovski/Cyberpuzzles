@@ -30,7 +30,7 @@ public static class ParserHelper
         if (puzzleData is { Length: <= 0 }) throw new ArgumentOutOfRangeException(nameof(puzzleData));
             
         // Get a list of all files in the folder
-        var files = Directory.GetFiles(puzzleData);
+        var files = Directory.GetFiles(puzzleData,"*.txt");
 
         // Check if there are any files in the folder
         if (files.Length <= 0) return null;
