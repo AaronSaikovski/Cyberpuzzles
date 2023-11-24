@@ -7,7 +7,7 @@ public sealed partial class Crossword
 {
     #region InitData
     /// <summary>
-    /// Inits the Crossword data
+    /// Inits the Crossword.Application data
     /// </summary>
     private void InitData()
     {

@@ -18,7 +18,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
     {
         #region Mouse_Input_Handler
 
-        //Crossword instance
+        //Crossword.Application instance
         private readonly Crossword.App.Crossword _crossword = crossword;
 
         public void HandleLeftMouseClick(MouseState mouseState, MouseState origin)

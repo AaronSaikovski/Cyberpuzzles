@@ -32,7 +32,7 @@ namespace CyberPuzzles.Crossword.Constants
         public const int FntMed = 15;
         public const int FntLge = 18;
 
-        //Crossword dimension constants
+        //Crossword.Application dimension constants
         public const int NMaxCrossWidth = 291;
         public const int NMaxCrossHeight = 291;
 

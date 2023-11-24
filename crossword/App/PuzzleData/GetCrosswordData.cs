@@ -3,7 +3,7 @@
 //      Module:     GetCrosswordData.cs                                   //
 //      Authors:    Aaron Saikovski                                       //
 //      Date:       31/10/2023                                            //
-//      Purpose:    Gets Crossword puzzle data from an API.               //
+//      Purpose:    Gets Crossword.Application puzzle data from an API.               //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 

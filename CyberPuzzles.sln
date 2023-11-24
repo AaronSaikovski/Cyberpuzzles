@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword", "crossword\Crossword.csproj", "{A0C4193F-3FD8-41A6-A3E7-9844D1FFF063}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Application", "crossword\Crossword.Application.csproj", "{A0C4193F-3FD8-41A6-A3E7-9844D1FFF063}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Parser", "Crossword.Parser\Crossword.Parser.csproj", "{18F576F0-748B-414B-9039-FA6E17170365}"
 EndProject

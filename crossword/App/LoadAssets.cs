@@ -41,7 +41,7 @@ public sealed partial class Crossword
         //Char entered by user.    
         _fntFont = fntHelveticaBoldSystem.GetFont(CwSettings.FntLge);
 
-        //Crossword score      
+        //Crossword.Application score      
         _fntScore = fntHelveticaBoldSystem.GetFont(CwSettings.FntLge);
 
         //Across/Down listbox Headers

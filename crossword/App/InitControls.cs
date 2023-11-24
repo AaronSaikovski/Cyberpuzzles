@@ -27,7 +27,7 @@ public sealed partial class Crossword
         //Init next puzzle button
         InitGetNextPuzzleButton();
 
-        //Crossword Parsed Dataset
+        //Crossword.Application Parsed Dataset
         //
         //Dimension array for crossword data
         _puzzleDataset = new PuzzleDataset[NumQuestions];
