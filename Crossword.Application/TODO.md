@@ -1,7 +1,7 @@
 ﻿**CW.Net**
 
 **TO DO**
-* add black line spacers between puzzle squares
+* add black line spacers between puzzle squares - refer to updateBackBuffer()
 * add buttons for hints and get next puzzle link buttons.
 * implement API key for better security https://www.c-sharpcorner.com/article/using-api-key-authentication-to-secure-asp-net-core-web-api/
 * Background graphics 
