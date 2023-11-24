@@ -30,7 +30,6 @@ app.MapGet("/getcrosswordpuzzledata", (IConfiguration configuration) =>
     //get the data file
     var fileResult = ParserHelper.GetRandomDataFile(puzzleDataFile);
     return fileResult;
-})
-    .WithName("GetCrosswordPuzzleData");
+}).WithName("GetCrosswordPuzzleData");
 
 app.Run();
