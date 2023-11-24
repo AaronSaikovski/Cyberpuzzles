@@ -17,7 +17,7 @@ public sealed partial class ClueAnswerMap
     /// <param name="IsAcross"></param>
     /// <param name="SqAnswerSquares"></param>
     public void SetObjectRef(string Answer, string Clue, int QuestionNumber,
-        bool IsAcross, Square?[] SqAnswerSquares)
+        bool IsAcross, Square?[]? SqAnswerSquares)
     {
         ArgumentNullException.ThrowIfNull(Answer);
         ArgumentNullException.ThrowIfNull(SqAnswerSquares);

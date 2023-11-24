@@ -11,8 +11,8 @@ public sealed partial class PuzzleData
    /// <returns></returns>
     public bool ParsePuzzleData(string puzzleData)
     {
-        if (puzzleData == null) throw new ArgumentNullException(nameof(puzzleData));
-        
+        ArgumentNullException.ThrowIfNull(puzzleData);
+
         //local vars
         var strData = puzzleData.Split("*");
 

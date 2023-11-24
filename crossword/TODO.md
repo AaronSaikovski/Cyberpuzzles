@@ -6,8 +6,7 @@
 * implement API key for better security https://www.c-sharpcorner.com/article/using-api-key-authentication-to-secure-asp-net-core-web-api/
 * Background graphics 
 * Credits/About screen - https://github.com/Byron1c/MonoGame-Game-Menu
-* Big refactor/Memory optimisation - 
-* remove PuzzleDataset? it is needed - consolidate datasets
+* Big refactor/Memory optimisation -
 * GitHub action for building X-Platform
 * Test on windows
 * Readme on how to build and deploy on Windows, Mac and Linux
