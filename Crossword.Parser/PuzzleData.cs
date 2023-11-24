@@ -16,19 +16,12 @@ public sealed partial class PuzzleData
 {
     #region Fields
     
-    // public int CoordAcross { get; set; } = coordAcross;
-    // public int CoordDown { get; set; } = coordDown;
-    // public string Answer { get; set; } = answer;
-    // public string Clue { get; set; } = clue;
-    // public bool IsAcross { get; set; } = isAcross;
-    // public int QuestionNum { get; set; } = questionNum;
-
     //Instance variables for holding parsed QuickCrossword data
     public string? PuzzleType { get; set; }
     public int NumCols { get; set; }
     public int NumRows { get; set; }
-    public int NumAcross { get; }
-    public int NumDown { get; }
+    public int NumAcross { get; set; }
+    public int NumDown { get; set; }
     public int PuzzleId { get; set; }
     public int[]? ColRef { get; set; }
     public int[]? RowRef { get; set; }
@@ -37,7 +30,8 @@ public sealed partial class PuzzleData
     public string[]? Clues { get; set; }
     public string[]? Answers { get; set; }
 
-    public int[]? Costs { get; } = [0, 0, 0, 0, 0, 0];
+    //public int[]? Costs { get; } = [0, 0, 0, 0, 0, 0];
+    public int[]? Costs { get; set; }
 
     public string? GetLetters { get; set; }
     public string? Blurb { get; set; }

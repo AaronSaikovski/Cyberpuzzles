@@ -5,7 +5,7 @@ public sealed partial class PuzzleData
    /// <summary>
    /// // Main - used to parse QuickCrossword data set from string
    /// // Pre  : szParseData is NOT null
-   /// // Post : Returns true if data has been succesfully parsed from String and false otherwise
+   /// // Post : Returns true if data has been successfully parsed from String and false otherwise
    /// </summary>
    /// <param name="puzzleData"></param>
    /// <returns></returns>
