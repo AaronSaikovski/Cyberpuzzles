@@ -18,11 +18,14 @@ public sealed partial class Crossword
             {
                 for (var j = 0; j < NumQuestions; j++)
                 {
-                    if (_szTmpGetLetters.Length <= 0) continue;
-                    var chHintLetter = _szTmpGetLetters[0];
-                    _szTmpGetLetters = _szTmpGetLetters[1..];
-                    for (var i = 0; i < NumQuestions; i++)
-                        caPuzzleClueAnswers[i].CheckHint(chHintLetter);
+                    if (_szTmpGetLetters != null && _szTmpGetLetters.Length <= 0) continue;
+                    if (_szTmpGetLetters != null)
+                    {
+                        var chHintLetter = _szTmpGetLetters[0];
+                        _szTmpGetLetters = _szTmpGetLetters[1..];
+                        for (var i = 0; i < NumQuestions; i++)
+                            caPuzzleClueAnswers[i].CheckHint(chHintLetter);
+                    }
                 }
             }
 

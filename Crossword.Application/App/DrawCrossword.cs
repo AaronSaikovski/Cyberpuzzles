@@ -101,7 +101,7 @@ public sealed partial class Crossword
     /// <param name="j"></param>
     private void DrawSmallFontDown(int i, int j)
     {
-        if (sqPuzzleSquares?[i, j].ClueAnswerDown == null) return;
+        if (sqPuzzleSquares != null && sqPuzzleSquares?[i, j].ClueAnswerDown == null) return;
         if (sqPuzzleSquares[i, j].ClueAnswerDown?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
         _spriteBatch.DrawString(_fntnumFont,
             sqPuzzleSquares[i, j].ClueAnswerDown?.QuestionNumber.ToString(),
@@ -120,7 +120,7 @@ public sealed partial class Crossword
     private bool DrawSquares(int i, int j)
     {
         //Check to see if a repaint is required
-        if (!sqPuzzleSquares[i, j]!.IsDirty) return true;
+        if (sqPuzzleSquares != null && !sqPuzzleSquares[i, j]!.IsDirty) return true;
         if (sqPuzzleSquares[i, j].BackColour.Equals(Color.White))
         {
             _spriteBatch.Draw(_imgNormalSquare, _puzzleSquares[i, j], _rectangleColor);

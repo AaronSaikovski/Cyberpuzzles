@@ -27,7 +27,7 @@ public sealed partial class Crossword
         var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / CwSettings.nSquareWidth, (y - nCrossOffsetY) / CwSettings.nSquareHeight];
         try
         {
-            if (!sqSelSquare.IsCharAllowed) return true;
+            if (sqSelSquare != null && !sqSelSquare.IsCharAllowed) return true;
             //clear current highlights
             SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
 
@@ -131,15 +131,18 @@ public sealed partial class Crossword
     {
         if (sqSelSquare == null) throw new ArgumentNullException(nameof(sqSelSquare));
         //test if same sq and flip if possible
-        if (sqSelSquare == SqCurrentSquare)
+        if (sqSelSquare != SqCurrentSquare)
+        {
+            if ((IsAcross) && (sqSelSquare.ClueAnswerAcross == null))
+                IsAcross = !IsAcross;
+            else if ((!IsAcross) && (sqSelSquare.ClueAnswerDown == null))
+                IsAcross = !IsAcross;
+        }
+        else
         {
             if (sqSelSquare.CanFlipDirection(IsAcross))
                 IsAcross = !IsAcross;
         }
-        else if ((IsAcross) && (sqSelSquare.ClueAnswerAcross == null))
-            IsAcross = !IsAcross;
-        else if ((!IsAcross) && (sqSelSquare.ClueAnswerDown == null))
-            IsAcross = !IsAcross;
     }
     #endregion
 
