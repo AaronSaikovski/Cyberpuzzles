@@ -3,7 +3,6 @@
 **TO DO**
 * add black line spacers between puzzle squares - refer to updateBackBuffer()
 * add buttons for hints and get next puzzle link buttons.
-
 * Background graphics 
 * Credits/About screen - https://github.com/Byron1c/MonoGame-Game-Menu
 * Big refactor/Memory optimisation -
