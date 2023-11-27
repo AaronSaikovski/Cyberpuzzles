@@ -8,6 +8,8 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System;
+using System.IO;
+using System.Net;
 using System.Net.Http;
 using CyberPuzzles.Crossword.App.Config;
 
@@ -28,18 +30,22 @@ public partial class CrosswordData
         {
             try
             {
-                //API 
+                //get config values from the appsettings
                 var apiUrl = ConfigurationHelper.DataApiUrl;
+                var apiKey = ConfigurationHelper.DataApiKey;
 
+                //pass in the API key to the header
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Add("XApiKey", apiKey);
+                
                 // Make the GET request to the API endpoint
                 var response = client.GetAsync(apiUrl).Result;
 
-                //check for errors...response
-                if (response.IsSuccessStatusCode) return response.Content.ReadAsStringAsync().Result;
+                //check for errors...response codes etc
+                if (response.IsSuccessStatusCode) 
+                    return response.Content.ReadAsStringAsync().Result;
                 Console.WriteLine($"Failed to call the API. Status code: {response.StatusCode}");
                 return null;
-
-                //return the result
             }
             catch (Exception ex)
             {

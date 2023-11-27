@@ -31,7 +31,7 @@ public static class ConfigurationHelper
             DataApiUrl = _configuration.GetSection("DataAPISvc")["Url"];
         
             //Auth Key
-            DataApiKey = _configuration.GetSection("DataAPISvc")["AuthKey"];
+            DataApiKey = _configuration.GetSection("DataAPISvc")["XApiKey"];
         }
         catch (Exception e)
         {

@@ -3,7 +3,7 @@
 **TO DO**
 * add black line spacers between puzzle squares - refer to updateBackBuffer()
 * add buttons for hints and get next puzzle link buttons.
-* implement API key for better security https://www.c-sharpcorner.com/article/using-api-key-authentication-to-secure-asp-net-core-web-api/
+
 * Background graphics 
 * Credits/About screen - https://github.com/Byron1c/MonoGame-Game-Menu
 * Big refactor/Memory optimisation -
@@ -26,4 +26,5 @@
 * Button for fetching next puzzle - calls API
 * Listboxes need to be positioned dynamically (X,Y)
 * Fix listbox X,Y coords - make more dynamic 
-* ListBox Font - how to change the font style - raised issue: https://github.com/rds1983/Myra/issues/432 - Resolved
+* ListBox Font - how to change the font style - raised issue: https://github.com/rds1983/Myra/issues/432 - Resolved 
+* implement API key for better security https://www.c-sharpcorner.com/article/using-api-key-authentication-to-secure-asp-net-core-web-api/

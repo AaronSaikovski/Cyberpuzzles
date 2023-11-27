@@ -15,5 +15,4 @@ public sealed partial class Crossword
         GetNextPuzzle();
     }
 
-
 }

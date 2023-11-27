@@ -1,3 +1,4 @@
+
 using CyberPuzzles.Crossword.Parser;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,8 +16,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
+app.UseMiddleware<ApiKeyMiddleware>();
 
 
 #region getcrosswordpuzzledata
