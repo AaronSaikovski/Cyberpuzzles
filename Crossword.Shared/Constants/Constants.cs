@@ -74,5 +74,9 @@ public sealed class Constants
     //Fonts
     public static string HelveticaBold = "fonts/Helvetica-Bold.ttf";
     public static string HelveticaPlain = "fonts/Helvetica.ttf";
+    
+    
+    //Score color
+    public static Color ScoreColor = Color.Red;
 }
     

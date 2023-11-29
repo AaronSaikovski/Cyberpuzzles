@@ -37,18 +37,12 @@ public sealed partial class Crossword
     /// </summary>
     private void DrawCrosswordScore()
     {
-        // if (clearLabels)
-        // {
-        //     _mainPanel.Widgets.Remove(_currentScoreLabel);
-        //     _mainPanel.Widgets.Remove(_maxScoreLabel);
-        // }
-
         if (!IsFinished)
         {
             //Current score label
             _mainPanel.Widgets.Remove(_currentScoreLabel);
             _currentScoreLabel.Text = $"Your Score: {CrosswordScore}";
-            _currentScoreLabel.TextColor = Color.Red; //TODO: constants
+            _currentScoreLabel.TextColor = Constants.ScoreColor;
             _currentScoreLabel.Left = Constants.ClListSpacer * 40;
             _currentScoreLabel.Font = _fntScore;
             _currentScoreLabel.Top = rectCrossWord.Bottom + Constants.ClListSpacer * 2;
@@ -59,7 +53,7 @@ public sealed partial class Crossword
             //Current score label
             _mainPanel.Widgets.Remove(_currentScoreLabel);
             _currentScoreLabel.Text = "GAME OVER!";
-            _currentScoreLabel.TextColor = Color.Red; //TODO: constants
+            _currentScoreLabel.TextColor = Constants.ScoreColor;
             _currentScoreLabel.Left = Constants.ClListSpacer * 40;
             _currentScoreLabel.Font = _fntScore;
             _currentScoreLabel.Top = rectCrossWord.Bottom + Constants.ClListSpacer * 2;
@@ -70,7 +64,7 @@ public sealed partial class Crossword
         //Max score label
         _mainPanel.Widgets.Remove(_maxScoreLabel);
         _maxScoreLabel.Text = "Max Score: " + NumQuestions;
-        _maxScoreLabel.TextColor = Color.Red;
+        _maxScoreLabel.TextColor = Constants.ScoreColor;
         _maxScoreLabel.Left = Constants.ClListSpacer * 40;
         _maxScoreLabel.Font = _fntScore;
         _maxScoreLabel.Top = rectCrossWord.Bottom + Constants.ClListSpacer * 6;
