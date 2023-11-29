@@ -1,3 +1,4 @@
+using System;
 using CyberPuzzles.Crossword.App.PuzzleSquares;
 using CyberPuzzles.Shared;
 
@@ -14,6 +15,8 @@ public sealed partial class ClueAnswerMap
     /// <param name="setHighLighted"></param>
     public void HighlightSquares(Square? sq, bool setHighLighted)
     {
+        ArgumentNullException.ThrowIfNull(sq);
+        
         if (Answer == null) return;
         for (var i = 0; i < Answer.Length; i++)
         {

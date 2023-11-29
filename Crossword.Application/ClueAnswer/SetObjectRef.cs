@@ -20,6 +20,7 @@ public sealed partial class ClueAnswerMap
         bool IsAcross, Square?[]? SqAnswerSquares)
     {
         ArgumentNullException.ThrowIfNull(Answer);
+        ArgumentNullException.ThrowIfNull(Clue);
         ArgumentNullException.ThrowIfNull(SqAnswerSquares);
 
         this.Answer = Answer ?? throw new ArgumentNullException(nameof(Answer));

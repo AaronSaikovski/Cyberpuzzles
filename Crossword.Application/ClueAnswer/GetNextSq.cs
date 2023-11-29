@@ -1,3 +1,4 @@
+using System;
 using CyberPuzzles.Crossword.App.PuzzleSquares;
 
 namespace CyberPuzzles.Crossword.App.ClueAnswer;
@@ -13,6 +14,8 @@ public sealed partial class ClueAnswerMap
     /// <returns></returns>
     public Square? GetNextSq(Square? sq)
     {
+        ArgumentNullException.ThrowIfNull(sq);
+        
         var i = 0;
         while (Answer != null && i < Answer.Length)
         {

@@ -1,3 +1,4 @@
+using System;
 using CyberPuzzles.Crossword.App.ClueAnswer;
 using CyberPuzzles.Shared;
 
@@ -14,6 +15,8 @@ public sealed partial class Square
     /// <param name="clueAnswer"></param>
     public void SetObjectRef(bool isAcross, ClueAnswerMap clueAnswer)
     {
+        ArgumentNullException.ThrowIfNull(clueAnswer);
+        
         if (isAcross)
             ClueAnswerAcross = clueAnswer;
         else
