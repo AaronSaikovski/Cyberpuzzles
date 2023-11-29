@@ -83,5 +83,9 @@ public sealed class Constants
     //Button colours
     public static Color ButtonTextColor = Color.White;
     public static Color ButtonHoverTextColor = Color.Yellow;
-}
+    
+ 
+    //Listbox text colors
+    public static Color ListBoxTextColor = Color.Black;
+} 
     

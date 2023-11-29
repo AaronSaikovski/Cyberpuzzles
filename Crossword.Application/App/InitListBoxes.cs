@@ -45,7 +45,7 @@ public sealed partial class Crossword
             Text = "Down",
             Font = _fntListhead,
             Left = rectCrossWord.Right + Constants.MainOffsetX,
-            TextColor = Color.Black,
+            TextColor = Constants.ListBoxTextColor,
             Height = Constants.ClLabelHeight,
             Top = Constants.ClListboxHeight + Constants.ClLabelHeight + Constants.ClListSpacer * 3
         };
@@ -81,7 +81,7 @@ public sealed partial class Crossword
             Text = "Across",
             Font = _fntListhead,
             Left = rectCrossWord.Right + Constants.MainOffsetX,
-            TextColor = Color.Black,
+            TextColor = Constants.ListBoxTextColor,
             Height = Constants.ClLabelHeight,
             Top = Constants.MainOffsetY - Constants.ClListSpacer * 3
         };
