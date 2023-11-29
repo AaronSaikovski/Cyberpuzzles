@@ -24,8 +24,8 @@ public sealed partial class ClueAnswerMap
         //Parallel for loop
         Parallel.For(0, szAnswerLength, i =>
         {
-            if (SqAnswerSquares == null || (Answer[i] != hintLetter) ||
-                (SqAnswerSquares[i]!.Letter == hintLetter)) return;
+            if (SqAnswerSquares == null || Answer[i] != hintLetter ||
+                SqAnswerSquares[i]!.Letter == hintLetter) return;
             SqAnswerSquares[i]?.SetLetter(hintLetter, IsAcross);
             foundResult = true;
         });

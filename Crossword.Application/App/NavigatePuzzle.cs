@@ -156,12 +156,12 @@ public sealed partial class Crossword
         {
             if (IsAcross)
             {
-                SqCurrentSquare = SqCurrentSquare.GetNextSq(IsAcross);
+                SqCurrentSquare = SqCurrentSquare?.GetNextSq(IsAcross);
             }
             else
             {
-                SqCurrentSquare = SqCurrentSquare.GetNextSq(!IsAcross);
-                if (SqCurrentSquare.ClueAnswerDown == null)
+                SqCurrentSquare = SqCurrentSquare?.GetNextSq(!IsAcross);
+                if (SqCurrentSquare?.ClueAnswerDown == null)
                     IsAcross = !IsAcross;
             }
         }
