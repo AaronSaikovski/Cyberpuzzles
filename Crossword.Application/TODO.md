@@ -9,6 +9,7 @@
 * GitHub action for building X-Platform
 * Test on windows
 * Readme on how to build and deploy on Windows, Mac and Linux
+* add ArgumentNullException.ThrowIfNull(param) to methods - guard clauses.
 
 **KNOWN BUGS**
 * Font chars not centred in squares

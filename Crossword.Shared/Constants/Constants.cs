@@ -18,6 +18,9 @@ namespace CyberPuzzles.Shared;
 public sealed class Constants
 {
 
+    //API key name
+    public const string APIKeyName = "XApiKey";
+    
     //Square width and height constants
     public const int nSquareWidth = 40;
     public const int nSquareHeight = 40;

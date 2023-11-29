@@ -198,6 +198,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Crossword.Parser\Crossword.Parser.csproj" />
+      <ProjectReference Include="..\Crossword.Shared\Crossword.Shared.csproj" />
     </ItemGroup>
 
 </Project>
