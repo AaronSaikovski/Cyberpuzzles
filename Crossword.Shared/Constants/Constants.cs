@@ -90,5 +90,12 @@ public sealed class Constants
  
     //Listbox text colors
     public static Color ListBoxTextColor = Color.Black;
+    
+    //Square highlight colors
+    public static Color SquareHighlightCurrent = Color.Cyan;
+    public static Color SquareHighlightWord = Color.Yellow;
+    public static Color SquareHighlightNone = Color.White;
+    public static Color SquareHighlightErr = Color.Red;
+    public static Color SquareHighlightDefault = Color.Black;
 } 
     
