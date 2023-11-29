@@ -9,7 +9,6 @@
 * GitHub action for building X-Platform
 * Test on windows
 * Readme on how to build and deploy on Windows, Mac and Linux
-* add ArgumentNullException.ThrowIfNull(param) to methods - guard clauses.
 
 **KNOWN BUGS**
 * Font chars not centred in squares
@@ -19,6 +18,7 @@
 
 **DONE**
 * Mouse support - might need parent rectangle
+* add ArgumentNullException.ThrowIfNull(param) to methods - guard clauses.
 * * big, Chunky square graphics - or remove images and just make white squares with black text?
 * Added basic API support
 * Button for hint letters - clickedBtnGetLetter(int nCount)
