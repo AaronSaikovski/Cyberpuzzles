@@ -78,5 +78,10 @@ public sealed class Constants
     
     //Score color
     public static Color ScoreColor = Color.Red;
+    
+    
+    //Button colours
+    public static Color ButtonTextColor = Color.White;
+    public static Color ButtonHoverTextColor = Color.Yellow;
 }
     

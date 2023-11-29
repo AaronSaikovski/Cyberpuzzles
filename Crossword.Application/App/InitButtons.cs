@@ -1,4 +1,4 @@
-using System;
+
 using CyberPuzzles.Shared;
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
@@ -17,9 +17,8 @@ public sealed partial class Crossword
         {
             Text = "Get Hint Letters",
             Id = "HintButton",
-            TextColor = Color.White,
-            OverTextColor = Color.Yellow,
-            //HintButton.ApplyWidgetStyle(new LabelStyle(new ButtonStyle(());
+            TextColor = Constants.ButtonTextColor,
+            OverTextColor = Constants.ButtonHoverTextColor, 
             Left = rectCrossWord.Left,
             Top = rectCrossWord.Bottom + Constants.ClListSpacer * 2
         };
@@ -39,8 +38,8 @@ public sealed partial class Crossword
         {
             Text = "Get Next Puzzle",
             Id = "NextPuzzleButton",
-            TextColor = Color.White,
-            OverTextColor = Color.Yellow,
+            TextColor = Constants.ButtonTextColor,
+            OverTextColor = Constants.ButtonHoverTextColor, 
             Left = rectCrossWord.Left,
             Top = rectCrossWord.Bottom + Constants.ClListSpacer * 8
         };

@@ -46,7 +46,7 @@ public sealed partial class Crossword
             }
         }
         catch (Exception e)
-        { //Catch the exception
+        { 
             Console.WriteLine("Exception " + e + " occurred in method GetHintLetters()");
         }
 
