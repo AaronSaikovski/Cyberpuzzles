@@ -1,4 +1,3 @@
-
 using CyberPuzzles.Crossword.Parser;
 
 var builder = WebApplication.CreateBuilder(args);

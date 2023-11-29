@@ -57,7 +57,7 @@ namespace CyberPuzzles.Crossword.App
         public int NumQuestions;
 
         //Puzzle Dataset instance
-        private PuzzleDataset[] _puzzleDataset;
+        private PuzzleState[] _puzzleDataset;
 
         //Square instance variable
         public Square?[,] sqPuzzleSquares;

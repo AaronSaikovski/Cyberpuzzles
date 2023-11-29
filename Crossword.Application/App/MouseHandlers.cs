@@ -1,6 +1,6 @@
 using System;
 using CyberPuzzles.Crossword.App.PuzzleSquares;
-using CyberPuzzles.Crossword.Constants;
+using CyberPuzzles.Shared;
 
 namespace CyberPuzzles.Crossword.App;
 
@@ -24,7 +24,7 @@ public sealed partial class Crossword
         //If the individual puzzle has finished...eat the event
         if (PuzzleFinished) return true;
         //Exception handling added as an ArrayIndexOutOfBoundException occurs
-        var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / CwSettings.nSquareWidth, (y - nCrossOffsetY) / CwSettings.nSquareHeight];
+        var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / Constants.nSquareWidth, (y - nCrossOffsetY) / Constants.nSquareHeight];
         try
         {
             if (sqSelSquare != null && !sqSelSquare.IsCharAllowed) return true;

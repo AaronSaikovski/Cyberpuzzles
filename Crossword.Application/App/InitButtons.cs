@@ -1,5 +1,5 @@
 using System;
-using CyberPuzzles.Crossword.Constants;
+using CyberPuzzles.Shared;
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
 
@@ -21,7 +21,7 @@ public sealed partial class Crossword
             OverTextColor = Color.Yellow,
             //HintButton.ApplyWidgetStyle(new LabelStyle(new ButtonStyle(());
             Left = rectCrossWord.Left,
-            Top = rectCrossWord.Bottom + CwSettings.ClListSpacer * 2
+            Top = rectCrossWord.Bottom + Constants.ClListSpacer * 2
         };
 
         HintButton.Click += HintButtonClick;
@@ -42,7 +42,7 @@ public sealed partial class Crossword
             TextColor = Color.White,
             OverTextColor = Color.Yellow,
             Left = rectCrossWord.Left,
-            Top = rectCrossWord.Bottom + CwSettings.ClListSpacer * 8
+            Top = rectCrossWord.Bottom + Constants.ClListSpacer * 8
         };
 
         GetNextPuzzleButton.Click += NextPuzzleButtonClick;

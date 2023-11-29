@@ -1,5 +1,3 @@
-
-
 //Ref: https://www.c-sharpcorner.com/article/using-api-key-authentication-to-secure-asp-net-core-web-api/
 
 public class ApiKeyMiddleware {
@@ -18,7 +16,7 @@ public class ApiKeyMiddleware {
         }
         var appSettings = context.RequestServices.GetRequiredService < IConfiguration > ();
         var apiKey = appSettings.GetValue < string > (APIKEY);
-        if (!apiKey.Equals(extractedApiKey)) {
+        if (apiKey != null && !apiKey.Equals(extractedApiKey)) {
             context.Response.StatusCode = 401;
             await context.Response.WriteAsync("Unauthorized client");
             return;

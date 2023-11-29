@@ -12,7 +12,7 @@ namespace CyberPuzzles.Crossword.App.Datasets;
 /// <param name="clue"></param>
 /// <param name="isAcross"></param>
 /// <param name="questionNum"></param>
-public sealed class PuzzleDataset(int coordAcross, int coordDown, string answer, string clue, bool isAcross, int questionNum)
+public sealed class PuzzleState(int coordAcross, int coordDown, string answer, string clue, bool isAcross, int questionNum)
 {
     #region getters_setters
     public int CoordAcross { get; set; } = coordAcross;

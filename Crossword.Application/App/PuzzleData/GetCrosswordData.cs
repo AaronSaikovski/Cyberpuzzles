@@ -8,7 +8,7 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System;
-using CyberPuzzles.Crossword.Constants;
+using CyberPuzzles.Shared;
 
 namespace CyberPuzzles.Crossword.App.PuzzleData;
 
@@ -29,7 +29,7 @@ public partial class CrosswordData
             var apiResponse = CallDataApi();
 
             //check what was returned
-            return apiResponse ?? CwSettings.DefaultPuzzleData;
+            return apiResponse ?? Constants.DefaultPuzzleData;
         }
         catch (Exception ex)
         {

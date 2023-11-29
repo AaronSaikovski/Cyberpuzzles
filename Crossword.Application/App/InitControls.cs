@@ -30,9 +30,9 @@ public sealed partial class Crossword
         //Crossword.Application Parsed Dataset
         //
         //Dimension array for crossword data
-        _puzzleDataset = new PuzzleDataset[NumQuestions];
+        _puzzleDataset = new PuzzleState[NumQuestions];
         for (var i = 0; i < NumQuestions; i++)
-            _puzzleDataset[i] = new PuzzleDataset(_rowRef[i], _colRef[i], _szAnswers[i], _szClues[i], _bDataIsAcross[i],
+            _puzzleDataset[i] = new PuzzleState(_rowRef[i], _colRef[i], _szAnswers[i], _szClues[i], _bDataIsAcross[i],
                 _quesNum[i]);
 
         // init labels

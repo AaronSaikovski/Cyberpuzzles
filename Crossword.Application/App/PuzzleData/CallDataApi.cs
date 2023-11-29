@@ -11,7 +11,7 @@ using System;
 using System.IO;
 using System.Net;
 using System.Net.Http;
-using CyberPuzzles.Crossword.App.Config;
+using CyberPuzzles.Shared;
 
 namespace CyberPuzzles.Crossword.App.PuzzleData;
 

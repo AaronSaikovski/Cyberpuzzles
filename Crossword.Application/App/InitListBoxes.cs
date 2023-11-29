@@ -1,4 +1,4 @@
-using CyberPuzzles.Crossword.Constants;
+using CyberPuzzles.Shared;
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
 
@@ -44,21 +44,21 @@ public sealed partial class Crossword
         {
             Text = "Down",
             Font = _fntListhead,
-            Left = rectCrossWord.Right + CwSettings.MainOffsetX,
+            Left = rectCrossWord.Right + Constants.MainOffsetX,
             TextColor = Color.Black,
-            Height = CwSettings.ClLabelHeight,
-            Top = CwSettings.ClListboxHeight + CwSettings.ClLabelHeight + CwSettings.ClListSpacer * 3
+            Height = Constants.ClLabelHeight,
+            Top = Constants.ClListboxHeight + Constants.ClLabelHeight + Constants.ClListSpacer * 3
         };
 
         //Down
         LstClueDown = new ListBox
         {
-            Left = rectCrossWord.Right + CwSettings.MainOffsetY,
-            Top = CwSettings.ClListboxHeight + CwSettings.ClLabelHeight + CwSettings.ClListSpacer * 2 +
-                  CwSettings.ClLabelHeight,
+            Left = rectCrossWord.Right + Constants.MainOffsetY,
+            Top = Constants.ClListboxHeight + Constants.ClLabelHeight + Constants.ClListSpacer * 2 +
+                  Constants.ClLabelHeight,
             AcceptsKeyboardFocus = true,
             SelectionMode = SelectionMode.Single,
-            Height = CwSettings.ClListboxHeight
+            Height = Constants.ClListboxHeight
         };
 
         //set the font
@@ -80,20 +80,20 @@ public sealed partial class Crossword
         {
             Text = "Across",
             Font = _fntListhead,
-            Left = rectCrossWord.Right + CwSettings.MainOffsetX,
+            Left = rectCrossWord.Right + Constants.MainOffsetX,
             TextColor = Color.Black,
-            Height = CwSettings.ClLabelHeight,
-            Top = CwSettings.MainOffsetY - CwSettings.ClListSpacer * 3
+            Height = Constants.ClLabelHeight,
+            Top = Constants.MainOffsetY - Constants.ClListSpacer * 3
         };
 
         //Across ListBox
         LstClueAcross = new ListBox
         {
-            Left = rectCrossWord.Right + CwSettings.MainOffsetX,
-            Top = CwSettings.MainOffsetY,
+            Left = rectCrossWord.Right + Constants.MainOffsetX,
+            Top = Constants.MainOffsetY,
             AcceptsKeyboardFocus = true,
             SelectionMode = SelectionMode.Single,
-            Height = CwSettings.ClListboxHeight
+            Height = Constants.ClListboxHeight
         };
 
         //set the font

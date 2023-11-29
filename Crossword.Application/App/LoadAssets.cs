@@ -1,5 +1,5 @@
 using System.IO;
-using CyberPuzzles.Crossword.Constants;
+using CyberPuzzles.Shared;
 using FontStashSharp;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -41,19 +41,19 @@ public sealed partial class Crossword
         fntHelveticaSystem.AddFont(fntHelveticaPlain);
 
         //Small number font
-        _fntnumFont = fntHelveticaBoldSystem.GetFont(CwSettings.FntSml);
+        _fntnumFont = fntHelveticaBoldSystem.GetFont(Constants.FntSml);
 
         //Char entered by user.    
-        _fntFont = fntHelveticaBoldSystem.GetFont(CwSettings.FntLge);
+        _fntFont = fntHelveticaBoldSystem.GetFont(Constants.FntLge);
 
         //Crossword.Application score      
-        _fntScore = fntHelveticaBoldSystem.GetFont(CwSettings.FntLge);
+        _fntScore = fntHelveticaBoldSystem.GetFont(Constants.FntLge);
 
         //Across/Down listbox Headers
-        _fntListhead = fntHelveticaBoldSystem.GetFont(CwSettings.FntMed);
+        _fntListhead = fntHelveticaBoldSystem.GetFont(Constants.FntMed);
 
         //List font
-        _fntListFont = fntHelveticaSystem.GetFont(CwSettings.FntMed);
+        _fntListFont = fntHelveticaSystem.GetFont(Constants.FntMed);
     }
     #endregion
 }

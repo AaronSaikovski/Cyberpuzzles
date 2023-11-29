@@ -1,5 +1,5 @@
 using CyberPuzzles.Crossword.App.PuzzleSquares;
-using CyberPuzzles.Crossword.Constants;
+using CyberPuzzles.Shared;
 
 namespace CyberPuzzles.Crossword.App.ClueAnswer;
 
@@ -18,13 +18,13 @@ public sealed partial class ClueAnswerMap
         for (var i = 0; i < Answer.Length; i++)
         {
             if (!setHighLighted)
-                SqAnswerSquares?[i]?.SetHighlighted(CwSettings.nCURRENT_NONE);
+                SqAnswerSquares?[i]?.SetHighlighted(Constants.nCURRENT_NONE);
             else
             {
                 SqAnswerSquares?[i]
                     ?.SetHighlighted(SqAnswerSquares?[i] == sq
-                        ? CwSettings.nCURRENT_LETTER
-                        : CwSettings.nCURRENT_WORD);
+                        ? Constants.nCURRENT_LETTER
+                        : Constants.nCURRENT_WORD);
             }
         }
     }

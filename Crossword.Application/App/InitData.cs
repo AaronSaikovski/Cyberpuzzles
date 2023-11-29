@@ -1,4 +1,4 @@
-using CyberPuzzles.Crossword.Constants;
+using CyberPuzzles.Shared;
 
 namespace CyberPuzzles.Crossword.App;
 
@@ -25,12 +25,12 @@ public sealed partial class Crossword
         _szBlurb = _mrParserData.Blurb;
 
         //Initialise dimension variables
-        _nCrosswordWidth = _NumCols * CwSettings.nSquareWidth;
-        _nCrosswordHeight = _NumRows * CwSettings.nSquareHeight;
+        _nCrosswordWidth = _NumCols * Constants.nSquareWidth;
+        _nCrosswordHeight = _NumRows * Constants.nSquareHeight;
 
         // offsets
-        nCrossOffsetX = CwSettings.MainOffsetX;
-        nCrossOffsetY = CwSettings.MainOffsetY;
+        nCrossOffsetX = Constants.MainOffsetX;
+        nCrossOffsetY = Constants.MainOffsetY;
 
         //set squares as dirty
         InitDirtySquares();

@@ -11,7 +11,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using CyberPuzzles.Crossword.App.ClueAnswer;
-using CyberPuzzles.Crossword.Constants;
+using CyberPuzzles.Shared;
 
 namespace CyberPuzzles.Crossword.App.PuzzleSquares;
 
@@ -157,7 +157,7 @@ public sealed class Square
     public void CheckLetter(char correctLetter)
     {
         if (Letter == ' ') return;
-        ForeColour = Letter == correctLetter ? CwSettings.SqCorrect : CwSettings.SqError;
+        ForeColour = Letter == correctLetter ? Constants.SqCorrect : Constants.SqError;
         IsDirty = true;
     }
     #endregion

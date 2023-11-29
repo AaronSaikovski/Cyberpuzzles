@@ -1,5 +1,5 @@
 
-using CyberPuzzles.Crossword.Constants;
+using CyberPuzzles.Shared;
 using CyberPuzzles.Crossword.App.ClueAnswer;
 using CyberPuzzles.Crossword.App.PuzzleSquares;
 
@@ -93,8 +93,8 @@ public sealed partial class Crossword
 
                 //Create squares
                 sqPuzzleSquares[i, j]
-                    ?.CreateSquare(nCrossOffsetX + i * CwSettings.nSquareWidth,
-                        nCrossOffsetY + j * CwSettings.nSquareHeight);
+                    ?.CreateSquare(nCrossOffsetX + i * Constants.nSquareWidth,
+                        nCrossOffsetY + j * Constants.nSquareHeight);
             }
         }
     }

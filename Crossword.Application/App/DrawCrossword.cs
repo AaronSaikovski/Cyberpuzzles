@@ -1,4 +1,4 @@
-using CyberPuzzles.Crossword.Constants;
+using CyberPuzzles.Shared;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 
@@ -26,7 +26,7 @@ public sealed partial class Crossword
             {
                 if (sqPuzzleSquares == null) continue;
                 _puzzleSquares[i, j] = new Rectangle(sqPuzzleSquares[i, j].xCoord, sqPuzzleSquares[i, j].yCoord,
-                    CwSettings.nSquareWidth, CwSettings.nSquareHeight);
+                    Constants.nSquareWidth, Constants.nSquareHeight);
 
                 //Check to see if a char is allowed
                 if (sqPuzzleSquares[i, j].IsCharAllowed)
@@ -71,8 +71,8 @@ public sealed partial class Crossword
     {
         //Char entered by user.
         _spriteBatch.DrawString(_fntFont, char.ToUpper(sqPuzzleSquares[i, j].Letter).ToString(),
-            new Vector2(_puzzleSquares[i, j].X + CwSettings.SqCharOffsetX,
-                _puzzleSquares[i, j].Y + CwSettings.SqCharOffsetY),
+            new Vector2(_puzzleSquares[i, j].X + Constants.SqCharOffsetX,
+                _puzzleSquares[i, j].Y + Constants.SqCharOffsetY),
             sqPuzzleSquares[i, j].ForeColour);
 
     }
@@ -90,8 +90,8 @@ public sealed partial class Crossword
         if (sqPuzzleSquares[i, j].ClueAnswerAcross?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
         _spriteBatch.DrawString(_fntnumFont,
             sqPuzzleSquares[i, j].ClueAnswerAcross?.QuestionNumber.ToString(),
-            new Vector2(_puzzleSquares[i, j].X + CwSettings.SmlNumOffsetX,
-                _puzzleSquares[i, j].Y + CwSettings.SmlNumOffsetY), Color.Black);
+            new Vector2(_puzzleSquares[i, j].X + Constants.SmlNumOffsetX,
+                _puzzleSquares[i, j].Y + Constants.SmlNumOffsetY), Color.Black);
     }
 
     /// <summary>
@@ -105,8 +105,8 @@ public sealed partial class Crossword
         if (sqPuzzleSquares[i, j].ClueAnswerDown?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
         _spriteBatch.DrawString(_fntnumFont,
             sqPuzzleSquares[i, j].ClueAnswerDown?.QuestionNumber.ToString(),
-            new Vector2(_puzzleSquares[i, j].X + CwSettings.SmlNumOffsetX,
-                _puzzleSquares[i, j].Y + CwSettings.SmlNumOffsetY), Color.Black);
+            new Vector2(_puzzleSquares[i, j].X + Constants.SmlNumOffsetX,
+                _puzzleSquares[i, j].Y + Constants.SmlNumOffsetY), Color.Black);
     }
     #endregion
 
