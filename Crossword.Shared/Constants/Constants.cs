@@ -40,7 +40,6 @@ public sealed class Constants
     public const int NMaxCrossWidth = 291;
     public const int NMaxCrossHeight = 291;
 
-
     //main game offsets
     public const int MainOffsetX = 30;
     public const int MainOffsetY = 30;
@@ -97,5 +96,10 @@ public sealed class Constants
     public static Color SquareHighlightNone = Color.White;
     public static Color SquareHighlightErr = Color.Red;
     public static Color SquareHighlightDefault = Color.Black;
+    
+    //Font colors
+    public static Color SmallFontColor = Color.Black;
 } 
+
+
     
