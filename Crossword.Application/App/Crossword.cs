@@ -30,19 +30,21 @@ namespace CyberPuzzles.Crossword.App
         #region Fields       
 
         //Puzzle State machines
-        public bool PuzzleFinished, SetFinished;
+        private bool PuzzleFinished;
+        private bool SetFinished;
 
         //Next Puzzle is currently unavailable flag
-        public bool IsNextPuzzleReady = true;
+        private bool IsNextPuzzleReady = true;
 
         //String for Puzzle ID of last puzzle in set
-        public string? PuzzleData;
+        private string? PuzzleData;
 
         //Repaint variables
-        public bool bBufferDirty, InitCrossword;
+        private bool bBufferDirty;
+        public bool InitCrossword;
 
         //Image imBackBuffer;
-        public bool NewBackFlush;
+        private bool NewBackFlush;
 
         //Data set variables
         public string? PuzzleType;
@@ -54,7 +56,7 @@ namespace CyberPuzzles.Crossword.App
         private string? _szGetLetters;
         private string? _szTmpGetLetters;
         private string? _szBlurb;
-        public int NumQuestions;
+        private int NumQuestions;
 
         //Puzzle Dataset instance
         private PuzzleState[] _puzzleDataset;
