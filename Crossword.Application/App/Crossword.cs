@@ -60,7 +60,7 @@ namespace CyberPuzzles.Crossword.App
         private PuzzleState[] _puzzleDataset;
 
         //Square instance variable
-        public Square?[,] sqPuzzleSquares;
+        private Square?[,] sqPuzzleSquares;
 
         //ClueAnswer Instance variable
         private ClueAnswerMap[] caPuzzleClueAnswers;
@@ -75,7 +75,7 @@ namespace CyberPuzzles.Crossword.App
         private readonly int MaxCrossHeight = 291;
 
         //string[,] strGuesses = null;
-        public Square? SqCurrentSquare;
+        private Square? SqCurrentSquare;
 
         public bool IsFinished;
 
@@ -88,7 +88,7 @@ namespace CyberPuzzles.Crossword.App
 
 
         //Status of row/column orientation (Across or Down)
-        public bool IsAcross = true;
+        private bool IsAcross = true;
 
         //Mouse Coords
         public int NMouseX;
@@ -102,7 +102,7 @@ namespace CyberPuzzles.Crossword.App
 
 
         //Component focus variable
-        public int FocusState;
+        private int FocusState;
 
         //mouseMove String
         private readonly string PuzzleTitle;
@@ -175,10 +175,10 @@ namespace CyberPuzzles.Crossword.App
         public Rectangle rectCrossWord;
 
         //Hint Button
-        public TextButton HintButton;
+        private TextButton HintButton;
 
         //Get Next Puzzle Button
-        public TextButton GetNextPuzzleButton;
+        private TextButton GetNextPuzzleButton;
 
 
         //Crossword.Application Width and Height variables

@@ -13,14 +13,11 @@ public sealed partial class Crossword
     /// </summary>
     private void LoadImages()
     {
-        // _imgHighliteSquare = Content.Load<Texture2D>("images/sqlite");
-        // _imgSquareWord = Content.Load<Texture2D>("images/wordlite");
-        // _imgNormalSquare = Content.Load<Texture2D>("images/normsq");
-        
-        _imgBlackSquare = Content.Load<Texture2D>("images/tile_black");
-        _imgHighliteSquare = Content.Load<Texture2D>("images/tile_yellow");
-        _imgSquareWord = Content.Load<Texture2D>("images/tile_orange");
-        _imgNormalSquare = Content.Load<Texture2D>("images/tile_grey");
+        //load images
+        _imgBlackSquare = Content.Load<Texture2D>(Constants.BlackSquare);
+        _imgHighliteSquare = Content.Load<Texture2D>(Constants.HighliteSquare);
+        _imgSquareWord = Content.Load<Texture2D>(Constants.SquareWord);
+        _imgNormalSquare = Content.Load<Texture2D>(Constants.NormalSquare);
     }
 
     #endregion
@@ -29,8 +26,8 @@ public sealed partial class Crossword
     private void LoadFonts()
     {
         //Read fonts from FS
-        var fntHelveticaBold = File.ReadAllBytes("fonts/Helvetica-Bold.ttf");
-        var fntHelveticaPlain = File.ReadAllBytes("fonts/Helvetica.ttf");
+        var fntHelveticaBold = File.ReadAllBytes(Constants.HelveticaBold);
+        var fntHelveticaPlain = File.ReadAllBytes(Constants.HelveticaPlain);
 
         //Add the Bold font
         var fntHelveticaBoldSystem = new FontSystem();
