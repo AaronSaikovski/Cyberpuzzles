@@ -1,7 +1,7 @@
 using Crossword.Shared.Constants;
 using Myra.Graphics2D.UI;
 
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 public sealed partial class CrosswordApp
 {

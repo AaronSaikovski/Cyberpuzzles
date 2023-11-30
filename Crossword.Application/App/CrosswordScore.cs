@@ -1,6 +1,6 @@
 using Crossword.Shared.Constants;
 
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 public sealed partial class CrosswordApp
 {

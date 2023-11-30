@@ -2,7 +2,7 @@ using Crossword.Shared.Constants;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 public sealed partial class CrosswordApp
 {
@@ -25,32 +25,34 @@ public sealed partial class CrosswordApp
             for (var j = 0; j < _NumCols; j++)
             {
                 if (sqPuzzleSquares == null) continue;
-                _puzzleSquares[i, j] = new Rectangle(sqPuzzleSquares[i, j].xCoord, sqPuzzleSquares[i, j].yCoord,
-                    CWSettings.SquareWidth, CWSettings.SquareHeight);
-
-                //Check to see if a char is allowed
-                if (sqPuzzleSquares[i, j].IsCharAllowed)
+                if (_puzzleSquares != null)
                 {
-                    //Draws the squares
-                    if (DrawSquares(i, j)) continue;
+                    _puzzleSquares[i, j] = new Rectangle(sqPuzzleSquares[i, j].xCoord, sqPuzzleSquares[i, j].yCoord,
+                        CWSettings.SquareWidth, CWSettings.SquareHeight);
 
-                    //small number font
-                    DrawSmallFontAcross(i, j);
-                    DrawSmallFontDown(i, j);
-
-                    //check if squares are dirty
-                    if (sqPuzzleSquares[i, j].IsDirty)
+                    //Check to see if a char is allowed
+                    if (sqPuzzleSquares[i, j].IsCharAllowed)
                     {
-                        //Char entered by user.
-                        DrawUserChar(i, j);
+                        //Draws the squares
+                        if (DrawSquares(i, j)) continue;
+
+                        //small number font
+                        DrawSmallFontAcross(i, j);
+                        DrawSmallFontDown(i, j);
+
+                        //check if squares are dirty
+                        if (sqPuzzleSquares[i, j].IsDirty)
+                        {
+                            //Char entered by user.
+                            DrawUserChar(i, j);
+                        }
                     }
-                    
-                }
-                else
-                {
-                    // Black square
-                    //_spriteBatch.Draw(_blackTexture, _puzzleSquares[i, j], _rectangleColor);
-                    _spriteBatch.Draw(_imgBlackSquare, _puzzleSquares[i, j], _rectangleColor);
+                    else
+                    {
+                        // Black square
+                        //_spriteBatch.Draw(_blackTexture, _puzzleSquares[i, j], _rectangleColor);
+                        _spriteBatch.Draw(_imgBlackSquare, _puzzleSquares[i, j], _rectangleColor);
+                    }
                 }
             }
         }
@@ -123,17 +125,17 @@ public sealed partial class CrosswordApp
         if (sqPuzzleSquares != null && !sqPuzzleSquares[i, j]!.IsDirty) return true;
         if (sqPuzzleSquares[i, j].BackColour.Equals(CWSettings.SquareHighlightNone))
         {
-            _spriteBatch.Draw(_imgNormalSquare, _puzzleSquares[i, j], _rectangleColor);
+            if (_puzzleSquares != null) _spriteBatch.Draw(_imgNormalSquare, _puzzleSquares[i, j], _rectangleColor);
         }
 
         if (sqPuzzleSquares[i, j].BackColour.Equals(CWSettings.SquareHighlightWord))
         {
-            _spriteBatch.Draw(_imgSquareWord, _puzzleSquares[i, j], _rectangleColor);
+            if (_puzzleSquares != null) _spriteBatch.Draw(_imgSquareWord, _puzzleSquares[i, j], _rectangleColor);
         }
 
         if (sqPuzzleSquares[i, j].BackColour.Equals(CWSettings.SquareHighlightCurrent))
         {
-            _spriteBatch.Draw(_imgHighliteSquare, _puzzleSquares[i, j], _rectangleColor);
+            if (_puzzleSquares != null) _spriteBatch.Draw(_imgHighliteSquare, _puzzleSquares[i, j], _rectangleColor);
         }
 
         return false;

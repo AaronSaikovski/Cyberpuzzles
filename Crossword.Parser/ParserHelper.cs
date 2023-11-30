@@ -1,5 +1,5 @@
 ﻿
-namespace CyberPuzzles.Crossword.Parser;
+namespace CrosswordParser;
 
 public static class ParserHelper
 {

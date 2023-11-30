@@ -1,6 +1,6 @@
-using CyberPuzzles.Crossword.App.ClueAnswer;
+using Crossword.ClueAnswer;
 
-namespace CyberPuzzles.Crossword.App.PuzzleSquares;
+namespace Crossword.PuzzleSquares;
 
 public sealed partial class Square
 {

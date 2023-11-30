@@ -10,7 +10,7 @@
 using System;
 using Crossword.Shared.Constants;
 
-namespace CyberPuzzles.Crossword.App.PuzzleData;
+namespace Crossword.PuzzleData;
 
 public partial class CrosswordData
 {

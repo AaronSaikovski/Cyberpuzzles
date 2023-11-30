@@ -8,11 +8,10 @@
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
-using System;
+using Crossword.ClueAnswer;
 using Microsoft.Xna.Framework;
-using CyberPuzzles.Crossword.App.ClueAnswer;
 
-namespace CyberPuzzles.Crossword.App.PuzzleSquares;
+namespace Crossword.PuzzleSquares;
 
 //Square class
 public sealed partial class Square

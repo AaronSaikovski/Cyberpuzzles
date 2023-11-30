@@ -1,8 +1,8 @@
 using System;
-using CyberPuzzles.Crossword.App.ClueAnswer;
+using Crossword.ClueAnswer;
 using Crossword.Shared.Constants;
 
-namespace CyberPuzzles.Crossword.App.PuzzleSquares;
+namespace Crossword.PuzzleSquares;
 
 public sealed partial class Square
 {

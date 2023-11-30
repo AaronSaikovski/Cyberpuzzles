@@ -1,7 +1,7 @@
 
-using CyberPuzzles.Crossword.App.PuzzleData;
+using Crossword.PuzzleData;
 
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 public sealed partial class CrosswordApp
 {
@@ -14,7 +14,7 @@ public sealed partial class CrosswordApp
     {
         //Parser class
         //Parser Implementation
-        _mrParserData = new Parser.PuzzleData();
+        _mrParserData = new CrosswordParser.PuzzleData();
 
         // Get the Puzzle Data
         PuzzleData = CrosswordData.GetCrosswordData(); 

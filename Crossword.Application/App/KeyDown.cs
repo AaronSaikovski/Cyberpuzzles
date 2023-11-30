@@ -1,18 +1,17 @@
-
 using System;
 using Microsoft.Xna.Framework.Input;
 
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 public sealed partial class CrosswordApp
 {
     #region KeyDown
+
     /// <summary>
     /// Keypress event - Display the character in the square region
     /// </summary>
-    /// <param name="keysDown"></param>
     /// <param name="keyInFocus"></param>
-    public void KeyDown(Keys[] keysDown, Keys keyInFocus)
+    public void KeyDown(Keys keyInFocus)
     {
         if (PuzzleFinished) return;
         //need to set the focus state

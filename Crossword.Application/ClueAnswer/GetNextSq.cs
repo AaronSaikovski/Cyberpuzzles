@@ -1,7 +1,7 @@
 using System;
-using CyberPuzzles.Crossword.App.PuzzleSquares;
+using Crossword.PuzzleSquares;
 
-namespace CyberPuzzles.Crossword.App.ClueAnswer;
+namespace Crossword.ClueAnswer;
 
 public sealed partial class ClueAnswerMap
 {

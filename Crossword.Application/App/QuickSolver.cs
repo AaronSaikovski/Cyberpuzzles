@@ -1,6 +1,6 @@
 using System;
 
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 public sealed partial class CrosswordApp
 {
@@ -18,14 +18,17 @@ public sealed partial class CrosswordApp
             {
                 for (var j = 0; j < NumQuestions; j++)
                 {
-                    if (_szTmpGetLetters != null && _szTmpGetLetters.Length <= 0) continue;
-                    if (_szTmpGetLetters != null)
+                    switch (_szTmpGetLetters)
                     {
-                        var chHintLetter = _szTmpGetLetters[0];
-                        _szTmpGetLetters = _szTmpGetLetters[1..];
-                        for (var i = 0; i < NumQuestions; i++)
-                            caPuzzleClueAnswers[i].CheckHint(chHintLetter);
+                        case { Length: <= 0 }:
+                        case null:
+                            continue;
                     }
+
+                    var chHintLetter = _szTmpGetLetters[0];
+                    _szTmpGetLetters = _szTmpGetLetters[1..];
+                    for (var i = 0; i < NumQuestions; i++)
+                        caPuzzleClueAnswers[i].CheckHint(chHintLetter);
                 }
             }
 

@@ -8,9 +8,9 @@
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
-using CyberPuzzles.Crossword.App.PuzzleSquares;
+using Crossword.PuzzleSquares;
 
-namespace CyberPuzzles.Crossword.App.ClueAnswer;
+namespace Crossword.ClueAnswer;
 
 /// <summary>
 /// ClueAnswer Class

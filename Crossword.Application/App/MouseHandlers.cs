@@ -1,8 +1,8 @@
 using System;
-using CyberPuzzles.Crossword.App.PuzzleSquares;
+using Crossword.PuzzleSquares;
 using Crossword.Shared.Constants;
 
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 public sealed partial class CrosswordApp
 {
@@ -27,24 +27,26 @@ public sealed partial class CrosswordApp
         var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / CWSettings.SquareWidth, (y - nCrossOffsetY) / CWSettings.SquareHeight];
         try
         {
-            if (sqSelSquare != null && !sqSelSquare.IsCharAllowed) return true;
+            if (sqSelSquare is { IsCharAllowed: false }) return true;
             //clear current highlights
-            SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
+            SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
 
             //Deselect the listbox based on direction
             DeselectListBoxItem();
 
             //test if same sq and flip if possible
+            if (sqSelSquare == null) return true;
             CheckFlip(sqSelSquare);
 
             //Set new current sq & highlight 
             SetNewCurrentSquare(sqSelSquare);
 
             //Find index to Clue Answer for highlighting in List boxes
-            var ClueAnswerIdx = FindClueAnswerIdx(sqSelSquare);
+            var clueAnswerIdx = FindClueAnswerIdx(sqSelSquare);
 
             //Selects the item in the list box relative to ClueAnswer and direction
-            SetListBoxClueAnswer(ClueAnswerIdx);
+            SetListBoxClueAnswer(clueAnswerIdx);
+
             return true;
         }
 
@@ -76,14 +78,14 @@ public sealed partial class CrosswordApp
     /// <summary>
     /// Selects the item in the list box relative to ClueAnswer and direction
     /// </summary>
-    /// <param name="ClueAnswerIdx"></param>
-    private void SetListBoxClueAnswer(int ClueAnswerIdx)
+    /// <param name="clueAnswerIdx"></param>
+    private void SetListBoxClueAnswer(int clueAnswerIdx)
     {
         //Selects the item in the list box relative to ClueAnswer and direction
         if (IsAcross)
-            LstClueAcross.SelectedIndex = ClueAnswerIdx;
+            LstClueAcross.SelectedIndex = clueAnswerIdx;
         else
-            LstClueDown.SelectedIndex = (ClueAnswerIdx - LstClueAcross.Items.Count);
+            LstClueDown.SelectedIndex = clueAnswerIdx - LstClueAcross.Items.Count;
     }
     #endregion
 
@@ -110,15 +112,15 @@ public sealed partial class CrosswordApp
     {
         //Find index to Clue Answer for highlighting in List boxes
         var tmpClueAnswer = sqSelSquare?.GetClueAnswerRef(IsAcross);
-        var ClueAnswerIdx = 0;
+        var clueAnswerIdx = 0;
         for (var k = 0; k < NumQuestions; k++)
         {
             if (tmpClueAnswer != caPuzzleClueAnswers[k]) continue;
-            ClueAnswerIdx = k;
+            clueAnswerIdx = k;
             break;
         }
 
-        return ClueAnswerIdx;
+        return clueAnswerIdx;
     }
     #endregion
 
@@ -129,14 +131,17 @@ public sealed partial class CrosswordApp
     /// <param name="sqSelSquare"></param>
     private void CheckFlip(Square sqSelSquare)
     {
-        if (sqSelSquare == null) throw new ArgumentNullException(nameof(sqSelSquare));
+        ArgumentNullException.ThrowIfNull(sqSelSquare);
         //test if same sq and flip if possible
         if (sqSelSquare != SqCurrentSquare)
         {
-            if ((IsAcross) && (sqSelSquare.ClueAnswerAcross == null))
-                IsAcross = !IsAcross;
-            else if ((!IsAcross) && (sqSelSquare.ClueAnswerDown == null))
-                IsAcross = !IsAcross;
+            switch (IsAcross)
+            {
+                case true when sqSelSquare.ClueAnswerAcross == null:
+                case false when sqSelSquare.ClueAnswerDown == null:
+                    IsAcross = !IsAcross;
+                    break;
+            }
         }
         else
         {

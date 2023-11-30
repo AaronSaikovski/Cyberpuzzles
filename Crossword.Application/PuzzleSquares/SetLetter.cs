@@ -1,6 +1,6 @@
 using Crossword.Shared.Constants;
 
-namespace CyberPuzzles.Crossword.App.PuzzleSquares;
+namespace Crossword.PuzzleSquares;
 
 public sealed partial class Square
 {

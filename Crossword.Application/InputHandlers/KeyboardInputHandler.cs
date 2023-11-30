@@ -12,7 +12,7 @@
 using InputHandlers.Keyboard;
 using Microsoft.Xna.Framework.Input;
 
-namespace CyberPuzzles.Crossword.InputHandlers
+namespace Crossword.InputHandlers
 {
     public class KeyboardInputHandler(Crossword.App.CrosswordApp crosswordApp) : IKeyboardHandler
     {
@@ -36,7 +36,7 @@ namespace CyberPuzzles.Crossword.InputHandlers
                 if (!_crosswordApp.IsFinished)
                 {
                     //handle key down..normal keys
-                    _crosswordApp.KeyDown(keysDown, keyInFocus);
+                    _crosswordApp.KeyDown(keyInFocus);
                 }
             }
         }

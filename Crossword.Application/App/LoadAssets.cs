@@ -3,7 +3,7 @@ using Crossword.Shared.Constants;
 using FontStashSharp;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 public sealed partial class CrosswordApp
 {

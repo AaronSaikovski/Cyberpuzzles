@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace CyberPuzzles.Crossword.App.ClueAnswer;
+namespace Crossword.ClueAnswer;
 
 public sealed partial class ClueAnswerMap
 {

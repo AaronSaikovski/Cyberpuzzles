@@ -1,6 +1,6 @@
 using Crossword.Shared.Constants;
 
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 
 public sealed partial class CrosswordApp
@@ -86,9 +86,9 @@ public sealed partial class CrosswordApp
                     2 => false,
                     _ => _bDataIsAcross[i]
                 };
-            _quesNum[i] = _mrParserData.QuesNum[i];
-            _szClues[i] = _mrParserData.Clues[i];
-            _szAnswers[i] = _mrParserData.Answers[i];
+            if (_mrParserData.QuesNum != null) _quesNum[i] = _mrParserData.QuesNum[i];
+            if (_mrParserData.Clues != null) _szClues[i] = _mrParserData.Clues[i];
+            if (_mrParserData.Answers != null) _szAnswers[i] = _mrParserData.Answers[i];
         }
     }
     #endregion

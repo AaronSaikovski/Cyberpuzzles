@@ -1,12 +1,10 @@
-
+using Crossword.ClueAnswer;
+using Crossword.PuzzleSquares;
 using Crossword.Shared.Constants;
-using CyberPuzzles.Crossword.App.ClueAnswer;
-using CyberPuzzles.Crossword.App.PuzzleSquares;
-
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
 
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 public sealed partial class CrosswordApp
 {

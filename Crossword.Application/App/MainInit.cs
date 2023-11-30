@@ -1,10 +1,10 @@
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 public sealed partial class CrosswordApp
 {
     #region MainInit
     /// <summary>
-    /// MainInit - Main initialiser
+    /// MainInit - Main initializer
     /// </summary>
     private void MainInit()
     {

@@ -1,16 +1,13 @@
-
+using Crossword.ClueAnswer;
+using Crossword.InputHandlers;
+using Crossword.PuzzleSquares;
 using FontStashSharp;
 using InputHandlers.Keyboard;
 using InputHandlers.Mouse;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Myra.Graphics2D.UI;
-
 //Custom namespaces
-using CyberPuzzles.Crossword.InputHandlers;
-using CyberPuzzles.Crossword.App.ClueAnswer;
-using CyberPuzzles.Crossword.App.PuzzleSquares;
-using CyberPuzzles.Crossword.App.Datasets;
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -23,7 +20,7 @@ using CyberPuzzles.Crossword.App.Datasets;
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
-namespace CyberPuzzles.Crossword.App
+namespace Crossword.App
 {
     public sealed partial class CrosswordApp : Game
     {
@@ -59,7 +56,7 @@ namespace CyberPuzzles.Crossword.App
         private int NumQuestions;
 
         //Puzzle Dataset instance
-        private PuzzleState[] _puzzleDataset;
+        private PuzzleState.PuzzleState[] _puzzleDataset;
 
         //Square instance variable
         private Square?[,] sqPuzzleSquares;
@@ -119,7 +116,7 @@ namespace CyberPuzzles.Crossword.App
         private bool _bMorePuzzles;
 
         //Parser class
-        private Parser.PuzzleData _mrParserData;
+        private CrosswordParser.PuzzleData _mrParserData;
 
         //Images to use forx CrosswordApp.Application squares
         private Texture2D _imgSquareWord;

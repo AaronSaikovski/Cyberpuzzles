@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Xna.Framework.Input;
 
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 public sealed partial class CrosswordApp
 {
@@ -15,30 +15,35 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            if (bIsAcross)
-            { //If Across then allow operations on the across list
-                if (keyInFocus == Keys.Up)
-                {
-                    if (LstClueAcross.SelectedIndex != null)
+            switch (bIsAcross)
+            {
+                case true:
+                    switch (keyInFocus)
                     {
-                        LstClueAcross.SelectedIndex--;
-                        //TODO - add handler
-                        //selChangeLstClueAcross(evt);
-                        //SelChangeListClueAcross();
-                    }
-                }
-                else if (keyInFocus == Keys.Down)
-                {
-                    LstClueAcross.SelectedIndex++;
-                    //TODO - add handler
-                    //selChangeLstClueAcross(evt);
-                    //SelChangeListClueAcross();
-                }
+                        //If Across then allow operations on the across list
+                        case Keys.Up:
+                        {
+                            if (LstClueAcross.SelectedIndex != null)
+                            {
+                                LstClueAcross.SelectedIndex--;
+                                //TODO - add handler
+                                //selChangeLstClueAcross(evt);
+                                //SelChangeListClueAcross();
+                            }
 
-            }
-            else if (!bIsAcross)
-            { //if Down
-                if (keyInFocus == Keys.Up)
+                            break;
+                        }
+                        case Keys.Down:
+                            LstClueAcross.SelectedIndex++;
+                            //TODO - add handler
+                            //selChangeLstClueAcross(evt);
+                            //SelChangeListClueAcross();
+                            break;
+                    }
+
+                    break;
+                //if Down
+                case false when keyInFocus == Keys.Up:
                 {
                     if (LstClueDown.SelectedIndex != null)
                     {
@@ -47,13 +52,20 @@ public sealed partial class CrosswordApp
                         //selChangeLstClueDown(evt);
                         //SelChangeListClueAcross();
                     }
+
+                    break;
                 }
-                else if (keyInFocus == Keys.Down)
+                case false:
                 {
-                    LstClueDown.SelectedIndex++;
-                    //TODO - add handler
-                    //selChangeLstClueDown(evt);
-                    //SelChangeListClueAcross();
+                    if (keyInFocus == Keys.Down)
+                    {
+                        LstClueDown.SelectedIndex++;
+                        //TODO - add handler
+                        //selChangeLstClueDown(evt);
+                        //SelChangeListClueAcross();
+                    }
+
+                    break;
                 }
             }
         }

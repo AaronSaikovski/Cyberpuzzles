@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Xna.Framework.Input;
 
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 public sealed partial class CrosswordApp
 {
@@ -18,7 +18,7 @@ public sealed partial class CrosswordApp
             DeselectListBox();
 
             //Sets the highlighting of the square.
-            SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
+            SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
 
             //If left arrow key pressed get prev sq
             GetLeftArrow(keyInFocus);
@@ -33,7 +33,7 @@ public sealed partial class CrosswordApp
             GetDownArrow(keyInFocus);
 
             //Sets the highlighting of the square.
-            SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
+            SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
 
             //Listbox linkage stuff
             UpdateListBoxLinkage();
@@ -42,7 +42,7 @@ public sealed partial class CrosswordApp
         catch (Exception e)
         {
             //Catch the exception
-            Console.WriteLine("Exception " + e + " occurred in method NavigatePuzzle");
+            Console.WriteLine($"Exception {e} occurred in method NavigatePuzzle");
         }
     }
     #endregion
@@ -71,7 +71,7 @@ public sealed partial class CrosswordApp
         //Listbox linkage stuff
         //
         //Find index to Clue Answer for highlighting in List boxes
-        var tmp = SqCurrentSquare.GetClueAnswerRef(IsAcross);
+        var tmp = SqCurrentSquare?.GetClueAnswerRef(IsAcross);
         var clueAnswerIdx = 0;
         for (var k = 0; k < NumQuestions; k++)
         {
@@ -80,7 +80,7 @@ public sealed partial class CrosswordApp
                 clueAnswerIdx = k;
                 break;
             }
-            ;
+            
         }
 
         //Selects the item in the list box relative to the ClueAnswer
@@ -100,20 +100,18 @@ public sealed partial class CrosswordApp
     private void GetDownArrow(Keys keyInFocus)
     {
         //If down arrow pressed get next sq
-        if (keyInFocus == Keys.Down)
+        if (keyInFocus != Keys.Down) return;
+        if (IsAcross)
         {
-            if (IsAcross)
+            SqCurrentSquare = SqCurrentSquare?.GetNextSq(!IsAcross);
+            if (SqCurrentSquare?.ClueAnswerAcross == null)
             {
-                SqCurrentSquare = SqCurrentSquare.GetNextSq(!IsAcross);
-                if (SqCurrentSquare.ClueAnswerAcross == null)
-                {
-                    IsAcross = !IsAcross;
-                }
+                IsAcross = !IsAcross;
             }
-            else
-            {
-                SqCurrentSquare = SqCurrentSquare.GetNextSq(IsAcross);
-            }
+        }
+        else
+        {
+            SqCurrentSquare = SqCurrentSquare?.GetNextSq(IsAcross);
         }
     }
     #endregion
@@ -126,20 +124,18 @@ public sealed partial class CrosswordApp
     private void GetUpArrow(Keys keyInFocus)
     {
         //If up arrow key pressed
-        if (keyInFocus == Keys.Up)
+        if (keyInFocus != Keys.Up) return;
+        if (IsAcross)
         {
-            if (IsAcross)
+            SqCurrentSquare = SqCurrentSquare?.GetPrevSq(!IsAcross);
+            if (SqCurrentSquare?.ClueAnswerAcross == null)
             {
-                SqCurrentSquare = SqCurrentSquare.GetPrevSq(!IsAcross);
-                if (SqCurrentSquare.ClueAnswerAcross == null)
-                {
-                    IsAcross = !IsAcross;
-                }
+                IsAcross = !IsAcross;
             }
-            else
-            {
-                SqCurrentSquare = SqCurrentSquare.GetPrevSq(IsAcross);
-            }
+        }
+        else
+        {
+            SqCurrentSquare = SqCurrentSquare?.GetPrevSq(IsAcross);
         }
     }
     #endregion
@@ -152,18 +148,16 @@ public sealed partial class CrosswordApp
     private void GetRightArrow(Keys keyInFocus)
     {
         //If right arrow pressed get next sq
-        if (keyInFocus == Keys.Right)
+        if (keyInFocus != Keys.Right) return;
+        if (IsAcross)
         {
-            if (IsAcross)
-            {
-                SqCurrentSquare = SqCurrentSquare?.GetNextSq(IsAcross);
-            }
-            else
-            {
-                SqCurrentSquare = SqCurrentSquare?.GetNextSq(!IsAcross);
-                if (SqCurrentSquare?.ClueAnswerDown == null)
-                    IsAcross = !IsAcross;
-            }
+            SqCurrentSquare = SqCurrentSquare?.GetNextSq(IsAcross);
+        }
+        else
+        {
+            SqCurrentSquare = SqCurrentSquare?.GetNextSq(!IsAcross);
+            if (SqCurrentSquare?.ClueAnswerDown == null)
+                IsAcross = !IsAcross;
         }
     }
     #endregion
@@ -176,18 +170,16 @@ public sealed partial class CrosswordApp
     private void GetLeftArrow(Keys keyInFocus)
     {
         //If left arrow key pressed get prev sq
-        if (keyInFocus == Keys.Left)
+        if (keyInFocus != Keys.Left) return;
+        if (!IsAcross)
         {
-            if (IsAcross)
-            {
-                SqCurrentSquare = SqCurrentSquare.GetPrevSq(IsAcross);
-            }
-            else
-            {
-                SqCurrentSquare = SqCurrentSquare.GetPrevSq(!IsAcross);
-                if (SqCurrentSquare.ClueAnswerDown == null)
-                    IsAcross = !IsAcross;
-            }
+            SqCurrentSquare = SqCurrentSquare?.GetPrevSq(!IsAcross);
+            if (SqCurrentSquare?.ClueAnswerDown == null)
+                IsAcross = !IsAcross;
+        }
+        else
+        {
+            SqCurrentSquare = SqCurrentSquare?.GetPrevSq(IsAcross);
         }
     }
     #endregion

@@ -1,7 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
-using Newtonsoft.Json.Serialization;
-
-namespace CyberPuzzles.Crossword.App;
+namespace Crossword.App;
 
 public sealed partial class CrosswordApp
 {

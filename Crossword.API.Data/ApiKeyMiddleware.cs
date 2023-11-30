@@ -2,6 +2,8 @@
 
 using Crossword.Shared.Constants;
 
+namespace CrosswordData;
+
 public class ApiKeyMiddleware {
     private readonly RequestDelegate _next;
     // private
