@@ -88,10 +88,11 @@ public sealed partial class CrosswordApp
     {
         if (sqPuzzleSquares[i, j]?.ClueAnswerAcross == null) return;
         if (sqPuzzleSquares[i, j]?.ClueAnswerAcross?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
-        _spriteBatch.DrawString(_fntnumFont,
-            sqPuzzleSquares[i, j]?.ClueAnswerAcross?.QuestionNumber.ToString(),
-            new Vector2(_puzzleSquares[i, j].X + CWSettings.SmlNumOffsetX,
-                _puzzleSquares[i, j].Y + CWSettings.SmlNumOffsetY), CWSettings.SmallFontColor);
+        if (_puzzleSquares != null)
+            _spriteBatch.DrawString(_fntnumFont,
+                sqPuzzleSquares[i, j]?.ClueAnswerAcross?.QuestionNumber.ToString(),
+                new Vector2(_puzzleSquares[i, j].X + CWSettings.SmlNumOffsetX,
+                    _puzzleSquares[i, j].Y + CWSettings.SmlNumOffsetY), CWSettings.SmallFontColor);
     }
 
     /// <summary>
@@ -101,10 +102,10 @@ public sealed partial class CrosswordApp
     /// <param name="j"></param>
     private void DrawSmallFontDown(int i, int j)
     {
-        if (sqPuzzleSquares != null && sqPuzzleSquares?[i, j].ClueAnswerDown == null) return;
-        if (sqPuzzleSquares[i, j].ClueAnswerDown?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
+        if (sqPuzzleSquares?[i, j].ClueAnswerDown == null) return;
+        if (sqPuzzleSquares?[i, j].ClueAnswerDown?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
         _spriteBatch.DrawString(_fntnumFont,
-            sqPuzzleSquares[i, j].ClueAnswerDown?.QuestionNumber.ToString(),
+            sqPuzzleSquares[i, j]?.ClueAnswerDown?.QuestionNumber.ToString(),
             new Vector2(_puzzleSquares[i, j].X + CWSettings.SmlNumOffsetX,
                 _puzzleSquares[i, j].Y + CWSettings.SmlNumOffsetY), CWSettings.SmallFontColor);
     }
