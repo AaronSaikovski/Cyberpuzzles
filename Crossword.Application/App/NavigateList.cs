@@ -26,7 +26,7 @@ public sealed partial class CrosswordApp
                             if (LstClueAcross.SelectedIndex != null)
                             {
                                 LstClueAcross.SelectedIndex--;
-                                //TODO - add handler
+                         
                                 //selChangeLstClueAcross(evt);
                                 //SelChangeListClueAcross();
                             }
@@ -35,7 +35,7 @@ public sealed partial class CrosswordApp
                         }
                         case Keys.Down:
                             LstClueAcross.SelectedIndex++;
-                            //TODO - add handler
+                        
                             //selChangeLstClueAcross(evt);
                             //SelChangeListClueAcross();
                             break;
