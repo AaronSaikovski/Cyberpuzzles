@@ -1,21 +1,21 @@
-﻿<Properties StartupConfiguration="{A0C4193F-3FD8-41A6-A3E7-9844D1FFF063}|Default">
+﻿<Properties StartupConfiguration="{B53EE5F7-E852-47C0-814E-6E559D43A774}|https">
+  <MonoDevelop.Ide.ItemProperties.Crossword.API.Data PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Crossword PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="crossword/app.manifest">
-    <Files>
-      <File FileName="crossword/app.manifest" Line="34" Column="19" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CyberPuzzles" expanded="True" selected="True" />
+          <Node name="CyberPuzzles">
+            <Node name="Crossword.Application" selected="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Crossword PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
