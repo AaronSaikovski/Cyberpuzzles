@@ -2,7 +2,7 @@ using System;
 
 namespace CyberPuzzles.Crossword.App;
 
-public sealed partial class Crossword
+public sealed partial class CrosswordApp
 {
     #region QuickSolver
 

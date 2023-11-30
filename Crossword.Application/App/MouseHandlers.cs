@@ -1,10 +1,10 @@
 using System;
 using CyberPuzzles.Crossword.App.PuzzleSquares;
-using CyberPuzzles.Shared.Constants;
+using Crossword.Shared.Constants;
 
 namespace CyberPuzzles.Crossword.App;
 
-public sealed partial class Crossword
+public sealed partial class CrosswordApp
 {
     #region MouseUp
     /// <summary>
@@ -24,7 +24,7 @@ public sealed partial class Crossword
         //If the individual puzzle has finished...eat the event
         if (PuzzleFinished) return true;
         //Exception handling added as an ArrayIndexOutOfBoundException occurs
-        var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / CWSettings.nSquareWidth, (y - nCrossOffsetY) / CWSettings.nSquareHeight];
+        var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / CWSettings.SquareWidth, (y - nCrossOffsetY) / CWSettings.SquareHeight];
         try
         {
             if (sqSelSquare != null && !sqSelSquare.IsCharAllowed) return true;

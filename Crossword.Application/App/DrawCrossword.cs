@@ -1,10 +1,10 @@
-using CyberPuzzles.Shared.Constants;
+using Crossword.Shared.Constants;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 
 namespace CyberPuzzles.Crossword.App;
 
-public sealed partial class Crossword
+public sealed partial class CrosswordApp
 {
     #region DrawCrossword
 
@@ -26,7 +26,7 @@ public sealed partial class Crossword
             {
                 if (sqPuzzleSquares == null) continue;
                 _puzzleSquares[i, j] = new Rectangle(sqPuzzleSquares[i, j].xCoord, sqPuzzleSquares[i, j].yCoord,
-                    CWSettings.nSquareWidth, CWSettings.nSquareHeight);
+                    CWSettings.SquareWidth, CWSettings.SquareHeight);
 
                 //Check to see if a char is allowed
                 if (sqPuzzleSquares[i, j].IsCharAllowed)

@@ -1,7 +1,7 @@
 namespace CyberPuzzles.Crossword.App.Datasets;
 
 /// <summary>
-/// Crossword dataset to map clues to answers.
+/// CrosswordApp dataset to map clues to answers.
 /// </summary>
 /// <remarks>
 /// constructor

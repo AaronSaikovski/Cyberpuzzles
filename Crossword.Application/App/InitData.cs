@@ -1,13 +1,13 @@
-using CyberPuzzles.Shared.Constants;
+using Crossword.Shared.Constants;
 
 namespace CyberPuzzles.Crossword.App;
 
 
-public sealed partial class Crossword
+public sealed partial class CrosswordApp
 {
     #region InitData
     /// <summary>
-    /// Inits the Crossword.Application data
+    /// Inits the CrosswordApp.Application data
     /// </summary>
     private void InitData()
     {
@@ -25,8 +25,8 @@ public sealed partial class Crossword
         _szBlurb = _mrParserData.Blurb;
 
         //Initialise dimension variables
-        _nCrosswordWidth = _NumCols * CWSettings.nSquareWidth;
-        _nCrosswordHeight = _NumRows * CWSettings.nSquareHeight;
+        _nCrosswordWidth = _NumCols * CWSettings.SquareWidth;
+        _nCrosswordHeight = _NumRows * CWSettings.SquareHeight;
 
         // offsets
         nCrossOffsetX = CWSettings.MainOffsetX;

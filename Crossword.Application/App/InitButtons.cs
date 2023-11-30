@@ -1,10 +1,10 @@
 
-using CyberPuzzles.Shared.Constants;
+using Crossword.Shared.Constants;
 using Myra.Graphics2D.UI;
 
 namespace CyberPuzzles.Crossword.App;
 
-public sealed partial class Crossword
+public sealed partial class CrosswordApp
 {
     #region InitHintButton
     /// <summary>

@@ -1,6 +1,6 @@
 namespace CyberPuzzles.Crossword.App;
 
-public sealed partial class Crossword
+public sealed partial class CrosswordApp
 {
     #region MainInit
     /// <summary>

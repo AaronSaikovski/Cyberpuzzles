@@ -6,7 +6,7 @@ using CyberPuzzles.Crossword.App.Datasets;
 
 namespace CyberPuzzles.Crossword.App;
 
-public sealed partial class Crossword
+public sealed partial class CrosswordApp
 {
     #region InitControls
 
@@ -27,7 +27,7 @@ public sealed partial class Crossword
         //Init next puzzle button
         InitGetNextPuzzleButton();
 
-        //Crossword.Application Parsed Dataset
+        //CrosswordApp.Application Parsed Dataset
         //
         //Dimension array for crossword data
         _puzzleDataset = new PuzzleState[NumQuestions];

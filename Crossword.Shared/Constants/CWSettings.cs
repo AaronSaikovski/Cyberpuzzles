@@ -1,7 +1,7 @@
 
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
-//      Module:     CWSettings.cs                                          //
+//      Module:     CWSettings.cs                                         //
 //      Authors:    Aaron Saikovski                                       //
 //      Date:       31/10/202                                             //
 //      Version:    1.0                                                   //
@@ -9,26 +9,24 @@
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
-using System.Drawing;
-using Microsoft.Xna.Framework;
 using Color = Microsoft.Xna.Framework.Color;
 
-namespace CyberPuzzles.Shared.Constants;
+namespace Crossword.Shared.Constants;
 
 public sealed class CWSettings
 {
 
     //API key name
-    public const string APIKeyName = "XApiKey";
+    public const string ApiKeyName = "XApiKey";
     
     //Square width and height constants
-    public const int nSquareWidth = 40;
-    public const int nSquareHeight = 40;
+    public const int SquareWidth = 40;
+    public const int SquareHeight = 40;
 
     //Highlight Constants
-    public const int nCURRENT_LETTER = 1;
-    public const int nCURRENT_WORD = 2;
-    public const int nCURRENT_NONE = 3;
+    public const int CurrentLetter = 1;
+    public const int CurrentWord = 2;
+    public const int CurrentNone = 3;
 
 
     //Font sizes
@@ -37,8 +35,8 @@ public sealed class CWSettings
     public const int FntLge = 20;
 
     //Crossword.Application dimension constants
-    public const int NMaxCrossWidth = 291;
-    public const int NMaxCrossHeight = 291;
+    // public const int NMaxCrossWidth = 291;
+    // public const int NMaxCrossHeight = 291;
 
     //main game offsets
     public const int MainOffsetX = 30;
@@ -64,18 +62,18 @@ public sealed class CWSettings
     public static Color SqError = Color.Black;
     
     //default puzzledata
-    public static string DefaultPuzzleData = "761*QX000001*0909*0 0 1 1#4 1 1 6#0 2 1 7#2 3 1 9#0 5 1 11#4 6 1 16#0 7 1 17#4 8 1 18#0 0 2 1#2 0 2 2#4 0 2 3#6 0 2 4#8 0 2 5#3 2 2 8#5 3 2 10#0 5 2 11#2 5 2 12#4 5 2 13#6 5 2 14#8 5 2 15*Forward#Strictly accurate#Australian marsupial#Moving to avoid#Not accepted conduct#Astonish greatly#Provide meals#Occurrence#Pretend#Public way#Beer froth#Full-length dress#Adult male deer#Crazy#Metric unit of mass#Skin irritation#Friend#Uncommon#Inland body of water#Bench*FORTH#EXACT#KOALA#DODGING#IMMORAL#AMAZE#CATER#EVENT#FAKE#ROAD#HEAD#MAXI#STAG#LOCO#GRAM#ITCH#MATE#RARE#LAKE#SEAT*ZCDEFGHIKLMNORSTVXA*30 1 1 0 1 5*Use the clues to solve this crossword and earn CyberSilver. If you have not played our crosswords before and want help, then click the HELP button. Have fun!";
+    public const string DefaultPuzzleData = "761*QX000001*0909*0 0 1 1#4 1 1 6#0 2 1 7#2 3 1 9#0 5 1 11#4 6 1 16#0 7 1 17#4 8 1 18#0 0 2 1#2 0 2 2#4 0 2 3#6 0 2 4#8 0 2 5#3 2 2 8#5 3 2 10#0 5 2 11#2 5 2 12#4 5 2 13#6 5 2 14#8 5 2 15*Forward#Strictly accurate#Australian marsupial#Moving to avoid#Not accepted conduct#Astonish greatly#Provide meals#Occurrence#Pretend#Public way#Beer froth#Full-length dress#Adult male deer#Crazy#Metric unit of mass#Skin irritation#Friend#Uncommon#Inland body of water#Bench*FORTH#EXACT#KOALA#DODGING#IMMORAL#AMAZE#CATER#EVENT#FAKE#ROAD#HEAD#MAXI#STAG#LOCO#GRAM#ITCH#MATE#RARE#LAKE#SEAT*ZCDEFGHIKLMNORSTVXA*30 1 1 0 1 5*Use the clues to solve this crossword and earn CyberSilver. If you have not played our crosswords before and want help, then click the HELP button. Have fun!";
 
     //Puzzle tile images
-    public static string BlackSquare = "images/tile_black";
-    public static string HighliteSquare = "images/tile_yellow";
-    public static string SquareWord = "images/tile_orange";
-    public static string NormalSquare = "images/tile_grey";
+    public const string BlackSquare = "images/tile_black";
+    public const string HighliteSquare = "images/tile_yellow";
+    public const string SquareWord = "images/tile_orange";
+    public const string NormalSquare = "images/tile_grey";
     
     
     //Fonts
-    public static string HelveticaBold = "fonts/Helvetica-Bold.ttf";
-    public static string HelveticaPlain = "fonts/Helvetica.ttf";
+    public const string HelveticaBold = "fonts/Helvetica-Bold.ttf";
+    public const string HelveticaPlain = "fonts/Helvetica.ttf";
     
     
     //Score color

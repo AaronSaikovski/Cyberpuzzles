@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CyberPuzzles.Crossword.App;
 
-public sealed partial class Crossword
+public sealed partial class CrosswordApp
 {
     #region KeyDown
     /// <summary>

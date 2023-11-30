@@ -1,11 +1,11 @@
 using System.IO;
-using CyberPuzzles.Shared.Constants;
+using Crossword.Shared.Constants;
 using FontStashSharp;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace CyberPuzzles.Crossword.App;
 
-public sealed partial class Crossword
+public sealed partial class CrosswordApp
 {
     #region LoadImages
     /// <summary>
@@ -43,7 +43,7 @@ public sealed partial class Crossword
         //Char entered by user.    
         _fntFont = fntHelveticaBoldSystem.GetFont(CWSettings.FntLge);
 
-        //Crossword.Application score      
+        //CrosswordApp.Application score      
         _fntScore = fntHelveticaBoldSystem.GetFont(CWSettings.FntLge);
 
         //Across/Down listbox Headers

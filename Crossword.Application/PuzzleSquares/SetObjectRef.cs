@@ -1,6 +1,6 @@
 using System;
 using CyberPuzzles.Crossword.App.ClueAnswer;
-using CyberPuzzles.Shared.Constants;
+using Crossword.Shared.Constants;
 
 namespace CyberPuzzles.Crossword.App.PuzzleSquares;
 

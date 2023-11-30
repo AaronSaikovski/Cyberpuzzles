@@ -5,7 +5,7 @@ using Myra.Graphics2D.UI;
 
 namespace CyberPuzzles.Crossword.App;
 
-public sealed partial class Crossword
+public sealed partial class CrosswordApp
 {
     #region Initialize
     protected override void Initialize()
@@ -14,7 +14,7 @@ public sealed partial class Crossword
         _mainPanel = new Panel();
 
         //set the Window title
-        Window.Title = "CyberPuzzles Crossword";
+        Window.Title = "CyberPuzzles CrosswordApp";
 
         //Init the puzzle data
         InitPuzzleData();

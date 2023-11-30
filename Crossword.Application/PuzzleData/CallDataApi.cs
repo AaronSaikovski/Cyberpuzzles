@@ -3,14 +3,14 @@
 //      Module:     CallDataApi.cs                                        //
 //      Authors:    Aaron Saikovski                                       //
 //      Date:       31/10/2023                                            //
-//      Purpose:    Gets Crossword.Application puzzle data from an API.               //
+//      Purpose:    Gets CrosswordApp.Application puzzle data from an API.               //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
 using System;
 using System.Net.Http;
-using CyberPuzzles.Shared.Config;
-using CyberPuzzles.Shared.Constants;
+using Crossword.Shared.Config;
+using Crossword.Shared.Constants;
 
 namespace CyberPuzzles.Crossword.App.PuzzleData;
 
@@ -35,7 +35,7 @@ public partial class CrosswordData
 
                 //pass in the API key to the header
                 client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Add(CWSettings.APIKeyName, apiKey);
+                client.DefaultRequestHeaders.Add(CWSettings.ApiKeyName, apiKey);
                 
                 // Make the GET request to the API endpoint
                 var response = client.GetAsync(apiUrl).Result;

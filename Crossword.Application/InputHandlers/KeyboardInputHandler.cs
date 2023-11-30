@@ -4,7 +4,7 @@
 //      Authors:    Aaron Saikovski                                       //
 //      Date:       31/10/2023                                            //
 //      Version:    1.0                                                   //
-//      Purpose:    Generic crossword keyboard handler.                   //
+//      Purpose:    Generic crosswordApp keyboard handler.                   //
 //      Ref:        https://github.com/DavidFidge/InputHandlers           //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
@@ -14,13 +14,13 @@ using Microsoft.Xna.Framework.Input;
 
 namespace CyberPuzzles.Crossword.InputHandlers
 {
-    public class KeyboardInputHandler(Crossword.App.Crossword crossword) : IKeyboardHandler
+    public class KeyboardInputHandler(Crossword.App.CrosswordApp crosswordApp) : IKeyboardHandler
     {
         #region Keyboard_Input_Handler
 
-        //Crossword.Application instance
-        //private readonly Crossword.Application.Crossword.Application _crossword = crossword;
-        App.Crossword _crossword = crossword;
+        //CrosswordApp.Application instance
+        //private readonly CrosswordApp.Application.CrosswordApp.Application _crosswordApp = crosswordApp;
+        App.CrosswordApp _crosswordApp = crosswordApp;
         
         public void HandleKeyboardKeyDown(Keys[] keysDown, Keys keyInFocus, KeyboardModifier keyboardModifier)
         {
@@ -28,15 +28,15 @@ namespace CyberPuzzles.Crossword.InputHandlers
             if ((KeyboardModifier.Ctrl & keyboardModifier) == KeyboardModifier.Ctrl && keyInFocus == Keys.B)
             {
                 //Console.WriteLine("Ctrl-B");
-                _crossword.QuickSolver();
+                _crosswordApp.QuickSolver();
             }
             else
             {
                 // check if game is finished
-                if (!_crossword.IsFinished)
+                if (!_crosswordApp.IsFinished)
                 {
                     //handle key down..normal keys
-                    _crossword.KeyDown(keysDown, keyInFocus);
+                    _crosswordApp.KeyDown(keysDown, keyInFocus);
                 }
             }
         }

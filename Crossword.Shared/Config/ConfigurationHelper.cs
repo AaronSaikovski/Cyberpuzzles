@@ -1,8 +1,6 @@
-
-
 using Microsoft.Extensions.Configuration;
 
-namespace CyberPuzzles.Shared.Config;
+namespace Crossword.Shared.Config;
 
 public static class ConfigurationHelper
 {

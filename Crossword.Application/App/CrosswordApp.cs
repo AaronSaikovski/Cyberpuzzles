@@ -25,7 +25,7 @@ using CyberPuzzles.Crossword.App.Datasets;
 
 namespace CyberPuzzles.Crossword.App
 {
-    public sealed partial class Crossword : Game
+    public sealed partial class CrosswordApp : Game
     {
         #region Fields       
 
@@ -72,7 +72,7 @@ namespace CyberPuzzles.Crossword.App
         private readonly int CurrentWord = 2;
         private readonly int CurrentNone = 3;
 
-        //Crossword.Application dimension constants
+        //CrosswordApp.Application dimension constants
         private readonly int MaxCrossWidth = 291;
         private readonly int MaxCrossHeight = 291;
 
@@ -112,7 +112,7 @@ namespace CyberPuzzles.Crossword.App
         //Number of times Hint has been accessed by the user
         //int nUserHintPress;
 
-        // Crossword.Application score
+        // CrosswordApp.Application score
         private int CrosswordScore;
 
         //More puzzles in set boolean flag
@@ -121,7 +121,7 @@ namespace CyberPuzzles.Crossword.App
         //Parser class
         private Parser.PuzzleData _mrParserData;
 
-        //Images to use forx Crossword.Application squares
+        //Images to use forx CrosswordApp.Application squares
         private Texture2D _imgSquareWord;
         private Texture2D _imgHighliteSquare;
         private Texture2D _imgNormalSquare;
@@ -153,7 +153,7 @@ namespace CyberPuzzles.Crossword.App
         //Fonts
         private DynamicSpriteFont _fntnumFont;   //small number font
         private DynamicSpriteFont _fntFont;      //Char entered by user.
-        private DynamicSpriteFont _fntScore;     //Crossword.Application score
+        private DynamicSpriteFont _fntScore;     //CrosswordApp.Application score
         private DynamicSpriteFont _fntListhead;  //Across/Down listbox Headers
         private DynamicSpriteFont _fntListFont;  // ListBox font
 
@@ -172,7 +172,7 @@ namespace CyberPuzzles.Crossword.App
         private Label _clueAcrossLabel;
         private Label _clueDownLabel;
 
-        //Crossword.Application Rectangles for mouse handling
+        //CrosswordApp.Application Rectangles for mouse handling
         //Rectangle variable
         public Rectangle rectCrossWord;
 
@@ -183,7 +183,7 @@ namespace CyberPuzzles.Crossword.App
         private TextButton GetNextPuzzleButton;
 
 
-        //Crossword.Application Width and Height variables
+        //CrosswordApp.Application Width and Height variables
         private int _nCrosswordWidth;
         private int _nCrosswordHeight;
         private readonly int _nCrosswordOffset = 6;
@@ -197,7 +197,7 @@ namespace CyberPuzzles.Crossword.App
 
         #region main_constructor
         // Main crossword constructor
-        public Crossword()
+        public CrosswordApp()
         {
             //Prepare Graphics
             _graphics = new GraphicsDeviceManager(this);

@@ -3,12 +3,12 @@
 //      Module:     GetCrosswordData.cs                                   //
 //      Authors:    Aaron Saikovski                                       //
 //      Date:       31/10/2023                                            //
-//      Purpose:    Gets Crossword.Application puzzle data from an API.               //
+//      Purpose:    Gets CrosswordApp.Application puzzle data from an API.               //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
 using System;
-using CyberPuzzles.Shared.Constants;
+using Crossword.Shared.Constants;
 
 namespace CyberPuzzles.Crossword.App.PuzzleData;
 

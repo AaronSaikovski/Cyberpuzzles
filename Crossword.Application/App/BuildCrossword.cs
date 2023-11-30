@@ -1,5 +1,5 @@
 
-using CyberPuzzles.Shared.Constants;
+using Crossword.Shared.Constants;
 using CyberPuzzles.Crossword.App.ClueAnswer;
 using CyberPuzzles.Crossword.App.PuzzleSquares;
 
@@ -8,7 +8,7 @@ using Myra.Graphics2D.UI;
 
 namespace CyberPuzzles.Crossword.App;
 
-public sealed partial class Crossword
+public sealed partial class CrosswordApp
 {
     #region BuildCrossword
     /// <summary>
@@ -93,8 +93,8 @@ public sealed partial class Crossword
 
                 //Create squares
                 sqPuzzleSquares[i, j]
-                    ?.CreateSquare(nCrossOffsetX + i * CWSettings.nSquareWidth,
-                        nCrossOffsetY + j * CWSettings.nSquareHeight);
+                    ?.CreateSquare(nCrossOffsetX + i * CWSettings.SquareWidth,
+                        nCrossOffsetY + j * CWSettings.SquareHeight);
             }
         }
     }

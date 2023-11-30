@@ -1,4 +1,4 @@
-using CyberPuzzles.Shared.Constants;
+using Crossword.Shared.Constants;
 
 namespace CyberPuzzles.Crossword.App.PuzzleSquares;
 
