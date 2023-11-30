@@ -46,7 +46,7 @@ public sealed partial class ClueAnswerMap
                 {
                     sqAnswerSquares[k] = new Square();
                     sqAnswerSquares[k]?.CreateSquare(0, 0);
-                    if (SqAnswerSquares != null) sqAnswerSquares[k] = SqAnswerSquares[k];
+                    sqAnswerSquares[k] = SqAnswerSquares[k];
                 }
 
                 // Assign the created Square to the array element

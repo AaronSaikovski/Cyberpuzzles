@@ -12,52 +12,49 @@
 using InputHandlers.Keyboard;
 using Microsoft.Xna.Framework.Input;
 
-namespace Crossword.InputHandlers
+namespace Crossword.InputHandlers;
+
+public class KeyboardInputHandler(App.CrosswordApp crosswordApp) : IKeyboardHandler
 {
-    public class KeyboardInputHandler(Crossword.App.CrosswordApp crosswordApp) : IKeyboardHandler
-    {
-        #region Keyboard_Input_Handler
+    #region Keyboard_Input_Handler
 
-        //CrosswordApp.Application instance
-        //private readonly CrosswordApp.Application.CrosswordApp.Application _crosswordApp = crosswordApp;
-        App.CrosswordApp _crosswordApp = crosswordApp;
+    //CrosswordApp.Application instance
+    readonly App.CrosswordApp _crosswordApp = crosswordApp;
         
-        public void HandleKeyboardKeyDown(Keys[] keysDown, Keys keyInFocus, KeyboardModifier keyboardModifier)
+    public void HandleKeyboardKeyDown(Keys[] keysDown, Keys keyInFocus, KeyboardModifier keyboardModifier)
+    {
+        //Implement cheat - Ctrl+B
+        if ((KeyboardModifier.Ctrl & keyboardModifier) == KeyboardModifier.Ctrl && keyInFocus == Keys.B)
         {
-            //Implement cheat - Ctrl+B
-            if ((KeyboardModifier.Ctrl & keyboardModifier) == KeyboardModifier.Ctrl && keyInFocus == Keys.B)
+            //Console.WriteLine("Ctrl-B");
+            _crosswordApp.QuickSolver();
+        }
+        else
+        {
+            // check if game is finished
+            if (!_crosswordApp.IsFinished)
             {
-                //Console.WriteLine("Ctrl-B");
-                _crosswordApp.QuickSolver();
-            }
-            else
-            {
-                // check if game is finished
-                if (!_crosswordApp.IsFinished)
-                {
-                    //handle key down..normal keys
-                    _crosswordApp.KeyDown(keyInFocus);
-                }
+                //handle key down..normal keys
+                _crosswordApp.KeyDown(keyInFocus);
             }
         }
-
-        public void HandleKeyboardKeyLost(Keys[] keysDown, KeyboardModifier keyboardModifier)
-        {
-            //do nothing
-        }
-
-        public void HandleKeyboardKeyRepeat(Keys repeatingKey, KeyboardModifier keyboardModifier)
-        {
-
-        }
-
-        //Keyup event
-        public void HandleKeyboardKeysReleased()
-        {
-            //do nothing
-        }
-
-        #endregion
     }
-}
 
+    public void HandleKeyboardKeyLost(Keys[] keysDown, KeyboardModifier keyboardModifier)
+    {
+        //do nothing
+    }
+
+    public void HandleKeyboardKeyRepeat(Keys repeatingKey, KeyboardModifier keyboardModifier)
+    {
+
+    }
+
+    //Keyup event
+    public void HandleKeyboardKeysReleased()
+    {
+        //do nothing
+    }
+
+    #endregion
+}

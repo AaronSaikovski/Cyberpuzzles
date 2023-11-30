@@ -20,7 +20,7 @@ public sealed partial class CrosswordApp
             while (!hintSupplied && !allHintLettersChecked)
             {
 
-                if (_szTmpGetLetters != null && _szTmpGetLetters.Length > 0)
+                if (_szTmpGetLetters is { Length: > 0 })
                 {
                     var chHintLetter = _szTmpGetLetters[0];
                     _szTmpGetLetters = _szTmpGetLetters[1..];

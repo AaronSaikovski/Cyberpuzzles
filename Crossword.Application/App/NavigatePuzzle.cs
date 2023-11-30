@@ -75,12 +75,10 @@ public sealed partial class CrosswordApp
         var clueAnswerIdx = 0;
         for (var k = 0; k < NumQuestions; k++)
         {
-            if (tmp == caPuzzleClueAnswers[k])
-            {
-                clueAnswerIdx = k;
-                break;
-            }
-            
+            if (tmp != caPuzzleClueAnswers[k]) continue;
+            clueAnswerIdx = k;
+            break;
+
         }
 
         //Selects the item in the list box relative to the ClueAnswer

@@ -116,7 +116,7 @@ namespace Crossword.App
         private bool _bMorePuzzles;
 
         //Parser class
-        private CrosswordParser.PuzzleData _mrParserData;
+        private CrosswordParser.PuzzleData? _mrParserData;
 
         //Images to use forx CrosswordApp.Application squares
         private Texture2D _imgSquareWord;
