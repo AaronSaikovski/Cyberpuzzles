@@ -15,6 +15,7 @@ public sealed partial class ClueAnswerMap
     public bool CheckHint(char hintLetter)
     {
         if (hintLetter <= 0) throw new ArgumentOutOfRangeException(nameof(hintLetter));
+        
         var foundResult = false;
 
         // Assuming szAnswer and sqAnswerSquares are declared and initialized somewhere

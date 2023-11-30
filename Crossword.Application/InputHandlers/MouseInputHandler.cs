@@ -19,7 +19,6 @@ public class MouseInputHandler(App.CrosswordApp crosswordApp) : IMouseHandler
     #region Mouse_Input_Handler
 
     //CrosswordApp.Application instance
-    private readonly App.CrosswordApp _crosswordApp = crosswordApp;
 
     public void HandleLeftMouseClick(MouseState mouseState, MouseState origin)
     {
@@ -50,10 +49,10 @@ public class MouseInputHandler(App.CrosswordApp crosswordApp) : IMouseHandler
     public void HandleLeftMouseUp(MouseState mouseState, MouseState origin)
     {
         //Check if the mouse action is inside the main rect
-        if (_crosswordApp.rectCrossWord.Contains(origin.Position))
+        if (crosswordApp.rectCrossWord.Contains(origin.Position))
         {
             //Console.WriteLine("Inside rect!");
-            _crosswordApp.MouseUp(origin.X, origin.Y);
+            crosswordApp.MouseUp(origin.X, origin.Y);
         }
     }
 

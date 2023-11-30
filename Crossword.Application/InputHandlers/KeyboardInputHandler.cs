@@ -19,23 +19,22 @@ public class KeyboardInputHandler(App.CrosswordApp crosswordApp) : IKeyboardHand
     #region Keyboard_Input_Handler
 
     //CrosswordApp.Application instance
-    readonly App.CrosswordApp _crosswordApp = crosswordApp;
-        
+
     public void HandleKeyboardKeyDown(Keys[] keysDown, Keys keyInFocus, KeyboardModifier keyboardModifier)
     {
         //Implement cheat - Ctrl+B
         if ((KeyboardModifier.Ctrl & keyboardModifier) == KeyboardModifier.Ctrl && keyInFocus == Keys.B)
         {
             //Console.WriteLine("Ctrl-B");
-            _crosswordApp.QuickSolver();
+            crosswordApp.QuickSolver();
         }
         else
         {
             // check if game is finished
-            if (!_crosswordApp.IsFinished)
+            if (!crosswordApp.IsFinished)
             {
                 //handle key down..normal keys
-                _crosswordApp.KeyDown(keyInFocus);
+                crosswordApp.KeyDown(keyInFocus);
             }
         }
     }

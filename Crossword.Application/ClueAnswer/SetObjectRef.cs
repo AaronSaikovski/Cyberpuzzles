@@ -51,7 +51,7 @@ public sealed partial class ClueAnswerMap
 
                 // Assign the created Square to the array element
                 // The original code `this.sqAnswerSquares[k] = sqAnswerSquares[k];` seems redundant, so omitted
-                SqAnswerSquares?[k]?.SetObjectRef(this.IsAcross, this);
+                if (SqAnswerSquares != null) SqAnswerSquares?[k]?.SetObjectRef(this.IsAcross, this);
             });
         }
         catch (Exception e)
