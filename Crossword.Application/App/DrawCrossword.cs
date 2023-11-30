@@ -122,21 +122,19 @@ public sealed partial class CrosswordApp
     private bool DrawSquares(int i, int j)
     {
         //Check to see if a repaint is required
-        if (sqPuzzleSquares != null && !sqPuzzleSquares[i, j]!.IsDirty) return true;
-        if (sqPuzzleSquares[i, j].BackColour.Equals(CWSettings.SquareHighlightNone))
+        if (!sqPuzzleSquares[i, j]!.IsDirty) return true;
+        if (sqPuzzleSquares[i, j]!.BackColour.Equals(CWSettings.SquareHighlightNone))
         {
             if (_puzzleSquares != null) _spriteBatch.Draw(_imgNormalSquare, _puzzleSquares[i, j], _rectangleColor);
         }
 
-        if (sqPuzzleSquares[i, j].BackColour.Equals(CWSettings.SquareHighlightWord))
+        if (sqPuzzleSquares[i, j]!.BackColour.Equals(CWSettings.SquareHighlightWord))
         {
             if (_puzzleSquares != null) _spriteBatch.Draw(_imgSquareWord, _puzzleSquares[i, j], _rectangleColor);
         }
 
-        if (sqPuzzleSquares[i, j].BackColour.Equals(CWSettings.SquareHighlightCurrent))
-        {
-            if (_puzzleSquares != null) _spriteBatch.Draw(_imgHighliteSquare, _puzzleSquares[i, j], _rectangleColor);
-        }
+        if (!sqPuzzleSquares[i, j]!.BackColour.Equals(CWSettings.SquareHighlightCurrent)) return false;
+        if (_puzzleSquares != null) _spriteBatch.Draw(_imgHighliteSquare, _puzzleSquares[i, j], _rectangleColor);
 
         return false;
     }
