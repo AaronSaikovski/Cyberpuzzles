@@ -1,6 +1,5 @@
 
-using CyberPuzzles.Shared;
-using Microsoft.Xna.Framework;
+using CyberPuzzles.Shared.Constants;
 using Myra.Graphics2D.UI;
 
 namespace CyberPuzzles.Crossword.App;
@@ -17,10 +16,10 @@ public sealed partial class Crossword
         {
             Text = "Get Hint Letters",
             Id = "HintButton",
-            TextColor = Constants.ButtonTextColor,
-            OverTextColor = Constants.ButtonHoverTextColor, 
+            TextColor = CWSettings.ButtonTextColor,
+            OverTextColor = CWSettings.ButtonHoverTextColor, 
             Left = rectCrossWord.Left,
-            Top = rectCrossWord.Bottom + Constants.ClListSpacer * 2
+            Top = rectCrossWord.Bottom + CWSettings.ClListSpacer * 2
         };
 
         HintButton.Click += HintButtonClick;
@@ -38,10 +37,10 @@ public sealed partial class Crossword
         {
             Text = "Get Next Puzzle",
             Id = "NextPuzzleButton",
-            TextColor = Constants.ButtonTextColor,
-            OverTextColor = Constants.ButtonHoverTextColor, 
+            TextColor = CWSettings.ButtonTextColor,
+            OverTextColor = CWSettings.ButtonHoverTextColor, 
             Left = rectCrossWord.Left,
-            Top = rectCrossWord.Bottom + Constants.ClListSpacer * 8
+            Top = rectCrossWord.Bottom + CWSettings.ClListSpacer * 8
         };
 
         GetNextPuzzleButton.Click += NextPuzzleButtonClick;

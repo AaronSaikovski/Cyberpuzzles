@@ -9,7 +9,8 @@
 
 using System;
 using System.Net.Http;
-using CyberPuzzles.Shared;
+using CyberPuzzles.Shared.Config;
+using CyberPuzzles.Shared.Constants;
 
 namespace CyberPuzzles.Crossword.App.PuzzleData;
 
@@ -34,7 +35,7 @@ public partial class CrosswordData
 
                 //pass in the API key to the header
                 client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Add(Constants.APIKeyName, apiKey);
+                client.DefaultRequestHeaders.Add(CWSettings.APIKeyName, apiKey);
                 
                 // Make the GET request to the API endpoint
                 var response = client.GetAsync(apiUrl).Result;

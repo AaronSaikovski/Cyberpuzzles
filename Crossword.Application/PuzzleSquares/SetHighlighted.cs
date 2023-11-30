@@ -1,5 +1,5 @@
 using System;
-using CyberPuzzles.Shared;
+using CyberPuzzles.Shared.Constants;
 
 namespace CyberPuzzles.Crossword.App.PuzzleSquares;
 
@@ -16,34 +16,34 @@ public sealed partial class Square
         switch (highlightType)
         {
             case 1: //Current Letter
-                if (!BackColour.Equals(Constants.SquareHighlightCurrent))
+                if (!BackColour.Equals(CWSettings.SquareHighlightCurrent))
                 {
-                    BackColour = Constants.SquareHighlightCurrent;
+                    BackColour = CWSettings.SquareHighlightCurrent;
                     IsDirty = true;
                 }
 
                 break;
             case 2: //Current Word
-                if (!BackColour.Equals(Constants.SquareHighlightWord))
+                if (!BackColour.Equals(CWSettings.SquareHighlightWord))
                 {
-                    BackColour = Constants.SquareHighlightWord;
+                    BackColour = CWSettings.SquareHighlightWord;
                     IsDirty = true;
                 }
 
                 break;
             case 3: //Current None
-                if (!BackColour.Equals(Constants.SquareHighlightNone))
+                if (!BackColour.Equals(CWSettings.SquareHighlightNone))
                 {
-                    BackColour = Constants.SquareHighlightNone;
+                    BackColour = CWSettings.SquareHighlightNone;
                     IsDirty = true;
                 }
 
                 break;
             default: //Something went wrong....
-                if (BackColour.Equals(Constants.SquareHighlightErr))
+                if (BackColour.Equals(CWSettings.SquareHighlightErr))
                 {
                     Console.WriteLine($"Bogus color: {highlightType}");
-                    BackColour = Constants.SquareHighlightErr;
+                    BackColour = CWSettings.SquareHighlightErr;
                     IsDirty = true;
                 }
 

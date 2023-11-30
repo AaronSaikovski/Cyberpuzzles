@@ -1,6 +1,6 @@
 using System;
 using CyberPuzzles.Crossword.App.PuzzleSquares;
-using CyberPuzzles.Shared;
+using CyberPuzzles.Shared.Constants;
 
 namespace CyberPuzzles.Crossword.App.ClueAnswer;
 
@@ -21,13 +21,13 @@ public sealed partial class ClueAnswerMap
         for (var i = 0; i < Answer.Length; i++)
         {
             if (!setHighLighted)
-                SqAnswerSquares?[i]?.SetHighlighted(Constants.nCURRENT_NONE);
+                SqAnswerSquares?[i]?.SetHighlighted(CWSettings.nCURRENT_NONE);
             else
             {
                 SqAnswerSquares?[i]
                     ?.SetHighlighted(SqAnswerSquares?[i] == sq
-                        ? Constants.nCURRENT_LETTER
-                        : Constants.nCURRENT_WORD);
+                        ? CWSettings.nCURRENT_LETTER
+                        : CWSettings.nCURRENT_WORD);
             }
         }
     }

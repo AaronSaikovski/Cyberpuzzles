@@ -1,5 +1,4 @@
-using CyberPuzzles.Shared;
-using Microsoft.Xna.Framework;
+using CyberPuzzles.Shared.Constants;
 
 namespace CyberPuzzles.Crossword.App;
 
@@ -42,10 +41,10 @@ public sealed partial class Crossword
             //Current score label
             _mainPanel.Widgets.Remove(_currentScoreLabel);
             _currentScoreLabel.Text = $"Your Score: {CrosswordScore}";
-            _currentScoreLabel.TextColor = Constants.ScoreColor;
-            _currentScoreLabel.Left = Constants.ClListSpacer * 40;
+            _currentScoreLabel.TextColor = CWSettings.ScoreColor;
+            _currentScoreLabel.Left = CWSettings.ClListSpacer * 40;
             _currentScoreLabel.Font = _fntScore;
-            _currentScoreLabel.Top = rectCrossWord.Bottom + Constants.ClListSpacer * 2;
+            _currentScoreLabel.Top = rectCrossWord.Bottom + CWSettings.ClListSpacer * 2;
             _mainPanel.Widgets.Add(_currentScoreLabel);
         }
         else
@@ -53,10 +52,10 @@ public sealed partial class Crossword
             //Current score label
             _mainPanel.Widgets.Remove(_currentScoreLabel);
             _currentScoreLabel.Text = "GAME OVER!";
-            _currentScoreLabel.TextColor = Constants.ScoreColor;
-            _currentScoreLabel.Left = Constants.ClListSpacer * 40;
+            _currentScoreLabel.TextColor = CWSettings.ScoreColor;
+            _currentScoreLabel.Left = CWSettings.ClListSpacer * 40;
             _currentScoreLabel.Font = _fntScore;
-            _currentScoreLabel.Top = rectCrossWord.Bottom + Constants.ClListSpacer * 2;
+            _currentScoreLabel.Top = rectCrossWord.Bottom + CWSettings.ClListSpacer * 2;
             _mainPanel.Widgets.Add(_currentScoreLabel);
         }
 
@@ -64,10 +63,10 @@ public sealed partial class Crossword
         //Max score label
         _mainPanel.Widgets.Remove(_maxScoreLabel);
         _maxScoreLabel.Text = "Max Score: " + NumQuestions;
-        _maxScoreLabel.TextColor = Constants.ScoreColor;
-        _maxScoreLabel.Left = Constants.ClListSpacer * 40;
+        _maxScoreLabel.TextColor = CWSettings.ScoreColor;
+        _maxScoreLabel.Left = CWSettings.ClListSpacer * 40;
         _maxScoreLabel.Font = _fntScore;
-        _maxScoreLabel.Top = rectCrossWord.Bottom + Constants.ClListSpacer * 6;
+        _maxScoreLabel.Top = rectCrossWord.Bottom + CWSettings.ClListSpacer * 6;
         _mainPanel.Widgets.Add(_maxScoreLabel);
     }
     #endregion

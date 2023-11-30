@@ -1,4 +1,4 @@
-using CyberPuzzles.Shared;
+using CyberPuzzles.Shared.Constants;
 
 namespace CyberPuzzles.Crossword.App.PuzzleSquares;
 
@@ -15,7 +15,7 @@ public sealed partial class Square
     {
         Letter = letter;
         IsDirty = true;
-        ForeColour = Constants.SquareHighlightDefault;
+        ForeColour = CWSettings.SquareHighlightDefault;
     }
 
     #endregion

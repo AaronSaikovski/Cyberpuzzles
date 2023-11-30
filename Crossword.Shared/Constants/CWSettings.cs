@@ -1,7 +1,7 @@
 
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
-//      Module:     Constants.cs                                          //
+//      Module:     CWSettings.cs                                          //
 //      Authors:    Aaron Saikovski                                       //
 //      Date:       31/10/202                                             //
 //      Version:    1.0                                                   //
@@ -13,9 +13,9 @@ using System.Drawing;
 using Microsoft.Xna.Framework;
 using Color = Microsoft.Xna.Framework.Color;
 
-namespace CyberPuzzles.Shared;
+namespace CyberPuzzles.Shared.Constants;
 
-public sealed class Constants
+public sealed class CWSettings
 {
 
     //API key name

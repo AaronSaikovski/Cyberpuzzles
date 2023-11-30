@@ -1,6 +1,6 @@
 using System;
 using CyberPuzzles.Crossword.App.ClueAnswer;
-using CyberPuzzles.Shared;
+using CyberPuzzles.Shared.Constants;
 
 namespace CyberPuzzles.Crossword.App.PuzzleSquares;
 
@@ -24,7 +24,7 @@ public sealed partial class Square
 
         IsCharAllowed = true;
         IsDirty = true;
-        BackColour = Constants.SquareHighlightNone;
+        BackColour = CWSettings.SquareHighlightNone;
     }
 
     #endregion

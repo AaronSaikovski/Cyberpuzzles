@@ -1,4 +1,4 @@
-using CyberPuzzles.Shared;
+using CyberPuzzles.Shared.Constants;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 
@@ -26,7 +26,7 @@ public sealed partial class Crossword
             {
                 if (sqPuzzleSquares == null) continue;
                 _puzzleSquares[i, j] = new Rectangle(sqPuzzleSquares[i, j].xCoord, sqPuzzleSquares[i, j].yCoord,
-                    Constants.nSquareWidth, Constants.nSquareHeight);
+                    CWSettings.nSquareWidth, CWSettings.nSquareHeight);
 
                 //Check to see if a char is allowed
                 if (sqPuzzleSquares[i, j].IsCharAllowed)
@@ -71,8 +71,8 @@ public sealed partial class Crossword
     {
         //Char entered by user.
         _spriteBatch.DrawString(_fntFont, char.ToUpper(sqPuzzleSquares[i, j].Letter).ToString(),
-            new Vector2(_puzzleSquares[i, j].X + Constants.SqCharOffsetX,
-                _puzzleSquares[i, j].Y + Constants.SqCharOffsetY),
+            new Vector2(_puzzleSquares[i, j].X + CWSettings.SqCharOffsetX,
+                _puzzleSquares[i, j].Y + CWSettings.SqCharOffsetY),
             sqPuzzleSquares[i, j].ForeColour);
 
     }
@@ -90,8 +90,8 @@ public sealed partial class Crossword
         if (sqPuzzleSquares[i, j].ClueAnswerAcross?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
         _spriteBatch.DrawString(_fntnumFont,
             sqPuzzleSquares[i, j].ClueAnswerAcross?.QuestionNumber.ToString(),
-            new Vector2(_puzzleSquares[i, j].X + Constants.SmlNumOffsetX,
-                _puzzleSquares[i, j].Y + Constants.SmlNumOffsetY), Constants.SmallFontColor);
+            new Vector2(_puzzleSquares[i, j].X + CWSettings.SmlNumOffsetX,
+                _puzzleSquares[i, j].Y + CWSettings.SmlNumOffsetY), CWSettings.SmallFontColor);
     }
 
     /// <summary>
@@ -105,8 +105,8 @@ public sealed partial class Crossword
         if (sqPuzzleSquares[i, j].ClueAnswerDown?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
         _spriteBatch.DrawString(_fntnumFont,
             sqPuzzleSquares[i, j].ClueAnswerDown?.QuestionNumber.ToString(),
-            new Vector2(_puzzleSquares[i, j].X + Constants.SmlNumOffsetX,
-                _puzzleSquares[i, j].Y + Constants.SmlNumOffsetY), Constants.SmallFontColor);
+            new Vector2(_puzzleSquares[i, j].X + CWSettings.SmlNumOffsetX,
+                _puzzleSquares[i, j].Y + CWSettings.SmlNumOffsetY), CWSettings.SmallFontColor);
     }
     #endregion
 
@@ -121,17 +121,17 @@ public sealed partial class Crossword
     {
         //Check to see if a repaint is required
         if (sqPuzzleSquares != null && !sqPuzzleSquares[i, j]!.IsDirty) return true;
-        if (sqPuzzleSquares[i, j].BackColour.Equals(Constants.SquareHighlightNone))
+        if (sqPuzzleSquares[i, j].BackColour.Equals(CWSettings.SquareHighlightNone))
         {
             _spriteBatch.Draw(_imgNormalSquare, _puzzleSquares[i, j], _rectangleColor);
         }
 
-        if (sqPuzzleSquares[i, j].BackColour.Equals(Constants.SquareHighlightWord))
+        if (sqPuzzleSquares[i, j].BackColour.Equals(CWSettings.SquareHighlightWord))
         {
             _spriteBatch.Draw(_imgSquareWord, _puzzleSquares[i, j], _rectangleColor);
         }
 
-        if (sqPuzzleSquares[i, j].BackColour.Equals(Constants.SquareHighlightCurrent))
+        if (sqPuzzleSquares[i, j].BackColour.Equals(CWSettings.SquareHighlightCurrent))
         {
             _spriteBatch.Draw(_imgHighliteSquare, _puzzleSquares[i, j], _rectangleColor);
         }

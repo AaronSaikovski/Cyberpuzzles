@@ -1,4 +1,4 @@
-using CyberPuzzles.Shared;
+using CyberPuzzles.Shared.Constants;
 
 namespace CyberPuzzles.Crossword.App.PuzzleSquares;
 
@@ -13,7 +13,7 @@ public sealed partial class Square
     public void CheckLetter(char correctLetter)
     {
         if (Letter == ' ') return;
-        ForeColour = Letter == correctLetter ? Constants.SqCorrect : Constants.SqError;
+        ForeColour = Letter == correctLetter ? CWSettings.SqCorrect : CWSettings.SqError;
         IsDirty = true;
     }
 
