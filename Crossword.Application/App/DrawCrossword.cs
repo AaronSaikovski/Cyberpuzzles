@@ -25,34 +25,32 @@ public sealed partial class CrosswordApp
             for (var j = 0; j < _NumCols; j++)
             {
                 if (sqPuzzleSquares == null) continue;
-                if (_puzzleSquares != null)
+                if (_puzzleSquares == null) continue;
+                _puzzleSquares[i, j] = new Rectangle(sqPuzzleSquares[i, j]!.xCoord, sqPuzzleSquares[i, j]!.yCoord,
+                    CWSettings.SquareWidth, CWSettings.SquareHeight);
+
+                //Check to see if a char is allowed
+                if (sqPuzzleSquares[i, j]!.IsCharAllowed)
                 {
-                    _puzzleSquares[i, j] = new Rectangle(sqPuzzleSquares[i, j].xCoord, sqPuzzleSquares[i, j].yCoord,
-                        CWSettings.SquareWidth, CWSettings.SquareHeight);
+                    //Draws the squares
+                    if (DrawSquares(i, j)) continue;
 
-                    //Check to see if a char is allowed
-                    if (sqPuzzleSquares[i, j].IsCharAllowed)
+                    //small number font
+                    DrawSmallFontAcross(i, j);
+                    DrawSmallFontDown(i, j);
+
+                    //check if squares are dirty
+                    if (sqPuzzleSquares[i, j]!.IsDirty)
                     {
-                        //Draws the squares
-                        if (DrawSquares(i, j)) continue;
-
-                        //small number font
-                        DrawSmallFontAcross(i, j);
-                        DrawSmallFontDown(i, j);
-
-                        //check if squares are dirty
-                        if (sqPuzzleSquares[i, j].IsDirty)
-                        {
-                            //Char entered by user.
-                            DrawUserChar(i, j);
-                        }
+                        //Char entered by user.
+                        DrawUserChar(i, j);
                     }
-                    else
-                    {
-                        // Black square
-                        //_spriteBatch.Draw(_blackTexture, _puzzleSquares[i, j], _rectangleColor);
-                        _spriteBatch.Draw(_imgBlackSquare, _puzzleSquares[i, j], _rectangleColor);
-                    }
+                }
+                else
+                {
+                    // Black square
+                    //_spriteBatch.Draw(_blackTexture, _puzzleSquares[i, j], _rectangleColor);
+                    _spriteBatch.Draw(_imgBlackSquare, _puzzleSquares[i, j], _rectangleColor);
                 }
             }
         }
@@ -88,10 +86,10 @@ public sealed partial class CrosswordApp
     /// <param name="j"></param>
     private void DrawSmallFontAcross(int i, int j)
     {
-        if (sqPuzzleSquares[i, j].ClueAnswerAcross == null) return;
-        if (sqPuzzleSquares[i, j].ClueAnswerAcross?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
+        if (sqPuzzleSquares[i, j]?.ClueAnswerAcross == null) return;
+        if (sqPuzzleSquares[i, j]?.ClueAnswerAcross?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
         _spriteBatch.DrawString(_fntnumFont,
-            sqPuzzleSquares[i, j].ClueAnswerAcross?.QuestionNumber.ToString(),
+            sqPuzzleSquares[i, j]?.ClueAnswerAcross?.QuestionNumber.ToString(),
             new Vector2(_puzzleSquares[i, j].X + CWSettings.SmlNumOffsetX,
                 _puzzleSquares[i, j].Y + CWSettings.SmlNumOffsetY), CWSettings.SmallFontColor);
     }

@@ -143,8 +143,8 @@ namespace Crossword.App
 
 
         // Define a color for the rectangles
-        private Color _rectangleColor = Color.White;
-        private Color _rectangleBlack = Color.Black;
+        private readonly Color _rectangleColor = Color.White;
+        //private Color _rectangleBlack = Color.Black;
         private Texture2D _blackTexture;
 
         //Fonts
