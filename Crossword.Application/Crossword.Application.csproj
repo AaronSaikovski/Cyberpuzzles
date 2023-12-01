@@ -69,7 +69,6 @@
     <ProjectReference Include="..\Crossword.Parser\Crossword.Parser.csproj" />
     <ProjectReference Include="..\Crossword.Shared\Crossword.Shared.csproj" />
     <ProjectReference Include="..\thirdparty\InputHandlers\InputHandlers.csproj" />
-    <ProjectReference Include="..\thirdparty\MonoGame.Extended\src\cs\MonoGame.Extended\MonoGame.Extended.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.Configuration">
