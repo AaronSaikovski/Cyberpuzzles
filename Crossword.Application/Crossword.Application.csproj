@@ -45,7 +45,6 @@
     <PackageReference Include="MonoGame.Extended" Version="3.8.0" />
     <PackageReference Include="Myra" Version="1.5.3" />
     <PackageReference Include="FontStashSharp.MonoGame" Version="1.3.3" />
-    <PackageReference Include="InputHandlers.MonoGame" Version="1.7.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\" />
@@ -70,6 +69,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Crossword.Parser\Crossword.Parser.csproj" />
     <ProjectReference Include="..\Crossword.Shared\Crossword.Shared.csproj" />
+    <ProjectReference Include="..\thirdparty\InputHandlers\InputHandlers.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.Configuration">
