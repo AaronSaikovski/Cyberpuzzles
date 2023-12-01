@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Shared", "Crosswo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputHandlers", "thirdparty\InputHandlers\InputHandlers.csproj", "{AC780AC4-F439-4067-A1A8-48949230434D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Extended", "thirdparty\MonoGame.Extended\src\cs\MonoGame.Extended\MonoGame.Extended.csproj", "{68BA2652-8BFB-42B4-A625-94D238B283AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{AC780AC4-F439-4067-A1A8-48949230434D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC780AC4-F439-4067-A1A8-48949230434D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC780AC4-F439-4067-A1A8-48949230434D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68BA2652-8BFB-42B4-A625-94D238B283AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68BA2652-8BFB-42B4-A625-94D238B283AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68BA2652-8BFB-42B4-A625-94D238B283AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68BA2652-8BFB-42B4-A625-94D238B283AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

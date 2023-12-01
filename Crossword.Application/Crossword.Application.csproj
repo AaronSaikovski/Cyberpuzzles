@@ -42,7 +42,6 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
-    <PackageReference Include="MonoGame.Extended" Version="3.8.0" />
     <PackageReference Include="Myra" Version="1.5.3" />
     <PackageReference Include="FontStashSharp.MonoGame" Version="1.3.3" />
   </ItemGroup>
@@ -70,6 +69,7 @@
     <ProjectReference Include="..\Crossword.Parser\Crossword.Parser.csproj" />
     <ProjectReference Include="..\Crossword.Shared\Crossword.Shared.csproj" />
     <ProjectReference Include="..\thirdparty\InputHandlers\InputHandlers.csproj" />
+    <ProjectReference Include="..\thirdparty\MonoGame.Extended\src\cs\MonoGame.Extended\MonoGame.Extended.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.Configuration">
