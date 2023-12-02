@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
 
@@ -28,9 +29,15 @@ public sealed partial class CrosswordApp
         //
         //Dimension array for crossword data
         _puzzleDataset = new PuzzleState.PuzzleState[NumQuestions];
-        for (var i = 0; i < NumQuestions; i++)
+        // for (var i = 0; i < NumQuestions; i++)
+        //     _puzzleDataset[i] = new PuzzleState.PuzzleState(_rowRef[i], _colRef[i], _szAnswers[i], _szClues[i], _bDataIsAcross[i],
+        //         _quesNum[i]);
+        Parallel.For(0, NumQuestions, i =>
+        {
             _puzzleDataset[i] = new PuzzleState.PuzzleState(_rowRef[i], _colRef[i], _szAnswers[i], _szClues[i], _bDataIsAcross[i],
-                _quesNum[i]);
+            _quesNum[i]);
+        });
+        
 
         // init labels
         _currentScoreLabel = new Label();

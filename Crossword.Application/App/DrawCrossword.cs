@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Crossword.Shared.Constants;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
@@ -28,17 +29,17 @@ public sealed partial class CrosswordApp
                 if (_puzzleSquares is null) continue;
                 _puzzleSquares[i, j] = new Rectangle(sqPuzzleSquares[i, j]!.xCoord, sqPuzzleSquares[i, j]!.yCoord,
                     CWSettings.SquareWidth, CWSettings.SquareHeight);
-
+        
                 //Check to see if a char is allowed
                 if (sqPuzzleSquares[i, j]!.IsCharAllowed)
                 {
                     //Draws the squares
                     if (DrawSquares(i, j)) continue;
-
+        
                     //small number font
                     DrawSmallFontAcross(i, j);
                     DrawSmallFontDown(i, j);
-
+        
                     //check if squares are dirty
                     if (sqPuzzleSquares[i, j]!.IsDirty)
                     {
@@ -54,6 +55,7 @@ public sealed partial class CrosswordApp
                 }
             }
         }
+        
 
         _spriteBatch.End();
         NewBackFlush = false;

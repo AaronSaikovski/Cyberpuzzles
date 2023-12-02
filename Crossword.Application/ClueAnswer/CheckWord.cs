@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace Crossword.ClueAnswer;
 
 public sealed partial class ClueAnswerMap
@@ -10,10 +12,16 @@ public sealed partial class ClueAnswerMap
     public void CheckWord()
     {
         if (Answer is null) return;
-        for (var i = 0; i < Answer.Length; i++)
+        // for (var i = 0; i < Answer.Length; i++)
+        // {
+        //     SqAnswerSquares?[i]?.CheckLetter(Answer[i]);
+        // }
+
+
+        Parallel.For(0, Answer.Length, i =>
         {
             SqAnswerSquares?[i]?.CheckLetter(Answer[i]);
-        }
+        });
     }
 
     #endregion

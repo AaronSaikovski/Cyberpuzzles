@@ -1,3 +1,5 @@
+using System.Threading;
+using System.Threading.Tasks;
 using Crossword.Shared.Constants;
 
 namespace Crossword.App;
@@ -12,15 +14,26 @@ public sealed partial class CrosswordApp
     private void UpdateCrosswordScore()
     {
         CrosswordScore = 0;
-        for (var i = 0; i < NumQuestions; i++)
+        // for (var i = 0; i < NumQuestions; i++)
+        // {
+        //     if (caPuzzleClueAnswers[i].IsCorrect())
+        //     {
+        //         CrosswordScore++;
+        //     }
+        //
+        //     caPuzzleClueAnswers[i].CheckWord();
+        // }
+        
+        Parallel.For(0, NumQuestions, i =>
         {
             if (caPuzzleClueAnswers[i].IsCorrect())
             {
-                CrosswordScore++;
+                Interlocked.Increment(ref CrosswordScore);
             }
 
             caPuzzleClueAnswers[i].CheckWord();
-        }
+        });
+
 
         if (CrosswordScore == NumQuestions)
         {

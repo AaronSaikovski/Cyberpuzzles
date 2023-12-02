@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Crossword.PuzzleSquares;
 using Crossword.Shared.Constants;
 
@@ -18,18 +19,33 @@ public sealed partial class ClueAnswerMap
         ArgumentNullException.ThrowIfNull(sq);
         
         if (Answer is null) return;
-        for (var i = 0; i < Answer.Length; i++)
+        // for (var i = 0; i < Answer.Length; i++)
+        // {
+        //     if (!setHighLighted)
+        //         SqAnswerSquares?[i]?.SetHighlighted(CWSettings.CurrentNone);
+        //     else
+        //     {
+        //         SqAnswerSquares?[i]
+        //             ?.SetHighlighted(SqAnswerSquares?[i] == sq
+        //                 ? CWSettings.CurrentLetter
+        //                 : CWSettings.CurrentWord);
+        //     }
+        // }
+        
+        
+        
+        Parallel.For(0, Answer.Length, i =>
         {
             if (!setHighLighted)
                 SqAnswerSquares?[i]?.SetHighlighted(CWSettings.CurrentNone);
             else
             {
                 SqAnswerSquares?[i]
-                    ?.SetHighlighted(SqAnswerSquares?[i] == sq
-                        ? CWSettings.CurrentLetter
-                        : CWSettings.CurrentWord);
+                ?.SetHighlighted(SqAnswerSquares?[i] == sq
+                ? CWSettings.CurrentLetter
+                : CWSettings.CurrentWord);
             }
-        }
+        });
     }
 
     #endregion
