@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
 
 namespace Crossword.App;
@@ -73,13 +74,20 @@ public sealed partial class CrosswordApp
         //Find index to Clue Answer for highlighting in List boxes
         var tmp = SqCurrentSquare?.GetClueAnswerRef(IsAcross);
         var clueAnswerIdx = 0;
-        for (var k = 0; k < NumQuestions; k++)
+        // for (var k = 0; k < NumQuestions; k++)
+        // {
+        //     if (tmp != caPuzzleClueAnswers[k]) continue;
+        //     clueAnswerIdx = k;
+        //     break;
+        //
+        // }
+        Parallel.For(0, NumQuestions, (k,loopState) =>
         {
-            if (tmp != caPuzzleClueAnswers[k]) continue;
+             if (tmp != caPuzzleClueAnswers[k]) loopState.Stop();
             clueAnswerIdx = k;
-            break;
-
-        }
+            loopState.Stop();;
+        });
+        
 
         //Selects the item in the list box relative to the ClueAnswer
         //and the orientation.

@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Crossword.PuzzleSquares;
 using Crossword.Shared.Constants;
 
@@ -113,12 +114,18 @@ public sealed partial class CrosswordApp
         //Find index to Clue Answer for highlighting in List boxes
         var tmpClueAnswer = sqSelSquare?.GetClueAnswerRef(IsAcross);
         var clueAnswerIdx = 0;
-        for (var k = 0; k < NumQuestions; k++)
+        // for (var k = 0; k < NumQuestions; k++)
+        // {
+        //     if (tmpClueAnswer != caPuzzleClueAnswers[k]) continue;
+        //     clueAnswerIdx = k;
+        //     break;
+        // }
+        Parallel.For(0, NumQuestions, (k, loopState) =>
         {
-            if (tmpClueAnswer != caPuzzleClueAnswers[k]) continue;
+            if (tmpClueAnswer == caPuzzleClueAnswers[k]) loopState.Stop();
             clueAnswerIdx = k;
-            break;
-        }
+            loopState.Stop();
+        });
 
         return clueAnswerIdx;
     }
