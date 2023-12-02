@@ -53,7 +53,7 @@ public sealed partial class CrosswordApp
         {
             //Current score label
             _mainPanel.Widgets.Remove(_currentScoreLabel);
-            _currentScoreLabel.Text = $"Your Score: {CrosswordScore}";
+            _currentScoreLabel.Text = string.Format("Your Score: {0}", CrosswordScore.ToString());
             _currentScoreLabel.TextColor = CWSettings.ScoreColor;
             _currentScoreLabel.Left = CWSettings.ClListSpacer * 40;
             _currentScoreLabel.Font = _fntScore;
@@ -75,7 +75,7 @@ public sealed partial class CrosswordApp
 
         //Max score label
         _mainPanel.Widgets.Remove(_maxScoreLabel);
-        _maxScoreLabel.Text = "Max Score: " + NumQuestions;
+        _maxScoreLabel.Text = string.Format("Max Score: {0}", NumQuestions.ToString());
         _maxScoreLabel.TextColor = CWSettings.ScoreColor;
         _maxScoreLabel.Left = CWSettings.ClListSpacer * 40;
         _maxScoreLabel.Font = _fntScore;

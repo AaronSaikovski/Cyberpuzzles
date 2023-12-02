@@ -12,12 +12,10 @@ public sealed partial class CrosswordApp
     /// <param name="count"></param>
     private void GetHintLetters(int count)
     {
+        bool hintSupplied = false;
+        bool allHintLettersChecked = false;
         try
         {
-
-            //local vars
-            bool hintSupplied = false, allHintLettersChecked = false;
-
             while (!hintSupplied && !allHintLettersChecked)
             {
 
@@ -59,7 +57,6 @@ public sealed partial class CrosswordApp
         { 
             Console.WriteLine("Exception " + e + " occurred in method GetHintLetters()");
         }
-
     }
     #endregion
 

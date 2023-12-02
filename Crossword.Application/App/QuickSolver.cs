@@ -53,7 +53,7 @@ public sealed partial class CrosswordApp
         catch (Exception e)
         {
             //Catch the exception
-            Console.WriteLine("Exception " + e + " occurred in method quickSolver()");
+            Console.WriteLine($"Exception {e} occurred in method quickSolver()");
         }
     }
 
