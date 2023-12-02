@@ -13,7 +13,7 @@ public sealed partial class CrosswordApp
     //     {
     //         SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
     //
-    //         if (LstClueAcross.SelectedIndex != null)
+    //         if (LstClueAcross.SelectedIndex is not null)
     //         {
     //             if (!IsAcross)
     //             {
@@ -45,7 +45,7 @@ public sealed partial class CrosswordApp
     //         //causing an exception
     //         //sqCurrentSquare.getClueAnswerRef(bIsAcross).HighlightSquares(sqCurrentSquare, false);
     //
-    //         if (LstClueDown.SelectedIndex != null)
+    //         if (LstClueDown.SelectedIndex is not null)
     //         {
     //             SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
     //

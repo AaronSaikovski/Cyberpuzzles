@@ -14,8 +14,8 @@ public sealed partial class Square
         switch (isAcross)
         {
             //if square is an intersection
-            case true when ClueAnswerDown != null:
-            case false when ClueAnswerAcross != null:
+            case true when ClueAnswerDown is not null:
+            case false when ClueAnswerAcross is not null:
                 return true;
             default:
                 return false;

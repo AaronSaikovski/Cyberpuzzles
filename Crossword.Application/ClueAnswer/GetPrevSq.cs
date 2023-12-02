@@ -16,7 +16,7 @@ public sealed partial class ClueAnswerMap
     {
         ArgumentNullException.ThrowIfNull(sq);
         
-        if (Answer == null) return sq;
+        if (Answer is null) return sq;
         var i = Answer.Length - 1;
         while (i > -1)
         {

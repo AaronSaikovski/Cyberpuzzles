@@ -12,8 +12,8 @@ public sealed partial class ClueAnswerMap
     /// <returns></returns>
     public bool IsCorrect()
     {
-        if (Answer != null)
-            return !Answer.Where((t, i) => SqAnswerSquares != null && SqAnswerSquares[i]!.Letter != t).Any();
+        if (Answer is not null)
+            return !Answer.Where((t, i) => SqAnswerSquares is not null && SqAnswerSquares[i]!.Letter != t).Any();
         return true;
     }
 

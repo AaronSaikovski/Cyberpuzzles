@@ -80,7 +80,7 @@ public sealed partial class CrosswordApp
         {
             for (var j = 0; j < _NumCols; j++)
             {
-                if (sqPuzzleSquares == null) continue;
+                if (sqPuzzleSquares is null) continue;
                 sqPuzzleSquares[i, j] = new Square();
 
                 //Set SQs to dirty

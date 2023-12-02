@@ -17,7 +17,7 @@ public sealed partial class ClueAnswerMap
     {
         ArgumentNullException.ThrowIfNull(sq);
         
-        if (Answer == null) return;
+        if (Answer is null) return;
         for (var i = 0; i < Answer.Length; i++)
         {
             if (!setHighLighted)

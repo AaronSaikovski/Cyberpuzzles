@@ -63,7 +63,7 @@ public sealed partial class CrosswordApp
         // Initialise Cybersilver costs
         for (var i = 0; i < 6; i++)
         {
-            if (_mrParserData?.Costs != null) _nCosts[i] = _mrParserData.Costs[i];
+            if (_mrParserData?.Costs is not null) _nCosts[i] = _mrParserData.Costs[i];
         }
     }
     #endregion
@@ -77,18 +77,18 @@ public sealed partial class CrosswordApp
         //Initialise arrays of crossword data
         for (var i = 0; i < NumQuestions; i++)
         {
-            if (_mrParserData?.ColRef != null) _colRef[i] = _mrParserData.ColRef[i];
-            if (_mrParserData?.RowRef != null) _rowRef[i] = _mrParserData.RowRef[i];
-            if (_mrParserData?.IsAcross != null)
+            if (_mrParserData?.ColRef is not null) _colRef[i] = _mrParserData.ColRef[i];
+            if (_mrParserData?.RowRef is not null) _rowRef[i] = _mrParserData.RowRef[i];
+            if (_mrParserData?.IsAcross is not null)
                 _bDataIsAcross[i] = _mrParserData.IsAcross[i] switch
                 {
                     1 => true,
                     2 => false,
                     _ => _bDataIsAcross[i]
                 };
-            if (_mrParserData?.QuesNum != null) _quesNum[i] = _mrParserData.QuesNum[i];
-            if (_mrParserData?.Clues != null) _szClues[i] = _mrParserData.Clues[i];
-            if (_mrParserData?.Answers != null) _szAnswers[i] = _mrParserData.Answers[i];
+            if (_mrParserData?.QuesNum is not null) _quesNum[i] = _mrParserData.QuesNum[i];
+            if (_mrParserData?.Clues is not null) _szClues[i] = _mrParserData.Clues[i];
+            if (_mrParserData?.Answers is not null) _szAnswers[i] = _mrParserData.Answers[i];
         }
     }
     #endregion

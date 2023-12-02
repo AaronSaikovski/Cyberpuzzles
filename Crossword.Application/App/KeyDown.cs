@@ -78,7 +78,7 @@ public sealed partial class CrosswordApp
             LstClueAcross.SelectedIndex = -1;
 
         //Sets the highlighting of the square.
-        if (SqCurrentSquare == null) return;
+        if (SqCurrentSquare is null) return;
         SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
 
         //Change orientation if possible

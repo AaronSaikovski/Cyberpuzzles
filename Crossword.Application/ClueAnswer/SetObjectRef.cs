@@ -42,7 +42,7 @@ public sealed partial class ClueAnswerMap
             {
                 // Create a new Square instance
                 var sqAnswerSquares = this.SqAnswerSquares;
-                if (sqAnswerSquares != null)
+                if (sqAnswerSquares is not null)
                 {
                     sqAnswerSquares[k] = new Square();
                     sqAnswerSquares[k]?.CreateSquare(0, 0);
@@ -51,7 +51,7 @@ public sealed partial class ClueAnswerMap
 
                 // Assign the created Square to the array element
                 // The original code `this.sqAnswerSquares[k] = sqAnswerSquares[k];` seems redundant, so omitted
-                if (SqAnswerSquares != null) SqAnswerSquares?[k]?.SetObjectRef(this.IsAcross, this);
+                if (SqAnswerSquares is not null) SqAnswerSquares?[k]?.SetObjectRef(this.IsAcross, this);
             });
         }
         catch (Exception e)

@@ -33,7 +33,7 @@ public sealed partial class CrosswordApp
                         }
                     }
                     count++;
-                    if (_szGetLetters != null && count == _szGetLetters.Length)
+                    if (_szGetLetters is not null && count == _szGetLetters.Length)
                         allHintLettersChecked = true;
                 }
                 else

@@ -20,7 +20,7 @@ public class ApiKeyMiddleware {
         }
         var appSettings = context.RequestServices.GetRequiredService < IConfiguration > ();
         var apiKey = appSettings.GetValue < string > (CWSettings.ApiKeyName);
-        if (apiKey != null && !apiKey.Equals(extractedApiKey)) {
+        if (apiKey is not null && !apiKey.Equals(extractedApiKey)) {
             context.Response.StatusCode = 401;
             await context.Response.WriteAsync("Unauthorized API Request.");
             return;

@@ -8,8 +8,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Application", "Cr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Shared", "Crossword.Shared\Crossword.Shared.csproj", "{8061C3BE-083E-415C-B678-394F8EBCCFC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputHandlers", "thirdparty\InputHandlers\InputHandlers.csproj", "{AC780AC4-F439-4067-A1A8-48949230434D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +30,5 @@ Global
 		{8061C3BE-083E-415C-B678-394F8EBCCFC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8061C3BE-083E-415C-B678-394F8EBCCFC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8061C3BE-083E-415C-B678-394F8EBCCFC6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AC780AC4-F439-4067-A1A8-48949230434D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC780AC4-F439-4067-A1A8-48949230434D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC780AC4-F439-4067-A1A8-48949230434D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC780AC4-F439-4067-A1A8-48949230434D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

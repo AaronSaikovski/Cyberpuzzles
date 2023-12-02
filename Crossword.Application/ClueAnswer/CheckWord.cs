@@ -9,7 +9,7 @@ public sealed partial class ClueAnswerMap
     /// </summary>
     public void CheckWord()
     {
-        if (Answer == null) return;
+        if (Answer is null) return;
         for (var i = 0; i < Answer.Length; i++)
         {
             SqAnswerSquares?[i]?.CheckLetter(Answer[i]);

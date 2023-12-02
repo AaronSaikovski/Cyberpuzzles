@@ -36,6 +36,7 @@
     <EmbeddedResource Include="Icon.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="InputHandlers.MonoGame" Version="1.7.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
@@ -68,7 +69,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Crossword.Parser\Crossword.Parser.csproj" />
     <ProjectReference Include="..\Crossword.Shared\Crossword.Shared.csproj" />
-    <ProjectReference Include="..\thirdparty\InputHandlers\InputHandlers.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.Configuration">

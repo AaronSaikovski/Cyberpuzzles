@@ -35,7 +35,7 @@ public sealed partial class CrosswordApp
             DeselectListBoxItem();
 
             //test if same sq and flip if possible
-            if (sqSelSquare == null) return true;
+            if (sqSelSquare is null) return true;
             CheckFlip(sqSelSquare);
 
             //Set new current sq & highlight 
@@ -137,8 +137,8 @@ public sealed partial class CrosswordApp
         {
             switch (IsAcross)
             {
-                case true when sqSelSquare.ClueAnswerAcross == null:
-                case false when sqSelSquare.ClueAnswerDown == null:
+                case true when sqSelSquare.ClueAnswerAcross is null:
+                case false when sqSelSquare.ClueAnswerDown is null:
                     IsAcross = !IsAcross;
                     break;
             }

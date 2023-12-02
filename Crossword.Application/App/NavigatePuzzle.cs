@@ -102,7 +102,7 @@ public sealed partial class CrosswordApp
         if (IsAcross)
         {
             SqCurrentSquare = SqCurrentSquare?.GetNextSq(!IsAcross);
-            if (SqCurrentSquare?.ClueAnswerAcross == null)
+            if (SqCurrentSquare?.ClueAnswerAcross is null)
             {
                 IsAcross = !IsAcross;
             }
@@ -126,7 +126,7 @@ public sealed partial class CrosswordApp
         if (IsAcross)
         {
             SqCurrentSquare = SqCurrentSquare?.GetPrevSq(!IsAcross);
-            if (SqCurrentSquare?.ClueAnswerAcross == null)
+            if (SqCurrentSquare?.ClueAnswerAcross is null)
             {
                 IsAcross = !IsAcross;
             }
@@ -154,7 +154,7 @@ public sealed partial class CrosswordApp
         else
         {
             SqCurrentSquare = SqCurrentSquare?.GetNextSq(!IsAcross);
-            if (SqCurrentSquare?.ClueAnswerDown == null)
+            if (SqCurrentSquare?.ClueAnswerDown is null)
                 IsAcross = !IsAcross;
         }
     }
@@ -172,7 +172,7 @@ public sealed partial class CrosswordApp
         if (!IsAcross)
         {
             SqCurrentSquare = SqCurrentSquare?.GetPrevSq(!IsAcross);
-            if (SqCurrentSquare?.ClueAnswerDown == null)
+            if (SqCurrentSquare?.ClueAnswerDown is null)
                 IsAcross = !IsAcross;
         }
         else

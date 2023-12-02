@@ -13,7 +13,7 @@ public sealed partial class PuzzleData
 
         for (var loopIdx = 0; loopIdx < 6; loopIdx++)
         {
-            if (Costs != null) Costs[loopIdx] = int.Parse(costTemp[loopIdx]);
+            if (Costs is not null) Costs[loopIdx] = int.Parse(costTemp[loopIdx]);
         }
     }
 }

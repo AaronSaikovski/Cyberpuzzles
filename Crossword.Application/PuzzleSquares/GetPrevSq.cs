@@ -12,8 +12,8 @@ public sealed partial class Square
     public Square? GetPrevSq(bool isAcross)
     {
         if (isAcross)
-            return ClueAnswerAcross != null ? ClueAnswerAcross.GetPrevSq(this) : this;
-        return ClueAnswerDown != null ? ClueAnswerDown.GetPrevSq(this) : this;
+            return ClueAnswerAcross is not null ? ClueAnswerAcross.GetPrevSq(this) : this;
+        return ClueAnswerDown is not null ? ClueAnswerDown.GetPrevSq(this) : this;
     }
 
     #endregion

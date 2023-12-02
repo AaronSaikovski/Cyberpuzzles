@@ -19,13 +19,13 @@ public sealed partial class ClueAnswerMap
         var foundResult = false;
 
         // Assuming szAnswer and sqAnswerSquares are declared and initialized somewhere
-        if (Answer == null) return foundResult;
+        if (Answer is null) return foundResult;
         var szAnswerLength = Answer.Length;
 
         //Parallel for loop
         Parallel.For(0, szAnswerLength, i =>
         {
-            if (SqAnswerSquares == null || Answer[i] != hintLetter ||
+            if (SqAnswerSquares is null || Answer[i] != hintLetter ||
                 SqAnswerSquares[i]!.Letter == hintLetter) return;
             SqAnswerSquares[i]?.SetLetter(hintLetter, IsAcross);
             foundResult = true;

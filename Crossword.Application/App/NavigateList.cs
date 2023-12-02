@@ -23,7 +23,7 @@ public sealed partial class CrosswordApp
                         //If Across then allow operations on the across list
                         case Keys.Up:
                         {
-                            if (LstClueAcross.SelectedIndex != null)
+                            if (LstClueAcross.SelectedIndex is not null)
                             {
                                 LstClueAcross.SelectedIndex--;
                          
@@ -45,7 +45,7 @@ public sealed partial class CrosswordApp
                 //if Down
                 case false when keyInFocus == Keys.Up:
                 {
-                    if (LstClueDown.SelectedIndex != null)
+                    if (LstClueDown.SelectedIndex is not null)
                     {
                         LstClueDown.SelectedIndex--;
                         //TODO - add handler

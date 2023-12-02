@@ -26,7 +26,7 @@ public static class ParserHelper
     /// <returns></returns>
     public static string? GetRandomDataFile(string puzzleData)
     {
-        if (puzzleData == null) throw new ArgumentNullException(nameof(puzzleData));
+        if (puzzleData is null) throw new ArgumentNullException(nameof(puzzleData));
         if (puzzleData is { Length: <= 0 }) throw new ArgumentOutOfRangeException(nameof(puzzleData));
             
         // Get a list of all files in the folder
