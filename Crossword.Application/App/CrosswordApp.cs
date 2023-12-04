@@ -7,8 +7,6 @@ using InputHandlers.Mouse;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Myra.Graphics2D.UI;
-//Custom namespaces
-
 
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
@@ -125,6 +123,10 @@ namespace Crossword.App
         private Texture2D _imgBlackSquare;
 
 
+        //Link buttons
+        private Texture2D _imgHintButton;
+        private Texture2D _imgNextButton;
+        
         //list boxes
         private ListBox LstClueAcross;
         private ListBox LstClueDown;
@@ -137,9 +139,9 @@ namespace Crossword.App
         private Rectangle[,]? _puzzleSquares;
 
         // Monogame graphics
-        private readonly GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
-        private Desktop _desktop;
+        public readonly GraphicsDeviceManager _graphics;
+        public SpriteBatch _spriteBatch;
+        public Desktop _desktop;
 
 
         // Define a color for the rectangles
@@ -173,10 +175,10 @@ namespace Crossword.App
         //Rectangle variable
         public Rectangle rectCrossWord;
 
-        //Hint Button
+        //Hint LinkButton
         private TextButton HintButton;
 
-        //Get Next Puzzle Button
+        //Get Next Puzzle LinkButton
         private TextButton GetNextPuzzleButton;
 
 

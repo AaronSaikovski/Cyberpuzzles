@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using Crossword.Shared.Constants;
 using FontStashSharp;
@@ -13,12 +14,25 @@ public sealed partial class CrosswordApp
     /// </summary>
     private void LoadImages()
     {
-        //load images
-        _imgBlackSquare = Content.Load<Texture2D>(CWSettings.BlackSquare);
-        _imgHighliteSquare = Content.Load<Texture2D>(CWSettings.HighliteSquare);
-        _imgSquareWord = Content.Load<Texture2D>(CWSettings.SquareWord);
-        _imgNormalSquare = Content.Load<Texture2D>(CWSettings.NormalSquare);
-    }
+        try
+        {
+            //load squares
+            _imgBlackSquare = Content.Load<Texture2D>(CWSettings.BlackSquare);
+            _imgHighliteSquare = Content.Load<Texture2D>(CWSettings.HighliteSquare);
+            _imgSquareWord = Content.Load<Texture2D>(CWSettings.SquareWord);
+            _imgNormalSquare = Content.Load<Texture2D>(CWSettings.NormalSquare);
+        
+            //load buttons
+            _imgHintButton = Content.Load<Texture2D>(CWSettings.HintButtonImage);
+            _imgNextButton = Content.Load<Texture2D>(CWSettings.NextPuzzleButtonImage);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
+    }    
 
     #endregion
 

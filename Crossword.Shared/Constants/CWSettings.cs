@@ -70,6 +70,10 @@ public sealed class CWSettings
     public const string SquareWord = "images/tile_orange";
     public const string NormalSquare = "images/tile_grey";
     
+    //Link Buttons
+    public const string HintButtonImage = "images/btn_get_hint";
+    public const string NextPuzzleButtonImage = "images/btn_next_puzzle";
+    
     
     //Fonts
     public const string HelveticaBold = "fonts/Helvetica-Bold.ttf";

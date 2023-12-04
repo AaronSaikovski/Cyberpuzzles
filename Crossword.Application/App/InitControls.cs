@@ -19,7 +19,7 @@ public sealed partial class CrosswordApp
         //List box elements
         InitListBoxes();
 
-        //Init Hint Button
+        //Init Hint LinkButton
         InitHintButton();
 
         //Init next puzzle button
