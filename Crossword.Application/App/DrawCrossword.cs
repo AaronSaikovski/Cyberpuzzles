@@ -26,8 +26,17 @@ public sealed partial class CrosswordApp
             {
                 if (sqPuzzleSquares is null) continue;
                 if (_puzzleSquares is null) continue;
-                _puzzleSquares[i, j] = new Rectangle(sqPuzzleSquares[i, j]!.xCoord, sqPuzzleSquares[i, j]!.yCoord,
-                    CWSettings.SquareWidth, CWSettings.SquareHeight);
+                
+                //Main puzzle squares array
+                // _puzzleSquares[i, j] = new Rectangle(sqPuzzleSquares[i, j]!.xCoord, sqPuzzleSquares[i, j]!.yCoord,
+                //     CWSettings.SquareWidth, CWSettings.SquareHeight);
+
+                //Draw crossword with squares with spaces
+                _puzzleSquares[i, j] = new Rectangle(
+                    sqPuzzleSquares[i, j]!.xCoord + i * ((int)CWSettings.SquareSpacer),
+                    sqPuzzleSquares[i, j]!.yCoord + j * ((int) CWSettings.SquareSpacer),
+                    CWSettings.SquareWidth,
+                    CWSettings.SquareHeight);
         
                 //Check to see if a char is allowed
                 if (sqPuzzleSquares[i, j]!.IsCharAllowed)

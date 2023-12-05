@@ -1,11 +1,12 @@
 ﻿**CW.Net**
 
 **TO DO**
-* add black line spacers between puzzle squares - refer to updateBackBuffer()
+* add animaed buttons
 * Big refactor/Memory optimisation 
 * GitHub action for building X-Platform
 * Test on windows
 * Readme on how to build and deploy on Windows, Mac and Linux
+* Add unit test
 
 
 **ON HOLD**
@@ -20,7 +21,8 @@
 
 
 **DONE**
-* Mouse support - might need parent rectangle
+* Mouse support - might need parent rectangle 
+* add black line spacers between puzzle squares - refer to updateBackBuffer()
 * add ArgumentNullException.ThrowIfNull(param) to methods - guard clauses.
 * * big, Chunky square graphics - or remove images and just make white squares with black text?
 * Added basic API support

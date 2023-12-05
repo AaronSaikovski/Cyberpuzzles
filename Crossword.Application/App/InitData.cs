@@ -26,8 +26,10 @@ public sealed partial class CrosswordApp
         _szBlurb = _mrParserData?.Blurb;
 
         //Initialise dimension variables
-        _nCrosswordWidth = _NumCols * CWSettings.SquareWidth;
-        _nCrosswordHeight = _NumRows * CWSettings.SquareHeight;
+        _nCrosswordWidth = _NumCols * (CWSettings.SquareWidth + (int)CWSettings.SquareSpacer);
+        _nCrosswordHeight = _NumRows * (CWSettings.SquareHeight + (int)CWSettings.SquareSpacer);
+        
+    
 
         // offsets
         nCrossOffsetX = CWSettings.MainOffsetX;
