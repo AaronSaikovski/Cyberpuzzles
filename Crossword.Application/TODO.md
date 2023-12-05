@@ -1,7 +1,7 @@
 ﻿**CW.Net**
 
 **TO DO**
-* add animaed buttons
+* add animated push buttons
 * Big refactor/Memory optimisation 
 * GitHub action for building X-Platform
 * Test on windows
