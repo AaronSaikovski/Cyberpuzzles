@@ -124,8 +124,11 @@ namespace Crossword.App
 
 
         //Link buttons
+        private PuzzleButton _HintButton;
         private Texture2D _imgHintButton;
-        private Texture2D _imgNextButton;
+        
+        private PuzzleButton _NextPuzzButton;
+        private Texture2D _imgNextPuzzButton;
         
         //list boxes
         private ListBox LstClueAcross;

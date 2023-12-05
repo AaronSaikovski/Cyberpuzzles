@@ -10,21 +10,26 @@ public sealed partial class CrosswordApp
     {
         //load fonts
         LoadFonts();
-
+        
         //Load images
         LoadImages();
-
+        
         //Init the data
         InitData();
-
+        
         //Init the controls
         InitControls();
+        
+        //init the hint button
+        InitHintButton();
 
+        //init the Get Next Puzzle button
+        InitGetNextPuzzleButton();
+  
         //build the crossword data
         BuildCrossword();
 
         NewBackFlush = true;
-
 
         //Show the lists
         LstClueAcross.Visible = true;

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Myra;
 using Myra.Graphics2D.UI;
 
@@ -31,7 +32,7 @@ public sealed partial class CrosswordApp
 
         _blackTexture = new Texture2D(GraphicsDevice, 1, 1);
         _blackTexture.SetData(new[] { Color.Black });
-
+       
         //Initialise everything
         MainInit();
 
@@ -46,14 +47,21 @@ public sealed partial class CrosswordApp
     #region Update
     protected override void Update(GameTime gameTime)
     {
+        //get mouse state
+        MouseState mouseState = Mouse.GetState();
+        
         // Game Logic lives here
         _keyboardInput.Poll(Microsoft.Xna.Framework.Input.Keyboard.GetState());
         _mouseInput.Poll(Microsoft.Xna.Framework.Input.Mouse.GetState());
 
+        //update button mouse states
+        _HintButton.Update(mouseState);
+        _NextPuzzButton.Update(mouseState);
+            
         //update game logic
         UpdateCrosswordScore();
         DrawCrosswordScore();
-
+        
         base.Update(gameTime);
     }
     #endregion
@@ -69,6 +77,9 @@ public sealed partial class CrosswordApp
             DrawCrossword();
         }
 
+        //Draw the buttons
+        _HintButton.Draw(_spriteBatch);
+        _NextPuzzButton.Draw(_spriteBatch);
 
         // End drawing        
         _desktop.Render();

@@ -20,10 +20,10 @@ public sealed partial class CrosswordApp
         InitListBoxes();
 
         //Init Hint LinkButton
-        InitHintButton();
+        //InitHintButton();
 
         //Init next puzzle button
-        InitGetNextPuzzleButton();
+        //InitGetNextPuzzleButton();
 
         //CrosswordApp.Application Parsed Dataset
         //

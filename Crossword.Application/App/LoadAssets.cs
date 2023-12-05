@@ -24,7 +24,7 @@ public sealed partial class CrosswordApp
         
             //load buttons
             _imgHintButton = Content.Load<Texture2D>(CWSettings.HintButtonImage);
-            _imgNextButton = Content.Load<Texture2D>(CWSettings.NextPuzzleButtonImage);
+            _imgNextPuzzButton = Content.Load<Texture2D>(CWSettings.NextPuzzleButtonImage);
         }
         catch (Exception e)
         {

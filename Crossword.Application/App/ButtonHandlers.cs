@@ -5,12 +5,12 @@ namespace Crossword.App;
 public sealed partial class CrosswordApp
 {
 
-    private void HintButtonClick(object sender, EventArgs args)
+    private void HintButton_Click(object sender, EventArgs args)
     {
         GetHintLetters(0);
     }
 
-    private void NextPuzzleButtonClick(object sender, EventArgs args)
+    private void NextPuzzleButton_Click(object sender, EventArgs args)
     {
         GetNextPuzzle();
     }
