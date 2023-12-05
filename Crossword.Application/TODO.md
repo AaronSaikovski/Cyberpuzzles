@@ -6,13 +6,14 @@
 * GitHub action for building X-Platform
 * Test on windows
 * Readme on how to build and deploy on Windows, Mac and Linux
-* Add unit test
+
 
 
 **ON HOLD**
 * Background graphics
 * Credits/About screen - https://github.com/Byron1c/MonoGame-Game-Menu
-* Dockerfile for API service
+* Dockerfile for API service 
+* Add unit test
 
 **KNOWN BUGS**
 * Font chars not centred in squares
