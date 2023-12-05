@@ -22,7 +22,7 @@ public sealed class CWSettings
     //Square width and height constants
     public const int SquareWidth = 40;
     public const int SquareHeight = 40;
-    public const float SquareSpacer = 1.5f;
+    public const float SquareSpacer = 1.7f;
 
     //Highlight Constants
     public const int CurrentLetter = 1;
