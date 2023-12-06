@@ -17,12 +17,23 @@ public static class ConfigurationHelper
     {
         try
         {
-            //Load config
-            var configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile("appsettings.dev.json", optional: true, reloadOnChange: true)
-                .AddEnvironmentVariables()
-                .Build();
+            //Toggle if DEBUG flag set
+            #if DEBUG
+                        
+                        //Load config - DEBUG
+                        var configuration = new ConfigurationBuilder()
+                            .AddJsonFile("appsettings.dev.json", optional: true, reloadOnChange: true)
+                            .AddEnvironmentVariables()
+                            .Build();
+            #else
+               
+                        //Load config - RELEASE
+                        var configuration = new ConfigurationBuilder()
+                            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                            .AddEnvironmentVariables()
+                            .Build();
+            #endif
+            
 
             //Data API URL
             DataApiUrl = configuration.GetSection("DataAPISvc")["Url"];

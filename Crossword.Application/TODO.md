@@ -2,7 +2,7 @@
 
 **TO DO**
 
-* Big refactor/Memory optimisation 
+
 * GitHub action for building X-Platform
 * Test on windows
 * Readme on how to build and deploy on Windows, Mac and Linux
@@ -14,6 +14,7 @@
 * Credits/About screen - https://github.com/Byron1c/MonoGame-Game-Menu
 * Dockerfile for API service 
 * Add unit test 
+* Big refactor/Memory optimisation
 * add animated push buttons
 
 **KNOWN BUGS**
