@@ -1,7 +1,7 @@
 ﻿**CW.Net**
 
 **TO DO**
-* add animated push buttons
+
 * Big refactor/Memory optimisation 
 * GitHub action for building X-Platform
 * Test on windows
@@ -13,7 +13,8 @@
 * Background graphics
 * Credits/About screen - https://github.com/Byron1c/MonoGame-Game-Menu
 * Dockerfile for API service 
-* Add unit test
+* Add unit test 
+* add animated push buttons
 
 **KNOWN BUGS**
 * Font chars not centred in squares
