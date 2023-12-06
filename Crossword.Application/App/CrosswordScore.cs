@@ -1,10 +1,11 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Crossword.Shared.Constants;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordApp
+public sealed partial class CrosswordMain
 {
     #region UpdateCrosswordScore
 
@@ -14,30 +15,28 @@ public sealed partial class CrosswordApp
     private void UpdateCrosswordScore()
     {
         CrosswordScore = 0;
-        // for (var i = 0; i < NumQuestions; i++)
-        // {
-        //     if (caPuzzleClueAnswers[i].IsCorrect())
-        //     {
-        //         CrosswordScore++;
-        //     }
-        //
-        //     caPuzzleClueAnswers[i].CheckWord();
-        // }
-        
-        Parallel.For(0, NumQuestions, i =>
+        try
         {
-            if (caPuzzleClueAnswers[i].IsCorrect())
+            Parallel.For(0, NumQuestions, i =>
             {
-                Interlocked.Increment(ref CrosswordScore);
+                if (caPuzzleClueAnswers[i].IsCorrect())
+                {
+                    Interlocked.Increment(ref CrosswordScore);
+                }
+
+                caPuzzleClueAnswers[i].CheckWord();
+            });
+
+
+            if (CrosswordScore == NumQuestions)
+            {
+                IsFinished = true;
             }
-
-            caPuzzleClueAnswers[i].CheckWord();
-        });
-
-
-        if (CrosswordScore == NumQuestions)
+        }
+        catch (Exception e)
         {
-            IsFinished = true;
+            Console.WriteLine(e);
+            throw;
         }
     }
 
@@ -49,38 +48,46 @@ public sealed partial class CrosswordApp
     /// </summary>
     private void DrawCrosswordScore()
     {
-        if (!IsFinished)
+        try
         {
-            //Current score label
-            _mainPanel.Widgets.Remove(_currentScoreLabel);
-            _currentScoreLabel.Text = string.Format("Your Score: {0}", CrosswordScore.ToString());
-            _currentScoreLabel.TextColor = CWSettings.ScoreColor;
-            _currentScoreLabel.Left = CWSettings.ClListSpacer * 40;
-            _currentScoreLabel.Font = _fntScore;
-            _currentScoreLabel.Top = rectCrossWord.Bottom + CWSettings.ClListSpacer * 2;
-            _mainPanel.Widgets.Add(_currentScoreLabel);
+            if (!IsFinished)
+            {
+                //Current score label
+                _mainPanel.Widgets.Remove(_currentScoreLabel);
+                _currentScoreLabel.Text = string.Format("Your Score: {0}", CrosswordScore.ToString());
+                _currentScoreLabel.TextColor = CWSettings.ScoreColor;
+                _currentScoreLabel.Left = CWSettings.ClListSpacer * 40;
+                _currentScoreLabel.Font = _fntScore;
+                _currentScoreLabel.Top = rectCrossWord.Bottom + CWSettings.ClListSpacer * 2;
+                _mainPanel.Widgets.Add(_currentScoreLabel);
+            }
+            else
+            {
+                //Game over label
+                _mainPanel.Widgets.Remove(_currentScoreLabel);
+                _currentScoreLabel.Text = "GAME OVER!";
+                _currentScoreLabel.TextColor = CWSettings.ScoreColor;
+                _currentScoreLabel.Left = CWSettings.ClListSpacer * 40;
+                _currentScoreLabel.Font = _fntScore;
+                _currentScoreLabel.Top = rectCrossWord.Bottom + CWSettings.ClListSpacer * 2;
+                _mainPanel.Widgets.Add(_currentScoreLabel);
+            }
+
+            //Max score label
+            _mainPanel.Widgets.Remove(_maxScoreLabel);
+            _maxScoreLabel.Text = string.Format("Max Score: {0}", NumQuestions.ToString());
+            _maxScoreLabel.TextColor = CWSettings.ScoreColor;
+            _maxScoreLabel.Left = CWSettings.ClListSpacer * 40;
+            _maxScoreLabel.Font = _fntScore;
+            _maxScoreLabel.Top = rectCrossWord.Bottom + CWSettings.ClListSpacer * 6;
+            _mainPanel.Widgets.Add(_maxScoreLabel);
+        
         }
-        else
+        catch (Exception e)
         {
-            //Current score label
-            _mainPanel.Widgets.Remove(_currentScoreLabel);
-            _currentScoreLabel.Text = "GAME OVER!";
-            _currentScoreLabel.TextColor = CWSettings.ScoreColor;
-            _currentScoreLabel.Left = CWSettings.ClListSpacer * 40;
-            _currentScoreLabel.Font = _fntScore;
-            _currentScoreLabel.Top = rectCrossWord.Bottom + CWSettings.ClListSpacer * 2;
-            _mainPanel.Widgets.Add(_currentScoreLabel);
+            Console.WriteLine(e);
+            throw;
         }
-
-
-        //Max score label
-        _mainPanel.Widgets.Remove(_maxScoreLabel);
-        _maxScoreLabel.Text = string.Format("Max Score: {0}", NumQuestions.ToString());
-        _maxScoreLabel.TextColor = CWSettings.ScoreColor;
-        _maxScoreLabel.Left = CWSettings.ClListSpacer * 40;
-        _maxScoreLabel.Font = _fntScore;
-        _maxScoreLabel.Top = rectCrossWord.Bottom + CWSettings.ClListSpacer * 6;
-        _mainPanel.Widgets.Add(_maxScoreLabel);
     }
     #endregion
 }

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordApp
+public sealed partial class CrosswordMain
 {
     #region QuickSolver
 
@@ -52,8 +52,8 @@ public sealed partial class CrosswordApp
         }
         catch (Exception e)
         {
-            //Catch the exception
-            Console.WriteLine($"Exception {e} occurred in method quickSolver()");
+            Console.WriteLine(e);
+            throw;
         }
     }
 

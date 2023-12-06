@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordApp
+public sealed partial class CrosswordMain
 {
     #region NavigateList
     /// <summary>
@@ -70,8 +70,9 @@ public sealed partial class CrosswordApp
             }
         }
         catch (Exception e)
-        { //Catch the exception
-            Console.WriteLine("Exception " + e + " occurred in method NavigateList");
+        {
+            Console.WriteLine(e);
+            throw;
         }
     }
     #endregion

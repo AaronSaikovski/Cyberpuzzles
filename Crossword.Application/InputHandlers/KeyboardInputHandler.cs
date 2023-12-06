@@ -4,7 +4,7 @@
 //      Authors:    Aaron Saikovski                                       //
 //      Date:       31/10/2023                                            //
 //      Version:    1.0                                                   //
-//      Purpose:    Generic crosswordApp keyboard handler.                   //
+//      Purpose:    Generic crosswordMain keyboard handler.                   //
 //      Ref:        https://github.com/DavidFidge/InputHandlers           //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
@@ -14,11 +14,11 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Crossword.InputHandlers;
 
-public class KeyboardInputHandler(App.CrosswordApp crosswordApp) : IKeyboardHandler
+public class KeyboardInputHandler(App.CrosswordMain crosswordMain) : IKeyboardHandler
 {
     #region Keyboard_Input_Handler
 
-    //CrosswordApp.Application instance
+    //CrosswordMain.Application instance
 
     public void HandleKeyboardKeyDown(Keys[] keysDown, Keys keyInFocus, KeyboardModifier keyboardModifier)
     {
@@ -26,15 +26,15 @@ public class KeyboardInputHandler(App.CrosswordApp crosswordApp) : IKeyboardHand
         if ((KeyboardModifier.Ctrl & keyboardModifier) == KeyboardModifier.Ctrl && keyInFocus == Keys.B)
         {
             //Console.WriteLine("Ctrl-B");
-            crosswordApp.QuickSolver();
+            crosswordMain.QuickSolver();
         }
         else
         {
             // check if game is finished
-            if (!crosswordApp.IsFinished)
+            if (!crosswordMain.IsFinished)
             {
                 //handle key down..normal keys
-                crosswordApp.KeyDown(keyInFocus);
+                crosswordMain.KeyDown(keyInFocus);
             }
         }
     }

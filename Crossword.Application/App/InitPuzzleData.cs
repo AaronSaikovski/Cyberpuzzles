@@ -1,9 +1,10 @@
 
+using System;
 using Crossword.PuzzleData;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordApp
+public sealed partial class CrosswordMain
 {
     #region InitPuzzleData
 
@@ -12,46 +13,55 @@ public sealed partial class CrosswordApp
     /// </summary>
     private void InitPuzzleData()
     {
-        //Parser class
-        //Parser Implementation
-        _mrParserData = new CrosswordParser.PuzzleData();
-
-        // Get the Puzzle Data
-        PuzzleData = CrosswordData.GetCrosswordData(); 
-
-        // Parse the Data
-        while (PuzzleData is not null && !_mrParserData.ParsePuzzleData(PuzzleData))
+        try
         {
+            //Parser class
+            //Parser Implementation
+            _mrParserData = new CrosswordParser.PuzzleData();
+
+            // Get the Puzzle Data
+            PuzzleData = CrosswordData.GetCrosswordData(); 
+
+            // Parse the Data
+            while (PuzzleData is not null && !_mrParserData.ParsePuzzleData(PuzzleData))
+            {
+            }
+
+            //PuzzleType
+            PuzzleType = _mrParserData.PuzzleType;
+
+            //Number of Columns
+            _NumCols = _mrParserData.NumCols;
+
+            //Number of rows
+            _NumRows = _mrParserData.NumRows;
+
+            //Num Across
+            _NumAcross = _mrParserData.NumAcross;
+
+            //Num Down
+            _NumDown = _mrParserData.NumDown;
+
+            //Puzzle ID
+            _PuzzleId = _mrParserData.PuzzleId;
+
+            //Number of questions
+            NumQuestions = _mrParserData.NumQuestions;
+
+            //Declare dimensions for arrays of crossword data
+            _szClues = new string[NumQuestions];
+            _szAnswers = new string[NumQuestions];
+            _colRef = new int[NumQuestions];
+            _rowRef = new int[NumQuestions];
+            _bDataIsAcross = new bool[NumQuestions];
+            _quesNum = new int[NumQuestions];
+        
         }
-
-        //PuzzleType
-        PuzzleType = _mrParserData.PuzzleType;
-
-        //Number of Columns
-        _NumCols = _mrParserData.NumCols;
-
-        //Number of rows
-        _NumRows = _mrParserData.NumRows;
-
-        //Num Across
-        _NumAcross = _mrParserData.NumAcross;
-
-        //Num Down
-        _NumDown = _mrParserData.NumDown;
-
-        //Puzzle ID
-        _PuzzleId = _mrParserData.PuzzleId;
-
-        //Number of questions
-        NumQuestions = _mrParserData.NumQuestions;
-
-        //Declare dimensions for arrays of crossword data
-        _szClues = new string[NumQuestions];
-        _szAnswers = new string[NumQuestions];
-        _colRef = new int[NumQuestions];
-        _rowRef = new int[NumQuestions];
-        _bDataIsAcross = new bool[NumQuestions];
-        _quesNum = new int[NumQuestions];
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
 
     }
 

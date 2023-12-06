@@ -5,8 +5,9 @@ using Crossword.Shared.Constants;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordApp
+public sealed partial class CrosswordMain
 {
+    
     #region MouseUp
     /// <summary>
     /// MouseUp Handler
@@ -20,14 +21,18 @@ public sealed partial class CrosswordApp
 
         //if puzzle is finished...eat the event
         if (SetFinished) return true;
+        
         //Check that the mouse event occurred within our specified rectangle
         if (!rectCrossWord.Contains(x, y)) return true;
+        
         //If the individual puzzle has finished...eat the event
         if (PuzzleFinished) return true;
-        //Exception handling added as an ArrayIndexOutOfBoundException occurs
-        var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / CWSettings.SquareWidth, (y - nCrossOffsetY) / CWSettings.SquareHeight];
+         
         try
         {
+            //Exception handling added as an ArrayIndexOutOfBoundException occurs
+            var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / CWSettings.SquareWidth, (y - nCrossOffsetY) / CWSettings.SquareHeight];
+
             if (sqSelSquare is { IsCharAllowed: false }) return true;
             //clear current highlights
             SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
@@ -53,8 +58,8 @@ public sealed partial class CrosswordApp
 
         catch (Exception e)
         {
-            //Catch the exception
-            Console.WriteLine($"Exception {e} occurred in method mouseUp");
+            Console.WriteLine(e);
+            throw;
         }
 
         return true;
@@ -67,11 +72,20 @@ public sealed partial class CrosswordApp
     /// </summary>
     private void DeselectListBoxItem()
     {
-        //Deselect the listbox based on direction
-        if (!IsAcross)
-            LstClueDown.SelectedIndex = 0;
-        else
-            LstClueAcross.SelectedIndex = 0;
+        try
+        {
+            //Deselect the listbox based on direction
+            if (!IsAcross)
+                LstClueDown.SelectedIndex = 0;
+            else
+                LstClueAcross.SelectedIndex = 0;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+       
     }
     #endregion
 
@@ -82,11 +96,20 @@ public sealed partial class CrosswordApp
     /// <param name="clueAnswerIdx"></param>
     private void SetListBoxClueAnswer(int clueAnswerIdx)
     {
-        //Selects the item in the list box relative to ClueAnswer and direction
-        if (IsAcross)
-            LstClueAcross.SelectedIndex = clueAnswerIdx;
-        else
-            LstClueDown.SelectedIndex = clueAnswerIdx - LstClueAcross.Items.Count;
+        try
+        {
+            //Selects the item in the list box relative to ClueAnswer and direction
+            if (IsAcross)
+                LstClueAcross.SelectedIndex = clueAnswerIdx;
+            else
+                LstClueDown.SelectedIndex = clueAnswerIdx - LstClueAcross.Items.Count;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+     
     }
     #endregion
 
@@ -97,9 +120,18 @@ public sealed partial class CrosswordApp
     /// <param name="sqSelSquare"></param>
     private void SetNewCurrentSquare(Square? sqSelSquare)
     {
-        //set new current sq & highlight t
-        SqCurrentSquare = sqSelSquare;
-        SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
+        try
+        {
+            //set new current sq & highlight t
+            SqCurrentSquare = sqSelSquare;
+            SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+       
     }
     #endregion
 
@@ -111,23 +143,27 @@ public sealed partial class CrosswordApp
     /// <returns></returns>
     private int FindClueAnswerIdx(Square? sqSelSquare)
     {
-        //Find index to Clue Answer for highlighting in List boxes
-        var tmpClueAnswer = sqSelSquare?.GetClueAnswerRef(IsAcross);
-        var clueAnswerIdx = 0;
-        // for (var k = 0; k < NumQuestions; k++)
-        // {
-        //     if (tmpClueAnswer != caPuzzleClueAnswers[k]) continue;
-        //     clueAnswerIdx = k;
-        //     break;
-        // }
-        Parallel.For(0, NumQuestions, (k, loopState) =>
+        try
         {
-            if (tmpClueAnswer == caPuzzleClueAnswers[k]) loopState.Stop();
-            clueAnswerIdx = k;
-            loopState.Stop();
-        });
+            //Find index to Clue Answer for highlighting in List boxes
+            var tmpClueAnswer = sqSelSquare?.GetClueAnswerRef(IsAcross);
+            var clueAnswerIdx = 0;
+        
+            Parallel.For(0, NumQuestions, (k, loopState) =>
+            {
+                if (tmpClueAnswer == caPuzzleClueAnswers[k]) loopState.Stop();
+                clueAnswerIdx = k;
+                loopState.Stop();
+            });
 
-        return clueAnswerIdx;
+            return clueAnswerIdx;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
     }
     #endregion
 
@@ -139,22 +175,31 @@ public sealed partial class CrosswordApp
     private void CheckFlip(Square sqSelSquare)
     {
         ArgumentNullException.ThrowIfNull(sqSelSquare);
-        //test if same sq and flip if possible
-        if (sqSelSquare != SqCurrentSquare)
+        try
         {
-            switch (IsAcross)
+            //test if same sq and flip if possible
+            if (sqSelSquare != SqCurrentSquare)
             {
-                case true when sqSelSquare.ClueAnswerAcross is null:
-                case false when sqSelSquare.ClueAnswerDown is null:
+                switch (IsAcross)
+                {
+                    case true when sqSelSquare.ClueAnswerAcross is null:
+                    case false when sqSelSquare.ClueAnswerDown is null:
+                        IsAcross = !IsAcross;
+                        break;
+                }
+            }
+            else
+            {
+                if (sqSelSquare.CanFlipDirection(IsAcross))
                     IsAcross = !IsAcross;
-                    break;
             }
         }
-        else
+        catch (Exception e)
         {
-            if (sqSelSquare.CanFlipDirection(IsAcross))
-                IsAcross = !IsAcross;
+            Console.WriteLine(e);
+            throw;
         }
+        
     }
     #endregion
 

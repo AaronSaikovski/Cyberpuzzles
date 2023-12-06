@@ -20,7 +20,7 @@ using Myra.Graphics2D.UI;
 
 namespace Crossword.App
 {
-    public sealed partial class CrosswordApp : Game
+    public sealed partial class CrosswordMain : Game
     {
         #region Fields       
 
@@ -67,7 +67,7 @@ namespace Crossword.App
         private readonly int CurrentWord = 2;
         private readonly int CurrentNone = 3;
 
-        //CrosswordApp.Application dimension constants
+        //CrosswordMain.Application dimension constants
         private readonly int MaxCrossWidth = 291;
         private readonly int MaxCrossHeight = 291;
 
@@ -107,7 +107,7 @@ namespace Crossword.App
         //Number of times Hint has been accessed by the user
         //int nUserHintPress;
 
-        // CrosswordApp.Application score
+        // CrosswordMain.Application score
         private int CrosswordScore;
 
         //More puzzles in set boolean flag
@@ -116,7 +116,7 @@ namespace Crossword.App
         //Parser class
         private CrosswordParser.PuzzleData? _mrParserData;
 
-        //Images to use forx CrosswordApp.Application squares
+        //Images to use forx CrosswordMain.Application squares
         private Texture2D _imgSquareWord;
         private Texture2D _imgHighliteSquare;
         private Texture2D _imgNormalSquare;
@@ -155,7 +155,7 @@ namespace Crossword.App
         //Fonts
         private DynamicSpriteFont _fntnumFont;   //small number font
         private DynamicSpriteFont _fntFont;      //Char entered by user.
-        private DynamicSpriteFont _fntScore;     //CrosswordApp.Application score
+        private DynamicSpriteFont _fntScore;     //CrosswordMain.Application score
         private DynamicSpriteFont _fntListhead;  //Across/Down listbox Headers
         private DynamicSpriteFont _fntListFont;  // ListBox font
 
@@ -174,7 +174,7 @@ namespace Crossword.App
         private Label _clueAcrossLabel;
         private Label _clueDownLabel;
 
-        //CrosswordApp.Application Rectangles for mouse handling
+        //CrosswordMain.Application Rectangles for mouse handling
         //Rectangle variable
         public Rectangle rectCrossWord;
 
@@ -185,7 +185,7 @@ namespace Crossword.App
         private TextButton GetNextPuzzleButton;
 
 
-        //CrosswordApp.Application Width and Height variables
+        //CrosswordMain.Application Width and Height variables
         private int _nCrosswordWidth;
         private int _nCrosswordHeight;
         private readonly int _nCrosswordOffset = 6;
@@ -199,7 +199,7 @@ namespace Crossword.App
 
         #region main_constructor
         // Main crossword constructor
-        public CrosswordApp()
+        public CrosswordMain()
         {
             //Prepare Graphics
             _graphics = new GraphicsDeviceManager(this);

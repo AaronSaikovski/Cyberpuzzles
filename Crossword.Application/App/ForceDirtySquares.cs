@@ -1,8 +1,12 @@
+using System;
 using System.Threading.Tasks;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordApp
+/// <summary>
+/// Main Crossword App
+/// </summary>
+public sealed partial class CrosswordMain
 {
     #region ForceDirtySquares
 
@@ -11,23 +15,23 @@ public sealed partial class CrosswordApp
     /// </summary>
     private void ForceDirtySquares()
     {
-        //Forces dirty squares
-        // for (var i = 0; i < _NumRows; i++)
-        // {
-        //     //down
-        //     for (var j = 0; j < _NumCols; j++)
-        //     {
-        //         sqPuzzleSquares[i, j]!.IsDirty = true;
-        //     }
-        // }
-        
-        Parallel.For(0, _NumRows, i =>
+        try
         {
-            Parallel.For(0, _NumCols, j =>
+            //Forces dirty squares
+            Parallel.For(0, _NumRows, i =>
             {
-                sqPuzzleSquares[i, j]!.IsDirty = true;
+                Parallel.For(0, _NumCols, j =>
+                {
+                    sqPuzzleSquares[i, j]!.IsDirty = true;
+                });
             });
-        });
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
     }
 
     #endregion

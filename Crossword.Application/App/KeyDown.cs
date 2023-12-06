@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordApp
+public sealed partial class CrosswordMain
 {
     #region KeyDown
 
@@ -22,9 +22,6 @@ public sealed partial class CrosswordApp
         {
             //Spacebar pressed to change orientation...bIsAcross.
             GetSpaceKey(keyInFocus);
-
-            //If the applet has the focus then allow the arrow keys to navigate around
-            //NavigatePuzzle(keyInFocus);
 
             //Only allow list box navigation if they have the focus.
             //Up and down arrows for the listbox navigation
@@ -45,8 +42,7 @@ public sealed partial class CrosswordApp
 
             //Check to see if a backspace was entered
             GetBackspaceKey(keyInFocus);
-
-
+            
             //Check that the char falls into our range.
             GetCharKey(keyInFocus);
 
@@ -55,9 +51,8 @@ public sealed partial class CrosswordApp
         }
         catch (Exception e)
         {
-
-            //Catch the exception
-            Console.WriteLine($"Exception {e} occurred in method keyDown");
+            Console.WriteLine(e);
+            throw;
         }
     }
     #endregion
@@ -69,33 +64,41 @@ public sealed partial class CrosswordApp
     /// <param name="keyInFocus"></param>
     private void GetSpaceKey(Keys keyInFocus)
     {
-        //Spacebar pressed to change orientation...bIsAcross.
-        if (keyInFocus != Keys.Space) return;
-        //Deselect the listbox based on direction
-        if (!IsAcross)
-            LstClueDown.SelectedIndex = -1;
-        else
-            LstClueAcross.SelectedIndex = -1;
-
-        //Sets the highlighting of the square.
-        if (SqCurrentSquare is null) return;
-        SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
-
-        //Change orientation if possible
-        if (IsAcross)
+        try
         {
-            if (SqCurrentSquare.CanFlipDirection(IsAcross))
-                IsAcross = false;
-        }
-        else
-        {
-            if (SqCurrentSquare.CanFlipDirection(IsAcross))
-                IsAcross = true;
-        }
+            //Spacebar pressed to change orientation...bIsAcross.
+            if (keyInFocus != Keys.Space) return;
+            //Deselect the listbox based on direction
+            if (!IsAcross)
+                LstClueDown.SelectedIndex = -1;
+            else
+                LstClueAcross.SelectedIndex = -1;
 
-        //Sets the highlighting of the square.
-        SqCurrentSquare.GetClueAnswerRef(IsAcross)
-            ?.HighlightSquares(SqCurrentSquare, true);
+            //Sets the highlighting of the square.
+            if (SqCurrentSquare is null) return;
+            SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
+
+            //Change orientation if possible
+            if (IsAcross)
+            {
+                if (SqCurrentSquare.CanFlipDirection(IsAcross))
+                    IsAcross = false;
+            }
+            else
+            {
+                if (SqCurrentSquare.CanFlipDirection(IsAcross))
+                    IsAcross = true;
+            }
+
+            //Sets the highlighting of the square.
+            SqCurrentSquare.GetClueAnswerRef(IsAcross)
+                ?.HighlightSquares(SqCurrentSquare, true);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
     #endregion
 
@@ -106,11 +109,20 @@ public sealed partial class CrosswordApp
     /// <param name="keyInFocus"></param>
     private void GetDeleteKey(Keys keyInFocus)
     {
-        //Delete present square's contents if Delete key is pressed
-        if (keyInFocus == Keys.Delete)
+        try
         {
-            SqCurrentSquare?.SetLetter(' ', IsAcross);
+            //Delete present square's contents if Delete key is pressed
+            if (keyInFocus == Keys.Delete)
+            {
+                SqCurrentSquare?.SetLetter(' ', IsAcross);
+            }
         }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
     }
     #endregion
 
@@ -121,11 +133,20 @@ public sealed partial class CrosswordApp
     /// <param name="keyInFocus"></param>
     private void GetBackspaceKey(Keys keyInFocus)
     {
-        //Check to see if a backspace was entered
-        if (keyInFocus != Keys.Back) return;
-        SqCurrentSquare?.SetLetter(' ', IsAcross);
-        SqCurrentSquare = SqCurrentSquare?.GetPrevSq(IsAcross);
-        SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
+        try
+        {
+            //Check to see if a backspace was entered
+            if (keyInFocus != Keys.Back) return;
+            SqCurrentSquare?.SetLetter(' ', IsAcross);
+            SqCurrentSquare = SqCurrentSquare?.GetPrevSq(IsAcross);
+            SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+       
     }
     #endregion
 
@@ -136,17 +157,26 @@ public sealed partial class CrosswordApp
     /// <param name="keyInFocus"></param>
     private void GetCharKey(Keys keyInFocus)
     {
-        //Check that the char falls into our range.
-        //if ((key >= 'A' && key <= 'Z') || (key >= 'a' && key <= 'z')) {
-        if (keyInFocus is < Keys.A or > Keys.Z) return;
-        //Sets the letter in the current square
-        SqCurrentSquare?.SetLetter(char.ToUpper((char)keyInFocus), IsAcross);
+        try
+        {
+            //Check that the char falls into our range.
+            //if ((key >= 'A' && key <= 'Z') || (key >= 'a' && key <= 'z')) {
+            if (keyInFocus is < Keys.A or > Keys.Z) return;
+            //Sets the letter in the current square
+            SqCurrentSquare?.SetLetter(char.ToUpper((char)keyInFocus), IsAcross);
 
-        //get next sq or myself(same sq)  if not available
-        SqCurrentSquare = SqCurrentSquare?.GetNextSq(IsAcross);
+            //get next sq or myself(same sq)  if not available
+            SqCurrentSquare = SqCurrentSquare?.GetNextSq(IsAcross);
 
-        //Sets the highlighting of the square.
-        SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
+            //Sets the highlighting of the square.
+            SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
+            
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
     #endregion
 

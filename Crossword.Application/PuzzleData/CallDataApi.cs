@@ -3,7 +3,7 @@
 //      Module:     CallDataApi.cs                                        //
 //      Authors:    Aaron Saikovski                                       //
 //      Date:       31/10/2023                                            //
-//      Purpose:    Gets CrosswordApp.Application puzzle data from an API.               //
+//      Purpose:    Gets CrosswordMain.Application puzzle data from an API.               //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 

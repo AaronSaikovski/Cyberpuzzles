@@ -1,7 +1,7 @@
 namespace Crossword.PuzzleState;
 
 /// <summary>
-/// CrosswordApp dataset to map clues to answers.
+/// CrosswordMain dataset to map clues to answers.
 /// </summary>
 /// <remarks>
 /// constructor

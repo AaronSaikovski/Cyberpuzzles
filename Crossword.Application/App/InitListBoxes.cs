@@ -1,9 +1,10 @@
+using System;
 using Crossword.Shared.Constants;
 using Myra.Graphics2D.UI;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordApp
+public sealed partial class CrosswordMain
 {
     #region InitListBoxes
     /// <summary>
@@ -11,23 +12,32 @@ public sealed partial class CrosswordApp
     /// </summary>
     private void InitListBoxes()
     {
-        //List box elements
+        try
+        {
+            //List box elements
 
-        //List box across
-        InitListBoxAcross();
+            //List box across
+            InitListBoxAcross();
 
-        //List box down
-        InitListBoxDown();
+            //List box down
+            InitListBoxDown();
 
-        //Populate and add lists
-        _mainPanel.Widgets.Add(_clueAcrossLabel);
-        _mainPanel.Widgets.Add(LstClueAcross);
-        _mainPanel.Widgets.Add(_clueDownLabel);
-        _mainPanel.Widgets.Add(LstClueDown);
-        LstClueAcross.SelectedIndex = 0;
-        LstClueDown.SelectedIndex = -1;
-        LstClueAcross.Visible = false;
-        LstClueDown.Visible = false;
+            //Populate and add lists
+            _mainPanel.Widgets.Add(_clueAcrossLabel);
+            _mainPanel.Widgets.Add(LstClueAcross);
+            _mainPanel.Widgets.Add(_clueDownLabel);
+            _mainPanel.Widgets.Add(LstClueDown);
+            LstClueAcross.SelectedIndex = 0;
+            LstClueDown.SelectedIndex = -1;
+            LstClueAcross.Visible = false;
+            LstClueDown.Visible = false;
+        
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 
     #endregion
@@ -38,33 +48,42 @@ public sealed partial class CrosswordApp
     /// </summary>
     private void InitListBoxDown()
     {
-        //Down Label
-        _clueDownLabel = new Label
+        try
         {
-            Text = "Down",
-            Font = _fntListhead,
-            Left = rectCrossWord.Right + CWSettings.MainOffsetX,
-            TextColor = CWSettings.ListBoxTextColor,
-            Height = CWSettings.ClLabelHeight,
-            Top = CWSettings.ClListboxHeight + CWSettings.ClLabelHeight + CWSettings.ClListSpacer * 3
-        };
+            //Down Label
+            _clueDownLabel = new Label
+            {
+                Text = "Down",
+                Font = _fntListhead,
+                Left = rectCrossWord.Right + CWSettings.MainOffsetX,
+                TextColor = CWSettings.ListBoxTextColor,
+                Height = CWSettings.ClLabelHeight,
+                Top = CWSettings.ClListboxHeight + CWSettings.ClLabelHeight + CWSettings.ClListSpacer * 3
+            };
 
-        //Down
-        LstClueDown = new ListBox
+            //Down
+            LstClueDown = new ListBox
+            {
+                Left = rectCrossWord.Right + CWSettings.MainOffsetY,
+                Top = CWSettings.ClListboxHeight + CWSettings.ClLabelHeight + CWSettings.ClListSpacer * 2 +
+                      CWSettings.ClLabelHeight,
+                AcceptsKeyboardFocus = true,
+                SelectionMode = SelectionMode.Single,
+                Height = CWSettings.ClListboxHeight
+            };
+
+            //set the font
+            LstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
+
+            //List box event handlers
+            //LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
+        
+        }
+        catch (Exception e)
         {
-            Left = rectCrossWord.Right + CWSettings.MainOffsetY,
-            Top = CWSettings.ClListboxHeight + CWSettings.ClLabelHeight + CWSettings.ClListSpacer * 2 +
-                  CWSettings.ClLabelHeight,
-            AcceptsKeyboardFocus = true,
-            SelectionMode = SelectionMode.Single,
-            Height = CWSettings.ClListboxHeight
-        };
-
-        //set the font
-        LstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
-
-        //List box event handlers
-        //LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
+            Console.WriteLine(e);
+            throw;
+        }
     }
     #endregion
 
@@ -74,32 +93,41 @@ public sealed partial class CrosswordApp
     /// </summary>
     private void InitListBoxAcross()
     {
-        //Across Label
-        _clueAcrossLabel = new Label
+        try
         {
-            Text = "Across",
-            Font = _fntListhead,
-            Left = rectCrossWord.Right + CWSettings.MainOffsetX,
-            TextColor = CWSettings.ListBoxTextColor,
-            Height = CWSettings.ClLabelHeight,
-            Top = CWSettings.MainOffsetY - CWSettings.ClListSpacer * 3
-        };
+            //Across Label
+            _clueAcrossLabel = new Label
+            {
+                Text = "Across",
+                Font = _fntListhead,
+                Left = rectCrossWord.Right + CWSettings.MainOffsetX,
+                TextColor = CWSettings.ListBoxTextColor,
+                Height = CWSettings.ClLabelHeight,
+                Top = CWSettings.MainOffsetY - CWSettings.ClListSpacer * 3
+            };
 
-        //Across ListBox
-        LstClueAcross = new ListBox
+            //Across ListBox
+            LstClueAcross = new ListBox
+            {
+                Left = rectCrossWord.Right + CWSettings.MainOffsetX,
+                Top = CWSettings.MainOffsetY,
+                AcceptsKeyboardFocus = true,
+                SelectionMode = SelectionMode.Single,
+                Height = CWSettings.ClListboxHeight
+            };
+
+            //set the font
+            LstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
+
+            //List box event handlers
+            //LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
+        
+        }
+        catch (Exception e)
         {
-            Left = rectCrossWord.Right + CWSettings.MainOffsetX,
-            Top = CWSettings.MainOffsetY,
-            AcceptsKeyboardFocus = true,
-            SelectionMode = SelectionMode.Single,
-            Height = CWSettings.ClListboxHeight
-        };
-
-        //set the font
-        LstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
-
-        //List box event handlers
-        //LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
+            Console.WriteLine(e);
+            throw;
+        }
     }
     #endregion
 

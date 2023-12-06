@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordApp
+public sealed partial class CrosswordMain
 {
     #region GetHintLetters
     /// <summary>
-    /// Hint implementation
+    /// Get Hint letters from the Hintletter array
     /// </summary>
     /// <param name="count"></param>
     private void GetHintLetters(int count)
@@ -23,15 +23,8 @@ public sealed partial class CrosswordApp
                 {
                     var chHintLetter = _szTmpGetLetters[0];
                     _szTmpGetLetters = _szTmpGetLetters[1..];
-                    // for (var i = 0; i < NumQuestions; i++)
-                    // {
-                    //     var bTmpResult = caPuzzleClueAnswers[i].CheckHint(chHintLetter);
-                    //     if (bTmpResult)
-                    //     {
-                    //         hintSupplied = true;
-                    //     }
-                    // }
                     
+                    //loop over hint letters
                     Parallel.For(0, NumQuestions, i =>
                     {
                         var bTmpResult = caPuzzleClueAnswers[i].CheckHint(chHintLetter);
@@ -54,8 +47,9 @@ public sealed partial class CrosswordApp
             }
         }
         catch (Exception e)
-        { 
-            Console.WriteLine("Exception " + e + " occurred in method GetHintLetters()");
+        {
+            Console.WriteLine(e);
+            throw;
         }
     }
     #endregion

@@ -1,64 +1,75 @@
+using System;
+
 namespace Crossword.App;
 
-public sealed partial class CrosswordApp
+public sealed partial class CrosswordMain
 {
     #region MainInit
     /// <summary>
-    /// MainInit - Main initializer
+    /// MainInit - Main App initializer
     /// </summary>
     private void MainInit()
     {
-        //load fonts
-        LoadFonts();
-        
-        //Load images
-        LoadImages();
-        
-        //Init the data
-        InitData();
-        
-        //Init the controls
-        InitControls();
-        
-        //init the hint button
-        InitHintButton();
+        try
+        {
+            //load fonts
+            LoadFonts();
+            
+            //Load images
+            LoadImages();
+            
+            //Init the data
+            InitData();
+            
+            //Init the controls
+            InitControls();
+            
+            //init the hint button
+            DrawHintButton();
 
-        //init the Get Next Puzzle button
-        InitGetNextPuzzleButton();
-  
-        //build the crossword data
-        BuildCrossword();
+            //init the Get Next Puzzle button
+            DrawGetNextPuzzleButton();
+      
+            //build the crossword data
+            BuildCrossword();
 
-        NewBackFlush = true;
+            NewBackFlush = true;
 
-        //Show the lists
-        LstClueAcross.Visible = true;
-        LstClueDown.Visible = true;
+            //Show the lists
+            LstClueAcross.Visible = true;
+            LstClueDown.Visible = true;
 
-        //Set the initial active square
-        SqCurrentSquare = caPuzzleClueAnswers[0].GetSquare();
+            //Set the initial active square
+            SqCurrentSquare = caPuzzleClueAnswers[0].GetSquare();
 
-        //Return the orientation
-        IsAcross = caPuzzleClueAnswers[0].IsAcross;
+            //Return the orientation
+            IsAcross = caPuzzleClueAnswers[0].IsAcross;
 
-        //Highlight the default square...if allowed
-        caPuzzleClueAnswers[0].HighlightSquares(SqCurrentSquare, true);
+            //Highlight the default square...if allowed
+            caPuzzleClueAnswers[0].HighlightSquares(SqCurrentSquare, true);
 
-        //Set the default across list item to be the first item in the list
-        LstClueAcross.SelectedIndex = 0;
+            //Set the default across list item to be the first item in the list
+            LstClueAcross.SelectedIndex = 0;
 
-        //Forces dirty squares
-        ForceDirtySquares();
+            //Forces dirty squares
+            ForceDirtySquares();
 
-        //Set index to bubble out
-        bBufferDirty = true;
-        NewBackFlush = true;
+            //Set index to bubble out
+            bBufferDirty = true;
+            NewBackFlush = true;
 
-        //Get next puzzle ID
-        _bMorePuzzles = true; 
-        
-        //Cleanup
-        System.GC.Collect();
+            //Get next puzzle ID
+            _bMorePuzzles = true; 
+            
+            //Cleanup
+            System.GC.Collect();
+            
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
     #endregion
 }

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordApp
+public sealed partial class CrosswordMain
 {
     #region LoadImages
     /// <summary>
@@ -37,34 +37,46 @@ public sealed partial class CrosswordApp
     #endregion
 
     #region LoadFonts
+    /// <summary>
+    /// Loads the fonts
+    /// </summary>
     private void LoadFonts()
     {
-        //Read fonts from FS
-        var fntHelveticaBold = File.ReadAllBytes(CWSettings.HelveticaBold);
-        var fntHelveticaPlain = File.ReadAllBytes(CWSettings.HelveticaPlain);
+        try
+        {
+            //Read fonts from FS
+            var fntHelveticaBold = File.ReadAllBytes(CWSettings.HelveticaBold);
+            var fntHelveticaPlain = File.ReadAllBytes(CWSettings.HelveticaPlain);
 
-        //Add the Bold font
-        var fntHelveticaBoldSystem = new FontSystem();
-        fntHelveticaBoldSystem.AddFont(fntHelveticaBold);
+            //Add the Bold font
+            var fntHelveticaBoldSystem = new FontSystem();
+            fntHelveticaBoldSystem.AddFont(fntHelveticaBold);
 
-        //Add the Normal font
-        var fntHelveticaSystem = new FontSystem();
-        fntHelveticaSystem.AddFont(fntHelveticaPlain);
+            //Add the Normal font
+            var fntHelveticaSystem = new FontSystem();
+            fntHelveticaSystem.AddFont(fntHelveticaPlain);
 
-        //Small number font
-        _fntnumFont = fntHelveticaBoldSystem.GetFont(CWSettings.FntSml);
+            //Small number font
+            _fntnumFont = fntHelveticaBoldSystem.GetFont(CWSettings.FntSml);
 
-        //Char entered by user.    
-        _fntFont = fntHelveticaBoldSystem.GetFont(CWSettings.FntLge);
+            //Char entered by user.    
+            _fntFont = fntHelveticaBoldSystem.GetFont(CWSettings.FntLge);
 
-        //CrosswordApp.Application score      
-        _fntScore = fntHelveticaBoldSystem.GetFont(CWSettings.FntLge);
+            //CrosswordMain.Application score      
+            _fntScore = fntHelveticaBoldSystem.GetFont(CWSettings.FntLge);
 
-        //Across/Down listbox Headers
-        _fntListhead = fntHelveticaBoldSystem.GetFont(CWSettings.FntMed);
+            //Across/Down listbox Headers
+            _fntListhead = fntHelveticaBoldSystem.GetFont(CWSettings.FntMed);
 
-        //List font
-        _fntListFont = fntHelveticaSystem.GetFont(CWSettings.FntMed);
+            //List font
+            _fntListFont = fntHelveticaSystem.GetFont(CWSettings.FntMed);
+        
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
     #endregion
 }
