@@ -27,9 +27,13 @@ To play the game you can use the keyboard - Arrow keys and the mouse to navigate
 
 Please feel free to share this and make any changes as you see fit.
 
-Screenshot below:
+Old Java version Screenshot:
 
-![crossword screenshot.](crossword-screenshot.png)
+![new crossword screenshot.](cyberpuzzles-old.png)
+
+New version Screenshot:
+
+![new crossword screenshot.](crossword-screenshot.png)
 
 ---
 
@@ -53,24 +57,17 @@ The Crossword solution is structured as follows:
 
 ---
 
-### Game Local Build Setup:
+### Local Setup steps:
 
-Refer to the Monogame game packing for games [here](https://monogame.net/articles/packaging_games.html)
-
-In the root folder where the 'CyberPuzzles.sln' file is located, you should run the following to get started:
-
-```bash
-dotnet clean
-
-dotnet restore
-
-dotnet build
-
-# if you are brave ;-)
-dotnet run ./Crossword.Application
-```
-
-This will validate and restore the required Nuget packages and ensure the solution builds.
+1. Clone the repo to the folder 'CyberPuzzles' - 'git clone https://github.com/AaronSaikovski/CyberPuzzles.git'
+2. It will create a folder 'CyberPuzzles' and then 'cd' into the 'CyberPuzzles' folder.
+3. Check that the projects and the 'CyberPuzzles.sln' (solution file and projects have been cloned) - List all the files in the folder.
+4. run 'dotnet clean'.
+5. run 'dotnet restore' to restore the nuget packages.
+6. run 'dotnet build' to ensure there aren't any build errors, there may be some warnings.
+7. cd into the 'Crossword.Application' folder.
+8. type 'dotnet run' and the crossword should appear.
+9. There will be an error on startup - "An error occurred: One or more errors occurred. (Connection refused (localhost:7175))" - the crossword is trying to connect to the local instance of the WebAPI, ignore this for now.
 
 To build locally for your target native platform:
 
@@ -142,11 +139,7 @@ This has only been tested on Azure Web Apps and I will containerise this in the 
 
 ### Known Bugs/Issues:
 
-Please report all bugs [here](https://github.com/AaronSaikovski/CyberPuzzles/issues).
-
-- Some characters are not properly centred in squares.
-- ListBox Event handlers disabled - You cant click on the ListBoxes to change the puzzle navigation - this will be fixed in the future.
-- Next Puzzle sometimes double taps and skips loading puzzle data.
+Please report all bugs and the running list of know issues is [here](https://github.com/AaronSaikovski/CyberPuzzles/issues).
 
 ---
 
