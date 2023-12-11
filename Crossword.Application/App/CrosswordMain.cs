@@ -2,6 +2,7 @@ using System;
 using Crossword.ClueAnswer;
 using Crossword.InputHandlers;
 using Crossword.PuzzleSquares;
+using Crossword.Shared.Constants;
 using FontStashSharp;
 using InputHandlers.Keyboard;
 using InputHandlers.Mouse;
@@ -215,6 +216,9 @@ namespace Crossword.App
             //Prepare Graphics
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            // Set the desired window size here
+            _graphics.PreferredBackBufferWidth = CWSettings.CrosswordWindowWidth; // Width
+            _graphics.PreferredBackBufferHeight = CWSettings.CrosswordWindowHeight; // Height
             IsMouseVisible = true;
             
             IsFixedTimeStep = true; // Set to true to use fixed time step
