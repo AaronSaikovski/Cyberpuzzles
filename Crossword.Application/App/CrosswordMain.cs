@@ -1,3 +1,4 @@
+using System;
 using Crossword.ClueAnswer;
 using Crossword.InputHandlers;
 using Crossword.PuzzleSquares;
@@ -213,6 +214,9 @@ namespace Crossword.App
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            
+            IsFixedTimeStep = true; // Set to true to use fixed time step
+            TargetElapsedTime = TimeSpan.FromMilliseconds(1000.0 / 30); // Set the desired refresh rate (e.g., 30 FPS)
 
             //Keyboard handlers
             _keyboardInput = new KeyboardInput();
