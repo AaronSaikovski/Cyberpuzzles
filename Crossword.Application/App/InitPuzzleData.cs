@@ -1,5 +1,6 @@
 
 using System;
+using System.Threading.Tasks;
 using Crossword.PuzzleData;
 
 namespace Crossword.App;
@@ -11,7 +12,7 @@ public sealed partial class CrosswordMain
     /// <summary>
     /// Inits the puzzle data
     /// </summary>
-    private void InitPuzzleData()
+    private async void InitPuzzleData()
     {
         try
         {
@@ -19,9 +20,20 @@ public sealed partial class CrosswordMain
             //Parser Implementation
             _mrParserData = new CrosswordParser.PuzzleData();
 
-            // Get the Puzzle Data
-            PuzzleData = CrosswordData.GetCrosswordData(); 
+            // Get the Puzzle Data..old
+            //PuzzleData = CrosswordData.GetCrosswordData();
+           
+            //////////////////////////////////////////
+            // Get the Puzzle Data..ASync and wait
+            Task<string> task = Task.Run(async () => await CrosswordData.GetCrosswordDataAsync());
 
+            // Wait for the task to complete
+            task.Wait();
+
+            // Get the result 
+            PuzzleData = task.Result;
+            //////////////////////////////////////////
+            
             // Parse the Data
             while (PuzzleData is not null && !_mrParserData.ParsePuzzleData(PuzzleData))
             {

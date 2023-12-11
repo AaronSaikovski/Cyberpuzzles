@@ -21,7 +21,7 @@ public sealed partial class CrosswordMain
             _mainPanel = new Panel();
 
             //set the Window title
-            Window.Title = "CyberPuzzles Crossword v1.0";
+            Window.Title = "CyberPuzzles Crossword v1.0.1";
 
             //Init the puzzle data
             InitPuzzleData();

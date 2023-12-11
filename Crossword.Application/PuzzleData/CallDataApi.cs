@@ -9,6 +9,7 @@
 
 using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Crossword.Shared.Config;
 using Crossword.Shared.Constants;
 
@@ -22,7 +23,46 @@ public partial class CrosswordData
     /// Calls the Data Svc API
     /// </summary>
     /// <returns></returns>
-    private static string? CallDataApi()
+    // private static string? CallDataApi()
+    // {
+    //     //Use the HttpClient
+    //     using (var client = new HttpClient())
+    //     {
+    //         try
+    //         {
+    //             //get config values from the appsettings
+    //             var apiUrl = ConfigurationHelper.DataApiUrl;
+    //             var apiKey = ConfigurationHelper.DataApiKey;
+    //
+    //             //pass in the API key to the header
+    //             client.DefaultRequestHeaders.Clear();
+    //             client.DefaultRequestHeaders.Add(CWSettings.ApiKeyName, apiKey);
+    //             
+    //             // Make the GET request to the API endpoint
+    //             var response = client.GetAsync(apiUrl).Result;
+    //
+    //             //check for errors...response codes etc
+    //             if (response.IsSuccessStatusCode) 
+    //                 return response.Content.ReadAsStringAsync().Result;
+    //             Console.WriteLine($"Failed to call the API. Status code: {response.StatusCode}");
+    //             return null;
+    //         }
+    //         catch (Exception ex)
+    //         {
+    //             Console.WriteLine($"An error occurred: {ex.Message}");
+    //             return null;
+    //         }
+    //     }
+    // }
+    
+    #endregion
+
+    #region CallDataApiAsync
+    /// <summary>
+    /// Calls the Data service API Async version
+    /// </summary>
+    /// <returns></returns>
+    private static async Task<string> CallDataApiAsync()
     {
         //Use the HttpClient
         using (var client = new HttpClient())
@@ -38,21 +78,22 @@ public partial class CrosswordData
                 client.DefaultRequestHeaders.Add(CWSettings.ApiKeyName, apiKey);
                 
                 // Make the GET request to the API endpoint
-                var response = client.GetAsync(apiUrl).Result;
+                var response = await client.GetAsync(apiUrl);
 
                 //check for errors...response codes etc
                 if (response.IsSuccessStatusCode) 
                     return response.Content.ReadAsStringAsync().Result;
                 Console.WriteLine($"Failed to call the API. Status code: {response.StatusCode}");
-                return null;
+                return string.Empty;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
-                return null;
+                return string.Empty;
             }
         }
     }
 
     #endregion
+    
 }

@@ -2,11 +2,17 @@ using Microsoft.Extensions.Configuration;
 
 namespace Crossword.Shared.Config;
 
+/// <summary>
+/// Configuration helper..reads from appsettings file per environment
+/// </summary>
 public static class ConfigurationHelper
 {
-    //IConfigurationRoot
 
+
+    // API Url 
     public static string? DataApiUrl { get; }
+    
+    //API Key
     public static string? DataApiKey { get; }
 
     #region ConfigurationHelper
