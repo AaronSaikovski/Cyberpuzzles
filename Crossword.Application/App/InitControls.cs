@@ -35,7 +35,8 @@ public sealed partial class CrosswordMain
             // init labels
             _currentScoreLabel = new Label();
             _maxScoreLabel = new Label();
-        
+            _creditsLabel = new Label();
+
         }
         catch (Exception ex)
         {

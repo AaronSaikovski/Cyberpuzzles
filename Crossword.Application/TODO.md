@@ -4,14 +4,13 @@
 * Fix bBufferDirty state machine redraw bug - causing weird redraw issues
 * GitHub action for building X-Platform
 * Test on windows
-* Readme on how to build and deploy on Windows, Mac and Linux
-* Credits/About screen - https://github.com/Byron1c/MonoGame-Game-Menu
+
+
 
 
 
 **ON HOLD**
 * Background graphics
-
 * Dockerfile for API service 
 * Add unit test 
 * Big refactor/Memory optimisation
@@ -24,7 +23,9 @@
 
 
 **DONE**
-* Mouse support - might need parent rectangle
+* Mouse support - might need parent rectangle 
+* Readme on how to build and deploy on Windows, Mac and Linux
+* Credits/About screen - https://github.com/Byron1c/MonoGame-Game-Menu
 * Logging via serilog
 * add black line spacers between puzzle squares - refer to updateBackBuffer()
 * add ArgumentNullException.ThrowIfNull(param) to methods - guard clauses.

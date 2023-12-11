@@ -34,6 +34,7 @@ public sealed class CWSettings
     public const int FntSml = 9;
     public const int FntMed = 15;
     public const int FntLge = 20;
+    public const int FntCredits = 12;
 
     //Crossword.Application dimension constants
     // public const int NMaxCrossWidth = 291;
@@ -84,6 +85,8 @@ public sealed class CWSettings
     //Score color
     public static Color ScoreColor = Color.Red;
     
+    //Credits Colo
+    public static Color CreditsColor = Color.Black;
     
     //Button colours
     public static Color ButtonTextColor = Color.White;
@@ -102,6 +105,13 @@ public sealed class CWSettings
     
     //Font colors
     public static Color SmallFontColor = Color.Black;
+    
+    //Credits string
+    public static string CreditsText = "Original Authors: Bryan Richards & Aaron Saikovski\n" +
+                                       "Original date: 24th March 1997\n" +
+                                       "Description: A Monogame and .Net 8 Core port of the original OzEmail Cyberpuzzles Java based crossword Applet.\n" +
+                                       "Special shoutout to Neil Reading (neilski) RIP - miss you brother.";
+
 } 
 
 

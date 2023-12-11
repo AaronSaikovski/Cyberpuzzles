@@ -99,6 +99,9 @@ public sealed partial class CrosswordMain
             //update game logic
             UpdateCrosswordScore();
             DrawCrosswordScore();
+
+            //draw the credits
+            DrawCreditsLabel();
             
             base.Update(gameTime);
         

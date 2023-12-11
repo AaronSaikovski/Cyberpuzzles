@@ -160,6 +160,7 @@ namespace Crossword.App
         private DynamicSpriteFont _fntScore;     //CrosswordMain.Application score
         private DynamicSpriteFont _fntListhead;  //Across/Down listbox Headers
         private DynamicSpriteFont _fntListFont;  // ListBox font
+        private DynamicSpriteFont _fntCredits;  // Credits
 
 
         //Keyboard handler
@@ -175,6 +176,7 @@ namespace Crossword.App
         private Label _maxScoreLabel;
         private Label _clueAcrossLabel;
         private Label _clueDownLabel;
+        private Label _creditsLabel;
 
         //CrosswordMain.Application Rectangles for mouse handling
         //Rectangle variable

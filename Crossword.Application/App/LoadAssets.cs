@@ -72,6 +72,9 @@ public sealed partial class CrosswordMain
 
             //List font
             _fntListFont = fntHelveticaSystem.GetFont(CWSettings.FntMed);
+            
+            //Credits font
+            _fntCredits = fntHelveticaSystem.GetFont(CWSettings.FntCredits);
         
         }
         catch (Exception ex)
