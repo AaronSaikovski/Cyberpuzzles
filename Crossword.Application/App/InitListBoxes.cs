@@ -57,7 +57,7 @@ public sealed partial class CrosswordMain
             //Down Label
             _clueDownLabel = new Label
             {
-                Text = "Down",
+                Text = "Clues Down",
                 Font = _fntListhead,
                 Left = rectCrossWord.Right + CWSettings.MainOffsetX,
                 TextColor = CWSettings.ListBoxTextColor,
@@ -104,7 +104,7 @@ public sealed partial class CrosswordMain
             //Across Label
             _clueAcrossLabel = new Label
             {
-                Text = "Across",
+                Text = "Clues Across",
                 Font = _fntListhead,
                 Left = rectCrossWord.Right + CWSettings.MainOffsetX,
                 TextColor = CWSettings.ListBoxTextColor,
