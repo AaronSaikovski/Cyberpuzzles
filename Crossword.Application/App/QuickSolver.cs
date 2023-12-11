@@ -14,6 +14,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start QuickSolver()");
+            
             if (PuzzleFinished || SetFinished) return;
             for (var p = 0; p < NumQuestions; p++)
             {
@@ -50,9 +52,9 @@ public sealed partial class CrosswordMain
                 PuzzleFinished = true;
             }
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }

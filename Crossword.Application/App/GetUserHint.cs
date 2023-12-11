@@ -16,6 +16,8 @@ public sealed partial class CrosswordMain
         bool allHintLettersChecked = false;
         try
         {
+            _logger.LogInformation("Start GetHintLetters()");
+            
             while (!hintSupplied && !allHintLettersChecked)
             {
 
@@ -46,9 +48,9 @@ public sealed partial class CrosswordMain
                 }
             }
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }

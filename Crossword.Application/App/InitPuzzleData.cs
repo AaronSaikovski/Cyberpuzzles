@@ -7,6 +7,55 @@ namespace Crossword.App;
 
 public sealed partial class CrosswordMain
 {
+
+    #region GetPuzzleDataASync
+    /// <summary>
+    /// Gets the PuzzleData from the API ASync
+    /// </summary>
+    /// <returns></returns>
+    private string GetPuzzleData()
+    {
+        try
+        {
+            _logger.LogInformation("Start GetPuzzleData()");
+            
+            // Get the Puzzle Data..ASync and wait
+            Task<string?> task = Task.Run(async () =>
+            {
+                try
+                {
+                    // Await the asynchronous method inside Task.Run
+                    return await CrosswordData.GetCrosswordDataAsync();
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex,ex.Message);
+                    return null;
+                }
+            });
+            
+            // Wait for the task to complete
+            task.Wait();
+            
+            //Check for the result
+            if (task.IsCompleted && !task.IsFaulted && !task.IsCanceled)
+            {
+                return task.Result;
+            }
+
+            return null;
+
+
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex,ex.Message);
+            throw;
+        }
+       
+    }
+    #endregion
+    
     #region InitPuzzleData
 
     /// <summary>
@@ -16,6 +65,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start InitPuzzleData()");
+            
             //Parser class
             //Parser Implementation
             _mrParserData = new CrosswordParser.PuzzleData();
@@ -25,14 +76,7 @@ public sealed partial class CrosswordMain
            
             //////////////////////////////////////////
             // Get the Puzzle Data..ASync and wait
-            Task<string> task = Task.Run(async () => await CrosswordData.GetCrosswordDataAsync());
-
-            // Wait for the task to complete
-            task.Wait();
-
-            // Get the result 
-            PuzzleData = task.Result;
-            //////////////////////////////////////////
+            PuzzleData = GetPuzzleData();
             
             // Parse the Data
             while (PuzzleData is not null && !_mrParserData.ParsePuzzleData(PuzzleData))
@@ -69,9 +113,9 @@ public sealed partial class CrosswordMain
             _quesNum = new int[NumQuestions];
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
 

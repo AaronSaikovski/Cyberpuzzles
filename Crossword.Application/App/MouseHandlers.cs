@@ -17,6 +17,8 @@ public sealed partial class CrosswordMain
     /// <returns></returns>
     public bool MouseUp(int x, int y)
     {
+        _logger.LogInformation("Start MouseUp()");
+        
         bBufferDirty = true;
 
         //if puzzle is finished...eat the event
@@ -34,6 +36,7 @@ public sealed partial class CrosswordMain
             var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / CWSettings.SquareWidth, (y - nCrossOffsetY) / CWSettings.SquareHeight];
 
             if (sqSelSquare is { IsCharAllowed: false }) return true;
+            
             //clear current highlights
             SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
 
@@ -56,9 +59,9 @@ public sealed partial class CrosswordMain
             return true;
         }
 
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
 
@@ -74,15 +77,17 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start DeselectListBoxItem()");
+            
             //Deselect the listbox based on direction
             if (!IsAcross)
                 LstClueDown.SelectedIndex = 0;
             else
                 LstClueAcross.SelectedIndex = 0;
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -98,15 +103,17 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start SetListBoxClueAnswer()");
+            
             //Selects the item in the list box relative to ClueAnswer and direction
             if (IsAcross)
                 LstClueAcross.SelectedIndex = clueAnswerIdx;
             else
                 LstClueDown.SelectedIndex = clueAnswerIdx - LstClueAcross.Items.Count;
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
      
@@ -122,13 +129,17 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start SetNewCurrentSquare()");
+            
+            ArgumentNullException.ThrowIfNull(sqSelSquare);
+            
             //set new current sq & highlight t
             SqCurrentSquare = sqSelSquare;
             SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -145,6 +156,10 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start FindClueAnswerIdx()");
+            
+            ArgumentNullException.ThrowIfNull(sqSelSquare);
+            
             //Find index to Clue Answer for highlighting in List boxes
             var tmpClueAnswer = sqSelSquare?.GetClueAnswerRef(IsAcross);
             var clueAnswerIdx = 0;
@@ -158,9 +173,9 @@ public sealed partial class CrosswordMain
 
             return clueAnswerIdx;
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
         
@@ -174,9 +189,13 @@ public sealed partial class CrosswordMain
     /// <param name="sqSelSquare"></param>
     private void CheckFlip(Square sqSelSquare)
     {
-        ArgumentNullException.ThrowIfNull(sqSelSquare);
+        
         try
         {
+            _logger.LogInformation("Start CheckFlip()");
+            
+            ArgumentNullException.ThrowIfNull(sqSelSquare);
+            
             //test if same sq and flip if possible
             if (sqSelSquare != SqCurrentSquare)
             {
@@ -194,9 +213,9 @@ public sealed partial class CrosswordMain
                     IsAcross = !IsAcross;
             }
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
         

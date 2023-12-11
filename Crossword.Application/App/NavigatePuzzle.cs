@@ -14,6 +14,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start NavigatePuzzle()");
+            
             //Deselect the listbox based on direction
             DeselectListBox();
 
@@ -39,9 +41,9 @@ public sealed partial class CrosswordMain
             UpdateListBoxLinkage();
 
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -55,15 +57,17 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start DeselectListBox()");
+            
             //Deselect the listbox based on direction
             if (!IsAcross)
                 LstClueDown.SelectedIndex = -1;
             else
                 LstClueAcross.SelectedIndex = -1;
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
         
@@ -78,6 +82,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start UpdateListBoxLinkage()");
+            
             ///////////////////////////////////////
             //Listbox linkage stuff
             //
@@ -98,9 +104,9 @@ public sealed partial class CrosswordMain
             else
                 LstClueDown.SelectedIndex = clueAnswerIdx - LstClueAcross.Items.Count;
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -115,6 +121,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start GetDownArrow()");
+            
             //If down arrow pressed get next sq
             if (keyInFocus != Keys.Down) return;
             if (IsAcross)
@@ -131,9 +139,9 @@ public sealed partial class CrosswordMain
             }
 
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -149,6 +157,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start GetUpArrow()");
+            
             //If up arrow key pressed
             if (keyInFocus != Keys.Up) return;
             if (IsAcross)
@@ -165,9 +175,9 @@ public sealed partial class CrosswordMain
             }
 
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
         
@@ -183,6 +193,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start GetRightArrow()");
+            
             //If right arrow pressed get next sq
             if (keyInFocus != Keys.Right) return;
             if (IsAcross)
@@ -197,9 +209,9 @@ public sealed partial class CrosswordMain
             }
 
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -215,6 +227,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start GetLeftArrow()");
+            
             //If left arrow key pressed get prev sq
             if (keyInFocus != Keys.Left) return;
             if (!IsAcross)
@@ -228,9 +242,9 @@ public sealed partial class CrosswordMain
                 SqCurrentSquare = SqCurrentSquare?.GetPrevSq(IsAcross);
             }
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
         

@@ -14,6 +14,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start InitListBoxes()");
+            
             //List box elements
 
             //List box across
@@ -33,9 +35,9 @@ public sealed partial class CrosswordMain
             LstClueDown.Visible = false;
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -50,6 +52,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start InitListBoxDown()");
+            
             //Down Label
             _clueDownLabel = new Label
             {
@@ -79,9 +83,9 @@ public sealed partial class CrosswordMain
             //LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -95,6 +99,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start InitListBoxAcross()");
+            
             //Across Label
             _clueAcrossLabel = new Label
             {
@@ -123,9 +129,9 @@ public sealed partial class CrosswordMain
             //LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }

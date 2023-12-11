@@ -20,6 +20,8 @@ public sealed partial class CrosswordMain
 
         try
         {
+            _logger.LogInformation("Start KeyDown()");
+            
             //Spacebar pressed to change orientation...bIsAcross.
             GetSpaceKey(keyInFocus);
 
@@ -49,9 +51,9 @@ public sealed partial class CrosswordMain
             //update score
             UpdateCrosswordScore();
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -66,6 +68,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start GetSpaceKey()");
+            
             //Spacebar pressed to change orientation...bIsAcross.
             if (keyInFocus != Keys.Space) return;
             //Deselect the listbox based on direction
@@ -94,9 +98,9 @@ public sealed partial class CrosswordMain
             SqCurrentSquare.GetClueAnswerRef(IsAcross)
                 ?.HighlightSquares(SqCurrentSquare, true);
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -111,15 +115,17 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start GetDeleteKey()");
+            
             //Delete present square's contents if Delete key is pressed
             if (keyInFocus == Keys.Delete)
             {
                 SqCurrentSquare?.SetLetter(' ', IsAcross);
             }
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
         
@@ -135,15 +141,17 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start GetBackspaceKey()");
+            
             //Check to see if a backspace was entered
             if (keyInFocus != Keys.Back) return;
             SqCurrentSquare?.SetLetter(' ', IsAcross);
             SqCurrentSquare = SqCurrentSquare?.GetPrevSq(IsAcross);
             SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -159,9 +167,11 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start GetCharKey()");
+            
             //Check that the char falls into our range.
-            //if ((key >= 'A' && key <= 'Z') || (key >= 'a' && key <= 'z')) {
             if (keyInFocus is < Keys.A or > Keys.Z) return;
+            
             //Sets the letter in the current square
             SqCurrentSquare?.SetLetter(char.ToUpper((char)keyInFocus), IsAcross);
 
@@ -172,9 +182,9 @@ public sealed partial class CrosswordMain
             SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
             
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }

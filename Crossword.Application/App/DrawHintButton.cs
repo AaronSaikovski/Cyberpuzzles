@@ -15,6 +15,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start DrawHintButton()");
+            
             // set the position of the button
             var hintPos =
                 new Vector2(rectCrossWord.Left,
@@ -27,9 +29,9 @@ public sealed partial class CrosswordMain
             _HintButton.Click += HintButton_Click;
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
         

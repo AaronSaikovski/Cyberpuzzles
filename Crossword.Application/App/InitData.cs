@@ -15,6 +15,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start InitData()");
+            
             //Initialise arrays of crossword data
             InitDataArrays();
 
@@ -40,9 +42,9 @@ public sealed partial class CrosswordMain
             InitDirtySquares();
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -56,6 +58,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start InitDirtySquares()");
+            
             //set squares as dirty
             if (!NewBackFlush) return;
             {
@@ -66,9 +70,9 @@ public sealed partial class CrosswordMain
             }
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -82,15 +86,17 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start InitCosts()");
+            
             // Initialise Cybersilver costs
             for (var i = 0; i < 6; i++)
             {
                 if (_mrParserData?.Costs is not null) _nCosts[i] = _mrParserData.Costs[i];
             }
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -105,6 +111,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start InitDataArrays()");
+            
             Parallel.For(0, NumQuestions, i =>
             {
                 if (_mrParserData?.ColRef is not null) _colRef[i] = _mrParserData.ColRef[i];
@@ -122,9 +130,9 @@ public sealed partial class CrosswordMain
             });
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }

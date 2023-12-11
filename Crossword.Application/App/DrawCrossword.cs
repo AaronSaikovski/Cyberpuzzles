@@ -15,6 +15,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start DrawCrossword()");
+            
             // Begin drawing
             _spriteBatch.Begin();
 
@@ -64,9 +66,9 @@ public sealed partial class CrosswordMain
             _spriteBatch.End();
             NewBackFlush = false;
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -83,15 +85,17 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start DrawUserChar()");
+            
             //Char entered by user.
             _spriteBatch.DrawString(_fntFont, char.ToUpper(sqPuzzleSquares[i, j].Letter).ToString(),
                 new Vector2(_puzzleSquares[i, j].X + CWSettings.SqCharOffsetX,
                     _puzzleSquares[i, j].Y + CWSettings.SqCharOffsetY),
                 sqPuzzleSquares[i, j].ForeColour);
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -107,6 +111,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start DrawSmallFontAcross()");
             if (sqPuzzleSquares[i, j]?.ClueAnswerAcross is null) return;
             if (sqPuzzleSquares[i, j]?.ClueAnswerAcross?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
             if (_puzzleSquares is not null)
@@ -115,9 +120,9 @@ public sealed partial class CrosswordMain
                     new Vector2(_puzzleSquares[i, j].X + CWSettings.SmlNumOffsetX,
                         _puzzleSquares[i, j].Y + CWSettings.SmlNumOffsetY), CWSettings.SmallFontColor);
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -132,6 +137,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start DrawSmallFontDown()");
+            
             if (sqPuzzleSquares?[i, j].ClueAnswerDown is null) return;
             if (sqPuzzleSquares?[i, j].ClueAnswerDown?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
             _spriteBatch.DrawString(_fntnumFont,
@@ -139,9 +146,9 @@ public sealed partial class CrosswordMain
                 new Vector2(_puzzleSquares[i, j].X + CWSettings.SmlNumOffsetX,
                     _puzzleSquares[i, j].Y + CWSettings.SmlNumOffsetY), CWSettings.SmallFontColor);
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
         
@@ -159,6 +166,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start DrawSquares()");
+            
             //Check to see if a repaint is required
             if (!sqPuzzleSquares[i, j]!.IsDirty) return true;
             if (sqPuzzleSquares[i, j]!.BackColour.Equals(CWSettings.SquareHighlightNone))
@@ -176,9 +185,9 @@ public sealed partial class CrosswordMain
 
             return false;
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
         

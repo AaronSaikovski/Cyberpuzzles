@@ -12,6 +12,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("**Start MainInit()**");
+            
             //load fonts
             LoadFonts();
             
@@ -65,9 +67,9 @@ public sealed partial class CrosswordMain
             System.GC.Collect();
             
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }

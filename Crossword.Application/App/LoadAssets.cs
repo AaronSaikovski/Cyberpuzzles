@@ -44,6 +44,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start LoadFonts()");
+            
             //Read fonts from FS
             var fntHelveticaBold = File.ReadAllBytes(CWSettings.HelveticaBold);
             var fntHelveticaPlain = File.ReadAllBytes(CWSettings.HelveticaPlain);
@@ -72,9 +74,9 @@ public sealed partial class CrosswordMain
             _fntListFont = fntHelveticaSystem.GetFont(CWSettings.FntMed);
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }

@@ -1,17 +1,16 @@
 ﻿**CW.Net**
 
 **TO DO**
-
-
 * GitHub action for building X-Platform
 * Test on windows
 * Readme on how to build and deploy on Windows, Mac and Linux
+* Credits/About screen - https://github.com/Byron1c/MonoGame-Game-Menu
 
 
 
 **ON HOLD**
 * Background graphics
-* Credits/About screen - https://github.com/Byron1c/MonoGame-Game-Menu
+
 * Dockerfile for API service 
 * Add unit test 
 * Big refactor/Memory optimisation
@@ -24,7 +23,8 @@
 
 
 **DONE**
-* Mouse support - might need parent rectangle 
+* Mouse support - might need parent rectangle
+* Logging via serilog
 * add black line spacers between puzzle squares - refer to updateBackBuffer()
 * add ArgumentNullException.ThrowIfNull(param) to methods - guard clauses.
 * * big, Chunky square graphics - or remove images and just make white squares with black text?

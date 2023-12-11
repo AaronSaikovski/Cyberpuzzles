@@ -8,10 +8,13 @@
 ////////////////////////////////////////////////////////////////////////////
 
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Crossword.Shared.Config;
 using Crossword.Shared.Constants;
+
+using Crossword.Shared.Logger;
 
 namespace Crossword.PuzzleData;
 
@@ -64,11 +67,16 @@ public partial class CrosswordData
     /// <returns></returns>
     private static async Task<string> CallDataApiAsync()
     {
+        //Init the logger
+        var _logger = new SerilogLogger();
+        
         //Use the HttpClient
         using (var client = new HttpClient())
         {
             try
             {
+                _logger.LogInformation("Start CallDataApiAsync()");
+
                 //get config values from the appsettings
                 var apiUrl = ConfigurationHelper.DataApiUrl;
                 var apiKey = ConfigurationHelper.DataApiKey;
@@ -76,25 +84,36 @@ public partial class CrosswordData
                 //pass in the API key to the header
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Add(CWSettings.ApiKeyName, apiKey);
-                
-                // Make the GET request to the API endpoint
-                var response = await client.GetAsync(apiUrl);
 
-                //check for errors...response codes etc
-                if (response.IsSuccessStatusCode)
+                //catch inner HttpRequestException
+                try
                 {
-                    //get the response from the API call result as a string
-                    return response.Content.ReadAsStringAsync().Result;
+                    var response = await client.GetAsync(apiUrl);
+                    
+                    //check for errors...response codes etc
+                    if (response.IsSuccessStatusCode)
+                    {
+                        //get the response from the API call result as a string
+                        return response.Content.ReadAsStringAsync().Result;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Failed to call the API. Status code: {response.StatusCode}");
+                        return string.Empty;
+                    }
                 }
-                else
+                //catch http request exception
+                catch (System.Net.Http.HttpRequestException http_exp)
                 {
-                    Console.WriteLine($"Failed to call the API. Status code: {response.StatusCode}");
-                    return string.Empty;
+                    _logger.LogError(http_exp,http_exp.Message);
+                    throw;
                 }
+               
             }
+            
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                _logger.LogError(ex,ex.Message);
                 return string.Empty;
             }
         }

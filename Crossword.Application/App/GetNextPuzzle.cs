@@ -13,6 +13,7 @@ public sealed partial class CrosswordMain
         try
         {
             //Reset everything and reinitialise
+            _logger.LogInformation("Start GetNextPuzzle()");
          
              //Repaint variables
              bBufferDirty = true;
@@ -79,9 +80,9 @@ public sealed partial class CrosswordMain
             System.GC.Collect();
 
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }

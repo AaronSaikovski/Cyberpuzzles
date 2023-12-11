@@ -7,6 +7,7 @@ using InputHandlers.Mouse;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Myra.Graphics2D.UI;
+using Crossword.Shared.Logger;
 
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
@@ -194,6 +195,10 @@ namespace Crossword.App
         private readonly int _nCrossBorderWidth = 3;
         private int nCrossOffsetX = 5;
         private int nCrossOffsetY = 5;
+        
+        //Logging implementation
+        private SerilogLogger _logger;
+        
 
         #endregion
 
@@ -201,6 +206,9 @@ namespace Crossword.App
         // Main crossword constructor
         public CrosswordMain()
         {
+            //Init the logger
+            _logger = new SerilogLogger();
+            
             //Prepare Graphics
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";

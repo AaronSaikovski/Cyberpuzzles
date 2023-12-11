@@ -16,6 +16,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start InitControls()");
+            
             //Init the main rectangle
             rectCrossWord = new Rectangle(nCrossOffsetX, nCrossOffsetY, _nCrosswordWidth, _nCrosswordHeight);
 
@@ -24,7 +26,7 @@ public sealed partial class CrosswordMain
             
             //Dimension array for crossword data
             _puzzleDataset = new PuzzleState.PuzzleState[NumQuestions];
-             Parallel.For(0, NumQuestions, i =>
+            Parallel.For(0, NumQuestions, i =>
             {
                 _puzzleDataset[i] = new PuzzleState.PuzzleState(_rowRef[i], _colRef[i], _szAnswers[i], _szClues[i], _bDataIsAcross[i],
                 _quesNum[i]);
@@ -35,9 +37,9 @@ public sealed partial class CrosswordMain
             _maxScoreLabel = new Label();
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }

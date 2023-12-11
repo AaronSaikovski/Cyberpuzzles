@@ -10,6 +10,8 @@
 using System;
 using System.Threading.Tasks;
 using Crossword.Shared.Constants;
+using Crossword.Shared.Logger;
+using Serilog.Core;
 
 namespace Crossword.PuzzleData;
 
@@ -44,18 +46,31 @@ public partial class CrosswordData
     #region GetCrosswordDataAsync
     public static async Task<string> GetCrosswordDataAsync()
     {
+        //Init the logger
+        var _logger = new SerilogLogger();
+        
         //Call the API to get the puzzledata....otherwise use default values
         try
         {
+            _logger.LogInformation("Start GetCrosswordDataAsync()");
+            
             //call the API
-            var apiResponse = await CallDataApiAsync();
-
+            string apiResponse = await CallDataApiAsync();
+            
             //check what was returned
-            return apiResponse ?? CWSettings.DefaultPuzzleData;
+            if (string.IsNullOrEmpty(apiResponse))
+            {
+                return CWSettings.DefaultPuzzleData;
+            }
+            else
+            {
+                return apiResponse;
+            }
+
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"An error occurred: {ex.Message}");
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }

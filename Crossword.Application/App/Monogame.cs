@@ -17,6 +17,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start Initialize()");
+            
             //Panel for UI
             _mainPanel = new Panel();
 
@@ -29,9 +31,9 @@ public sealed partial class CrosswordMain
             base.Initialize();
 
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
         
@@ -46,6 +48,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start LoadContent()");
+            
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             MyraEnvironment.Game = this;
 
@@ -62,9 +66,9 @@ public sealed partial class CrosswordMain
             };
             
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -79,6 +83,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start Update()");
+            
             //get mouse state
             MouseState mouseState = Mouse.GetState();
             
@@ -97,9 +103,9 @@ public sealed partial class CrosswordMain
             base.Update(gameTime);
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -114,6 +120,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start Draw()");
+            
             GraphicsDevice.Clear(Color.White);
 
             //If buffer dirty...draw the crossword
@@ -131,9 +139,9 @@ public sealed partial class CrosswordMain
             base.Draw(gameTime);
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }

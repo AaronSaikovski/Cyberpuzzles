@@ -16,6 +16,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start DrawGetNextPuzzleButton()");
+            
             var leftPos = rectCrossWord.Left+ _HintButton.Bounds.Width + CWSettings.ClListSpacer;
             // set the position of the button
             var nextPos =
@@ -31,9 +33,9 @@ public sealed partial class CrosswordMain
             _NextPuzzButton.Click += NextPuzzleButton_Click;
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }

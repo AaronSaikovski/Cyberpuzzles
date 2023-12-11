@@ -17,6 +17,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start ForceDirtySquares()");
+            
             //Forces dirty squares
             Parallel.For(0, _NumRows, i =>
             {
@@ -26,9 +28,9 @@ public sealed partial class CrosswordMain
                 });
             });
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
         

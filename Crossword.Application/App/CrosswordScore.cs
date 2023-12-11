@@ -17,6 +17,8 @@ public sealed partial class CrosswordMain
         CrosswordScore = 0;
         try
         {
+            _logger.LogInformation("Start UpdateCrosswordScore()");
+            
             Parallel.For(0, NumQuestions, i =>
             {
                 if (caPuzzleClueAnswers[i].IsCorrect())
@@ -33,9 +35,9 @@ public sealed partial class CrosswordMain
                 IsFinished = true;
             }
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -50,6 +52,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
+            _logger.LogInformation("Start DrawCrosswordScore()");
+            
             if (!IsFinished)
             {
                 //Current score label
@@ -83,9 +87,9 @@ public sealed partial class CrosswordMain
             _mainPanel.Widgets.Add(_maxScoreLabel);
         
         }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
+            _logger.LogError(ex,ex.Message);
             throw;
         }
     }
