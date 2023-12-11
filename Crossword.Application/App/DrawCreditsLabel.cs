@@ -22,7 +22,7 @@ public sealed partial class CrosswordMain
             _creditsLabel.TextColor = CWSettings.CreditsColor;
             _creditsLabel.Left = rectCrossWord.Left;
             _creditsLabel.Font = _fntCredits;
-            _creditsLabel.Top = rectCrossWord.Bottom + CWSettings.ClListSpacer + CWSettings.SquareHeight + CWSettings.SquareHeight;
+            _creditsLabel.Top = rectCrossWord.Bottom + CWSettings.ClListSpacer + CWSettings.SquareHeight + (CWSettings.SquareHeight/2);
             _mainPanel.Widgets.Add(_creditsLabel);
         
         }
