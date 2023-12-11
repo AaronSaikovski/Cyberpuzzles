@@ -6,9 +6,6 @@
 * Test on windows
 
 
-
-
-
 **ON HOLD**
 * Background graphics
 * Dockerfile for API service 
@@ -20,6 +17,7 @@
 * Font chars not centred in squares
 * Square repaint bug on keyboard/mouse navigation - investigating
 * ListBox event handlers - BUG
+* Next puzzle button jumps ahead to next puzzle issue - need to investigarte
 
 
 **DONE**
