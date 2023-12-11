@@ -81,10 +81,16 @@ public partial class CrosswordData
                 var response = await client.GetAsync(apiUrl);
 
                 //check for errors...response codes etc
-                if (response.IsSuccessStatusCode) 
+                if (response.IsSuccessStatusCode)
+                {
+                    //get the response from the API call result as a string
                     return response.Content.ReadAsStringAsync().Result;
-                Console.WriteLine($"Failed to call the API. Status code: {response.StatusCode}");
-                return string.Empty;
+                }
+                else
+                {
+                    Console.WriteLine($"Failed to call the API. Status code: {response.StatusCode}");
+                    return string.Empty;
+                }
             }
             catch (Exception ex)
             {
