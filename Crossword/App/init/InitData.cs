@@ -39,7 +39,7 @@ public sealed partial class CrosswordMain
             nCrossOffsetY = UIConstants.MainOffsetY;
 
             //set squares as dirty
-            InitDirtySquares();
+            InitSquares();
         
         }
         catch (Exception ex)
@@ -54,7 +54,7 @@ public sealed partial class CrosswordMain
     /// <summary>
     /// Inits the dirty squares
     /// </summary>
-    private void InitDirtySquares()
+    private void InitSquares()
     {
         try
         {
@@ -66,7 +66,7 @@ public sealed partial class CrosswordMain
                 if (!InitCrossword) return;
 
                 //Forces dirty squares
-                ForceDirtySquares();
+                InitDirtySquares();
             }
         
         }

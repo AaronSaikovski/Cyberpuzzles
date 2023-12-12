@@ -1,6 +1,6 @@
 using System;
 
-namespace Crossword.App;
+namespace Crossword.EventHandlers;
 
 public sealed partial class CrosswordMain
 {

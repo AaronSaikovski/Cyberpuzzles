@@ -7,11 +7,11 @@ namespace Crossword.App;
 
 public sealed partial class CrosswordMain
 {
-    #region BuildCrossword
+    #region InitialiseCrossword
     /// <summary>
     /// Builds the crossword objects
     /// </summary>
-    private void BuildCrossword()
+    private void InitialiseCrossword()
     {
         try
         {

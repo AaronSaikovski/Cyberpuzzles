@@ -8,12 +8,12 @@ namespace Crossword.App;
 /// </summary>
 public sealed partial class CrosswordMain
 {
-    #region ForceDirtySquares
+    #region InitDirtySquares
 
     /// <summary>
     /// Forces dirty squares
     /// </summary>
-    private void ForceDirtySquares()
+    private void InitDirtySquares()
     {
         try
         {

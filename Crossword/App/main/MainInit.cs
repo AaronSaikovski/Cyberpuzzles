@@ -33,7 +33,7 @@ public sealed partial class CrosswordMain
             DrawGetNextPuzzleButton();
       
             //build the crossword data
-            BuildCrossword();
+            InitialiseCrossword();
 
             NewBackFlush = true;
 
@@ -54,7 +54,7 @@ public sealed partial class CrosswordMain
             LstClueAcross.SelectedIndex = 0;
 
             //Forces dirty squares
-            ForceDirtySquares();
+            InitDirtySquares();
 
             //Set index to bubble out
             bBufferDirty = true;

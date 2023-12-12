@@ -4,11 +4,11 @@ namespace Crossword.App;
 
 public sealed partial class CrosswordMain
 {
-    #region GetNextPuzzle
+    #region InitNextPuzzle
     /// <summary>
     ///  //Get the next puzzle. loads the dataset
     /// </summary>
-    private void GetNextPuzzle()
+    private void InitNextPuzzle()
     {
         try
         {
@@ -44,7 +44,7 @@ public sealed partial class CrosswordMain
             InitControls();
 
             //build the crossword data
-            BuildCrossword();
+            InitialiseCrossword();
             
             NewBackFlush = true;
 
@@ -65,7 +65,7 @@ public sealed partial class CrosswordMain
             LstClueAcross.SelectedIndex = 0;
 
             //Forces dirty squares
-            ForceDirtySquares();
+            InitDirtySquares();
 
             //Set index to bubble out
             bBufferDirty = true;

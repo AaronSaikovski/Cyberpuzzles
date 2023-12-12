@@ -23,7 +23,7 @@ public sealed partial class CrosswordMain
     /// <param name="args"></param>
     private void NextPuzzleButton_Click(object sender, EventArgs args)
     {
-        GetNextPuzzle();
+        InitNextPuzzle();
     }
     #endregion
 
