@@ -1,7 +1,7 @@
 ﻿**CW.Net**
 
 **TO DO**
-* Fix logging in API
+
 * Fix bBufferDirty state machine redraw bug - causing weird redraw issues
 * GitHub action for building X-Platform
 * Test on windows
@@ -22,6 +22,7 @@
 
 
 **DONE**
+* Fix logging in API
 * Mouse support - might need parent rectangle 
 * Readme on how to build and deploy on Windows, Mac and Linux
 * Credits/About screen - https://github.com/Byron1c/MonoGame-Game-Menu
