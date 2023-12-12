@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Crossword.Constants;
 using Crossword.Shared.Config;
 using Crossword.Shared.Logger;
+using Crossword.Shared.Constants;
 
 namespace Crossword.FetchData;
 
@@ -33,7 +34,7 @@ public partial class FetchCrosswordData
 
                 //pass in the API key to the header
                 client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Add(GameConstants.ApiKeyName, apiKey);
+                client.DefaultRequestHeaders.Add(APIConstants.ApiKeyName, apiKey);
 
                 //catch inner HttpRequestException
                 try

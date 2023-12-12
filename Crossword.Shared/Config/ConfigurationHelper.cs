@@ -7,11 +7,14 @@ namespace Crossword.Shared.Config;
 /// </summary>
 public static class ConfigurationHelper
 {
+    #region fields
     // API Url 
     public static string? DataApiUrl { get; }
     
     //API Key
     public static string? DataApiKey { get; }
+    
+    #endregion
 
     #region ConfigurationHelper
     /// <summary>

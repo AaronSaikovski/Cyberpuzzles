@@ -1,5 +1,8 @@
-using CrosswordData;
-using CrosswordParser;
+using Crossword.API;
+using Crossword.Shared.Logger;
+
+//Init the logger
+var _logger = new SerilogLogger();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,15 +26,12 @@ app.UseMiddleware<ApiKeyMiddleware>();
 #region getcrosswordpuzzledata
 app.MapGet("/getcrosswordpuzzledata", (IConfiguration configuration) =>
 {
-    // get datafile path
-    var puzzleDataFile = configuration["DatafilePath"];
+    _logger.LogInformation("getcrosswordpuzzledata() API called");
 
-    //check for null data file result
-    if (puzzleDataFile is null) return null;
-    
-    //get the data file
-    var fileResult = ParserHelper.GetRandomDataFile(puzzleDataFile);
-    return fileResult;
+    //Call GetCrosswordPuzzleData
+    return PuzzleData.GetCrosswordPuzzleData(configuration["DatafilePath"]);
+
+
 }).WithName("GetCrosswordPuzzleData");
 #endregion
 
