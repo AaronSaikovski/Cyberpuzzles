@@ -1,8 +1,10 @@
 using Crossword.API;
 using Crossword.Shared.Logger;
+using Crossword.Shared.Config;
 
-//Init the logger
-var _logger = new SerilogLogger();
+
+//Init the logger and get the active config
+var _logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,11 +28,18 @@ app.UseMiddleware<ApiKeyMiddleware>();
 #region getcrosswordpuzzledata
 app.MapGet("/getcrosswordpuzzledata", (IConfiguration configuration) =>
 {
-    _logger.LogInformation("getcrosswordpuzzledata() API called");
+    try
+    {
+        _logger.LogInformation("getcrosswordpuzzledata() API called");
 
-    //Call GetCrosswordPuzzleData
-    return PuzzleData.GetCrosswordPuzzleData(configuration["DatafilePath"]);
-
+        //Call GetCrosswordPuzzleData
+        return PuzzleData.GetCrosswordPuzzleData(configuration["DatafilePath"]);
+    }
+    catch (Exception ex)
+    {
+        _logger.LogError(ex, ex.Message);
+        return null;
+    }
 
 }).WithName("GetCrosswordPuzzleData");
 #endregion

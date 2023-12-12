@@ -1,7 +1,6 @@
 namespace Crossword.API;
 
 using Crossword.Shared.ParserUtils;
-using Crossword.Shared.Logger;
 
 public static class PuzzleData
 {
@@ -12,25 +11,14 @@ public static class PuzzleData
    /// <returns></returns>
    public static string? GetCrosswordPuzzleData(string? puzzleDataFile)
    {
-      //Init the logger
-      var _logger = new SerilogLogger();
-      
-      try
+      //check for null data file result
+      if (puzzleDataFile is null)
       {
-         _logger.LogInformation("GetCrosswordPuzzleData() called in API.");
-        
-          //check for null data file result
-         if (puzzleDataFile is null) return null;
-        
-         //get the data file
-         var fileResult = ParserHelper.GetRandomDataFile(puzzleDataFile);
-         return fileResult;
+         throw new ApplicationException("Datafile is empty or invalid.");
       }
-      catch (Exception ex)
-      {
-         _logger.LogError(ex, ex.Message);
-         throw;
-      }
-      
+        
+      //get the data file
+      var fileResult = ParserHelper.GetRandomDataFile(puzzleDataFile);
+      return fileResult;
    }
 }

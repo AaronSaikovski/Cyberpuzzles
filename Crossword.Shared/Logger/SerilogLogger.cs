@@ -1,5 +1,5 @@
 using Serilog;
-
+using Microsoft.Extensions.Configuration;
 
 namespace Crossword.Shared.Logger;
 
@@ -8,13 +8,17 @@ namespace Crossword.Shared.Logger;
 /// </summary>
 public class SerilogLogger : ILoggerService
 {
-    private readonly ILogger _logger;
+    private ILogger _logger;
 
-    public SerilogLogger()
+
+    /// <summary>
+    /// Pass in Appsettings config
+    /// </summary>
+    /// <param name="configuration"></param>
+    public SerilogLogger(IConfiguration configuration)
     {
         _logger = new LoggerConfiguration()
-            .MinimumLevel.Debug()
-            .WriteTo.Console() // Configuring console sink
+            .ReadFrom.Configuration(configuration) // Load configuration settings
             .CreateLogger();
     }
     

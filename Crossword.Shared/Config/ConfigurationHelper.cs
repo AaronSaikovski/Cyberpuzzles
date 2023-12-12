@@ -14,6 +14,9 @@ public static class ConfigurationHelper
     //API Key
     public static string? DataApiKey { get; }
     
+    //Active Configuration
+    public static IConfiguration ActiveConfiguration { get; set; }
+    
     #endregion
 
     #region ConfigurationHelper
@@ -22,37 +25,32 @@ public static class ConfigurationHelper
     /// </summary>
     static ConfigurationHelper()
     {
-        try
-        {
-            //Toggle if DEBUG flag set
-            #if DEBUG
-                        
-                        //Load config - DEBUG
-                        var configuration = new ConfigurationBuilder()
-                            .AddJsonFile("appsettings.dev.json", optional: true, reloadOnChange: true)
-                            .AddEnvironmentVariables()
-                            .Build();
-            #else
-               
-                        //Load config - RELEASE
-                        var configuration = new ConfigurationBuilder()
-                            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                            .AddEnvironmentVariables()
-                            .Build();
-            #endif
+        //Toggle if DEBUG flag set
+        #if DEBUG
+                                
+                //Load config - DEBUG
+                var configuration = new ConfigurationBuilder()
+                    .AddJsonFile("appsettings.dev.json", optional: true, reloadOnChange: true)
+                    .AddEnvironmentVariables()
+                    .Build();
+        #else
+                       
+                //Load config - RELEASE
+                var configuration = new ConfigurationBuilder()
+                    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                    .AddEnvironmentVariables()
+                    .Build();
+        #endif
             
+            
+        //Set the active configuration
+        ActiveConfiguration = configuration;
 
-            //Data API URL
-            DataApiUrl = configuration.GetSection("DataAPISvc")["Url"];
+        //Data API URL
+        DataApiUrl = configuration.GetSection("DataAPISvc")["Url"];
         
-            //Auth Key
-            DataApiKey = configuration.GetSection("DataAPISvc")["XApiKey"];
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
+        //Auth Key
+        DataApiKey = configuration.GetSection("DataAPISvc")["XApiKey"];
     }
     #endregion
     

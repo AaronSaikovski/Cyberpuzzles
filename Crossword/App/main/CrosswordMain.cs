@@ -13,6 +13,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Myra.Graphics2D.UI;
 using Crossword.Shared.Logger;
 
+using Crossword.Shared.Config;
+
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
 //      Module:     crossword.cs                                          //
@@ -216,8 +218,8 @@ namespace Crossword.App
         // Main crossword constructor
         public CrosswordMain()
         {
-            //Init the logger
-            _logger = new SerilogLogger();
+            //Init the logger and get the active config
+            _logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
             
             //Prepare Graphics
             _graphics = new GraphicsDeviceManager(this);

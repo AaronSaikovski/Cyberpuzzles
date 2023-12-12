@@ -2,8 +2,10 @@ using System;
 using System.Threading.Tasks;
 using Crossword.Constants;
 using Crossword.Shared.Logger;
+using Crossword.Shared.Config;
 
 namespace Crossword.FetchData;
+
 
 public partial class FetchCrosswordData
 {
@@ -15,8 +17,8 @@ public partial class FetchCrosswordData
     /// <returns></returns>
     public static async Task<string?> GetCrosswordDataAsync()
     {
-        //Init the logger
-        var _logger = new SerilogLogger();
+        //Init the logger and get the active config
+        var _logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
 
         //Call the API to get the puzzledata....otherwise use default values
         try

@@ -1,10 +1,10 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Crossword.Constants;
 using Crossword.Shared.Config;
 using Crossword.Shared.Logger;
 using Crossword.Shared.Constants;
+using Crossword.Shared.Config;
 
 namespace Crossword.FetchData;
 
@@ -18,8 +18,8 @@ public partial class FetchCrosswordData
     /// <returns></returns>
     private static async Task<string?> CallDataApiAsync()
     {
-        //Init the logger
-        var _logger = new SerilogLogger();
+        //Init the logger and get the active config
+        var _logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
 
         //Use the HttpClient
         using (var client = new HttpClient())

@@ -4,7 +4,7 @@
 * Fix bBufferDirty state machine redraw bug - causing weird redraw issues
 * GitHub action for building X-Platform
 * Test on windows
-
+* Bug with changing logging level in API with Serilog
 
 **ON HOLD**
 * Background graphics
@@ -14,6 +14,7 @@
 * add animated push buttons
 
 **KNOWN BUGS**
+
 * Font chars not centred in squares
 * Square repaint bug on keyboard/mouse navigation - investigating
 * ListBox event handlers - BUG
