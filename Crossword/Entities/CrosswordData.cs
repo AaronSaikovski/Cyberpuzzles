@@ -1,6 +1,6 @@
 ﻿//////////////////////////////////////////////////////////////////////////////
 //                                                                          //
-//      Module:     FetchData.cs                                           //
+//      Module:     CrosswordData.cs                                           //
 //      Authors:    Aaron Saikovski & Bryan Richards                        //
 //      Date:       23/01/97                                                //
 //      Version:    1.0                                                     //
@@ -10,9 +10,9 @@
 //////////////////////////////////////////////////////////////////////////////
 
 
-namespace CrosswordParser;
+namespace Crossword.Entities;
 
-public sealed partial class PuzzleData
+public sealed class CrosswordData
 {
     #region Fields
     

@@ -7,8 +7,6 @@ namespace Crossword.Shared.Config;
 /// </summary>
 public static class ConfigurationHelper
 {
-
-
     // API Url 
     public static string? DataApiUrl { get; }
     
