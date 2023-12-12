@@ -1,25 +1,25 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Crossword.Shared.Config;
 using Crossword.Constants;
+using Crossword.Shared.Config;
 using Crossword.Shared.Logger;
-
 
 namespace Crossword.FetchData;
 
-public class FetchCrosswordData
+public partial class FetchCrosswordData
 {
     #region CallDataApiAsync
+
     /// <summary>
-    /// Calls the Data service API Async version
+    /// CallDataApiAsync
     /// </summary>
     /// <returns></returns>
     private static async Task<string> CallDataApiAsync()
     {
         //Init the logger
         var _logger = new SerilogLogger();
-        
+
         //Use the HttpClient
         using (var client = new HttpClient())
         {
@@ -39,7 +39,7 @@ public class FetchCrosswordData
                 try
                 {
                     var response = await client.GetAsync(apiUrl);
-                    
+
                     //check for errors...response codes etc
                     if (response.IsSuccessStatusCode)
                     {
@@ -55,52 +55,18 @@ public class FetchCrosswordData
                 //catch http request exception
                 catch (System.Net.Http.HttpRequestException http_exp)
                 {
-                    _logger.LogError(http_exp,http_exp.Message);
+                    _logger.LogError(http_exp, http_exp.Message);
                     throw;
                 }
-               
             }
-            
+
             catch (Exception ex)
             {
-                _logger.LogError(ex,ex.Message);
+                _logger.LogError(ex, ex.Message);
                 return string.Empty;
             }
         }
     }
 
-    #endregion
-    
-    #region GetCrosswordDataAsync
-    public static async Task<string> GetCrosswordDataAsync()
-    {
-        //Init the logger
-        var _logger = new SerilogLogger();
-        
-        //Call the API to get the puzzledata....otherwise use default values
-        try
-        {
-            _logger.LogInformation("Start GetCrosswordDataAsync()");
-            
-            //call the API
-            string apiResponse = await CallDataApiAsync();
-            
-            //check what was returned
-            if (string.IsNullOrEmpty(apiResponse))
-            {
-                return GameConstants.DefaultPuzzleData;
-            }
-            else
-            {
-                return apiResponse;
-            }
-
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex,ex.Message);
-            throw;
-        }
-    }
     #endregion
 }

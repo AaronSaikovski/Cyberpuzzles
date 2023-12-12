@@ -67,8 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Parsers\" />
-    <Folder Include="Screens\" />
-    <Folder Include="UI\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="fonts\Dialog.ttf">
