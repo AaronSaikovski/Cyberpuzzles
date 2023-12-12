@@ -86,12 +86,19 @@ public sealed partial class CrosswordMain
         try
         {
             _logger.LogInformation("Start DrawUserChar()");
+
+            //check for null
+            if (sqPuzzleSquares[i, j] != null && _puzzleSquares[i, j] != null)
+            {
+                //Char entered by user.
+                _spriteBatch.DrawString(_fntFont, char.ToUpper(sqPuzzleSquares[i, j].Letter).ToString(),
+                    new Vector2(_puzzleSquares[i, j].X + UIConstants.SqCharOffsetX,
+                        _puzzleSquares[i, j].Y + UIConstants.SqCharOffsetY),
+                    sqPuzzleSquares[i, j].ForeColour);
+                
+            }
+                
             
-            //Char entered by user.
-            _spriteBatch.DrawString(_fntFont, char.ToUpper(sqPuzzleSquares[i, j].Letter).ToString(),
-                new Vector2(_puzzleSquares[i, j].X + UIConstants.SqCharOffsetX,
-                    _puzzleSquares[i, j].Y + UIConstants.SqCharOffsetY),
-                sqPuzzleSquares[i, j].ForeColour);
         }
         catch (Exception ex)
         {

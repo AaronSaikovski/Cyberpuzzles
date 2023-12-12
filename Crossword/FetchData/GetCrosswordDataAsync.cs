@@ -13,7 +13,7 @@ public partial class FetchCrosswordData
     /// GetCrosswordDataAsync
     /// </summary>
     /// <returns></returns>
-    public static async Task<string> GetCrosswordDataAsync()
+    public static async Task<string?> GetCrosswordDataAsync()
     {
         //Init the logger
         var _logger = new SerilogLogger();
@@ -24,7 +24,7 @@ public partial class FetchCrosswordData
             _logger.LogInformation("Start GetCrosswordDataAsync()");
 
             //call the API
-            string apiResponse = await CallDataApiAsync();
+            string? apiResponse = await CallDataApiAsync();
 
             //check what was returned
             if (string.IsNullOrEmpty(apiResponse))

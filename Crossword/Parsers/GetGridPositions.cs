@@ -14,36 +14,39 @@ public sealed partial class CrosswordParser
     private void GetGridPositions(IReadOnlyList<string> strData)
     {
         var puzzleTempStr = strData[3];
-        _crosswordData.NumQuestions = ParserHelper.CountOccurrences(puzzleTempStr, '#');
-        _crosswordData.ColRef = new int[_crosswordData.NumQuestions];
-        _crosswordData.RowRef = new int[_crosswordData.NumQuestions];
-        _crosswordData.IsAcross = new int[_crosswordData.NumQuestions];
-        _crosswordData.QuesNum = new int[_crosswordData.NumQuestions];
-
-        //split string 
-        var gridPosTmp = puzzleTempStr.Split('#');
-
-        for (var tokIdx = 0; tokIdx < _crosswordData.NumQuestions; tokIdx++)
+        if (_crosswordData != null)
         {
-            var subGridDataTemp = gridPosTmp[tokIdx].Split(" ");
+            _crosswordData.NumQuestions = ParserHelper.CountOccurrences(puzzleTempStr, '#');
+            _crosswordData.ColRef = new int[_crosswordData.NumQuestions];
+            _crosswordData.RowRef = new int[_crosswordData.NumQuestions];
+            _crosswordData.IsAcross = new int[_crosswordData.NumQuestions];
+            _crosswordData.QuesNum = new int[_crosswordData.NumQuestions];
 
-            for (var i = 0; i < 4; i++)
+            //split string 
+            var gridPosTmp = puzzleTempStr.Split('#');
+
+            for (var tokIdx = 0; tokIdx < _crosswordData.NumQuestions; tokIdx++)
             {
-                switch (i)
-                {
-                    case 0:
-                        _crosswordData.ColRef[tokIdx] = int.Parse(subGridDataTemp[0]);
-                        break;
+                var subGridDataTemp = gridPosTmp[tokIdx].Split(" ");
 
-                    case 1:
-                        _crosswordData.RowRef[tokIdx] = int.Parse(subGridDataTemp[1]);
-                        break;
-                    case 2:
-                        _crosswordData.IsAcross[tokIdx] = int.Parse(subGridDataTemp[2]);
-                        break;
-                    case 3:
-                        _crosswordData.QuesNum[tokIdx] = int.Parse(subGridDataTemp[3]);
-                        break;
+                for (var i = 0; i < 4; i++)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            _crosswordData.ColRef[tokIdx] = int.Parse(subGridDataTemp[0]);
+                            break;
+
+                        case 1:
+                            _crosswordData.RowRef[tokIdx] = int.Parse(subGridDataTemp[1]);
+                            break;
+                        case 2:
+                            _crosswordData.IsAcross[tokIdx] = int.Parse(subGridDataTemp[2]);
+                            break;
+                        case 3:
+                            _crosswordData.QuesNum[tokIdx] = int.Parse(subGridDataTemp[3]);
+                            break;
+                    }
                 }
             }
         }

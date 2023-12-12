@@ -17,7 +17,7 @@ public sealed partial class CrosswordMain
     /// Gets the CrosswordData from the API ASync
     /// </summary>
     /// <returns></returns>
-    private string GetPuzzleData()
+    private string? GetPuzzleData()
     {
         try
         {
@@ -65,18 +65,14 @@ public sealed partial class CrosswordMain
     /// <summary>
     /// Inits the puzzle data
     /// </summary>
-    private async void InitPuzzleData()
+    private void InitPuzzleData()
     {
         try
         {
             _logger.LogInformation("Start InitPuzzleData()");
             
             //Parser class
-            //Parser Implementation
             _mrParserData = new CrosswordData();
-
-            // Get the Puzzle Data..old
-            //CrosswordData = CrosswordData.GetCrosswordData();
            
             //////////////////////////////////////////
             // Get the Puzzle Data..ASync and wait
@@ -93,13 +89,15 @@ public sealed partial class CrosswordMain
                 _crosswordParser = new CrosswordParser();
                 _mrParserData = _crosswordParser.ParsePuzzleData(PuzzleData);
             }
-            
-            
-            
-            // while (FetchData is not null && !_mrParserData.ParsePuzzleData(FetchData))
-            // {
-            // }
 
+
+            //check if the parser object is null
+            if (_mrParserData == null)
+            {
+                throw new ApplicationException("Parser object is null");
+            }
+            
+        
             //PuzzleType
             PuzzleType = _mrParserData.PuzzleType;
 

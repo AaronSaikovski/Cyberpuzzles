@@ -16,7 +16,7 @@ public partial class FetchCrosswordData
     /// CallDataApiAsync
     /// </summary>
     /// <returns></returns>
-    private static async Task<string> CallDataApiAsync()
+    private static async Task<string?> CallDataApiAsync()
     {
         //Init the logger
         var _logger = new SerilogLogger();

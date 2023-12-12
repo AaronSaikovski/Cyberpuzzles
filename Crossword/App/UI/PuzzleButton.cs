@@ -13,7 +13,7 @@ public class PuzzleButton
     #region Fields
     
     // Event handler for button click
-    public event EventHandler Click; 
+    public event EventHandler? Click; 
 
     //Image for button
     public Texture2D Texture { get; set; }

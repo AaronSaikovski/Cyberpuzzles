@@ -28,7 +28,7 @@ public sealed partial class CrosswordMain
              InitPuzzleData();
                
              //Next Puzzle is currently unavailable flag
-             IsNextPuzzleReady = true;
+             //IsNextPuzzleReady = true;
 
             //list boxes
             LstClueAcross.Items.Clear();
@@ -72,7 +72,7 @@ public sealed partial class CrosswordMain
             NewBackFlush = true;
 
             //Get next puzzle ID
-            _bMorePuzzles = true;
+            //_bMorePuzzles = true;
 
             IsFinished = false;
 

@@ -10,6 +10,6 @@ public sealed partial class CrosswordParser
     /// <param name="strData"></param>
     private void GetBlurb(IReadOnlyList<string> strData)
     {
-        _crosswordData.Blurb = strData[8];
+        if (_crosswordData != null) _crosswordData.Blurb = strData[8];
     }
 }

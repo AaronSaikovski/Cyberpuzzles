@@ -64,8 +64,7 @@ public sealed partial class CrosswordMain
             _logger.LogError(ex,ex.Message);
             throw;
         }
-
-        return true;
+        
     }
     #endregion
 

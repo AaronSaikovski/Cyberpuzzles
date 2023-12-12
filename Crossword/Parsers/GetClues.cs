@@ -14,10 +14,13 @@ public sealed partial class CrosswordParser
         string[] cluetemp;
         puzzletempstr = strData[4];
         cluetemp = puzzletempstr.Split("#");
-        _crosswordData.Clues = new string[_crosswordData.NumQuestions];
-        for (var j = 0; j < _crosswordData.NumQuestions; j++)
+        if (_crosswordData != null)
         {
-            _crosswordData.Clues[j] = cluetemp[j];
+            _crosswordData.Clues = new string[_crosswordData.NumQuestions];
+            for (var j = 0; j < _crosswordData.NumQuestions; j++)
+            {
+                _crosswordData.Clues[j] = cluetemp[j];
+            }
         }
     }
 }

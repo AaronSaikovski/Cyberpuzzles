@@ -10,6 +10,6 @@ public sealed partial class CrosswordParser
     /// <param name="strData"></param>
     private void GetNumBytes(IReadOnlyList<string> strData)
     {
-        _crosswordData.NumBytes = int.Parse(strData[0]);
+        if (_crosswordData != null) _crosswordData.NumBytes = int.Parse(strData[0]);
     }
 }

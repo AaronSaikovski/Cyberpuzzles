@@ -61,7 +61,7 @@ public sealed partial class CrosswordMain
             NewBackFlush = true;
 
             //Get next puzzle ID
-            _bMorePuzzles = true; 
+            //_bMorePuzzles = true; 
             
             //Cleanup
             System.GC.Collect();

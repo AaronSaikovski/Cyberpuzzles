@@ -5,7 +5,7 @@ namespace Crossword.Parsers;
 public sealed partial class CrosswordParser
 {
     //init the crossword data class
-    private CrosswordData _crosswordData;
+    private CrosswordData? _crosswordData;
     
    /// <summary>
    /// // Main - used to parse QuickCrossword data set from string
@@ -14,7 +14,7 @@ public sealed partial class CrosswordParser
    /// </summary>
    /// <param name="puzzleData"></param>
    /// <returns></returns>
-    public CrosswordData ParsePuzzleData(string puzzleData)
+    public CrosswordData? ParsePuzzleData(string puzzleData)
     {
         ArgumentNullException.ThrowIfNull(puzzleData);
         

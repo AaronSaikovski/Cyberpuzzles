@@ -1,7 +1,6 @@
 ﻿**CW.Net**
 
 **TO DO**
-
 * Fix bBufferDirty state machine redraw bug - causing weird redraw issues
 * GitHub action for building X-Platform
 * Test on windows

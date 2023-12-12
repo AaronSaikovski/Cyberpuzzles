@@ -15,7 +15,7 @@ public sealed partial class CrosswordParser
 
         for (var loopIdx = 0; loopIdx < 6; loopIdx++)
         {
-            if (_crosswordData.Costs is not null) _crosswordData.Costs[loopIdx] = int.Parse(costTemp[loopIdx]);
+            if (_crosswordData != null && _crosswordData.Costs is not null) _crosswordData.Costs[loopIdx] = int.Parse(costTemp[loopIdx]);
         }
     }
 }

@@ -10,6 +10,6 @@ public sealed partial class CrosswordParser
     /// <param name="strData"></param>
     private void GetHintLetters(IReadOnlyList<string> strData)
     {
-        _crosswordData.GetLetters = strData[6];
+        if (_crosswordData != null) _crosswordData.GetLetters = strData[6];
     }
 }

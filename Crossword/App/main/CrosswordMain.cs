@@ -34,7 +34,7 @@ namespace Crossword.App
         private bool SetFinished;
 
         //Next Puzzle is currently unavailable flag
-        private bool IsNextPuzzleReady = true;
+        //private bool IsNextPuzzleReady = true;
 
         //String for Puzzle ID of last puzzle in set
         private string? PuzzleData;
@@ -68,9 +68,9 @@ namespace Crossword.App
         private ClueAnswerMap[] caPuzzleClueAnswers;
 
         //Highlight Constants
-        private readonly int CurrentLetter = 1;
-        private readonly int CurrentWord = 2;
-        private readonly int CurrentNone = 3;
+        // private readonly int CurrentLetter = 1;
+        // private readonly int CurrentWord = 2;
+        // private readonly int CurrentNone = 3;
 
         //CrosswordMain.Application dimension constants
         // private readonly int MaxCrossWidth = 291;
@@ -82,8 +82,8 @@ namespace Crossword.App
         public bool IsFinished;
 
         //Square width and height constants
-        private static readonly int SquareWidth;
-        private static readonly int SquareHeight;
+        // private static readonly int SquareWidth;
+        // private static readonly int SquareHeight;
 
         //X and Y Offsets for the square's answer number.
         //private int NXnumOffset = 2, NYnumOffset = 9;
@@ -107,7 +107,7 @@ namespace Crossword.App
         private int FocusState;
 
         //mouseMove String
-        private readonly string PuzzleTitle;
+        //private readonly string PuzzleTitle;
 
         //Number of times Hint has been accessed by the user
         //int nUserHintPress;
@@ -116,13 +116,13 @@ namespace Crossword.App
         private int CrosswordScore;
 
         //More puzzles in set boolean flag
-        private bool _bMorePuzzles;
+        //private bool _bMorePuzzles;
 
         //Parser class
         private CrosswordParser _crosswordParser;
         
         //Crossword data
-        private CrosswordData _mrParserData;
+        private CrosswordData? _mrParserData;
         
 
         //Images to use forx CrosswordMain.Application squares
@@ -190,19 +190,19 @@ namespace Crossword.App
         public Rectangle rectCrossWord;
 
         //Hint LinkButton
-        private TextButton HintButton;
+        //private TextButton HintButton;
 
         //Get Next Puzzle LinkButton
-        private TextButton GetNextPuzzleButton;
+       // private TextButton GetNextPuzzleButton;
 
 
         //CrosswordMain.Application Width and Height variables
         private int _nCrosswordWidth;
         private int _nCrosswordHeight;
-        private readonly int _nCrosswordOffset = 6;
+        //private readonly int _nCrosswordOffset = 6;
 
         //Offset constants
-        private readonly int _nCrossBorderWidth = 3;
+        //private readonly int _nCrossBorderWidth = 3;
         private int nCrossOffsetX = 5;
         private int nCrossOffsetY = 5;
         
