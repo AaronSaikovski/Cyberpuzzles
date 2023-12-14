@@ -224,6 +224,7 @@ namespace Crossword.App
             //Prepare Graphics
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            
             // Set the desired window size here
             _graphics.PreferredBackBufferWidth = UIConstants.CrosswordWindowWidth; // Width
             _graphics.PreferredBackBufferHeight = UIConstants.CrosswordWindowHeight; // Height

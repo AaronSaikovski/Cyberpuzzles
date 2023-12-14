@@ -59,4 +59,11 @@ public class SerilogLogger : ILoggerService
     {
         _logger.Verbose(ex, message);
     }
+    
+    //Fatal error
+    public void LogFatal(Exception ex, string message)
+    {
+        _logger.Fatal(ex, message);
+    }
+    
 }

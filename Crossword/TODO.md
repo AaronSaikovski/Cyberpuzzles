@@ -4,7 +4,7 @@
 * Fix bBufferDirty state machine redraw bug - causing weird redraw issues
 * GitHub action for building X-Platform
 * Test on windows
-* Bug - with changing logging level in API with Serilog and appsettings
+
 
 **ON HOLD**
 * Background graphics
@@ -21,7 +21,8 @@
 
 
 **DONE**
-* Fix logging in API
+* Fix logging in API 
+* Changing logging level in API with Serilog and appsettings
 * Mouse support - might need parent rectangle 
 * Readme on how to build and deploy on Windows, Mac and Linux
 * Credits/About screen - https://github.com/Byron1c/MonoGame-Game-Menu
