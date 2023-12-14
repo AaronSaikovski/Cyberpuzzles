@@ -1,6 +1,0 @@
-@CrosswordData_HostAddress = http://localhost:5194
-
-GET {{CrosswordData_HostAddress}}/getcrosswordpuzzledata/
-Accept: application/json
-
-###

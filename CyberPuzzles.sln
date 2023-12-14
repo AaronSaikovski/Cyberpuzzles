@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Parser", "Crossword.Parser\Crossword.Parser.csproj", "{18F576F0-748B-414B-9039-FA6E17170365}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.API", "Crossword.API\Crossword.API.csproj", "{B53EE5F7-E852-47C0-814E-6E559D43A774}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.API.Data", "Crossword.API.Data\Crossword.API.Data.csproj", "{B53EE5F7-E852-47C0-814E-6E559D43A774}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Application", "Crossword.Application\Crossword.Application.csproj", "{0BFDE744-5BB3-486D-B194-5826B551CE3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword", "Crossword\Crossword.csproj", "{0BFDE744-5BB3-486D-B194-5826B551CE3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Shared", "Crossword.Shared\Crossword.Shared.csproj", "{8061C3BE-083E-415C-B678-394F8EBCCFC6}"
 EndProject
@@ -14,10 +12,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{18F576F0-748B-414B-9039-FA6E17170365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18F576F0-748B-414B-9039-FA6E17170365}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18F576F0-748B-414B-9039-FA6E17170365}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18F576F0-748B-414B-9039-FA6E17170365}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B53EE5F7-E852-47C0-814E-6E559D43A774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B53EE5F7-E852-47C0-814E-6E559D43A774}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B53EE5F7-E852-47C0-814E-6E559D43A774}.Release|Any CPU.ActiveCfg = Release|Any CPU
