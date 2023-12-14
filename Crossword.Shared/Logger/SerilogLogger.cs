@@ -10,7 +10,6 @@ public class SerilogLogger : ILoggerService
 {
     private ILogger _logger;
 
-
     /// <summary>
     /// Pass in Appsettings config
     /// </summary>
@@ -20,6 +19,7 @@ public class SerilogLogger : ILoggerService
         _logger = new LoggerConfiguration()
             .ReadFrom.Configuration(configuration) // Load configuration settings
             .CreateLogger();
+        
     }
     
     /// <summary>
@@ -64,6 +64,12 @@ public class SerilogLogger : ILoggerService
     public void LogFatal(Exception ex, string message)
     {
         _logger.Fatal(ex, message);
+    }
+    
+    //Cleanup
+    public void Dispose()
+    {
+        Log.CloseAndFlush();
     }
     
 }

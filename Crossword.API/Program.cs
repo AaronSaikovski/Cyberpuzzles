@@ -1,4 +1,6 @@
-using Crossword.API;
+
+using Crossword.API.Extensions;
+using Crossword.API.Endpoints;
 using Crossword.Shared.Logger;
 using Crossword.Shared.Config;
 
@@ -8,49 +10,20 @@ var _logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
 
 try
 {
+    //Ref: https://blog.treblle.com/how-to-structure-your-minimal-api-in-net/
     var builder = WebApplication.CreateBuilder(args);
 
-    // Add services to the container.
-    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
-    //builder.Host.UseSerilog();
-
+    builder.RegisterServices();
     var app = builder.Build();
-
-    // Configure the HTTP request pipeline.
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
-
-    app.UseHttpsRedirection();
-    app.UseMiddleware<ApiKeyMiddleware>();
-
-    #region getcrosswordpuzzledata
-
-    app.MapGet("/getcrosswordpuzzledata", (IConfiguration configuration) =>
-    {
-        //Log.Information("getcrosswordpuzzledata() API called");
-        _logger.LogInformation("getcrosswordpuzzledata() API called");
-        
-        //Call GetCrosswordPuzzleData
-        return PuzzleData.GetCrosswordPuzzleData(configuration["DatafilePath"]);
-       
-
-    }).WithName("GetCrosswordPuzzleData");
-
-    #endregion
-
+    app.RegisterMiddleware();
+    app.RegisterCrosswordEndpoints();
     app.Run();
-
 }
 catch (Exception ex)
 {
     _logger.LogFatal(ex, ex.Message);
 }
-// finally
-// {
-//     Log.CloseAndFlush();
-// }
+finally
+{
+    _logger.Dispose();
+}
