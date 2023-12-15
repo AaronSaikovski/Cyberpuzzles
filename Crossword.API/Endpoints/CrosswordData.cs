@@ -14,12 +14,7 @@ public static class CrosswordData
     {
         var crosswordData = routes.MapGroup("/api/v1/crosswordpuzzledata");
         
-        crosswordData.MapGet("/getcrosswordpuzzledata", (IConfiguration configuration) =>
-        {
-            //Call GetCrosswordPuzzleData
-            return PuzzleData.GetCrosswordPuzzleData(configuration["DatafilePath"]);
-
-        }).WithName("GetCrosswordPuzzleData");
+        crosswordData.MapGet("/getcrosswordpuzzledata", (IConfiguration configuration) => PuzzleData.GetCrosswordPuzzleData(configuration["DatafilePath"])).WithName("GetCrosswordPuzzleData");
     }
     #endregion
 }
