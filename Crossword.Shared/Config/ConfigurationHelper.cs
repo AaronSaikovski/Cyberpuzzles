@@ -15,7 +15,7 @@ public static class ConfigurationHelper
     public static string? DataApiKey { get; }
     
     //Active Configuration
-    public static IConfiguration ActiveConfiguration { get; set; }
+    public static IConfiguration ActiveConfiguration { get; }
     
     #endregion
 

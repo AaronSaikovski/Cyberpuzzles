@@ -8,7 +8,7 @@ namespace Crossword.Shared.Logger;
 /// </summary>
 public class SerilogLogger : ILoggerService
 {
-    private ILogger _logger;
+    private readonly Serilog.Core.Logger _logger;
 
     /// <summary>
     /// Pass in Appsettings config
@@ -54,19 +54,26 @@ public class SerilogLogger : ILoggerService
     /// <summary>
     /// LogVerbose
     /// </summary>
+    /// <param name="ex"></param>
     /// <param name="message"></param>
     public void LogVerbose(Exception ex, string message)
     {
         _logger.Verbose(ex, message);
     }
     
-    //Fatal error
+    /// <summary>
+    /// fatal
+    /// </summary>
+    /// <param name="ex"></param>
+    /// <param name="message"></param>
     public void LogFatal(Exception ex, string message)
     {
         _logger.Fatal(ex, message);
     }
     
-    //Cleanup
+    /// <summary>
+    /// cleanup
+    /// </summary>
     public void Dispose()
     {
         Log.CloseAndFlush();
