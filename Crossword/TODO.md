@@ -3,7 +3,8 @@
 **TO DO**
 * Fix bBufferDirty state machine redraw bug - causing weird redraw issues
 * GitHub action for building X-Platform
-* Test on windows
+* Test on windows 
+* Next puzzle button and Hint jumps ahead to next puzzle issue - need to investigate
 
 
 **ON HOLD**
@@ -17,7 +18,6 @@
 * Font chars not centred in squares
 * Square repaint bug on keyboard/mouse navigation - investigating
 * ListBox event handlers - BUG
-* Next puzzle button jumps ahead to next puzzle issue - need to investigarte
 
 
 **DONE**
