@@ -27,7 +27,7 @@ public sealed class GameConstants
                                        "Original Authors: Bryan Richards & Aaron Saikovski\n" +
                                        "Original date: 24th March 1997\n" +
                                        "Description: A Monogame and .Net 8 Core port of the original OzEmail Cyberpuzzles Java based crossword Applet.\n" +
-                                       "Special shoutout to Neil Reading (neilski) RIP - miss you brother.";
+                                       "Special shoutout to Neil Reading (neilski) RIP.";
     
 } 
 

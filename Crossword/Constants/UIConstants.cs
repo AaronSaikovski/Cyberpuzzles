@@ -29,7 +29,7 @@ public sealed class UIConstants
     public const int FntSml = 9;
     public const int FntMed = 15;
     public const int FntLge = 20;
-    public const int FntCredits = 12;
+    public const int FntCredits = 13;
 
    
 
