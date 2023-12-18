@@ -23,13 +23,21 @@ public sealed partial class ClueAnswerMap
         var szAnswerLength = Answer.Length;
 
         //Parallel for loop
-        Parallel.For(0, szAnswerLength, i =>
+        // Parallel.For(0, szAnswerLength, i =>
+        // {
+        //     if (SqAnswerSquares is null || Answer[i] != hintLetter ||
+        //         SqAnswerSquares[i]!.Letter == hintLetter) return;
+        //     SqAnswerSquares[i]?.SetLetter(hintLetter, IsAcross);
+        //     foundResult = true;
+        // });
+
+        for (var i=0;i<szAnswerLength;i++)
         {
             if (SqAnswerSquares is null || Answer[i] != hintLetter ||
-                SqAnswerSquares[i]!.Letter == hintLetter) return;
+                SqAnswerSquares[i]!.Letter == hintLetter) break;
             SqAnswerSquares[i]?.SetLetter(hintLetter, IsAcross);
             foundResult = true;
-        });
+        }
 
         return foundResult;
     }

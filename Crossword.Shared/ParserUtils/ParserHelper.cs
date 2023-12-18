@@ -1,9 +1,9 @@
 ﻿
-using System;
-using System.Linq;
-
 namespace Crossword.Shared.ParserUtils;
 
+/// <summary>
+/// Parser helper functions
+/// </summary>
 public static class ParserHelper
 {
     #region CountOccurrences
@@ -29,8 +29,7 @@ public static class ParserHelper
     /// <returns></returns>
     public static string? GetRandomDataFile(string? puzzleData)
     {
-        if (puzzleData is null) throw new ArgumentNullException(nameof(puzzleData));
-        if (puzzleData is { Length: <= 0 }) throw new ArgumentOutOfRangeException(nameof(puzzleData));
+        ArgumentNullException.ThrowIfNull(puzzleData);
             
         // Get a list of all files in the folder
         var files = Directory.GetFiles(puzzleData,"*.txt");

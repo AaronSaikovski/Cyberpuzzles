@@ -6,7 +6,7 @@ using Crossword.Shared.Config;
 
 
 //Init the logger and get the active config
-var _logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
+var logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
 
 try
 {
@@ -21,9 +21,9 @@ try
 }
 catch (Exception ex)
 {
-    _logger.LogFatal(ex, ex.Message);
+    logger.LogFatal(ex, ex.Message);
 }
 finally
 {
-    _logger.Dispose();
+    logger.Dispose();
 }

@@ -12,8 +12,8 @@ public sealed partial class CrosswordMain
     /// <param name="count"></param>
     private void GetHintLetters(int count)
     {
-        bool hintSupplied = false;
-        bool allHintLettersChecked = false;
+        var hintSupplied = false;
+        var allHintLettersChecked = false;
         try
         {
             _logger.LogInformation("Start GetHintLetters()");
@@ -27,14 +27,24 @@ public sealed partial class CrosswordMain
                     _szTmpGetLetters = _szTmpGetLetters[1..];
                     
                     //loop over hint letters
-                    Parallel.For(0, NumQuestions, i =>
+                    // Parallel.For(0, NumQuestions, i =>
+                    // {
+                    //     var bTmpResult = caPuzzleClueAnswers[i].CheckHint(chHintLetter);
+                    //     if (bTmpResult)
+                    //     {
+                    //         hintSupplied = true;
+                    //     }
+                    // });
+
+                    for (var i=0;i<NumQuestions;i++)
                     {
                         var bTmpResult = caPuzzleClueAnswers[i].CheckHint(chHintLetter);
                         if (bTmpResult)
                         {
                             hintSupplied = true;
                         }
-                    });
+                    }
+                    
                     count++;
                     if (_szGetLetters is not null && count == _szGetLetters.Length)
                         allHintLettersChecked = true;

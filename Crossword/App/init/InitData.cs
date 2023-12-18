@@ -113,7 +113,23 @@ public sealed partial class CrosswordMain
         {
             _logger.LogInformation("Start InitDataArrays()");
             
-            Parallel.For(0, NumQuestions, i =>
+            // Parallel.For(0, NumQuestions, i =>
+            // {
+            //     if (_mrParserData?.ColRef is not null) _colRef[i] = _mrParserData.ColRef[i];
+            //     if (_mrParserData?.RowRef is not null) _rowRef[i] = _mrParserData.RowRef[i];
+            //     if (_mrParserData?.IsAcross is not null)
+            //         _bDataIsAcross[i] = _mrParserData.IsAcross[i] switch
+            //         {
+            //             1 => true,
+            //             2 => false,
+            //             _ => _bDataIsAcross[i]
+            //         };
+            //     if (_mrParserData?.QuesNum is not null) _quesNum[i] = _mrParserData.QuesNum[i];
+            //     if (_mrParserData?.Clues is not null) _szClues[i] = _mrParserData.Clues[i];
+            //     if (_mrParserData?.Answers is not null) _szAnswers[i] = _mrParserData.Answers[i];
+            // });
+
+            for (var i=0;i<NumQuestions;i++)
             {
                 if (_mrParserData?.ColRef is not null) _colRef[i] = _mrParserData.ColRef[i];
                 if (_mrParserData?.RowRef is not null) _rowRef[i] = _mrParserData.RowRef[i];
@@ -127,7 +143,7 @@ public sealed partial class CrosswordMain
                 if (_mrParserData?.QuesNum is not null) _quesNum[i] = _mrParserData.QuesNum[i];
                 if (_mrParserData?.Clues is not null) _szClues[i] = _mrParserData.Clues[i];
                 if (_mrParserData?.Answers is not null) _szAnswers[i] = _mrParserData.Answers[i];
-            });
+            }
         
         }
         catch (Exception ex)

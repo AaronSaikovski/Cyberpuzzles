@@ -18,29 +18,22 @@ public partial class FetchCrosswordData
     public static async Task<string?> GetCrosswordDataAsync()
     {
         //Init the logger and get the active config
-        var _logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
+        var logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
 
         //Call the API to get the puzzledata....otherwise use default values
         try
         {
-            _logger.LogInformation("Start GetCrosswordDataAsync()");
+            logger.LogInformation("Start GetCrosswordDataAsync()");
 
             //call the API
-            string? apiResponse = await CallDataApiAsync();
+            var apiResponse = await CallDataApiAsync();
 
             //check what was returned
-            if (string.IsNullOrEmpty(apiResponse))
-            {
-                return GameConstants.DefaultPuzzleData;
-            }
-            else
-            {
-                return apiResponse;
-            }
+            return string.IsNullOrEmpty(apiResponse) ? GameConstants.DefaultPuzzleData : apiResponse;
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

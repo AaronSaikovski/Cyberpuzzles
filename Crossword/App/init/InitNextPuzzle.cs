@@ -77,7 +77,7 @@ public sealed partial class CrosswordMain
             IsFinished = false;
 
             //Cleanup
-            System.GC.Collect();
+            GC.Collect();
 
         }
         catch (Exception ex)

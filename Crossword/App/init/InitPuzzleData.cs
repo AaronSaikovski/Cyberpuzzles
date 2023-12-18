@@ -24,7 +24,7 @@ public sealed partial class CrosswordMain
             _logger.LogInformation("Start GetPuzzleData()");
             
             // Get the Puzzle Data..ASync and wait
-            Task<string?> task = Task.Run(async () =>
+            var task = Task.Run(async () =>
             {
                 try
                 {
@@ -42,7 +42,7 @@ public sealed partial class CrosswordMain
             task.Wait();
             
             //Check for the result
-            if (task.IsCompleted && !task.IsFaulted && !task.IsCanceled)
+            if (task is { IsCompleted: true, IsFaulted: false, IsCanceled: false })
             {
                 return task.Result;
             }
@@ -83,12 +83,10 @@ public sealed partial class CrosswordMain
             {
                 throw new DataException("Crossword puzzle data error!!.");
             }
-            else
-            {
-                // Parse the Data
-                _crosswordParser = new CrosswordParser();
-                _mrParserData = _crosswordParser.ParsePuzzleData(PuzzleData);
-            }
+
+            // Parse the Data
+            _crosswordParser = new CrosswordParser();
+            _mrParserData = _crosswordParser.ParsePuzzleData(PuzzleData);
 
 
             //check if the parser object is null

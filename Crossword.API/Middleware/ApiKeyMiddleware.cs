@@ -4,11 +4,8 @@ using Crossword.Shared.Constants;
 
 namespace Crossword.API;
 
-public class ApiKeyMiddleware {
-    private readonly RequestDelegate _next;
-    public ApiKeyMiddleware(RequestDelegate next) {
-        _next = next;
-    }
+public class ApiKeyMiddleware(RequestDelegate next)
+{
     public async Task InvokeAsync(HttpContext context) {
         if (!context.Request.Headers.TryGetValue(APIConstants.ApiKeyName, out
                 var extractedApiKey)) {
@@ -23,6 +20,6 @@ public class ApiKeyMiddleware {
             await context.Response.WriteAsync("Unauthorized API Request.");
             return;
         }
-        await _next(context);
+        await next(context);
     }
 }

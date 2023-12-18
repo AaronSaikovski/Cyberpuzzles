@@ -1,6 +1,6 @@
 namespace Crossword.API;
 
-using Crossword.Shared.ParserUtils;
+using Shared.ParserUtils;
 
 public static class PuzzleData
 {
