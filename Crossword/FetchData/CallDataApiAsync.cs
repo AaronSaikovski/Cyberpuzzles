@@ -45,9 +45,11 @@ public partial class FetchCrosswordData
                     //get the response from the API call result as a string
                     return response.Content.ReadAsStringAsync().Result;
                 }
-
-                Console.WriteLine($"Failed to call the API. Status code: {response.StatusCode}");
-                return string.Empty;
+                else
+                {
+                    Console.WriteLine($"Failed to call the API. Status code: {response.StatusCode}");
+                    return string.Empty;
+                }
             }
             //catch http request exception
             catch (HttpRequestException httpex)
@@ -61,6 +63,10 @@ public partial class FetchCrosswordData
         {
             logger.LogError(ex, ex.Message);
             return string.Empty;
+        }
+        finally
+        {
+            logger.Dispose();
         }
     }
 

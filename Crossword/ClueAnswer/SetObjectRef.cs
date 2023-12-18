@@ -37,7 +37,8 @@ public sealed partial class ClueAnswerMap
             // Assuming szAnswer and sqAnswerSquares are declared and initialized somewhere
             var szAnswerLength = Answer.Length;
 
-            for (var k=0;k<szAnswerLength;k++)
+            //Parallel for loop
+            Parallel.For(0, szAnswerLength, k =>
             {
                 // Create a new Square instance
                 var sqAnswerSquares = this.SqAnswerSquares;
@@ -45,30 +46,13 @@ public sealed partial class ClueAnswerMap
                 {
                     sqAnswerSquares[k] = new Square();
                     sqAnswerSquares[k]?.CreateSquare(0, 0);
-                    sqAnswerSquares[k] = SqAnswerSquares[k];
+                    if (SqAnswerSquares != null) sqAnswerSquares[k] = SqAnswerSquares[k];
                 }
 
                 // Assign the created Square to the array element
                 // The original code `this.sqAnswerSquares[k] = sqAnswerSquares[k];` seems redundant, so omitted
-                if (SqAnswerSquares is not null) SqAnswerSquares?[k]?.SetObjectRef(this.IsAcross, this);
-            }
-            
-            //Parallel for loop
-            // Parallel.For(0, szAnswerLength, k =>
-            // {
-            //     // Create a new Square instance
-            //     var sqAnswerSquares = this.SqAnswerSquares;
-            //     if (sqAnswerSquares is not null)
-            //     {
-            //         sqAnswerSquares[k] = new Square();
-            //         sqAnswerSquares[k]?.CreateSquare(0, 0);
-            //         sqAnswerSquares[k] = SqAnswerSquares[k];
-            //     }
-            //
-            //     // Assign the created Square to the array element
-            //     // The original code `this.sqAnswerSquares[k] = sqAnswerSquares[k];` seems redundant, so omitted
-            //     if (SqAnswerSquares is not null) SqAnswerSquares?[k]?.SetObjectRef(this.IsAcross, this);
-            // });
+                SqAnswerSquares?[k]?.SetObjectRef(this.IsAcross, this);
+            });
         }
         catch (Exception e)
         {

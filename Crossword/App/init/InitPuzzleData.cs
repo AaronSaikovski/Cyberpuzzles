@@ -40,16 +40,9 @@ public sealed partial class CrosswordMain
             
             // Wait for the task to complete
             task.Wait();
-            
+
             //Check for the result
-            if (task is { IsCompleted: true, IsFaulted: false, IsCanceled: false })
-            {
-                return task.Result;
-            }
-
-            return null;
-
-
+            return task is { IsCompleted: true, IsFaulted: false, IsCanceled: false } ? task.Result : null;
         }
         catch (Exception ex)
         {

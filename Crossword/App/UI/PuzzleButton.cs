@@ -22,7 +22,7 @@ public class PuzzleButton
     public Vector2 Position { get; set; }
         
     // Rect bounds
-    public Rectangle Bounds => new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
+    public Rectangle Bounds => new((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
     
     #endregion
 
