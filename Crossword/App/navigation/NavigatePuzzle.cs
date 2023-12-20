@@ -14,7 +14,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start NavigatePuzzle()");
+            logger.LogInformation("Start NavigatePuzzle()");
             
             //Deselect the listbox based on direction
             DeselectListBox();
@@ -43,7 +43,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -57,7 +57,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start DeselectListBox()");
+            logger.LogInformation("Start DeselectListBox()");
             
             //Deselect the listbox based on direction
             if (!IsAcross)
@@ -67,7 +67,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
         
@@ -82,7 +82,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start UpdateListBoxLinkage()");
+            logger.LogInformation("Start UpdateListBoxLinkage()");
             
             ///////////////////////////////////////
             //Listbox linkage stuff
@@ -106,7 +106,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -121,7 +121,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start GetDownArrow()");
+            logger.LogInformation("Start GetDownArrow()");
             
             //If down arrow pressed get next sq
             if (keyInFocus != Keys.Down) return;
@@ -141,7 +141,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -157,7 +157,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start GetUpArrow()");
+            logger.LogInformation("Start GetUpArrow()");
             
             //If up arrow key pressed
             if (keyInFocus != Keys.Up) return;
@@ -177,7 +177,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
         
@@ -193,7 +193,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start GetRightArrow()");
+            logger.LogInformation("Start GetRightArrow()");
             
             //If right arrow pressed get next sq
             if (keyInFocus != Keys.Right) return;
@@ -211,7 +211,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -227,7 +227,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start GetLeftArrow()");
+            logger.LogInformation("Start GetLeftArrow()");
             
             //If left arrow key pressed get prev sq
             if (keyInFocus != Keys.Left) return;
@@ -244,7 +244,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
         

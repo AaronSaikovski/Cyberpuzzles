@@ -36,6 +36,10 @@ public partial class FetchCrosswordData
             logger.LogError(ex, ex.Message);
             throw;
         }
+        finally
+        {
+            logger.Dispose();   
+        }
     }
 
     #endregion

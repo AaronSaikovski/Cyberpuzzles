@@ -15,7 +15,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start BuildCrossword()");
+            logger.LogInformation("Start BuildCrossword()");
             
             //Init squares
             sqPuzzleSquares = new Square[_NumRows, _NumCols];
@@ -34,7 +34,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
        

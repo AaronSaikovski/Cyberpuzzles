@@ -17,7 +17,6 @@ public sealed partial class ClueAnswerMap
         //     SqAnswerSquares?[i]?.CheckLetter(Answer[i]);
         // }
 
-
         Parallel.For(0, Answer.Length, i =>
         {
             SqAnswerSquares?[i]?.CheckLetter(Answer[i]);

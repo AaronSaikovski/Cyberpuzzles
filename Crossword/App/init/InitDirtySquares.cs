@@ -17,7 +17,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start ForceDirtySquares()");
+            logger.LogInformation("Start ForceDirtySquares()");
             
             //Forces dirty squares
             Parallel.For(0, _NumRows, i =>
@@ -30,7 +30,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
         

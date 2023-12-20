@@ -23,8 +23,8 @@ public sealed partial class ClueAnswerMap
         ArgumentNullException.ThrowIfNull(Clue);
         ArgumentNullException.ThrowIfNull(SqAnswerSquares);
 
-        this.Answer = Answer ?? throw new ArgumentNullException(nameof(Answer));
-        this.Clue = Clue ?? throw new ArgumentNullException(nameof(Clue));
+        this.Answer = Answer;
+        this.Clue = Clue;
         this.QuestionNumber = QuestionNumber;
         this.IsAcross = IsAcross;
 
@@ -32,32 +32,25 @@ public sealed partial class ClueAnswerMap
         this.SqAnswerSquares = new Square[Answer.Length];
 
         //Copy the array
-        try
-        {
-            // Assuming szAnswer and sqAnswerSquares are declared and initialized somewhere
-            var szAnswerLength = Answer.Length;
+        // Assuming szAnswer and sqAnswerSquares are declared and initialized somewhere
+        var szAnswerLength = Answer.Length;
 
-            //Parallel for loop
-            Parallel.For(0, szAnswerLength, k =>
+        //Parallel for loop
+        Parallel.For(0, szAnswerLength, k =>
+        {
+            // Create a new Square instance
+            var sqAnswerSquares = this.SqAnswerSquares;
+            if (sqAnswerSquares is not null)
             {
-                // Create a new Square instance
-                var sqAnswerSquares = this.SqAnswerSquares;
-                if (sqAnswerSquares is not null)
-                {
-                    sqAnswerSquares[k] = new Square();
-                    sqAnswerSquares[k]?.CreateSquare(0, 0);
-                    sqAnswerSquares[k] = SqAnswerSquares[k];
-                }
+                sqAnswerSquares[k] = new Square();
+                sqAnswerSquares[k]?.CreateSquare(0, 0);
+                sqAnswerSquares[k] = SqAnswerSquares[k];
+            }
 
-                // Assign the created Square to the array element
-                // The original code `this.sqAnswerSquares[k] = sqAnswerSquares[k];` seems redundant, so omitted
-                if (SqAnswerSquares is not null) SqAnswerSquares?[k]?.SetObjectRef(this.IsAcross, this);
-            });
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Exception " + e + "occurred in method setObjectRef");
-        }
+            // Assign the created Square to the array element
+            // The original code `this.sqAnswerSquares[k] = sqAnswerSquares[k];` seems redundant, so omitted
+            if (SqAnswerSquares is not null) SqAnswerSquares?[k]?.SetObjectRef(this.IsAcross, this);
+        });
     }
 
     #endregion

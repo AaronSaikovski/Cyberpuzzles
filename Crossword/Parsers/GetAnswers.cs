@@ -12,7 +12,7 @@ public sealed partial class CrosswordParser
     private void GetAnswers(IReadOnlyList<string> strData)
     {
         var puzzletempstr = strData[5];
-        string[] answertemp = puzzletempstr.Split("#");
+        var answertemp = puzzletempstr.Split("#");
         if (_crosswordData == null) return;
         _crosswordData.Answers = new string[_crosswordData.NumQuestions];
         for (var k = 0; k < _crosswordData.NumQuestions; k++)

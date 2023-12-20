@@ -12,7 +12,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("**Start MainInit()**");
+            logger.LogInformation("**Start MainInit()**");
             
             //load fonts
             LoadFonts();
@@ -64,12 +64,12 @@ public sealed partial class CrosswordMain
             //_bMorePuzzles = true; 
             
             //Cleanup
-            System.GC.Collect();
+            GC.Collect();
             
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }

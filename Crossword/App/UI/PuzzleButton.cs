@@ -22,7 +22,8 @@ public class PuzzleButton
     public Vector2 Position { get; set; }
         
     // Rect bounds
-    public Rectangle Bounds => new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
+    public Rectangle Bounds => new((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
+    //public Rectangle Bounds => new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
     
     #endregion
 
@@ -47,7 +48,7 @@ public class PuzzleButton
     /// <returns></returns>
     public bool IsMouseOver(MouseState mouseState)
     {
-        Rectangle mouseRectangle = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
+        var mouseRectangle = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
         return mouseRectangle.Intersects(Bounds);
     }
 
@@ -58,7 +59,7 @@ public class PuzzleButton
     /// <returns></returns>
     public bool IsClicked(MouseState mouseState)
     {
-        Rectangle mouseRectangle = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
+        var mouseRectangle = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
         return mouseRectangle.Intersects(Bounds) && mouseState.LeftButton == ButtonState.Pressed;
     }
     #endregion

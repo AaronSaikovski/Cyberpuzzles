@@ -17,7 +17,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start InitClueAnswers()");
+            logger.LogInformation("Start InitClueAnswers()");
             
             //loop over the questions
             for (var i = 0; i < NumQuestions; i++)
@@ -58,7 +58,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }

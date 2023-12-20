@@ -4,10 +4,11 @@ using System.Threading.Tasks;
 using Crossword.Shared.Config;
 using Crossword.Shared.Logger;
 using Crossword.Shared.Constants;
-using Crossword.Shared.Config;
-
 namespace Crossword.FetchData;
 
+/// <summary>
+/// Fetches data from the Data API
+/// </summary>
 public partial class FetchCrosswordData
 {
     #region CallDataApiAsync
@@ -19,53 +20,54 @@ public partial class FetchCrosswordData
     private static async Task<string?> CallDataApiAsync()
     {
         //Init the logger and get the active config
-        var _logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
+        var logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
 
         //Use the HttpClient
-        using (var client = new HttpClient())
+        using var client = new HttpClient();
+        try
         {
+            logger.LogInformation("Start CallDataApiAsync()");
+
+            //get config values from the appsettings
+            var apiUrl = ConfigurationHelper.DataApiUrl;
+            var apiKey = ConfigurationHelper.DataApiKey;
+
+            //pass in the API key to the header
+            client.DefaultRequestHeaders.Clear();
+            client.DefaultRequestHeaders.Add(APIConstants.ApiKeyName, apiKey);
+
+            //catch inner HttpRequestException
             try
             {
-                _logger.LogInformation("Start CallDataApiAsync()");
+                var response = await client.GetAsync(apiUrl);
 
-                //get config values from the appsettings
-                var apiUrl = ConfigurationHelper.DataApiUrl;
-                var apiKey = ConfigurationHelper.DataApiKey;
-
-                //pass in the API key to the header
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Add(APIConstants.ApiKeyName, apiKey);
-
-                //catch inner HttpRequestException
-                try
+                //check for errors...response codes etc
+                if (response.IsSuccessStatusCode)
                 {
-                    var response = await client.GetAsync(apiUrl);
-
-                    //check for errors...response codes etc
-                    if (response.IsSuccessStatusCode)
-                    {
-                        //get the response from the API call result as a string
-                        return response.Content.ReadAsStringAsync().Result;
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Failed to call the API. Status code: {response.StatusCode}");
-                        return string.Empty;
-                    }
+                    //get the response from the API call result as a string
+                    return response.Content.ReadAsStringAsync().Result;
                 }
-                //catch http request exception
-                catch (System.Net.Http.HttpRequestException http_exp)
+                else
                 {
-                    _logger.LogError(http_exp, http_exp.Message);
-                    throw;
+                    throw new Exception($"Failed to call the API. Status code: {response.StatusCode}");
                 }
+                    
             }
-
-            catch (Exception ex)
+            //catch http request exception
+            catch (HttpRequestException httpex)
             {
-                _logger.LogError(ex, ex.Message);
-                return string.Empty;
+                logger.LogError(httpex, httpex.Message);
+                throw;
             }
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, ex.Message);
+            return string.Empty;
+        }
+        finally
+        {
+            logger.Dispose();
         }
     }
 

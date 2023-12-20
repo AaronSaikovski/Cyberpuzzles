@@ -44,7 +44,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start LoadFonts()");
+            logger.LogInformation("Start LoadFonts()");
             
             //Read fonts from FS
             var fntHelveticaBold = File.ReadAllBytes(UIConstants.HelveticaBold);
@@ -79,7 +79,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }

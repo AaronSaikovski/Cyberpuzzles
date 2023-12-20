@@ -5,6 +5,7 @@
 * GitHub action for building X-Platform
 * Test on windows 
 * Next puzzle button and Hint jumps ahead to next puzzle issue - need to investigate
+* ListBox event handlers - BUG
 
 
 **ON HOLD**
@@ -17,7 +18,7 @@
 **KNOWN BUGS**
 * Font chars not centred in squares
 * Square repaint bug on keyboard/mouse navigation - investigating
-* ListBox event handlers - BUG
+* 
 
 
 **DONE**

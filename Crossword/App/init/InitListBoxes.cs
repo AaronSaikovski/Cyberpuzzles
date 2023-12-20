@@ -14,7 +14,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start InitListBoxes()");
+            logger.LogInformation("Start InitListBoxes()");
             
             //List box elements
 
@@ -37,7 +37,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -52,7 +52,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start InitListBoxDown()");
+            logger.LogInformation("Start InitListBoxDown()");
             
             //Down Label
             _clueDownLabel = new Label
@@ -85,7 +85,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -99,7 +99,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start InitListBoxAcross()");
+            logger.LogInformation("Start InitListBoxAcross()");
             
             //Across Label
             _clueAcrossLabel = new Label
@@ -131,7 +131,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }

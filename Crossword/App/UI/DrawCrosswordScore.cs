@@ -14,13 +14,13 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start DrawCrosswordScore()");
+            logger.LogInformation("Start DrawCrosswordScore()");
             
             if (!IsFinished)
             {
                 //Current score label
                 _mainPanel.Widgets.Remove(_currentScoreLabel);
-                _currentScoreLabel.Text = string.Format("Your Score: {0}", CrosswordScore.ToString());
+                _currentScoreLabel.Text = $"Your Score: {CrosswordScore.ToString()}";
                 _currentScoreLabel.TextColor = UIConstants.ScoreColor;
                 _currentScoreLabel.Left = UIConstants.ClListSpacer * 40;
                 _currentScoreLabel.Font = _fntScore;
@@ -41,7 +41,7 @@ public sealed partial class CrosswordMain
 
             //Max score label
             _mainPanel.Widgets.Remove(_maxScoreLabel);
-            _maxScoreLabel.Text = string.Format("Max Score: {0}", NumQuestions.ToString());
+            _maxScoreLabel.Text = $"Max Score: {NumQuestions.ToString()}";
             _maxScoreLabel.TextColor = UIConstants.ScoreColor;
             _maxScoreLabel.Left = UIConstants.ClListSpacer * 40;
             _maxScoreLabel.Font = _fntScore;
@@ -51,7 +51,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }

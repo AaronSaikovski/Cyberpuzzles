@@ -16,7 +16,7 @@ public sealed partial class CrosswordMain
         CrosswordScore = 0;
         try
         {
-            _logger.LogInformation("Start UpdateCrosswordScore()");
+            logger.LogInformation("Start UpdateCrosswordScore()");
 
             Parallel.For(0, NumQuestions, i =>
             {
@@ -36,7 +36,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

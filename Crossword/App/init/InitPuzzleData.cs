@@ -21,10 +21,10 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start GetPuzzleData()");
+            logger.LogInformation("Start GetPuzzleData()");
             
             // Get the Puzzle Data..ASync and wait
-            Task<string?> task = Task.Run(async () =>
+            var task = Task.Run(async () =>
             {
                 try
                 {
@@ -33,27 +33,26 @@ public sealed partial class CrosswordMain
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex,ex.Message);
+                    logger.LogError(ex,ex.Message);
                     return null;
                 }
             });
             
             // Wait for the task to complete
             task.Wait();
-            
+
             //Check for the result
-            if (task.IsCompleted && !task.IsFaulted && !task.IsCanceled)
-            {
-                return task.Result;
-            }
-
-            return null;
-
-
+            return task is { IsCompleted: true, IsFaulted: false, IsCanceled: false } ? task.Result : null;
+            
+            // if (task is { IsCompleted: true, IsFaulted: false, IsCanceled: false })
+            // {
+            //     return task.Result;
+            // }
+            
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -69,7 +68,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start InitPuzzleData()");
+            logger.LogInformation("Start InitPuzzleData()");
             
             //Parser class
             _mrParserData = new CrosswordData();
@@ -83,12 +82,10 @@ public sealed partial class CrosswordMain
             {
                 throw new DataException("Crossword puzzle data error!!.");
             }
-            else
-            {
-                // Parse the Data
-                _crosswordParser = new CrosswordParser();
-                _mrParserData = _crosswordParser.ParsePuzzleData(PuzzleData);
-            }
+
+            // Parse the Data
+            _crosswordParser = new CrosswordParser();
+            _mrParserData = _crosswordParser.ParsePuzzleData(PuzzleData);
 
 
             //check if the parser object is null
@@ -130,7 +127,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
 

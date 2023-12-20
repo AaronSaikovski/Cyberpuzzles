@@ -25,8 +25,8 @@ using Crossword.Shared.Config;
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
-namespace Crossword.App
-{
+namespace Crossword.App;
+
     public sealed partial class CrosswordMain : Game
     {
         #region Fields       
@@ -209,7 +209,7 @@ namespace Crossword.App
         private int nCrossOffsetY = 5;
         
         //Logging implementation
-        private SerilogLogger _logger;
+        private SerilogLogger logger;
         
 
         #endregion
@@ -219,7 +219,7 @@ namespace Crossword.App
         public CrosswordMain()
         {
             //Init the logger and get the active config
-            _logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
+            logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
             
             //Prepare Graphics
             _graphics = new GraphicsDeviceManager(this);
@@ -246,4 +246,3 @@ namespace Crossword.App
         #endregion
 
     }
-}

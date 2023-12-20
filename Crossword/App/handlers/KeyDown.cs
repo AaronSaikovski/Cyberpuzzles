@@ -20,7 +20,7 @@ public sealed partial class CrosswordMain
 
         try
         {
-            _logger.LogInformation("Start KeyDown()");
+            logger.LogInformation("Start KeyDown()");
             
             //Spacebar pressed to change orientation...bIsAcross.
             GetSpaceKey(keyInFocus);
@@ -53,7 +53,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -68,7 +68,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start GetSpaceKey()");
+            logger.LogInformation("Start GetSpaceKey()");
             
             //Spacebar pressed to change orientation...bIsAcross.
             if (keyInFocus != Keys.Space) return;
@@ -100,7 +100,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -115,7 +115,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start GetDeleteKey()");
+            logger.LogInformation("Start GetDeleteKey()");
             
             //Delete present square's contents if Delete key is pressed
             if (keyInFocus == Keys.Delete)
@@ -125,7 +125,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
         
@@ -141,7 +141,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start GetBackspaceKey()");
+            logger.LogInformation("Start GetBackspaceKey()");
             
             //Check to see if a backspace was entered
             if (keyInFocus != Keys.Back) return;
@@ -151,7 +151,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -167,7 +167,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start GetCharKey()");
+            logger.LogInformation("Start GetCharKey()");
             
             //Check that the char falls into our range.
             if (keyInFocus is < Keys.A or > Keys.Z) return;
@@ -184,7 +184,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }

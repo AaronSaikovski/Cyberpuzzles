@@ -12,11 +12,11 @@ public sealed partial class CrosswordMain
     /// <param name="count"></param>
     private void GetHintLetters(int count)
     {
-        bool hintSupplied = false;
-        bool allHintLettersChecked = false;
+        var hintSupplied = false;
+        var allHintLettersChecked = false;
         try
         {
-            _logger.LogInformation("Start GetHintLetters()");
+            logger.LogInformation("Start GetHintLetters()");
             
             while (!hintSupplied && !allHintLettersChecked)
             {
@@ -50,7 +50,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }

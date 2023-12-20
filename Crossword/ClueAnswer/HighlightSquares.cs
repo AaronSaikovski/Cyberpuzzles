@@ -32,8 +32,6 @@ public sealed partial class ClueAnswerMap
         //     }
         // }
         
-        
-        
         Parallel.For(0, Answer.Length, i =>
         {
             if (!setHighLighted)

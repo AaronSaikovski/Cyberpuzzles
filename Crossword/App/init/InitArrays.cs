@@ -15,7 +15,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start InitArrays()");
+            logger.LogInformation("Start InitArrays()");
             
             //loop over rows
             for (var i = 0; i < _NumRows; i++)
@@ -42,7 +42,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }
