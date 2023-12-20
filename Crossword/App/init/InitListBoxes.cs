@@ -2,6 +2,8 @@ using System;
 using Crossword.Constants;
 using Myra.Graphics2D.UI;
 
+
+
 namespace Crossword.App;
 
 public sealed partial class CrosswordMain
@@ -80,7 +82,7 @@ public sealed partial class CrosswordMain
             LstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
 
             //List box event handlers
-            //LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
+            LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
         
         }
         catch (Exception ex)
@@ -126,7 +128,7 @@ public sealed partial class CrosswordMain
             LstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
 
             //List box event handlers
-            //LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
+            LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
         
         }
         catch (Exception ex)

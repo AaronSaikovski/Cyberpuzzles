@@ -5,8 +5,6 @@
 * GitHub action for building X-Platform
 * Test on windows 
 * Next puzzle button and Hint jumps ahead to next puzzle issue - need to investigate
-* ListBox event handlers - BUG
-
 
 **ON HOLD**
 * Background graphics
@@ -39,4 +37,5 @@
 * Fix listbox X,Y coords - make more dynamic 
 * ListBox Font - how to change the font style - raised issue: https://github.com/rds1983/Myra/issues/432 - Resolved 
 * implement API key for better security https://www.c-sharpcorner.com/article/using-api-key-authentication-to-secure-asp-net-core-web-api/
-* add buttons for hints and get next puzzle link buttons.
+* add buttons for hints and get next puzzle link buttons. 
+* ListBox event handlers - BUG
