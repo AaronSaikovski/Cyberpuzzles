@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
 
 namespace Crossword.App;
@@ -96,6 +97,13 @@ public sealed partial class CrosswordMain
                 clueAnswerIdx = k;
                 break;
             }
+            
+            // Parallel.For(0, NumQuestions, (k, loopState) =>
+            // {
+            //     if (tmp != caPuzzleClueAnswers[k]) return;
+            //     clueAnswerIdx = k;
+            //     loopState.Break();
+            // });
 
             //Selects the item in the list box relative to the ClueAnswer
             //and the orientation.

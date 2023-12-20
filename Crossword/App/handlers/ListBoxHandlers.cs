@@ -28,10 +28,12 @@ public sealed partial class CrosswordMain
         //         IsAcross = true;
         //         LstClueDown.SelectedIndex = -1;
         //     }
+        //         
+        //     SqCurrentSquare = caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].GetSquare();
+        //     caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(SqCurrentSquare, true);
         // }
-        //
-        // SqCurrentSquare = caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].GetSquare();
-        // caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(SqCurrentSquare, true);
+        
+       
     }
 
     #endregion
