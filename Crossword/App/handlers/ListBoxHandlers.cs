@@ -30,13 +30,6 @@ public sealed partial class CrosswordMain
         //     }
         // }
         //
-        // if (LstClueAcross.SelectedIndex is null) return;
-        // if (!IsAcross)
-        // {
-        //     IsAcross = true;
-        //     LstClueDown.SelectedIndex = -1;
-        // }
-        //
         // SqCurrentSquare = caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].GetSquare();
         // caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(SqCurrentSquare, true);
     }
