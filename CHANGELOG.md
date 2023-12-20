@@ -12,6 +12,5 @@
 - added newer labels to listboxes
 
 ## v1.0.2 2023-12-20)
-- Fixed list bos mouse handlers for mouse input
 - Fixed list box headers
 - Refactored and performance improvements.

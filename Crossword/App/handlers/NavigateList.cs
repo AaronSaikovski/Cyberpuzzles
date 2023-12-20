@@ -28,18 +28,12 @@ public sealed partial class CrosswordMain
                             if (LstClueAcross.SelectedIndex is not null)
                             {
                                 LstClueAcross.SelectedIndex--;
-                         
-                                //selChangeLstClueAcross(evt);
-                                //SelChangeListClueAcross();
                             }
 
                             break;
                         }
                         case Keys.Down:
                             LstClueAcross.SelectedIndex++;
-                        
-                            //selChangeLstClueAcross(evt);
-                            //SelChangeListClueAcross();
                             break;
                     }
 
@@ -50,9 +44,6 @@ public sealed partial class CrosswordMain
                     if (LstClueDown.SelectedIndex is not null)
                     {
                         LstClueDown.SelectedIndex--;
-                        //TODO - add handler
-                        //selChangeLstClueDown(evt);
-                        //SelChangeListClueAcross();
                     }
 
                     break;
@@ -62,9 +53,7 @@ public sealed partial class CrosswordMain
                     if (keyInFocus == Keys.Down)
                     {
                         LstClueDown.SelectedIndex++;
-                        //TODO - add handler
-                        //selChangeLstClueDown(evt);
-                        //SelChangeListClueAcross();
+                        
                     }
 
                     break;
