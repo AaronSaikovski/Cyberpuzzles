@@ -34,7 +34,7 @@ public partial class FetchCrosswordData
 
             //pass in the API key to the header
             client.DefaultRequestHeaders.Clear();
-            client.DefaultRequestHeaders.Add(APIConstants.ApiKeyName, apiKey);
+            client.DefaultRequestHeaders.Add(ApiConstants.ApiKeyName, apiKey);
 
             //catch inner HttpRequestException
             try

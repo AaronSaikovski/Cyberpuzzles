@@ -1,11 +1,10 @@
 ﻿**CW.Net**
 
 **TO DO**
-
 * GitHub action for building X-Platform
 * Test on windows 
 * Next puzzle button and Hint jumps ahead to next puzzle issue - need to investigate 
-* ListBox event handlers - Implement
+
 
 **ON HOLD**
 * Background graphics
@@ -13,7 +12,8 @@
 * Add unit test 
 * Big refactor/Memory optimisation
 * add animated push buttons
-* Fix bBufferDirty state machine redraw bug - causing weird redraw issues
+* Fix bBufferDirty state machine redraw bug - causing weird redraw issues 
+* ListBox event handlers - Implement
 
 **KNOWN BUGS**
 * Font chars not centred in squares
