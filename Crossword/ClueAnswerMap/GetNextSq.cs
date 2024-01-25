@@ -1,9 +1,9 @@
 using System;
 using Crossword.PuzzleSquares;
 
-namespace Crossword.ClueAnswer;
+namespace Crossword.ClueAnswerMap;
 
-public sealed partial class ClueAnswerMap
+public sealed partial class ClueAnswer
 {
     #region GetNextSq
 

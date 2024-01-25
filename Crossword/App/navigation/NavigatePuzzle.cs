@@ -104,7 +104,7 @@ public sealed partial class CrosswordMain
             //     loopState.Break();
             // });
 
-            //Selects the item in the list box relative to the ClueAnswer
+            //Selects the item in the list box relative to the ClueAnswerMap
             //and the orientation.
             if (IsAcross)
                 LstClueAcross.SelectedIndex = clueAnswerIdx;

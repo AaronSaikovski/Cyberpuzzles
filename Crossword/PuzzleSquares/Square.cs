@@ -8,7 +8,7 @@
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
-using Crossword.ClueAnswer;
+using Crossword.ClueAnswerMap;
 using Microsoft.Xna.Framework;
 
 namespace Crossword.PuzzleSquares;
@@ -32,8 +32,8 @@ public sealed partial class Square
 
     public bool IsCharAllowed { get; set; }
 
-    public ClueAnswerMap? ClueAnswerAcross { get; set; }
-    public ClueAnswerMap? ClueAnswerDown { get; set; }
+    public ClueAnswer? ClueAnswerAcross { get; set; }
+    public ClueAnswer? ClueAnswerDown { get; set; }
 
     #endregion
 }

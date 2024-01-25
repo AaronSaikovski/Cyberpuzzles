@@ -1,5 +1,5 @@
 using System;
-using Crossword.ClueAnswer;
+using Crossword.ClueAnswerMap;
 using Crossword.PuzzleSquares;
 using Microsoft.Xna.Framework;
 
@@ -22,7 +22,7 @@ public sealed partial class CrosswordMain
             _puzzleSquares = new Rectangle[_NumRows, _NumCols];
 
             //Init ClueAnswers
-            caPuzzleClueAnswers = new ClueAnswerMap[NumQuestions]; 
+            caPuzzleClueAnswers = new ClueAnswer[NumQuestions]; 
 
             //Initialise the arrays
             InitArrays();

@@ -1,5 +1,5 @@
 using System;
-using Crossword.ClueAnswer;
+using Crossword.ClueAnswerMap;
 using Crossword.Constants;
 using Crossword.EventHandlers;
 using Crossword.PuzzleSquares;
@@ -66,8 +66,8 @@ namespace Crossword.App;
         //Square instance variable
         private Square?[,] sqPuzzleSquares;
 
-        //ClueAnswer Instance variable
-        private ClueAnswerMap[] caPuzzleClueAnswers;
+        //ClueAnswerMap Instance variable
+        private ClueAnswer[] caPuzzleClueAnswers;
 
         //Highlight Constants
         // private readonly int CurrentLetter = 1;

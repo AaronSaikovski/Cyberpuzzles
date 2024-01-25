@@ -1,5 +1,5 @@
 using System;
-using Crossword.ClueAnswer;
+using Crossword.ClueAnswerMap;
 using Crossword.PuzzleSquares;
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
@@ -11,7 +11,7 @@ public sealed partial class CrosswordMain
     #region InitClueAnswers
 
     /// <summary>
-    /// Inits the ClueAnswer objects
+    /// Inits the ClueAnswerMap objects
     /// </summary>
     private void InitClueAnswers()
     {
@@ -49,7 +49,7 @@ public sealed partial class CrosswordMain
                 }
 
                 //Build the Clue/Answer references
-                caPuzzleClueAnswers[i] = new ClueAnswerMap();
+                caPuzzleClueAnswers[i] = new ClueAnswer();
                 caPuzzleClueAnswers[i].SetObjectRef(_puzzleDataset[i].Answer,
                     _puzzleDataset[i].Clue, _puzzleDataset[i].QuestionNum,
                     _puzzleDataset[i].IsAcross, sqAnswerSquares);

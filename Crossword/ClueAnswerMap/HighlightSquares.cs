@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Crossword.PuzzleSquares;
 using Crossword.Constants;
 
-namespace Crossword.ClueAnswer;
+namespace Crossword.ClueAnswerMap;
 
-public sealed partial class ClueAnswerMap
+public sealed partial class ClueAnswer
 {
     #region HighlightSquares
 

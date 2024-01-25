@@ -1,8 +1,8 @@
 using System.Linq;
 
-namespace Crossword.ClueAnswer;
+namespace Crossword.ClueAnswerMap;
 
-public sealed partial class ClueAnswerMap
+public sealed partial class ClueAnswer
 {
     #region IsCorrect
 

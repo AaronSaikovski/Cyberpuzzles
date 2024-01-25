@@ -53,7 +53,7 @@ public sealed partial class CrosswordMain
             //Find index to Clue Answer for highlighting in List boxes
             var clueAnswerIdx = FindClueAnswerIdx(sqSelSquare);
 
-            //Selects the item in the list box relative to ClueAnswer and direction
+            //Selects the item in the list box relative to ClueAnswerMap and direction
             SetListBoxClueAnswer(clueAnswerIdx);
 
             return true;
@@ -95,7 +95,7 @@ public sealed partial class CrosswordMain
 
     #region SetListBoxClueAnswer
     /// <summary>
-    /// Selects the item in the list box relative to ClueAnswer and direction
+    /// Selects the item in the list box relative to ClueAnswerMap and direction
     /// </summary>
     /// <param name="clueAnswerIdx"></param>
     private void SetListBoxClueAnswer(int clueAnswerIdx)
@@ -104,7 +104,7 @@ public sealed partial class CrosswordMain
         {
             logger.LogInformation("Start SetListBoxClueAnswer()");
             
-            //Selects the item in the list box relative to ClueAnswer and direction
+            //Selects the item in the list box relative to ClueAnswerMap and direction
             if (IsAcross)
                 LstClueAcross.SelectedIndex = clueAnswerIdx;
             else
