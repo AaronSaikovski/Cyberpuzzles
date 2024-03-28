@@ -57,13 +57,13 @@
   <ItemGroup>
     <PackageReference Include="InputHandlers.MonoGame" Version="1.7.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
-    <PackageReference Include="Myra" Version="1.5.3" />
-    <PackageReference Include="FontStashSharp.MonoGame" Version="1.3.3" />
+    <PackageReference Include="Myra" Version="1.5.5" />
+    <PackageReference Include="FontStashSharp.MonoGame" Version="1.3.6" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Parsers\" />
