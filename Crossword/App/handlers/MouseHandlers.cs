@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Crossword.PuzzleSquares;
-using Crossword.Constants;
+using Crossword.Shared.Constants;
 
 namespace Crossword.App;
 

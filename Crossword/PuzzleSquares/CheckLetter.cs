@@ -1,4 +1,4 @@
-using Crossword.Constants;
+using Crossword.Shared.Constants;
 
 namespace Crossword.PuzzleSquares;
 

@@ -1,5 +1,5 @@
 using System;
-using Crossword.Constants;
+using Crossword.Shared.Constants;
 using Myra.Graphics2D.UI;
 
 

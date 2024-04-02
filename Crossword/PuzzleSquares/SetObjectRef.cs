@@ -1,6 +1,6 @@
 using System;
 using Crossword.ClueAnswerMap;
-using Crossword.Constants;
+using Crossword.Shared.Constants;
 
 namespace Crossword.PuzzleSquares;
 

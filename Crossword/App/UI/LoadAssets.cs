@@ -1,6 +1,6 @@
 using System;
 using System.IO;
-using Crossword.Constants;
+using Crossword.Shared.Constants;
 using FontStashSharp;
 using Microsoft.Xna.Framework.Graphics;
 
