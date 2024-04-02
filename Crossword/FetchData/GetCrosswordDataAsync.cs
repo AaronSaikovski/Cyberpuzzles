@@ -19,19 +19,16 @@ public partial class FetchCrosswordData
     {
         //Init the logger and get the active config
         var logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
-<<<<<<< HEAD
 
         //Call the API to get the puzzledata....otherwise use default values
         try
         {
             logger.LogInformation("Start GetCrosswordDataAsync()");
-=======
- 
-        //Call the API to get the puzzledata....otherwise use default values
-        try
-        {
+
+            // //Call the API to get the puzzledata....otherwise use default values
+            // try
+            // {
             //logger.LogInformation("Start GetCrosswordDataAsync()");
->>>>>>> main
 
             //call the API
             var apiResponse = await CallDataApiAsync();
@@ -46,11 +43,8 @@ public partial class FetchCrosswordData
         }
         finally
         {
-<<<<<<< HEAD
-            logger.Dispose();   
-=======
+
             logger.Dispose();
->>>>>>> main
         }
     }
 

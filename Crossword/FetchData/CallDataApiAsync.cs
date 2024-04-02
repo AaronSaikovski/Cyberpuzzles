@@ -4,10 +4,7 @@ using System.Threading.Tasks;
 using Crossword.Shared.Config;
 using Crossword.Shared.Logger;
 using Crossword.Shared.Constants;
-<<<<<<< HEAD
-=======
 
->>>>>>> main
 namespace Crossword.FetchData;
 
 /// <summary>
@@ -38,11 +35,8 @@ public partial class FetchCrosswordData
 
             //pass in the API key to the header
             client.DefaultRequestHeaders.Clear();
-<<<<<<< HEAD
             client.DefaultRequestHeaders.Add(ApiConstants.ApiKeyName, apiKey);
-=======
-            client.DefaultRequestHeaders.Add(APIConstants.ApiKeyName, apiKey);
->>>>>>> main
+            //client.DefaultRequestHeaders.Add(APIConstants.ApiKeyName, apiKey);
 
             //catch inner HttpRequestException
             try
@@ -57,12 +51,9 @@ public partial class FetchCrosswordData
                 }
                 else
                 {
-<<<<<<< HEAD
                     throw new Exception($"Failed to call the API. Status code: {response.StatusCode}");
-=======
-                    Console.WriteLine($"Failed to call the API. Status code: {response.StatusCode}");
+                    //Console.WriteLine($"Failed to call the API. Status code: {response.StatusCode}");
                     return string.Empty;
->>>>>>> main
                 }
                     
             }
@@ -73,10 +64,7 @@ public partial class FetchCrosswordData
                 throw;
             }
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> main
         catch (Exception ex)
         {
             logger.LogError(ex, ex.Message);

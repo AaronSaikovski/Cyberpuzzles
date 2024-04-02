@@ -11,15 +11,14 @@ public sealed partial class CrosswordParser
     /// <param name="strData"></param>
     private void GetAnswers(IReadOnlyList<string> strData)
     {
-<<<<<<< HEAD
         var puzzletempstr = strData[5];
         var answertemp = puzzletempstr.Split("#");
-=======
-        string[] answertemp;
-        var puzzletempstr = strData[5];
-        answertemp = puzzletempstr.Split("#");
->>>>>>> main
+        //string[] answertemp;
+
+        // var puzzletempstr = strData[5];
+        // answertemp = puzzletempstr.Split("#");
         if (_crosswordData == null) return;
+
         _crosswordData.Answers = new string[_crosswordData.NumQuestions];
         for (var k = 0; k < _crosswordData.NumQuestions; k++)
         {

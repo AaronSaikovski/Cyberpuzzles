@@ -17,7 +17,7 @@ public static class ParserHelper
     {
         ArgumentException.ThrowIfNullOrEmpty(inputString);
         ArgumentException.ThrowIfNullOrEmpty(targetChar.ToString());
-        
+
         return inputString.Count(c => c == targetChar);
     }
     #endregion
@@ -30,28 +30,25 @@ public static class ParserHelper
     /// <returns></returns>
     public static string? GetRandomDataFile(string? puzzleData)
     {
-<<<<<<< HEAD:Crossword.Shared/src/ParserUtils/ParserHelper.cs
-        ArgumentNullException.ThrowIfNull(puzzleData);
-=======
+        //ArgumentNullException.ThrowIfNull(puzzleData);
         ArgumentException.ThrowIfNullOrEmpty(puzzleData);
->>>>>>> main:Crossword.Shared/ParserUtils/ParserHelper.cs
-            
+
         // Get a list of all files in the folder
-        var files = Directory.GetFiles(puzzleData,"*.txt");
-    
+        var files = Directory.GetFiles(puzzleData, "*.txt");
+
         // Check if there are any files in the folder
         if (files.Length <= 0) return null;
         // Generate a random number to select a file
         var random = new Random();
         var randomIndex = random.Next(0, files.Length);
-    
+
         // Get the randomly selected file path
         var selectedFilePath = files[randomIndex];
-    
+
         // Read the contents of the selected file
         var fileContents = File.ReadAllText(selectedFilePath);
         return fileContents;
-    
+
     }
     #endregion
 
