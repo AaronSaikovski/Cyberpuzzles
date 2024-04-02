@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Parser", "Crosswo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosssword.Entities", "Crosssword.Entities\Crosssword.Entities.csproj", "{629F5D51-C8E0-4C64-BE84-48C5DB565FA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Data", "Crossword.Data\Crossword.Data.csproj", "{08FAF8BC-DBEA-4FCF-9BF9-B2B3E8FD1122}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{629F5D51-C8E0-4C64-BE84-48C5DB565FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{629F5D51-C8E0-4C64-BE84-48C5DB565FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{629F5D51-C8E0-4C64-BE84-48C5DB565FA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08FAF8BC-DBEA-4FCF-9BF9-B2B3E8FD1122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08FAF8BC-DBEA-4FCF-9BF9-B2B3E8FD1122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08FAF8BC-DBEA-4FCF-9BF9-B2B3E8FD1122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08FAF8BC-DBEA-4FCF-9BF9-B2B3E8FD1122}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Crossword.Entities;
 using Crossword.Parser;
 
-using Crossword.FetchData;
+using Crossword.Data;
 
 namespace Crossword.App;
 
