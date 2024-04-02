@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="true" type="CompoundRunConfigurationType">
-    <toRun name="CrosswordData: https" type="LaunchSettings" />
-    <toRun name="Crossword" type="DotNetProject" />
+    <toRun name="Crossword" type="LaunchSettings" />
+    <toRun name="Crossword.API: https" type="LaunchSettings" />
     <method v="2" />
   </configuration>
 </component>
