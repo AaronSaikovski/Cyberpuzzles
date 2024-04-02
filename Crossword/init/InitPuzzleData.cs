@@ -44,10 +44,7 @@ public sealed partial class CrosswordMain
             //Check for the result
             return task is { IsCompleted: true, IsFaulted: false, IsCanceled: false } ? task.Result : null;
             
-            // if (task is { IsCompleted: true, IsFaulted: false, IsCanceled: false })
-            // {
-            //     return task.Result;
-            // }
+           
             
         }
         catch (Exception ex)
