@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword", "Crossword\Cros
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Shared", "Crossword.Shared\Crossword.Shared.csproj", "{8061C3BE-083E-415C-B678-394F8EBCCFC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Parser", "Crossword.Parser\Crossword.Parser.csproj", "{2FE9007A-7C46-48AD-86A5-FCADA1AA2D34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosssword.Entities", "Crosssword.Entities\Crosssword.Entities.csproj", "{629F5D51-C8E0-4C64-BE84-48C5DB565FA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{8061C3BE-083E-415C-B678-394F8EBCCFC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8061C3BE-083E-415C-B678-394F8EBCCFC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8061C3BE-083E-415C-B678-394F8EBCCFC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FE9007A-7C46-48AD-86A5-FCADA1AA2D34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE9007A-7C46-48AD-86A5-FCADA1AA2D34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE9007A-7C46-48AD-86A5-FCADA1AA2D34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE9007A-7C46-48AD-86A5-FCADA1AA2D34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{629F5D51-C8E0-4C64-BE84-48C5DB565FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{629F5D51-C8E0-4C64-BE84-48C5DB565FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{629F5D51-C8E0-4C64-BE84-48C5DB565FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{629F5D51-C8E0-4C64-BE84-48C5DB565FA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
