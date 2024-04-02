@@ -15,12 +15,6 @@ namespace Crossword.Entities;
 public sealed class CrosswordState(int coordAcross, int coordDown, string answer, string clue, bool isAcross, int questionNum)
 {
     #region getters_setters
-    // public int CoordAcross { get; set; } = coordAcross;
-    // public int CoordDown { get; set; } = coordDown;
-    // public string Answer { get; set; } = answer;
-    // public string Clue { get; set; } = clue;
-    // public bool IsAcross { get; set; } = isAcross;
-    // public int QuestionNum { get; set; } = questionNum;
 
     public int CoordAcross { get;} = coordAcross;
     public int CoordDown { get;  } = coordDown;

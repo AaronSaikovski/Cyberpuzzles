@@ -14,7 +14,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start DrawCrosswordScore()");
+            logger.LogInformation("Start DrawCrosswordScore()");
             
             if (!IsFinished)
             {
@@ -51,7 +51,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }

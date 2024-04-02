@@ -15,7 +15,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start DrawCrossword()");
+            logger.LogInformation("Start DrawCrossword()");
             
             // Begin drawing
             _spriteBatch.Begin();
@@ -68,7 +68,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -85,7 +85,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start DrawUserChar()");
+            logger.LogInformation("Start DrawUserChar()");
 
             //check for null
             if (sqPuzzleSquares[i, j] != null && _puzzleSquares[i, j] != null)
@@ -102,7 +102,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -118,7 +118,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start DrawSmallFontAcross()");
+            logger.LogInformation("Start DrawSmallFontAcross()");
             if (sqPuzzleSquares[i, j]?.ClueAnswerAcross is null) return;
             if (sqPuzzleSquares[i, j]?.ClueAnswerAcross?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
             if (_puzzleSquares is not null)
@@ -129,7 +129,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -144,7 +144,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start DrawSmallFontDown()");
+            logger.LogInformation("Start DrawSmallFontDown()");
             
             if (sqPuzzleSquares?[i, j].ClueAnswerDown is null) return;
             if (sqPuzzleSquares?[i, j].ClueAnswerDown?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
@@ -155,7 +155,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
         
@@ -173,7 +173,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start DrawSquares()");
+            logger.LogInformation("Start DrawSquares()");
             
             //Check to see if a repaint is required
             if (!sqPuzzleSquares[i, j]!.IsDirty) return true;
@@ -194,7 +194,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
         

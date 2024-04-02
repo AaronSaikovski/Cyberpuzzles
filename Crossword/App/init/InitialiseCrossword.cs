@@ -1,5 +1,5 @@
 using System;
-using Crossword.ClueAnswer;
+using Crossword.ClueAnswerMap;
 using Crossword.PuzzleSquares;
 using Microsoft.Xna.Framework;
 
@@ -15,14 +15,14 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start BuildCrossword()");
+            logger.LogInformation("Start BuildCrossword()");
             
             //Init squares
             sqPuzzleSquares = new Square[_NumRows, _NumCols];
             _puzzleSquares = new Rectangle[_NumRows, _NumCols];
 
             //Init ClueAnswers
-            caPuzzleClueAnswers = new ClueAnswerMap[NumQuestions]; 
+            caPuzzleClueAnswers = new ClueAnswer[NumQuestions]; 
 
             //Initialise the arrays
             InitArrays();
@@ -34,7 +34,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
        

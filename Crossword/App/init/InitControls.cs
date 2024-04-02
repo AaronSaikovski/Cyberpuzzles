@@ -17,7 +17,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start InitControls()");
+            logger.LogInformation("Start InitControls()");
             
             //Init the main rectangle
             rectCrossWord = new Rectangle(nCrossOffsetX, nCrossOffsetY, _nCrosswordWidth, _nCrosswordHeight);
@@ -47,7 +47,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }

@@ -1,6 +1,9 @@
 ﻿
 namespace Crossword.Shared.ParserUtils;
 
+/// <summary>
+/// Parser helper class
+/// </summary>
 public static class ParserHelper
 {
     #region CountOccurrences
@@ -27,7 +30,11 @@ public static class ParserHelper
     /// <returns></returns>
     public static string? GetRandomDataFile(string? puzzleData)
     {
+<<<<<<< HEAD:Crossword.Shared/src/ParserUtils/ParserHelper.cs
+        ArgumentNullException.ThrowIfNull(puzzleData);
+=======
         ArgumentException.ThrowIfNullOrEmpty(puzzleData);
+>>>>>>> main:Crossword.Shared/ParserUtils/ParserHelper.cs
             
         // Get a list of all files in the folder
         var files = Directory.GetFiles(puzzleData,"*.txt");

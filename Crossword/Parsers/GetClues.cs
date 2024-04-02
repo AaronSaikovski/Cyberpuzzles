@@ -10,17 +10,23 @@ public sealed partial class CrosswordParser
     /// <param name="strData"></param>
     private void GetClues(IReadOnlyList<string> strData)
     {
-        string puzzletempstr;
-        string[] cluetemp;
-        puzzletempstr = strData[4];
-        cluetemp = puzzletempstr.Split("#");
-        if (_crosswordData != null)
+        var puzzletempstr = strData[4];
+        string[] cluetemp = puzzletempstr.Split("#");
+        if (_crosswordData == null) return;
+        _crosswordData.Clues = new string[_crosswordData.NumQuestions];
+        for (var j = 0; j < _crosswordData.NumQuestions; j++)
         {
-            _crosswordData.Clues = new string[_crosswordData.NumQuestions];
-            for (var j = 0; j < _crosswordData.NumQuestions; j++)
-            {
-                _crosswordData.Clues[j] = cluetemp[j];
-            }
+            _crosswordData.Clues[j] = cluetemp[j];
         }
+        
+        // string[] cluetemp;
+        // var puzzletempstr = strData[4];
+        // cluetemp = puzzletempstr.Split("#");
+        // if (_crosswordData == null) return;
+        // _crosswordData.Clues = new string[_crosswordData.NumQuestions];
+        // for (var j = 0; j < _crosswordData.NumQuestions; j++)
+        // {
+        //     _crosswordData.Clues[j] = cluetemp[j];
+        // }
     }
 }

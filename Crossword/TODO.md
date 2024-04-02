@@ -1,10 +1,9 @@
 ﻿**CW.Net**
 
 **TO DO**
-* Fix bBufferDirty state machine redraw bug - causing weird redraw issues
 * GitHub action for building X-Platform
 * Test on windows 
-* Next puzzle button and Hint jumps ahead to next puzzle issue - need to investigate
+* Next puzzle button and Hint jumps ahead to next puzzle issue - need to investigate 
 
 
 **ON HOLD**
@@ -13,12 +12,11 @@
 * Add unit test 
 * Big refactor/Memory optimisation
 * add animated push buttons
+* Fix bBufferDirty state machine redraw bug - causing weird redraw issues 
+* ListBox event handlers - Implement
 
 **KNOWN BUGS**
 * Font chars not centred in squares
-* Square repaint bug on keyboard/mouse navigation - investigating
-* ListBox event handlers - BUG
-
 
 **DONE**
 * Fix logging in API 
@@ -38,4 +36,5 @@
 * Fix listbox X,Y coords - make more dynamic 
 * ListBox Font - how to change the font style - raised issue: https://github.com/rds1983/Myra/issues/432 - Resolved 
 * implement API key for better security https://www.c-sharpcorner.com/article/using-api-key-authentication-to-secure-asp-net-core-web-api/
-* add buttons for hints and get next puzzle link buttons.
+* add buttons for hints and get next puzzle link buttons. 
+* Square repaint bug on keyboard/mouse navigation - investigating

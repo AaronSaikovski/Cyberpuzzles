@@ -1,9 +1,12 @@
 using System;
+using Crossword.Constants;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Myra;
 using Myra.Graphics2D.UI;
+
+
 
 namespace Crossword.App;
 
@@ -17,13 +20,13 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start Initialize()");
+            logger.LogInformation("Start Initialize()");
             
             //Panel for UI
             _mainPanel = new Panel();
 
             //set the Window title
-            Window.Title = "CyberPuzzles Crossword v1.0.1";
+            Window.Title = GameConstants.GameTitle;
 
             //Init the puzzle data
             InitPuzzleData();
@@ -33,7 +36,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
         
@@ -48,7 +51,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start LoadContent()");
+            logger.LogInformation("Start LoadContent()");
             
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             MyraEnvironment.Game = this;
@@ -68,7 +71,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -83,14 +86,14 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start Update()");
+            logger.LogInformation("Start Update()");
             
             //get mouse state
-            MouseState mouseState = Mouse.GetState();
+            var mouseState = Mouse.GetState();
             
             // Game Logic lives here
-            _keyboardInput.Poll(Microsoft.Xna.Framework.Input.Keyboard.GetState());
-            _mouseInput.Poll(Microsoft.Xna.Framework.Input.Mouse.GetState());
+            _keyboardInput.Poll(Keyboard.GetState());
+            _mouseInput.Poll(Mouse.GetState());
 
             //update button mouse states
             _HintButton.Update(mouseState);
@@ -108,7 +111,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -123,7 +126,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start Draw()");
+            logger.LogInformation("Start Draw()");
             
             GraphicsDevice.Clear(Color.White);
 
@@ -144,7 +147,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }

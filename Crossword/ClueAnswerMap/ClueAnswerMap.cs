@@ -10,12 +10,12 @@
 
 using Crossword.PuzzleSquares;
 
-namespace Crossword.ClueAnswer;
+namespace Crossword.ClueAnswerMap;
 
 /// <summary>
-/// ClueAnswer Class
+/// ClueAnswerMap Class
 /// </summary>
-public sealed partial class ClueAnswerMap
+public sealed partial class ClueAnswer
 {
     #region getters_setters
     public string? Answer { get; set; }

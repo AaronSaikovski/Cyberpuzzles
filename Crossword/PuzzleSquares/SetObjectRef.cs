@@ -1,5 +1,5 @@
 using System;
-using Crossword.ClueAnswer;
+using Crossword.ClueAnswerMap;
 using Crossword.Constants;
 
 namespace Crossword.PuzzleSquares;
@@ -13,7 +13,7 @@ public sealed partial class Square
     /// </summary>
     /// <param name="isAcross"></param>
     /// <param name="clueAnswer"></param>
-    public void SetObjectRef(bool isAcross, ClueAnswerMap clueAnswer)
+    public void SetObjectRef(bool isAcross, ClueAnswer clueAnswer)
     {
         ArgumentNullException.ThrowIfNull(clueAnswer);
         

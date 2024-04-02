@@ -1,5 +1,5 @@
 using System;
-using Crossword.ClueAnswer;
+using Crossword.ClueAnswerMap;
 using Crossword.Constants;
 using Crossword.EventHandlers;
 using Crossword.PuzzleSquares;
@@ -25,8 +25,8 @@ using Crossword.Shared.Config;
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
 
-namespace Crossword.App
-{
+namespace Crossword.App;
+
     public sealed partial class CrosswordMain : Game
     {
         #region Fields       
@@ -66,8 +66,8 @@ namespace Crossword.App
         //Square instance variable
         private Square?[,] sqPuzzleSquares;
 
-        //ClueAnswer Instance variable
-        private ClueAnswerMap[] caPuzzleClueAnswers;
+        //ClueAnswerMap Instance variable
+        private ClueAnswer[] caPuzzleClueAnswers;
 
         //Highlight Constants
         // private readonly int CurrentLetter = 1;
@@ -209,7 +209,7 @@ namespace Crossword.App
         private int nCrossOffsetY = 5;
         
         //Logging implementation
-        private SerilogLogger _logger;
+        private SerilogLogger logger;
         
 
         #endregion
@@ -219,7 +219,7 @@ namespace Crossword.App
         public CrosswordMain()
         {
             //Init the logger and get the active config
-            _logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
+            logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
             
             //Prepare Graphics
             _graphics = new GraphicsDeviceManager(this);
@@ -246,4 +246,3 @@ namespace Crossword.App
         #endregion
 
     }
-}

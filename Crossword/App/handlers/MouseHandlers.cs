@@ -17,7 +17,7 @@ public sealed partial class CrosswordMain
     /// <returns></returns>
     public bool MouseUp(int x, int y)
     {
-        _logger.LogInformation("Start MouseUp()");
+        logger.LogInformation("Start MouseUp()");
         
         bBufferDirty = true;
 
@@ -53,7 +53,7 @@ public sealed partial class CrosswordMain
             //Find index to Clue Answer for highlighting in List boxes
             var clueAnswerIdx = FindClueAnswerIdx(sqSelSquare);
 
-            //Selects the item in the list box relative to ClueAnswer and direction
+            //Selects the item in the list box relative to ClueAnswerMap and direction
             SetListBoxClueAnswer(clueAnswerIdx);
 
             return true;
@@ -61,7 +61,7 @@ public sealed partial class CrosswordMain
 
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
         
@@ -76,7 +76,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start DeselectListBoxItem()");
+            logger.LogInformation("Start DeselectListBoxItem()");
             
             //Deselect the listbox based on direction
             if (!IsAcross)
@@ -86,7 +86,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -95,16 +95,16 @@ public sealed partial class CrosswordMain
 
     #region SetListBoxClueAnswer
     /// <summary>
-    /// Selects the item in the list box relative to ClueAnswer and direction
+    /// Selects the item in the list box relative to ClueAnswerMap and direction
     /// </summary>
     /// <param name="clueAnswerIdx"></param>
     private void SetListBoxClueAnswer(int clueAnswerIdx)
     {
         try
         {
-            _logger.LogInformation("Start SetListBoxClueAnswer()");
+            logger.LogInformation("Start SetListBoxClueAnswer()");
             
-            //Selects the item in the list box relative to ClueAnswer and direction
+            //Selects the item in the list box relative to ClueAnswerMap and direction
             if (IsAcross)
                 LstClueAcross.SelectedIndex = clueAnswerIdx;
             else
@@ -112,7 +112,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
      
@@ -128,7 +128,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start SetNewCurrentSquare()");
+            logger.LogInformation("Start SetNewCurrentSquare()");
             
             ArgumentNullException.ThrowIfNull(sqSelSquare);
             
@@ -138,7 +138,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -155,7 +155,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start FindClueAnswerIdx()");
+            logger.LogInformation("Start FindClueAnswerIdx()");
             
             ArgumentNullException.ThrowIfNull(sqSelSquare);
             
@@ -180,7 +180,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
         
@@ -197,7 +197,7 @@ public sealed partial class CrosswordMain
         
         try
         {
-            _logger.LogInformation("Start CheckFlip()");
+            logger.LogInformation("Start CheckFlip()");
             
             ArgumentNullException.ThrowIfNull(sqSelSquare);
             
@@ -220,7 +220,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
         

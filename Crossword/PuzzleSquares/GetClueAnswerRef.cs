@@ -1,4 +1,4 @@
-using Crossword.ClueAnswer;
+using Crossword.ClueAnswerMap;
 
 namespace Crossword.PuzzleSquares;
 
@@ -11,7 +11,7 @@ public sealed partial class Square
     /// </summary>
     /// <param name="isAcross"></param>
     /// <returns></returns>
-    public ClueAnswerMap? GetClueAnswerRef(bool isAcross)
+    public ClueAnswer? GetClueAnswerRef(bool isAcross)
     {
         return isAcross ? ClueAnswerAcross : ClueAnswerDown;
     }

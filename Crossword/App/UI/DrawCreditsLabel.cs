@@ -13,7 +13,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start DrawCreditsLabel()");
+            logger.LogInformation("Start DrawCreditsLabel()");
 
             //Max score label
             _mainPanel.Widgets.Remove(_creditsLabel);
@@ -27,7 +27,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }

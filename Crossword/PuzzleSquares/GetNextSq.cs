@@ -12,8 +12,28 @@ public sealed partial class Square
     public Square? GetNextSq(bool isAcross)
     {
         if (isAcross)
-            return ClueAnswerAcross is not null ? ClueAnswerAcross.GetNextSq(this) : this;
-        return ClueAnswerDown is not null ? ClueAnswerDown.GetNextSq(this) : this;
+        {
+            return ClueAnswerAcross != null ? ClueAnswerAcross.GetNextSq(this) : this;
+        }
+
+        return ClueAnswerDown != null ? ClueAnswerDown.GetNextSq(this) : this;
+
+
+        // if (isAcross)
+        // {
+        //     if(ClueAnswerAcross != null)
+        //         return ClueAnswerAcross.GetNextSq(this);
+        //     else
+        //         return this;
+        // }
+        // else
+        // {
+        //     if(ClueAnswerDown != null)
+        //         return ClueAnswerDown.GetNextSq(this);
+        //     else
+        //         return this;
+        // }
+
     }
 
     #endregion

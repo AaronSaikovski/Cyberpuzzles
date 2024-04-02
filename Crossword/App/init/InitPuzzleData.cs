@@ -21,7 +21,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start GetPuzzleData()");
+            logger.LogInformation("Start GetPuzzleData()");
             
             // Get the Puzzle Data..ASync and wait
             var task = Task.Run(async () =>
@@ -33,7 +33,7 @@ public sealed partial class CrosswordMain
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex,ex.Message);
+                    logger.LogError(ex,ex.Message);
                     return null;
                 }
             });
@@ -43,10 +43,19 @@ public sealed partial class CrosswordMain
 
             //Check for the result
             return task is { IsCompleted: true, IsFaulted: false, IsCanceled: false } ? task.Result : null;
+<<<<<<< HEAD
+            
+            // if (task is { IsCompleted: true, IsFaulted: false, IsCanceled: false })
+            // {
+            //     return task.Result;
+            // }
+            
+=======
+>>>>>>> main
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
        
@@ -62,7 +71,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start InitPuzzleData()");
+            logger.LogInformation("Start InitPuzzleData()");
             
             //Parser class
             _mrParserData = new CrosswordData();
@@ -121,7 +130,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
 

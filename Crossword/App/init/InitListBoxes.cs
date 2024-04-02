@@ -2,6 +2,8 @@ using System;
 using Crossword.Constants;
 using Myra.Graphics2D.UI;
 
+
+
 namespace Crossword.App;
 
 public sealed partial class CrosswordMain
@@ -14,7 +16,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start InitListBoxes()");
+            logger.LogInformation("Start InitListBoxes()");
             
             //List box elements
 
@@ -37,7 +39,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -52,7 +54,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start InitListBoxDown()");
+            logger.LogInformation("Start InitListBoxDown()");
             
             //Down Label
             _clueDownLabel = new Label
@@ -80,12 +82,12 @@ public sealed partial class CrosswordMain
             LstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
 
             //List box event handlers
-            //LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
+            LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
         
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }
@@ -99,7 +101,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start InitListBoxAcross()");
+            logger.LogInformation("Start InitListBoxAcross()");
             
             //Across Label
             _clueAcrossLabel = new Label
@@ -126,12 +128,12 @@ public sealed partial class CrosswordMain
             LstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
 
             //List box event handlers
-            //LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
+            LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
         
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }

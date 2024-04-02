@@ -16,7 +16,7 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            _logger.LogInformation("Start DrawGetNextPuzzleButton()");
+            logger.LogInformation("Start DrawGetNextPuzzleButton()");
             
             var leftPos = rectCrossWord.Left+ _HintButton.Bounds.Width + UIConstants.ClListSpacer;
             // set the position of the button
@@ -35,7 +35,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex,ex.Message);
+            logger.LogError(ex,ex.Message);
             throw;
         }
     }

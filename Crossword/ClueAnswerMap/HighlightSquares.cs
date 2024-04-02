@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Crossword.PuzzleSquares;
 using Crossword.Constants;
 
-namespace Crossword.ClueAnswer;
+namespace Crossword.ClueAnswerMap;
 
-public sealed partial class ClueAnswerMap
+public sealed partial class ClueAnswer
 {
     #region HighlightSquares
 
@@ -19,7 +19,24 @@ public sealed partial class ClueAnswerMap
         ArgumentNullException.ThrowIfNull(sq);
         
         if (Answer is null) return;
+<<<<<<< HEAD:Crossword/ClueAnswerMap/HighlightSquares.cs
+        // for (var i = 0; i < Answer.Length; i++)
+        // {
+        //     if (!setHighLighted)
+        //         SqAnswerSquares?[i]?.SetHighlighted(CWSettings.CurrentNone);
+        //     else
+        //     {
+        //         SqAnswerSquares?[i]
+        //             ?.SetHighlighted(SqAnswerSquares?[i] == sq
+        //                 ? CWSettings.CurrentLetter
+        //                 : CWSettings.CurrentWord);
+        //     }
+        // }
+        
+        Parallel.For(0, Answer.Length, i =>
+=======
         for (var i = 0; i < Answer.Length; i++)
+>>>>>>> main:Crossword/ClueAnswer/HighlightSquares.cs
         {
             if (!setHighLighted)
                 SqAnswerSquares?[i]?.SetHighlighted(UIConstants.CurrentNone);
