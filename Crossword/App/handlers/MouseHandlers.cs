@@ -163,12 +163,18 @@ public sealed partial class CrosswordMain
             var tmpClueAnswer = sqSelSquare?.GetClueAnswerRef(IsAcross);
             var clueAnswerIdx = 0;
         
-            Parallel.For(0, NumQuestions, (k, loopState) =>
+            // Parallel.For(0, NumQuestions, (k, loopState) =>
+            // {
+            //     if (tmpClueAnswer == caPuzzleClueAnswers[k]) loopState.Stop();
+            //     clueAnswerIdx = k;
+            //     loopState.Stop();
+            // });
+
+            for (var k=0;k<NumQuestions;k++)
             {
-                if (tmpClueAnswer == caPuzzleClueAnswers[k]) loopState.Stop();
+                if (tmpClueAnswer == caPuzzleClueAnswers[k]) break;
                 clueAnswerIdx = k;
-                loopState.Stop();
-            });
+            }
 
             return clueAnswerIdx;
         }

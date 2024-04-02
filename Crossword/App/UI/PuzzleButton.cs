@@ -23,7 +23,10 @@ public class PuzzleButton
         
     // Rect bounds
     public Rectangle Bounds => new((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
+<<<<<<< HEAD
     //public Rectangle Bounds => new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
+=======
+>>>>>>> main
     
     #endregion
 

@@ -19,6 +19,7 @@ public sealed partial class ClueAnswer
         ArgumentNullException.ThrowIfNull(sq);
         
         if (Answer is null) return;
+<<<<<<< HEAD:Crossword/ClueAnswerMap/HighlightSquares.cs
         // for (var i = 0; i < Answer.Length; i++)
         // {
         //     if (!setHighLighted)
@@ -33,17 +34,35 @@ public sealed partial class ClueAnswer
         // }
         
         Parallel.For(0, Answer.Length, i =>
+=======
+        for (var i = 0; i < Answer.Length; i++)
+>>>>>>> main:Crossword/ClueAnswer/HighlightSquares.cs
         {
             if (!setHighLighted)
                 SqAnswerSquares?[i]?.SetHighlighted(UIConstants.CurrentNone);
             else
             {
                 SqAnswerSquares?[i]
-                ?.SetHighlighted(SqAnswerSquares?[i] == sq
-                ? UIConstants.CurrentLetter
-                : UIConstants.CurrentWord);
+                    ?.SetHighlighted(SqAnswerSquares?[i] == sq
+                        ? UIConstants.CurrentLetter
+                        : UIConstants.CurrentWord);
             }
-        });
+        }
+        
+        
+        
+        // Parallel.For(0, Answer.Length, i =>
+        // {
+        //     if (!setHighLighted)
+        //         SqAnswerSquares?[i]?.SetHighlighted(UIConstants.CurrentNone);
+        //     else
+        //     {
+        //         SqAnswerSquares?[i]
+        //         ?.SetHighlighted(SqAnswerSquares?[i] == sq
+        //         ? UIConstants.CurrentLetter
+        //         : UIConstants.CurrentWord);
+        //     }
+        // });
     }
 
     #endregion

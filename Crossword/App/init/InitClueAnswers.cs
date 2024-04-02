@@ -34,7 +34,7 @@ public sealed partial class CrosswordMain
                             sqPuzzleSquares[_puzzleDataset[i].CoordDown + j, _puzzleDataset[i].CoordAcross];
                         if (j == 0)
                             LstClueAcross.Items.Add(new ListItem(
-                                _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
+                                $"{_puzzleDataset[i].QuestionNum}. {_puzzleDataset[i].Clue}",
                                 Color.White));
                     }
                     else
@@ -43,7 +43,7 @@ public sealed partial class CrosswordMain
                             sqPuzzleSquares[_puzzleDataset[i].CoordDown, _puzzleDataset[i].CoordAcross + j];
                         if (j == 0)
                             LstClueDown.Items.Add(new ListItem(
-                                _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
+                                $"{_puzzleDataset[i].QuestionNum}. {_puzzleDataset[i].Clue}",
                                 Color.White));
                     }
                 }

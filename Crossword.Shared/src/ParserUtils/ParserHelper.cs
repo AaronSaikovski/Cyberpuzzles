@@ -15,8 +15,9 @@ public static class ParserHelper
     /// <returns></returns>
     public static int CountOccurrences(string inputString, char targetChar)
     {
-        if (inputString.Length <= 0) throw new ArgumentOutOfRangeException(nameof(inputString));
-        if (targetChar <= 0) throw new ArgumentOutOfRangeException(nameof(targetChar));
+        ArgumentException.ThrowIfNullOrEmpty(inputString);
+        ArgumentException.ThrowIfNullOrEmpty(targetChar.ToString());
+        
         return inputString.Count(c => c == targetChar);
     }
     #endregion
@@ -29,7 +30,11 @@ public static class ParserHelper
     /// <returns></returns>
     public static string? GetRandomDataFile(string? puzzleData)
     {
+<<<<<<< HEAD:Crossword.Shared/src/ParserUtils/ParserHelper.cs
         ArgumentNullException.ThrowIfNull(puzzleData);
+=======
+        ArgumentException.ThrowIfNullOrEmpty(puzzleData);
+>>>>>>> main:Crossword.Shared/ParserUtils/ParserHelper.cs
             
         // Get a list of all files in the folder
         var files = Directory.GetFiles(puzzleData,"*.txt");
