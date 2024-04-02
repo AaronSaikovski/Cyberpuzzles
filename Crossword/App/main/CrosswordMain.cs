@@ -4,7 +4,7 @@ using Crossword.Shared.Constants;
 using Crossword.EventHandlers;
 using Crossword.PuzzleSquares;
 using Crossword.Entities;
-using Crossword.Parsers;
+using Crossword.Parser;
 using FontStashSharp;
 using InputHandlers.Keyboard;
 using InputHandlers.Mouse;
