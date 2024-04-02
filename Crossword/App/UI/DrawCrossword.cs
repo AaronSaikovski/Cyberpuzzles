@@ -34,8 +34,8 @@ public sealed partial class CrosswordMain
                     //Main puzzle squares array
                     //Draw crossword with squares with spaces
                     _puzzleSquares[i, j] = new Rectangle(
-                        sqPuzzleSquares[i, j]!.XCoord + i * ((int)UIConstants.SquareSpacer),
-                        sqPuzzleSquares[i, j]!.YCoord + j * ((int) UIConstants.SquareSpacer),
+                        sqPuzzleSquares[i, j]!.xCoord + i * ((int)UIConstants.SquareSpacer),
+                        sqPuzzleSquares[i, j]!.yCoord + j * ((int) UIConstants.SquareSpacer),
                         UIConstants.SquareWidth,
                         UIConstants.SquareHeight);
             

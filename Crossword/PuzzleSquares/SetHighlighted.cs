@@ -42,7 +42,7 @@ public sealed partial class Square
             default: //Something went wrong....
                 if (BackColour.Equals(UIConstants.SquareHighlightErr))
                 {
-                    //Console.WriteLine($"Bogus color: {highlightType}");
+                    Console.WriteLine($"Bogus color: {highlightType}");
                     BackColour = UIConstants.SquareHighlightErr;
                     IsDirty = true;
                 }

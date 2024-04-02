@@ -18,8 +18,8 @@ public sealed partial class Square
 {
     #region getters_setters
 
-    public int XCoord { get; set; }
-    public int YCoord { get; set; }
+    public int xCoord { get; set; }
+    public int yCoord { get; set; }
 
 
     public char Letter { get; set; }

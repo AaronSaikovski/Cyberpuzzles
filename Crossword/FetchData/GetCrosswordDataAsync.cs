@@ -25,11 +25,6 @@ public partial class FetchCrosswordData
         {
             logger.LogInformation("Start GetCrosswordDataAsync()");
 
-            // //Call the API to get the puzzledata....otherwise use default values
-            // try
-            // {
-            //logger.LogInformation("Start GetCrosswordDataAsync()");
-
             //call the API
             var apiResponse = await CallDataApiAsync();
 
@@ -43,8 +38,7 @@ public partial class FetchCrosswordData
         }
         finally
         {
-
-            logger.Dispose();
+            logger.Dispose();   
         }
     }
 

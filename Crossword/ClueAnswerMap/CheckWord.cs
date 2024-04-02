@@ -17,17 +17,10 @@ public sealed partial class ClueAnswer
         //     SqAnswerSquares?[i]?.CheckLetter(Answer[i]);
         // }
 
-        //Parallel.For(0, Answer.Length, i =>
-        for (var i = 0; i < Answer.Length; i++)
+        Parallel.For(0, Answer.Length, i =>
         {
             SqAnswerSquares?[i]?.CheckLetter(Answer[i]);
-        }
-
-
-        // Parallel.For(0, Answer.Length, i =>
-        // {
-        //     SqAnswerSquares?[i]?.CheckLetter(Answer[i]);
-        // });
+        });
     }
 
     #endregion

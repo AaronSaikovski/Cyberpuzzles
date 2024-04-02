@@ -27,24 +27,14 @@ public sealed partial class CrosswordMain
                     _szTmpGetLetters = _szTmpGetLetters[1..];
                     
                     //loop over hint letters
-                    // Parallel.For(0, NumQuestions, i =>
-                    // {
-                    //     var bTmpResult = caPuzzleClueAnswers[i].CheckHint(chHintLetter);
-                    //     if (bTmpResult)
-                    //     {
-                    //         hintSupplied = true;
-                    //     }
-                    // });
-
-                    for (var i=0;i<NumQuestions;i++)
+                    Parallel.For(0, NumQuestions, i =>
                     {
                         var bTmpResult = caPuzzleClueAnswers[i].CheckHint(chHintLetter);
                         if (bTmpResult)
                         {
                             hintSupplied = true;
                         }
-                    }
-                    
+                    });
                     count++;
                     if (_szGetLetters is not null && count == _szGetLetters.Length)
                         allHintLettersChecked = true;

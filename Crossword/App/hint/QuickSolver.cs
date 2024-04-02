@@ -38,15 +38,12 @@ public sealed partial class CrosswordMain
             //Increment the score if the answer is correct
             UpdateCrosswordScore();
 
-            for (var i = 0; i < NumQuestions; i++)
+            // for (var i = 0; i < NumQuestions; i++)
+            //     caPuzzleClueAnswers[i].CheckWord();
+            Parallel.For(0, NumQuestions, i =>
             {
                 caPuzzleClueAnswers[i].CheckWord();
-            }
-                
-            // Parallel.For(0, NumQuestions, i =>
-            // {
-            //     caPuzzleClueAnswers[i].CheckWord();
-            // });
+            });
 
             //If the crossword score == the number of questions, then it is the end of the game
             if (CrosswordScore == NumQuestions)

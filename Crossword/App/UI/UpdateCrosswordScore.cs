@@ -18,23 +18,16 @@ public sealed partial class CrosswordMain
         {
             logger.LogInformation("Start UpdateCrosswordScore()");
 
-            // Parallel.For(0, NumQuestions, i =>
-            // {
-            //     if (caPuzzleClueAnswers[i].IsCorrect())
-            //     {
-            //         Interlocked.Increment(ref CrosswordScore);
-            //     }
-            //
-            //     caPuzzleClueAnswers[i].CheckWord();
-            // });
-
-
-            for (var i=0;i<NumQuestions;i++)
+            Parallel.For(0, NumQuestions, i =>
             {
-                CrosswordScore++;
+                if (caPuzzleClueAnswers[i].IsCorrect())
+                {
+                    Interlocked.Increment(ref CrosswordScore);
+                }
 
                 caPuzzleClueAnswers[i].CheckWord();
-            }
+            });
+
 
             if (CrosswordScore == NumQuestions)
             {

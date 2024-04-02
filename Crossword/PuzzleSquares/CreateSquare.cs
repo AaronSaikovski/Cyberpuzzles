@@ -11,8 +11,8 @@ public sealed partial class Square
     /// <param name="yCoord"></param>
     public void CreateSquare(int xCoord, int yCoord)
     {
-        this.XCoord = xCoord;
-        this.YCoord = yCoord;
+        this.xCoord = xCoord;
+        this.yCoord = yCoord;
     }
 
     #endregion

@@ -17,5 +17,6 @@ public sealed partial class Square
         IsDirty = true;
         ForeColour = UIConstants.SquareHighlightDefault;
     }
+
     #endregion
 }

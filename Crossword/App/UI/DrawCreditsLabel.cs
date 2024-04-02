@@ -21,7 +21,7 @@ public sealed partial class CrosswordMain
             _creditsLabel.TextColor = UIConstants.CreditsColor;
             _creditsLabel.Left = rectCrossWord.Left;
             _creditsLabel.Font = _fntCredits;
-            _creditsLabel.Top = rectCrossWord.Bottom + UIConstants.ClListSpacer + UIConstants.SquareHeight + UIConstants.SquareHeight/2;
+            _creditsLabel.Top = rectCrossWord.Bottom + UIConstants.ClListSpacer + UIConstants.SquareHeight + (UIConstants.SquareHeight/2);
             _mainPanel.Widgets.Add(_creditsLabel);
         
         }
