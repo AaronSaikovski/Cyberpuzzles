@@ -9,10 +9,10 @@
     <LangVersion>12</LangVersion>
     <Nullable>enable</Nullable>
     <RootNamespace>Crossword</RootNamespace>
-    <AssemblyName>Crossword</AssemblyName>
     <Version></Version>
     <AssemblyVersion>1.0.2</AssemblyVersion>
     <FileVersion>1.0.2</FileVersion>
+    <PackageId>Crossword</PackageId>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>

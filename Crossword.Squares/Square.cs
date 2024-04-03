@@ -50,7 +50,9 @@ namespace Crossword.Squares;
 //     
 // }
 
-
+/// <summary>
+/// Square class
+/// </summary>
 public sealed partial class Square
 {
     public int xCoord { get; set; }
@@ -67,6 +69,14 @@ public sealed partial class Square
 
     public bool IsCharAllowed { get; set; }
     
+    /// <summary>
+    /// Class constructor
+    /// </summary>
+    /// <param name="xCoord"></param>
+    /// <param name="yCoord"></param>
+    /// <param name="letter"></param>
+    /// <param name="isDirty"></param>
+    /// <param name="isCharAllowed"></param>
     public Square(int xCoord, int yCoord, char letter, bool isDirty, bool isCharAllowed)
     {
         this.xCoord = xCoord;
@@ -75,7 +85,6 @@ public sealed partial class Square
         this.IsDirty = isDirty;
         this.IsCharAllowed = isCharAllowed;
     }
-    
 
 }
 
