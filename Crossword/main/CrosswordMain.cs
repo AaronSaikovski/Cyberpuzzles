@@ -1,7 +1,7 @@
 using System;
 using Crossword.ClueAnswerMap;
 using Crossword.Shared.Constants;
-using Crossword.EventHandlers;
+//using Crossword.EventHandlers;
 using Crossword.PuzzleSquares;
 using Crossword.Entities;
 using Crossword.Parser;

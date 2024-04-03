@@ -12,7 +12,7 @@
 using InputHandlers.Keyboard;
 using Microsoft.Xna.Framework.Input;
 
-namespace Crossword.EventHandlers;
+namespace Crossword.App;
 
 public class KeyboardInputHandler(App.CrosswordMain crosswordMain) : IKeyboardHandler
 {

@@ -12,7 +12,7 @@
 using InputHandlers.Mouse;
 using Microsoft.Xna.Framework.Input;
 
-namespace Crossword.EventHandlers;
+namespace Crossword.App;
 
 public class MouseInputHandler(App.CrosswordMain crosswordMain) : IMouseHandler
 {
