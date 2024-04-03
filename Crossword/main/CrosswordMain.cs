@@ -36,9 +36,6 @@ namespace Crossword.App;
         private bool PuzzleFinished;
         private bool SetFinished;
 
-        //Next Puzzle is currently unavailable flag
-        //private bool IsNextPuzzleReady = true;
-
         //String for Puzzle ID of last puzzle in set
         private string? PuzzleData;
 
@@ -58,7 +55,6 @@ namespace Crossword.App;
         private int[] _nCosts = [0, 0, 0, 0, 0, 0];
         private string? _szGetLetters;
         private string? _szTmpGetLetters;
-        //private string? _szBlurb;
         private int NumQuestions;
 
         //Puzzle Dataset instance
@@ -70,56 +66,29 @@ namespace Crossword.App;
         //ClueAnswerMap Instance variable
         private ClueAnswer[] caPuzzleClueAnswers;
 
-        //Highlight Constants
-        // private readonly int CurrentLetter = 1;
-        // private readonly int CurrentWord = 2;
-        // private readonly int CurrentNone = 3;
-
-        //CrosswordMain.Application dimension constants
-        // private readonly int MaxCrossWidth = 291;
-        // private readonly int MaxCrossHeight = 291;
 
         //string[,] strGuesses = null;
         private Square? SqCurrentSquare;
 
         public bool IsFinished;
 
-        //Square width and height constants
-        // private static readonly int SquareWidth;
-        // private static readonly int SquareHeight;
-
-        //X and Y Offsets for the square's answer number.
-        //private int NXnumOffset = 2, NYnumOffset = 9;
-
+   
 
         //Status of row/column orientation (Across or Down)
         private bool IsAcross = true;
 
-        //Mouse Coords
-        public int NMouseX;
-        public int NMouseY;
 
-        //Tab key variable
-        //private readonly int NTabPress;
-
-        //Scoring variable
-        //private int Score;
 
 
         //Component focus variable
         private int FocusState;
 
-        //mouseMove String
-        //private readonly string PuzzleTitle;
 
-        //Number of times Hint has been accessed by the user
-        //int nUserHintPress;
 
         // CrosswordMain.Application score
         private int CrosswordScore;
 
-        //More puzzles in set boolean flag
-        //private bool _bMorePuzzles;
+
 
         //Parser class
         private CrosswordParser _crosswordParser;
@@ -145,6 +114,8 @@ namespace Crossword.App;
         //list boxes
         private ListBox LstClueAcross;
         private ListBox LstClueDown;
+        // private ListView LstClueAcross;
+        // private ListView LstClueDown;
 
         //Panel for UI
         private Panel _mainPanel;
@@ -161,7 +132,6 @@ namespace Crossword.App;
 
         // Define a color for the rectangles
         private readonly Color _rectangleColor = Color.White;
-        //private Color _rectangleBlack = Color.Black;
         private Texture2D _blackTexture;
 
         //Fonts
@@ -192,17 +162,13 @@ namespace Crossword.App;
         //Rectangle variable
         public Rectangle rectCrossWord;
 
-        //Hint LinkButton
-        //private TextButton HintButton;
-
-        //Get Next Puzzle LinkButton
-       // private TextButton GetNextPuzzleButton;
+  
 
 
         //CrosswordMain.Application Width and Height variables
         private int _nCrosswordWidth;
         private int _nCrosswordHeight;
-        //private readonly int _nCrosswordOffset = 6;
+
 
         //Offset constants
         //private readonly int _nCrossBorderWidth = 3;

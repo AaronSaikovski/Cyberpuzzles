@@ -77,6 +77,15 @@ public sealed partial class CrosswordMain
                 SelectionMode = SelectionMode.Single,
                 Height = UIConstants.ClListboxHeight
             };
+            // LstClueDown = new ListView
+            // {
+            //     Left = rectCrossWord.Right + UIConstants.MainOffsetY,
+            //     Top = UIConstants.ClListboxHeight + UIConstants.ClLabelHeight + UIConstants.ClListSpacer * 2 +
+            //           UIConstants.ClLabelHeight,
+            //     AcceptsKeyboardFocus = true,
+            //     SelectionMode = SelectionMode.Single,
+            //     Height = UIConstants.ClListboxHeight
+            // };
 
             //set the font
             LstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
@@ -123,6 +132,14 @@ public sealed partial class CrosswordMain
                 SelectionMode = SelectionMode.Single,
                 Height = UIConstants.ClListboxHeight
             };
+            // LstClueAcross = new ListView
+            // {
+            //     Left = rectCrossWord.Right + UIConstants.MainOffsetX,
+            //     Top = UIConstants.MainOffsetY,
+            //     AcceptsKeyboardFocus = true,
+            //     SelectionMode = SelectionMode.Single,
+            //     Height = UIConstants.ClListboxHeight
+            // };
 
             //set the font
             LstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
