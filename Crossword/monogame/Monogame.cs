@@ -101,10 +101,10 @@ public sealed partial class CrosswordMain
                 
             //update game logic
             UpdateCrosswordScore();
-            DrawCrosswordScore();
+            DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel);
 
             //draw the credits
-            DrawCreditsLabel();
+            DrawCreditsLabel(_mainPanel, _creditsLabel);
             
             base.Update(gameTime);
         
