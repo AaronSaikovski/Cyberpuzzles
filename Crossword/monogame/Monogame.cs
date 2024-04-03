@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Input;
 using Myra;
 using Myra.Graphics2D.UI;
 
-
+using Crossword.UI;
 
 namespace Crossword.App;
 
@@ -101,10 +101,13 @@ public sealed partial class CrosswordMain
                 
             //update game logic
             UpdateCrosswordScore();
-            DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel);
+            //DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel);
+            CrosswordUI.DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel, IsFinished, CrosswordScore,
+                NumQuestions, _fntScore, rectCrossWord.Bottom);
 
             //draw the credits
-            DrawCreditsLabel(_mainPanel, _creditsLabel);
+            //DrawCreditsLabel(_mainPanel, _creditsLabel);
+            CrosswordUI.DrawCreditsLabel(_mainPanel,_creditsLabel,rectCrossWord.Left,rectCrossWord.Bottom,_fntCredits);
             
             base.Update(gameTime);
         

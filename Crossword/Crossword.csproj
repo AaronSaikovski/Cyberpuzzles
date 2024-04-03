@@ -88,6 +88,7 @@
     <ProjectReference Include="..\Crossword.Parser\Crossword.Parser.csproj" />
     <ProjectReference Include="..\Crossword.Puzzle\Crossword.Puzzle.csproj" />
     <ProjectReference Include="..\Crossword.Shared\Crossword.Shared.csproj" />
+    <ProjectReference Include="..\Crossword.UI\Crossword.UI.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Extensions.Configuration">

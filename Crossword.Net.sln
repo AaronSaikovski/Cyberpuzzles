@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Data", "Crossword
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Puzzle", "Crossword.Puzzle\Crossword.Puzzle.csproj", "{96B22047-3AAC-44ED-B501-DD8894083A3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.UI", "Crossword.UI\Crossword.UI.csproj", "{81CBCB4A-2F37-42DF-B001-6E5EEFBC1C14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{96B22047-3AAC-44ED-B501-DD8894083A3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96B22047-3AAC-44ED-B501-DD8894083A3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96B22047-3AAC-44ED-B501-DD8894083A3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81CBCB4A-2F37-42DF-B001-6E5EEFBC1C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81CBCB4A-2F37-42DF-B001-6E5EEFBC1C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81CBCB4A-2F37-42DF-B001-6E5EEFBC1C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81CBCB4A-2F37-42DF-B001-6E5EEFBC1C14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
