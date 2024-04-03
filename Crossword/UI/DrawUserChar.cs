@@ -21,7 +21,7 @@ public sealed partial class CrosswordMain
             logger.LogInformation("Start DrawUserChar()");
 
             //check for null
-            if (sqPuzzleSquares[i, j] != null && _puzzleSquares[i, j] != null)
+            if (_puzzleSquares != null && sqPuzzleSquares[i, j] != null && _puzzleSquares[i, j] != null)
             {
                 //Char entered by user.
                 _spriteBatch.DrawString(_fntFont, char.ToUpper(sqPuzzleSquares[i, j].Letter).ToString(),

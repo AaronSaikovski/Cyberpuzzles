@@ -44,7 +44,7 @@ namespace Crossword.App;
 
         //Repaint variables
         private bool bBufferDirty;
-        public bool InitCrossword;
+        private bool InitCrossword;
 
         //Image imBackBuffer;
         private bool NewBackFlush;
@@ -58,7 +58,7 @@ namespace Crossword.App;
         private int[] _nCosts = [0, 0, 0, 0, 0, 0];
         private string? _szGetLetters;
         private string? _szTmpGetLetters;
-        private string? _szBlurb;
+        //private string? _szBlurb;
         private int NumQuestions;
 
         //Puzzle Dataset instance

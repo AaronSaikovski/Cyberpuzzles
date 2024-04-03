@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Crossword.App;
 
-public class KeyboardInputHandler(App.CrosswordMain crosswordMain) : IKeyboardHandler
+public class KeyboardInputHandler(CrosswordMain crosswordMain) : IKeyboardHandler
 {
     #region Keyboard_Input_Handler
 

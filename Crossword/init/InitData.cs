@@ -28,7 +28,7 @@ public sealed partial class CrosswordMain
             _szTmpGetLetters = _mrParserData?.GetLetters;
 
             //Initialise Blurb
-            _szBlurb = _mrParserData?.Blurb;
+            //_szBlurb = _mrParserData?.Blurb;
 
             //Initialise dimension variables
             _nCrosswordWidth = _NumCols * (UIConstants.SquareWidth + (int)UIConstants.SquareSpacer);

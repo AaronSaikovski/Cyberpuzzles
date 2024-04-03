@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Threading.Tasks;
 using Crossword.Entities;
-using Crossword.Entities;
 using Crossword.Parser;
 
 using Crossword.Data;
