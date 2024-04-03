@@ -22,8 +22,8 @@ namespace Crossword.Squares;
 //
 //     public bool IsCharAllowed { get; set; }
 //
-//     // public ClueAnswer? ClueAnswerAcross { get; set; }
-//     // public ClueAnswer? ClueAnswerDown { get; set; }
+//     // public ClueAnswerMap? ClueAnswerAcross { get; set; }
+//     // public ClueAnswerMap? ClueAnswerDown { get; set; }
 //
 //     #endregion
 //

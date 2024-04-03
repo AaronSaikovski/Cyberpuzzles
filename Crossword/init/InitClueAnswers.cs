@@ -1,6 +1,6 @@
 using System;
-using Crossword.ClueAnswerMap;
-using Crossword.PuzzleSquares;
+using Crossword.Puzzle.ClueAnswerMap;
+using Crossword.Puzzle.Squares;
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
 

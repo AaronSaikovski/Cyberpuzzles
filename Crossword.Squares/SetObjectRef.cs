@@ -13,7 +13,7 @@
 //     /// </summary>
 //     /// <param name="isAcross"></param>
 //     /// <param name="clueAnswer"></param>
-//     public void SetObjectRef(bool isAcross, ClueAnswer clueAnswer)
+//     public void SetObjectRef(bool isAcross, ClueAnswerMap clueAnswer)
 //     {
 //         ArgumentNullException.ThrowIfNull(clueAnswer);
 //         

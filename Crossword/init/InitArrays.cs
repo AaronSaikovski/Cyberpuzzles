@@ -1,5 +1,5 @@
 using System;
-using Crossword.PuzzleSquares;
+using Crossword.Puzzle.Squares;
 using Crossword.Shared.Constants;
 
 namespace Crossword.App;

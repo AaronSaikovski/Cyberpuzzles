@@ -11,7 +11,7 @@
 //     /// </summary>
 //     /// <param name="isAcross"></param>
 //     /// <returns></returns>
-//     public ClueAnswer? GetClueAnswerRef(bool isAcross)
+//     public ClueAnswerMap? GetClueAnswerRef(bool isAcross)
 //     {
 //         return isAcross ? ClueAnswerAcross : ClueAnswerDown;
 //     }

@@ -1,10 +1,8 @@
 using System;
 using Crossword.Entities;
-using Crossword.ClueAnswerMap;
+using Crossword.Puzzle.ClueAnswerMap;
+using Crossword.Puzzle.Squares;
 using Crossword.Shared.Constants;
-//using Crossword.App.EventHandlers;
-using Crossword.PuzzleSquares;
-using Crossword.Entities;
 using Crossword.Parser;
 using FontStashSharp;
 using InputHandlers.Keyboard;
