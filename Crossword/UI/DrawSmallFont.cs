@@ -2,6 +2,7 @@ using System;
 using Crossword.Shared.Constants;
 using FontStashSharp;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Crossword.App;
 
@@ -33,6 +34,26 @@ public sealed partial class CrosswordMain
             throw;
         }
     }
+    
+    // private void DrawSmallFontAcross(SpriteBatch spriteBatch, Square sqPuzzleSquare, Rectangle? puzzleSquare)
+    // {
+    //     try
+    //     {
+    //         //logger.LogInformation("Start DrawSmallFontAcross()");
+    //         if (sqPuzzleSquare.ClueAnswerAcross is null) return;
+    //         if (sqPuzzleSquare.ClueAnswerAcross?.SqAnswerSquares?[0] != sqPuzzleSquare) return;
+    //         if (puzzleSquare is not null)
+    //             spriteBatch.DrawString(_fntnumFont,
+    //                 sqPuzzleSquare.ClueAnswerAcross?.QuestionNumber.ToString(),
+    //                 new Vector2(puzzleSquare.X + UIConstants.SmlNumOffsetX,
+    //                     puzzleSquare.Y + UIConstants.SmlNumOffsetY), UIConstants.SmallFontColor);
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         logger.LogError(ex, ex.Message);
+    //         throw;
+    //     }
+    // }
 
     /// <summary>
     /// Draws small font Down
