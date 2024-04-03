@@ -96,13 +96,6 @@ public sealed partial class CrosswordMain
                 clueAnswerIdx = k;
                 break;
             }
-            
-            // Parallel.For(0, NumQuestions, (k, loopState) =>
-            // {
-            //     if (tmp != caPuzzleClueAnswers[k]) return;
-            //     clueAnswerIdx = k;
-            //     loopState.Break();
-            // });
 
             //Selects the item in the list box relative to the ClueAnswerMap
             //and the orientation.

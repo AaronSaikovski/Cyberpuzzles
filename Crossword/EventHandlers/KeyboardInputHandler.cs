@@ -18,7 +18,7 @@ public class KeyboardInputHandler(App.CrosswordMain crosswordMain) : IKeyboardHa
 {
     #region Keyboard_Input_Handler
 
-    //CrosswordMain.Application instance
+
 
     public void HandleKeyboardKeyDown(Keys[] keysDown, Keys keyInFocus, KeyboardModifier keyboardModifier)
     {
