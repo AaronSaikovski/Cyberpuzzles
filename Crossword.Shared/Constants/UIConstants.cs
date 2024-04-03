@@ -7,7 +7,7 @@ namespace Crossword.Shared.Constants;
 /// <summary>
 /// UI Constants
 /// </summary>
-public sealed class UIConstants
+public static class UIConstants
 {
     
     //Crossword dimension constants

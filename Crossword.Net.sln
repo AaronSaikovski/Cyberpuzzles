@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Shared", "Crosswo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Parser", "Crossword.Parser\Crossword.Parser.csproj", "{2FE9007A-7C46-48AD-86A5-FCADA1AA2D34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crosssword.Entities", "Crosssword.Entities\Crosssword.Entities.csproj", "{629F5D51-C8E0-4C64-BE84-48C5DB565FA8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Entities", "Crossword.Entities\Crossword.Entities.csproj", "{629F5D51-C8E0-4C64-BE84-48C5DB565FA8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossword.Data", "Crossword.Data\Crossword.Data.csproj", "{08FAF8BC-DBEA-4FCF-9BF9-B2B3E8FD1122}"
 EndProject

@@ -1,6 +1,4 @@
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
+
 using Crossword.Shared.Config;
 using Crossword.Shared.Logger;
 using Crossword.Shared.Constants;

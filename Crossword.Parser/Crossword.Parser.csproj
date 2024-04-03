@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Crosssword.Entities\Crosssword.Entities.csproj" />
+      <ProjectReference Include="..\Crossword.Entities\Crossword.Entities.csproj" />
       <ProjectReference Include="..\Crossword.Shared\Crossword.Shared.csproj" />
     </ItemGroup>
 

@@ -1,4 +1,5 @@
 using System;
+using Crossword.Entities;
 using Crossword.ClueAnswerMap;
 using Crossword.Shared.Constants;
 //using Crossword.App.EventHandlers;
