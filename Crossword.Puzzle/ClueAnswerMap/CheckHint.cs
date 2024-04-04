@@ -27,7 +27,8 @@ public sealed partial class ClueAnswer
         {
             if (SqAnswerSquares is null || Answer[i] != hintLetter ||
                 SqAnswerSquares[i]!.Letter == hintLetter) return;
-            SqAnswerSquares[i]?.SetLetter(hintLetter, IsAcross);
+            //SqAnswerSquares[i]?.SetLetter(hintLetter, IsAcross);
+            SqAnswerSquares[i]?.SetLetter(hintLetter);
             foundResult = true;
         });
 

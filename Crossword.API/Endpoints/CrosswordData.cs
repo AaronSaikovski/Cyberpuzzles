@@ -1,3 +1,5 @@
+using Crossword.API.Data;
+
 namespace Crossword.API.Endpoints;
 
 public static class CrosswordData

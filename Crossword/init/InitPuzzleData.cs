@@ -29,7 +29,8 @@ public sealed partial class CrosswordApp
                 try
                 {
                     // Await the asynchronous method inside Task.Run
-                    return await FetchCrosswordData.GetCrosswordDataAsync();
+                    //return await FetchCrosswordData.GetCrosswordDataAsync();
+                    return await GetPuzzleDataAsync.GetCrosswordDataAsync();
                 }
                 catch (Exception ex)
                 {

@@ -6,7 +6,7 @@ using Myra.Graphics2D.UI;
 
 namespace Crossword.UI;
 
-public static partial class CrosswordUI
+public static partial class CrosswordUi
 {
     #region DrawCrosswordScore
     

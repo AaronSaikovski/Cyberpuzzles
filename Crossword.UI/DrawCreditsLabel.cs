@@ -1,4 +1,3 @@
-using System;
 
 using Crossword.Shared.Constants;
 using FontStashSharp;
@@ -6,7 +5,7 @@ using Myra.Graphics2D.UI;
 
 namespace Crossword.UI;
 
-public static partial class CrosswordUI
+public static partial class CrosswordUi
 {
     #region DrawCreditsLabel
     

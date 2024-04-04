@@ -2,7 +2,7 @@
 
 using Crossword.Shared.Constants;
 
-namespace Crossword.API;
+namespace Crossword.API.Middleware;
 
 public class ApiKeyMiddleware(RequestDelegate next)
 {
