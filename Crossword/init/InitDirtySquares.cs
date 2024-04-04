@@ -6,7 +6,7 @@ namespace Crossword.App;
 /// <summary>
 /// Main Crossword App
 /// </summary>
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region InitDirtySquares
 

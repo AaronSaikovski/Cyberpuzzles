@@ -6,7 +6,7 @@ using Myra.Graphics2D.UI;
 using Crossword.Entities;
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region InitControls
 

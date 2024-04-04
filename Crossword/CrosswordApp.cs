@@ -26,7 +26,7 @@ using Crossword.Shared.Config;
 
 namespace Crossword.App;
 
-    public sealed partial class CrosswordMain : Game
+    public sealed partial class CrosswordApp : Game
     {
         #region Fields       
 
@@ -83,7 +83,7 @@ namespace Crossword.App;
 
 
 
-        // CrosswordMain.Application score
+        // CrosswordApp.Application score
         private int CrosswordScore;
 
 
@@ -95,7 +95,7 @@ namespace Crossword.App;
         private CrosswordData? _mrParserData;
         
 
-        //Images to use forx CrosswordMain.Application squares
+        //Images to use forx CrosswordApp.Application squares
         private Texture2D _imgSquareWord;
         private Texture2D _imgHighliteSquare;
         private Texture2D _imgNormalSquare;
@@ -135,7 +135,7 @@ namespace Crossword.App;
         //Fonts
         private DynamicSpriteFont _fntnumFont;   //small number font
         private DynamicSpriteFont _fntFont;      //Char entered by user.
-        private DynamicSpriteFont _fntScore;     //CrosswordMain.Application score
+        private DynamicSpriteFont _fntScore;     //CrosswordApp.Application score
         private DynamicSpriteFont _fntListhead;  //Across/Down listbox Headers
         private DynamicSpriteFont _fntListFont;  // ListBox font
         private DynamicSpriteFont _fntCredits;  // Credits
@@ -156,14 +156,14 @@ namespace Crossword.App;
         private Label _clueDownLabel;
         private Label _creditsLabel;
 
-        //CrosswordMain.Application Rectangles for mouse handling
+        //CrosswordApp.Application Rectangles for mouse handling
         //Rectangle variable
         public Rectangle rectCrossWord;
 
   
 
 
-        //CrosswordMain.Application Width and Height variables
+        //CrosswordApp.Application Width and Height variables
         private int _nCrosswordWidth;
         private int _nCrosswordHeight;
 
@@ -181,7 +181,7 @@ namespace Crossword.App;
 
         #region main_constructor
         // Main crossword constructor
-        public CrosswordMain()
+        public CrosswordApp()
         {
             //Init the logger and get the active config
             logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);

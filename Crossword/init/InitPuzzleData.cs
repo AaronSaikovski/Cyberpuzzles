@@ -9,7 +9,7 @@ using Crossword.Data;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
 
     #region GetPuzzleDataASync

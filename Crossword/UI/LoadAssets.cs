@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region LoadImages
     /// <summary>
@@ -64,7 +64,7 @@ public sealed partial class CrosswordMain
             //Char entered by user.    
             _fntFont = fntHelveticaBoldSystem.GetFont(UIConstants.FntLge);
 
-            //CrosswordMain.Application score      
+            //CrosswordApp.Application score      
             _fntScore = fntHelveticaBoldSystem.GetFont(UIConstants.FntLge);
 
             //Across/Down listbox Headers

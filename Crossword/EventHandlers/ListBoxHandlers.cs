@@ -3,7 +3,7 @@ using System;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
 
     #region SelChangeListClueAcross

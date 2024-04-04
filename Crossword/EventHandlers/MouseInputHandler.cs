@@ -4,7 +4,7 @@
 //      Authors:    Aaron Saikovski                                       //
 //      Date:       31/10/2023                                            //
 //      Version:    1.0                                                   //
-//      Purpose:    Generic crosswordMain mouse handler.                      //
+//      Purpose:    Generic crosswordApp mouse handler.                      //
 //      Ref:        https://github.com/DavidFidge/InputHandlers           //
 //                                                                        //
 ////////////////////////////////////////////////////////////////////////////
@@ -14,11 +14,11 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Crossword.App;
 
-public class MouseInputHandler(CrosswordMain crosswordMain) : IMouseHandler
+public class MouseInputHandler(CrosswordApp crosswordApp) : IMouseHandler
 {
     #region Mouse_Input_Handler
 
-    //CrosswordMain.Application instance
+    //CrosswordApp.Application instance
 
     public void HandleLeftMouseClick(MouseState mouseState, MouseState origin)
     {
@@ -49,10 +49,10 @@ public class MouseInputHandler(CrosswordMain crosswordMain) : IMouseHandler
     public void HandleLeftMouseUp(MouseState mouseState, MouseState origin)
     {
         //Check if the mouse action is inside the main rect
-        if (crosswordMain.rectCrossWord.Contains(origin.Position))
+        if (crosswordApp.rectCrossWord.Contains(origin.Position))
         {
             //Console.WriteLine("Inside rect!");
-            crosswordMain.MouseUp(origin.X, origin.Y);
+            crosswordApp.MouseUp(origin.X, origin.Y);
         }
     }
 

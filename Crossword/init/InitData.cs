@@ -5,11 +5,11 @@ using Crossword.Shared.Constants;
 namespace Crossword.App;
 
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region InitData
     /// <summary>
-    /// Inits the CrosswordMain.Application data
+    /// Inits the CrosswordApp.Application data
     /// </summary>
     private void InitData()
     {
