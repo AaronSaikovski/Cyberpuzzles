@@ -16,4 +16,8 @@
 
 - Major solution and project restructure to follow a more Clean architecture and easier to follow decoupled object hierarchy.
 - Refactored for performance and better memory usage.
+
+## v1.0.0-Beta3 2024-XX-XX)
+
+-
 -
