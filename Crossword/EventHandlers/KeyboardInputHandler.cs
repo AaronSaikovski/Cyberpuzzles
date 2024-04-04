@@ -12,13 +12,13 @@
 using InputHandlers.Keyboard;
 using Microsoft.Xna.Framework.Input;
 
-namespace Crossword.EventHandlers;
+namespace Crossword.App;
 
-public class KeyboardInputHandler(App.CrosswordMain crosswordMain) : IKeyboardHandler
+public class KeyboardInputHandler(CrosswordMain crosswordMain) : IKeyboardHandler
 {
     #region Keyboard_Input_Handler
 
-    //CrosswordMain.Application instance
+
 
     public void HandleKeyboardKeyDown(Keys[] keysDown, Keys keyInFocus, KeyboardModifier keyboardModifier)
     {
