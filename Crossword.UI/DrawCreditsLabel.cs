@@ -20,22 +20,30 @@ public static partial class CrosswordUI
     /// <param name="labelFont"></param>
     public static void DrawCreditsLabel(Panel mainPanel, Label creditsLabel, int posLeft, int posBottom, DynamicSpriteFont labelFont)
     {
-        try
-        {
-            //Max score label
-            mainPanel.Widgets.Remove(creditsLabel);
-            creditsLabel.Text = GameConstants.CreditsText;
-            creditsLabel.TextColor = UIConstants.CreditsColor;
-            creditsLabel.Left = posLeft;
-            creditsLabel.Font = labelFont;
-            creditsLabel.Top = posBottom + UIConstants.ClListSpacer + UIConstants.SquareHeight + UIConstants.SquareHeight/2;
-            mainPanel.Widgets.Add(creditsLabel);
-        
-        }
-        catch (Exception ex)
-        {
-            throw;
-        }
+        // try
+        // {
+        //     //Max score label
+        //     mainPanel.Widgets.Remove(creditsLabel);
+        //     creditsLabel.Text = GameConstants.CreditsText;
+        //     creditsLabel.TextColor = UIConstants.CreditsColor;
+        //     creditsLabel.Left = posLeft;
+        //     creditsLabel.Font = labelFont;
+        //     creditsLabel.Top = posBottom + UIConstants.ClListSpacer + UIConstants.SquareHeight + UIConstants.SquareHeight/2;
+        //     mainPanel.Widgets.Add(creditsLabel);
+        //
+        // }
+        // catch (Exception ex)
+        // {
+        //     throw;
+        // }
+        //Max score label
+        mainPanel.Widgets.Remove(creditsLabel);
+        creditsLabel.Text = GameConstants.CreditsText;
+        creditsLabel.TextColor = UIConstants.CreditsColor;
+        creditsLabel.Left = posLeft;
+        creditsLabel.Font = labelFont;
+        creditsLabel.Top = posBottom + UIConstants.ClListSpacer + UIConstants.SquareHeight + UIConstants.SquareHeight/2;
+        mainPanel.Widgets.Add(creditsLabel);
     }
     
     #endregion
