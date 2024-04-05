@@ -79,8 +79,8 @@ public static class UiConstants
     public static Color CreditsColor = Color.Black;
 
     //Button colours
-    public static Color ButtonTextColor = Color.White;
-    public static Color ButtonHoverTextColor = Color.Yellow;
+    //public static Color ButtonTextColor = Color.White;
+    //public static Color ButtonHoverTextColor = Color.Yellow;
 
 
     //Listbox text colors

@@ -9,11 +9,11 @@ public sealed class CrosswordData
     public string? PuzzleType { get; set; }
     public int NumCols { get; set; }
     public int NumRows { get; set; }
-    // public int NumAcross { get; set; }
-    // public int NumDown { get; set; }
+    public int NumAcross { get; set; }
+    public int NumDown { get; set; }
 
-    public int NumAcross { get; }
-    public int NumDown { get; }
+    //public int NumAcross { get; }
+    //public int NumDown { get; }
     public int PuzzleId { get; set; }
     public int[]? ColRef { get; set; }
     public int[]? RowRef { get; set; }

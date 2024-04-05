@@ -16,5 +16,5 @@ public enum HighlightSquare
     /// <summary>
     /// Current None
     /// </summary>
-    CurrentNone = 3,
+    CurrentNone = 3
 }

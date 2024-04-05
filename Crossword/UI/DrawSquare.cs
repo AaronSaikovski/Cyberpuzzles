@@ -1,9 +1,7 @@
 
-using Crossword.Puzzle.Squares;
+
 using Crossword.Shared.Constants;
-using Crossword.Shared.enums;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+
 
 namespace Crossword.App;
 
