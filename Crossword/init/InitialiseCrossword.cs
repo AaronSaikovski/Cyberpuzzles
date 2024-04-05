@@ -18,11 +18,11 @@ public sealed partial class CrosswordApp
             logger.LogInformation("Start BuildCrossword()");
             
             //Init squares
-            sqPuzzleSquares = new Square[_NumRows, _NumCols];
+            _sqPuzzleSquares = new Square[_NumRows, _NumCols];
             _puzzleSquares = new Rectangle[_NumRows, _NumCols];
 
             //Init ClueAnswers
-            caPuzzleClueAnswers = new ClueAnswer[NumQuestions]; 
+            _caPuzzleClueAnswers = new ClueAnswer[_numQuestions]; 
 
             //Initialise the arrays
             InitArrays();

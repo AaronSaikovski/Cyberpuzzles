@@ -103,7 +103,7 @@ public sealed partial class CrosswordApp
             UpdateCrosswordScore();
             //DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel);
             CrosswordUi.DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel, IsFinished, CrosswordScore,
-                NumQuestions, _fntScore, rectCrossWord.Bottom);
+                _numQuestions, _fntScore, rectCrossWord.Bottom);
 
             //draw the credits
             //DrawCreditsLabel(_mainPanel, _creditsLabel);

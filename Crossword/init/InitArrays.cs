@@ -23,17 +23,17 @@ public sealed partial class CrosswordApp
                 //loop over columns
                 for (var j = 0; j < _NumCols; j++)
                 {
-                    if (sqPuzzleSquares is null) continue;
-                    sqPuzzleSquares[i, j] = new Square();
+                    if (_sqPuzzleSquares is null) continue;
+                    _sqPuzzleSquares[i, j] = new Square();
 
                     //Set SQs to dirty
                     if (NewBackFlush || InitCrossword)
                     {
-                        sqPuzzleSquares[i, j]!.IsDirty = true;
+                        _sqPuzzleSquares[i, j]!.IsDirty = true;
                     }
 
                     //Create squares
-                    sqPuzzleSquares[i, j]
+                    _sqPuzzleSquares[i, j]
                         ?.CreateSquare(nCrossOffsetX + i * UiConstants.SquareWidth,
                             nCrossOffsetY + j * UiConstants.SquareHeight);
                 }

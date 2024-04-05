@@ -20,11 +20,11 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start DrawSmallFontAcross()");
-            if (sqPuzzleSquares[i, j]?.ClueAnswerAcross is null) return;
-            if (sqPuzzleSquares[i, j]?.ClueAnswerAcross?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
+            if (_sqPuzzleSquares[i, j]?.ClueAnswerAcross is null) return;
+            if (_sqPuzzleSquares[i, j]?.ClueAnswerAcross?.SqAnswerSquares?[0] != _sqPuzzleSquares[i, j]) return;
             if (_puzzleSquares is not null)
                 _spriteBatch.DrawString(_fntnumFont,
-                    sqPuzzleSquares[i, j]?.ClueAnswerAcross?.QuestionNumber.ToString(),
+                    _sqPuzzleSquares[i, j]?.ClueAnswerAcross?.QuestionNumber.ToString(),
                     new Vector2(_puzzleSquares[i, j].X + UiConstants.SmlNumOffsetX,
                         _puzzleSquares[i, j].Y + UiConstants.SmlNumOffsetY), UiConstants.SmallFontColor);
         }
@@ -66,10 +66,10 @@ public sealed partial class CrosswordApp
         {
             logger.LogInformation("Start DrawSmallFontDown()");
 
-            if (sqPuzzleSquares?[i, j].ClueAnswerDown is null) return;
-            if (sqPuzzleSquares?[i, j].ClueAnswerDown?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
+            if (_sqPuzzleSquares?[i, j].ClueAnswerDown is null) return;
+            if (_sqPuzzleSquares?[i, j].ClueAnswerDown?.SqAnswerSquares?[0] != _sqPuzzleSquares[i, j]) return;
             _spriteBatch.DrawString(_fntnumFont,
-                sqPuzzleSquares[i, j]?.ClueAnswerDown?.QuestionNumber.ToString(),
+                _sqPuzzleSquares[i, j]?.ClueAnswerDown?.QuestionNumber.ToString(),
                 new Vector2(_puzzleSquares[i, j].X + UiConstants.SmlNumOffsetX,
                     _puzzleSquares[i, j].Y + UiConstants.SmlNumOffsetY), UiConstants.SmallFontColor);
         }

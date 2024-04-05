@@ -24,7 +24,7 @@ public sealed partial class CrosswordApp
             {
                 Parallel.For(0, _NumCols, j =>
                 {
-                    sqPuzzleSquares[i, j]!.IsDirty = true;
+                    _sqPuzzleSquares[i, j]!.IsDirty = true;
                 });
             });
         }

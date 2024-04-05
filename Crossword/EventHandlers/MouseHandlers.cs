@@ -33,12 +33,12 @@ public sealed partial class CrosswordApp
         try
         {
             //Exception handling added as an ArrayIndexOutOfBoundException occurs
-            var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / UiConstants.SquareWidth, (y - nCrossOffsetY) / UiConstants.SquareHeight];
+            var sqSelSquare = _sqPuzzleSquares[(x - nCrossOffsetX) / UiConstants.SquareWidth, (y - nCrossOffsetY) / UiConstants.SquareHeight];
 
             if (sqSelSquare is { IsCharAllowed: false }) return true;
             
             //clear current highlights
-            SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
+            _sqCurrentSquare?.GetClueAnswerRef(_isAcross)?.HighlightSquares(_sqCurrentSquare, false);
 
             //Deselect the listbox based on direction
             DeselectListBoxItem();
@@ -79,7 +79,7 @@ public sealed partial class CrosswordApp
             logger.LogInformation("Start DeselectListBoxItem()");
             
             //Deselect the listbox based on direction
-            if (!IsAcross)
+            if (!_isAcross)
                 LstClueDown.SelectedIndex = 0;
             else
                 LstClueAcross.SelectedIndex = 0;
@@ -105,7 +105,7 @@ public sealed partial class CrosswordApp
             logger.LogInformation("Start SetListBoxClueAnswer()");
             
             //Selects the item in the list box relative to ClueAnswerMap and direction
-            if (IsAcross)
+            if (_isAcross)
                 LstClueAcross.SelectedIndex = clueAnswerIdx;
             else
                 LstClueDown.SelectedIndex = clueAnswerIdx - LstClueAcross.Items.Count;
@@ -133,8 +133,8 @@ public sealed partial class CrosswordApp
             ArgumentNullException.ThrowIfNull(sqSelSquare);
             
             //set new current sq & highlight t
-            SqCurrentSquare = sqSelSquare;
-            SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
+            _sqCurrentSquare = sqSelSquare;
+            _sqCurrentSquare?.GetClueAnswerRef(_isAcross)?.HighlightSquares(_sqCurrentSquare, true);
         }
         catch (Exception ex)
         {
@@ -160,12 +160,12 @@ public sealed partial class CrosswordApp
             ArgumentNullException.ThrowIfNull(sqSelSquare);
             
             //Find index to Clue Answer for highlighting in List boxes
-            var tmpClueAnswer = sqSelSquare?.GetClueAnswerRef(IsAcross);
+            var tmpClueAnswer = sqSelSquare?.GetClueAnswerRef(_isAcross);
             var clueAnswerIdx = 0;
         
-            Parallel.For(0, NumQuestions, (k, loopState) =>
+            Parallel.For(0, _numQuestions, (k, loopState) =>
             {
-                if (tmpClueAnswer == caPuzzleClueAnswers[k]) loopState.Stop();
+                if (tmpClueAnswer == _caPuzzleClueAnswers[k]) loopState.Stop();
                 clueAnswerIdx = k;
                 loopState.Stop();
             });
@@ -196,20 +196,20 @@ public sealed partial class CrosswordApp
             ArgumentNullException.ThrowIfNull(sqSelSquare);
             
             //test if same sq and flip if possible
-            if (sqSelSquare != SqCurrentSquare)
+            if (sqSelSquare != _sqCurrentSquare)
             {
-                switch (IsAcross)
+                switch (_isAcross)
                 {
                     case true when sqSelSquare.ClueAnswerAcross is null:
                     case false when sqSelSquare.ClueAnswerDown is null:
-                        IsAcross = !IsAcross;
+                        _isAcross = !_isAcross;
                         break;
                 }
             }
             else
             {
-                if (sqSelSquare.CanFlipDirection(IsAcross))
-                    IsAcross = !IsAcross;
+                if (sqSelSquare.CanFlipDirection(_isAcross))
+                    _isAcross = !_isAcross;
             }
         }
         catch (Exception ex)

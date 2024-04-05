@@ -26,8 +26,8 @@ public sealed partial class CrosswordApp
             InitListBoxes();
             
             //Dimension array for crossword data
-            _puzzleDataset = new CrosswordState[NumQuestions];
-            Parallel.For(0, NumQuestions, i =>
+            _puzzleDataset = new CrosswordState[_numQuestions];
+            Parallel.For(0, _numQuestions, i =>
             {
                 _puzzleDataset[i] = new CrosswordState(_rowRef[i], _colRef[i], _szAnswers[i], _szClues[i], _bDataIsAcross[i],
                 _quesNum[i]);

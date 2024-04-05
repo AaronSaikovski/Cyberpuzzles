@@ -21,13 +21,13 @@ public sealed partial class CrosswordApp
             logger.LogInformation("Start DrawUserChar()");
 
             //check for null
-            if (_puzzleSquares != null && sqPuzzleSquares[i, j] != null && _puzzleSquares[i, j] != null)
+            if (_puzzleSquares != null && _sqPuzzleSquares[i, j] != null && _puzzleSquares[i, j] != null)
             {
                 //Char entered by user.
-                _spriteBatch.DrawString(_fntFont, char.ToUpper(sqPuzzleSquares[i, j].Letter).ToString(),
+                _spriteBatch.DrawString(_fntFont, char.ToUpper(_sqPuzzleSquares[i, j].Letter).ToString(),
                     new Vector2(_puzzleSquares[i, j].X + UiConstants.SqCharOffsetX,
                         _puzzleSquares[i, j].Y + UiConstants.SqCharOffsetY),
-                    sqPuzzleSquares[i, j].ForeColour);
+                    _sqPuzzleSquares[i, j].ForeColour);
             }
         }
         catch (Exception ex)

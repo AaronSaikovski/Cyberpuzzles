@@ -42,13 +42,13 @@ public sealed partial class CrosswordApp
             LstClueDown.Visible = true;
 
             //Set the initial active square
-            SqCurrentSquare = caPuzzleClueAnswers[0].GetSquare();
+            _sqCurrentSquare = _caPuzzleClueAnswers[0].GetSquare();
 
             //Return the orientation
-            IsAcross = caPuzzleClueAnswers[0].IsAcross;
+            _isAcross = _caPuzzleClueAnswers[0].IsAcross;
 
             //Highlight the default square...if allowed
-            caPuzzleClueAnswers[0].HighlightSquares(SqCurrentSquare, true);
+            _caPuzzleClueAnswers[0].HighlightSquares(_sqCurrentSquare, true);
 
             //Set the default across list item to be the first item in the list
             LstClueAcross.SelectedIndex = 0;

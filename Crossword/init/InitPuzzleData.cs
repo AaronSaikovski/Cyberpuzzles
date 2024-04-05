@@ -112,15 +112,15 @@ public sealed partial class CrosswordApp
             _PuzzleId = _mrParserData.PuzzleId;
 
             //Number of questions
-            NumQuestions = _mrParserData.NumQuestions;
+            _numQuestions = _mrParserData.NumQuestions;
 
             //Declare dimensions for arrays of crossword data
-            _szClues = new string[NumQuestions];
-            _szAnswers = new string[NumQuestions];
-            _colRef = new int[NumQuestions];
-            _rowRef = new int[NumQuestions];
-            _bDataIsAcross = new bool[NumQuestions];
-            _quesNum = new int[NumQuestions];
+            _szClues = new string[_numQuestions];
+            _szAnswers = new string[_numQuestions];
+            _colRef = new int[_numQuestions];
+            _rowRef = new int[_numQuestions];
+            _bDataIsAcross = new bool[_numQuestions];
+            _quesNum = new int[_numQuestions];
         
         }
         catch (Exception ex)

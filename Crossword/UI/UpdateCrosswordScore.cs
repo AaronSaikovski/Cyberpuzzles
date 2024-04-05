@@ -18,18 +18,18 @@ public sealed partial class CrosswordApp
         {
             logger.LogInformation("Start UpdateCrosswordScore()");
 
-            Parallel.For(0, NumQuestions, i =>
+            Parallel.For(0, _numQuestions, i =>
             {
-                if (caPuzzleClueAnswers[i].IsCorrect())
+                if (_caPuzzleClueAnswers[i].IsCorrect())
                 {
                     Interlocked.Increment(ref CrosswordScore);
                 }
 
-                caPuzzleClueAnswers[i].CheckWord();
+                _caPuzzleClueAnswers[i].CheckWord();
             });
 
 
-            if (CrosswordScore == NumQuestions)
+            if (CrosswordScore == _numQuestions)
             {
                 IsFinished = true;
             }

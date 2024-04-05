@@ -113,7 +113,7 @@ public sealed partial class CrosswordApp
         {
             logger.LogInformation("Start InitDataArrays()");
             
-            Parallel.For(0, NumQuestions, i =>
+            Parallel.For(0, _numQuestions, i =>
             {
                 if (_mrParserData?.ColRef is not null) _colRef[i] = _mrParserData.ColRef[i];
                 if (_mrParserData?.RowRef is not null) _rowRef[i] = _mrParserData.RowRef[i];

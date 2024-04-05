@@ -20,20 +20,20 @@ public sealed partial class CrosswordApp
             logger.LogInformation("Start DrawSquares()");
 
             //Check to see if a repaint is required
-            if (!sqPuzzleSquares[i, j]!.IsDirty) return true;
-            if (sqPuzzleSquares[i, j]!.BackColour.Equals(UiConstants.SquareHighlightNone))
+            if (!_sqPuzzleSquares[i, j]!.IsDirty) return true;
+            if (_sqPuzzleSquares[i, j]!.BackColour.Equals(UiConstants.SquareHighlightNone))
             {
                 if (_puzzleSquares is not null)
                     _spriteBatch.Draw(_imgNormalSquare, _puzzleSquares[i, j], _rectangleColor);
             }
 
-            if (sqPuzzleSquares[i, j]!.BackColour.Equals(UiConstants.SquareHighlightWord))
+            if (_sqPuzzleSquares[i, j]!.BackColour.Equals(UiConstants.SquareHighlightWord))
             {
                 if (_puzzleSquares is not null)
                     _spriteBatch.Draw(_imgSquareWord, _puzzleSquares[i, j], _rectangleColor);
             }
 
-            if (!sqPuzzleSquares[i, j]!.BackColour.Equals(UiConstants.SquareHighlightCurrent)) return false;
+            if (!_sqPuzzleSquares[i, j]!.BackColour.Equals(UiConstants.SquareHighlightCurrent)) return false;
             if (_puzzleSquares is not null)
                 _spriteBatch.Draw(_imgHighliteSquare, _puzzleSquares[i, j], _rectangleColor);
 

@@ -27,9 +27,9 @@ public sealed partial class CrosswordApp
                     _szTmpGetLetters = _szTmpGetLetters[1..];
                     
                     //loop over hint letters
-                    Parallel.For(0, NumQuestions, i =>
+                    Parallel.For(0, _numQuestions, i =>
                     {
-                        var bTmpResult = caPuzzleClueAnswers[i].CheckHint(chHintLetter);
+                        var bTmpResult = _caPuzzleClueAnswers[i].CheckHint(chHintLetter);
                         if (bTmpResult)
                         {
                             hintSupplied = true;

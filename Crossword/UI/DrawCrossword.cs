@@ -27,19 +27,19 @@ public sealed partial class CrosswordApp
             {
                 for (var j = 0; j < _NumCols; j++)
                 {
-                    if (sqPuzzleSquares is null) continue;
+                    if (_sqPuzzleSquares is null) continue;
                     if (_puzzleSquares is null) continue;
                     
                     //Main puzzle squares array
                     //Draw crossword with squares with spaces
                     _puzzleSquares[i, j] = new Rectangle(
-                        sqPuzzleSquares[i, j]!.xCoord + i * (int)UiConstants.SquareSpacer,
-                        sqPuzzleSquares[i, j]!.yCoord + j * (int) UiConstants.SquareSpacer,
+                        _sqPuzzleSquares[i, j]!.xCoord + i * (int)UiConstants.SquareSpacer,
+                        _sqPuzzleSquares[i, j]!.yCoord + j * (int) UiConstants.SquareSpacer,
                         UiConstants.SquareWidth,
                         UiConstants.SquareHeight);
             
                     //Check to see if a char is allowed
-                    if (sqPuzzleSquares[i, j]!.IsCharAllowed)
+                    if (_sqPuzzleSquares[i, j]!.IsCharAllowed)
                     {
                         //Draws the squares
                         if (DrawSquares(i, j)) continue;
@@ -49,7 +49,7 @@ public sealed partial class CrosswordApp
                         DrawSmallFontDown(i, j);
             
                         //check if squares are dirty
-                        if (sqPuzzleSquares[i, j]!.IsDirty)
+                        if (_sqPuzzleSquares[i, j]!.IsDirty)
                         {
                             //Char entered by user.
                             DrawUserChar(i, j);

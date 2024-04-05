@@ -47,33 +47,33 @@ namespace Crossword.App;
         //Data set variables
         public string? PuzzleType;
         public int _NumCols, _NumRows, _NumAcross, _NumDown, _PuzzleId;
-        private int[] _colRef, _rowRef, _quesNum;
-        private bool[] _bDataIsAcross;
-        private string[] _szClues, _szAnswers;
-        private int[] _nCosts = [0, 0, 0, 0, 0, 0];
+        private int[]? _colRef, _rowRef, _quesNum;
+        private bool[]? _bDataIsAcross;
+        private string[]? _szClues, _szAnswers;
+        private int[]? _nCosts = [0, 0, 0, 0, 0, 0];
         private string? _szGetLetters;
         private string? _szTmpGetLetters;
-        private int NumQuestions;
+        private int _numQuestions;
 
         //Puzzle Dataset instance
-        private CrosswordState[] _puzzleDataset;
+        private CrosswordState[]? _puzzleDataset;
 
         //Square instance variable
-        private Square?[,] sqPuzzleSquares;
+        private Square[,]? _sqPuzzleSquares;
 
         //ClueAnswerMap Instance variable
-        private ClueAnswer[] caPuzzleClueAnswers;
+        private ClueAnswer[]? _caPuzzleClueAnswers;
 
 
         //string[,] strGuesses = null;
-        private Square? SqCurrentSquare;
+        private Square? _sqCurrentSquare;
 
         public bool IsFinished;
 
    
 
         //Status of row/column orientation (Across or Down)
-        private bool IsAcross = true;
+        private bool _isAcross = true;
 
 
 
@@ -89,72 +89,71 @@ namespace Crossword.App;
 
 
         //Parser class
-        private CrosswordParser _crosswordParser;
+        private CrosswordParser? _crosswordParser;
         
         //Crossword data
         private CrosswordData? _mrParserData;
         
 
         //Images to use forx CrosswordApp.Application squares
-        private Texture2D _imgSquareWord;
-        private Texture2D _imgHighliteSquare;
-        private Texture2D _imgNormalSquare;
-        private Texture2D _imgBlackSquare;
+        private Texture2D? _imgSquareWord;
+        private Texture2D? _imgHighliteSquare;
+        private Texture2D? _imgNormalSquare;
+        private Texture2D? _imgBlackSquare;
 
 
         //Link buttons
-        private PuzzleButton _HintButton;
-        private Texture2D _imgHintButton;
-        
-        private PuzzleButton _NextPuzzButton;
-        private Texture2D _imgNextPuzzButton;
+        private PuzzleButton? _HintButton;
+        private Texture2D? _imgHintButton;
+        private PuzzleButton? _NextPuzzButton;
+        private Texture2D? _imgNextPuzzButton;
         
         //list boxes
-        private ListBox LstClueAcross;
-        private ListBox LstClueDown;
+        private ListBox? LstClueAcross;
+        private ListBox? LstClueDown;
         // private ListView LstClueAcross;
         // private ListView LstClueDown;
 
         //Panel for UI
-        private Panel _mainPanel;
+        private Panel? _mainPanel;
 
 
         //Puzzle squares
         private Rectangle[,]? _puzzleSquares;
 
         // Monogame graphics
-        public readonly GraphicsDeviceManager _graphics;
-        public SpriteBatch _spriteBatch;
-        public Desktop _desktop;
+        public readonly GraphicsDeviceManager? _graphics;
+        public SpriteBatch? _spriteBatch;
+        public Desktop? _desktop;
 
 
         // Define a color for the rectangles
         private readonly Color _rectangleColor = Color.White;
-        private Texture2D _blackTexture;
+        private Texture2D? _blackTexture;
 
         //Fonts
-        private DynamicSpriteFont _fntnumFont;   //small number font
-        private DynamicSpriteFont _fntFont;      //Char entered by user.
-        private DynamicSpriteFont _fntScore;     //CrosswordApp.Application score
-        private DynamicSpriteFont _fntListhead;  //Across/Down listbox Headers
-        private DynamicSpriteFont _fntListFont;  // ListBox font
-        private DynamicSpriteFont _fntCredits;  // Credits
+        private DynamicSpriteFont? _fntnumFont;   //small number font
+        private DynamicSpriteFont? _fntFont;      //Char entered by user.
+        private DynamicSpriteFont? _fntScore;     //CrosswordApp.Application score
+        private DynamicSpriteFont? _fntListhead;  //Across/Down listbox Headers
+        private DynamicSpriteFont? _fntListFont;  // ListBox font
+        private DynamicSpriteFont? _fntCredits;  // Credits
 
 
         //Keyboard handler
-        private readonly KeyboardInput _keyboardInput;
-        private readonly KeyboardInputHandler _keyboardInputHandler;
+        private readonly KeyboardInput? _keyboardInput;
+        private readonly KeyboardInputHandler? _keyboardInputHandler;
 
         //Mouse handler
-        private readonly MouseInput _mouseInput;
-        private readonly MouseInputHandler _mouseInputHandler;
+        private readonly MouseInput? _mouseInput;
+        private readonly MouseInputHandler? _mouseInputHandler;
 
         //Labels
-        private Label _currentScoreLabel;
-        private Label _maxScoreLabel;
-        private Label _clueAcrossLabel;
-        private Label _clueDownLabel;
-        private Label _creditsLabel;
+        private Label? _currentScoreLabel;
+        private Label? _maxScoreLabel;
+        private Label? _clueAcrossLabel;
+        private Label? _clueDownLabel;
+        private Label? _creditsLabel;
 
         //CrosswordApp.Application Rectangles for mouse handling
         //Rectangle variable
