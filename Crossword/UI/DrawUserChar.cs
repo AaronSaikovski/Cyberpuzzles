@@ -25,8 +25,8 @@ public sealed partial class CrosswordApp
             {
                 //Char entered by user.
                 _spriteBatch.DrawString(_fntFont, char.ToUpper(sqPuzzleSquares[i, j].Letter).ToString(),
-                    new Vector2(_puzzleSquares[i, j].X + UIConstants.SqCharOffsetX,
-                        _puzzleSquares[i, j].Y + UIConstants.SqCharOffsetY),
+                    new Vector2(_puzzleSquares[i, j].X + UiConstants.SqCharOffsetX,
+                        _puzzleSquares[i, j].Y + UiConstants.SqCharOffsetY),
                     sqPuzzleSquares[i, j].ForeColour);
             }
         }

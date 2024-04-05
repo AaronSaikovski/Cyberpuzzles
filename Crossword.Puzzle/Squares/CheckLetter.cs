@@ -13,7 +13,7 @@ public sealed partial class Square
     public void CheckLetter(char correctLetter)
     {
         if (Letter == ' ') return;
-        ForeColour = Letter == correctLetter ? UIConstants.SqCorrect : UIConstants.SqError;
+        ForeColour = Letter == correctLetter ? UiConstants.SqCorrect : UiConstants.SqError;
         IsDirty = true;
     }
 

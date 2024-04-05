@@ -61,21 +61,21 @@ public sealed partial class CrosswordApp
             {
                 Text = "Clues Down",
                 Font = _fntListhead,
-                Left = rectCrossWord.Right + UIConstants.MainOffsetX,
-                TextColor = UIConstants.ListBoxTextColor,
-                Height = UIConstants.ClLabelHeight,
-                Top = UIConstants.ClListboxHeight + UIConstants.ClLabelHeight + UIConstants.ClListSpacer * 3
+                Left = rectCrossWord.Right + UiConstants.MainOffsetX,
+                TextColor = UiConstants.ListBoxTextColor,
+                Height = UiConstants.ClLabelHeight,
+                Top = UiConstants.ClListboxHeight + UiConstants.ClLabelHeight + UiConstants.ClListSpacer * 3
             };
 
             //Down
             LstClueDown = new ListBox
             {
-                Left = rectCrossWord.Right + UIConstants.MainOffsetY,
-                Top = UIConstants.ClListboxHeight + UIConstants.ClLabelHeight + UIConstants.ClListSpacer * 2 +
-                      UIConstants.ClLabelHeight,
+                Left = rectCrossWord.Right + UiConstants.MainOffsetY,
+                Top = UiConstants.ClListboxHeight + UiConstants.ClLabelHeight + UiConstants.ClListSpacer * 2 +
+                      UiConstants.ClLabelHeight,
                 AcceptsKeyboardFocus = true,
                 SelectionMode = SelectionMode.Single,
-                Height = UIConstants.ClListboxHeight
+                Height = UiConstants.ClListboxHeight
             };
             // LstClueDown = new ListView
             // {
@@ -117,20 +117,20 @@ public sealed partial class CrosswordApp
             {
                 Text = "Clues Across",
                 Font = _fntListhead,
-                Left = rectCrossWord.Right + UIConstants.MainOffsetX,
-                TextColor = UIConstants.ListBoxTextColor,
-                Height = UIConstants.ClLabelHeight,
-                Top = UIConstants.MainOffsetY - UIConstants.ClListSpacer * 3
+                Left = rectCrossWord.Right + UiConstants.MainOffsetX,
+                TextColor = UiConstants.ListBoxTextColor,
+                Height = UiConstants.ClLabelHeight,
+                Top = UiConstants.MainOffsetY - UiConstants.ClListSpacer * 3
             };
 
             //Across ListBox
             LstClueAcross = new ListBox
             {
-                Left = rectCrossWord.Right + UIConstants.MainOffsetX,
-                Top = UIConstants.MainOffsetY,
+                Left = rectCrossWord.Right + UiConstants.MainOffsetX,
+                Top = UiConstants.MainOffsetY,
                 AcceptsKeyboardFocus = true,
                 SelectionMode = SelectionMode.Single,
-                Height = UIConstants.ClListboxHeight
+                Height = UiConstants.ClListboxHeight
             };
             // LstClueAcross = new ListView
             // {

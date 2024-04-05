@@ -33,10 +33,10 @@ public sealed partial class CrosswordApp
                     //Main puzzle squares array
                     //Draw crossword with squares with spaces
                     _puzzleSquares[i, j] = new Rectangle(
-                        sqPuzzleSquares[i, j]!.xCoord + i * (int)UIConstants.SquareSpacer,
-                        sqPuzzleSquares[i, j]!.yCoord + j * (int) UIConstants.SquareSpacer,
-                        UIConstants.SquareWidth,
-                        UIConstants.SquareHeight);
+                        sqPuzzleSquares[i, j]!.xCoord + i * (int)UiConstants.SquareSpacer,
+                        sqPuzzleSquares[i, j]!.yCoord + j * (int) UiConstants.SquareSpacer,
+                        UiConstants.SquareWidth,
+                        UiConstants.SquareHeight);
             
                     //Check to see if a char is allowed
                     if (sqPuzzleSquares[i, j]!.IsCharAllowed)

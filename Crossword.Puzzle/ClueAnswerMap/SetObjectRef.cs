@@ -1,5 +1,4 @@
-using System;
-using System.Threading.Tasks;
+
 using Crossword.Puzzle.Squares;
 
 namespace Crossword.Puzzle.ClueAnswerMap;
@@ -49,7 +48,7 @@ public sealed partial class ClueAnswer
 
             // Assign the created Square to the array element
             // The original code `this.sqAnswerSquares[k] = sqAnswerSquares[k];` seems redundant, so omitted
-            if (SqAnswerSquares is not null) SqAnswerSquares?[k]?.SetObjectRef(this.IsAcross, this);
+            SqAnswerSquares?[k]?.SetObjectRef(this.IsAcross, this);
         });
     }
 

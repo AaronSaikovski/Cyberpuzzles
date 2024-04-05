@@ -24,7 +24,7 @@ public sealed partial class Square
 
         IsCharAllowed = true;
         IsDirty = true;
-        BackColour = UIConstants.SquareHighlightNone;
+        BackColour = UiConstants.SquareHighlightNone;
     }
 
     #endregion

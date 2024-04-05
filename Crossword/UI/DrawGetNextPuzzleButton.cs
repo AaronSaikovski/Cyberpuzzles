@@ -18,12 +18,12 @@ public sealed partial class CrosswordApp
         {
             logger.LogInformation("Start DrawGetNextPuzzleButton()");
             
-            var leftPos = rectCrossWord.Left+ _HintButton.Bounds.Width + UIConstants.ClListSpacer;
+            var leftPos = rectCrossWord.Left+ _HintButton.Bounds.Width + UiConstants.ClListSpacer;
             // set the position of the button
             var nextPos =
                 new Vector2(leftPos,
                     rectCrossWord.Bottom +
-                    UIConstants.ClListSpacer *
+                    UiConstants.ClListSpacer *
                     2); 
             
             //init the PuzzleButton

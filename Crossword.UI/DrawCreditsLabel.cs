@@ -38,10 +38,10 @@ public static partial class CrosswordUi
         //Max score label
         mainPanel.Widgets.Remove(creditsLabel);
         creditsLabel.Text = GameConstants.CreditsText;
-        creditsLabel.TextColor = UIConstants.CreditsColor;
+        creditsLabel.TextColor = UiConstants.CreditsColor;
         creditsLabel.Left = posLeft;
         creditsLabel.Font = labelFont;
-        creditsLabel.Top = posBottom + UIConstants.ClListSpacer + UIConstants.SquareHeight + UIConstants.SquareHeight/2;
+        creditsLabel.Top = posBottom + UiConstants.ClListSpacer + UiConstants.SquareHeight + UiConstants.SquareHeight/2;
         mainPanel.Widgets.Add(creditsLabel);
     }
     

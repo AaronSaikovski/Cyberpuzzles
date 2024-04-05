@@ -6,7 +6,7 @@ namespace Crossword.Shared.Logger;
 /// <summary>
 /// Implements logging via Serilog
 /// </summary>
-public class SerilogLogger : ILoggerService
+public class SerilogLogger : ILoggerService, IDisposable
 {
     private readonly Serilog.Core.Logger _logger;
 

@@ -33,7 +33,7 @@ public sealed partial class CrosswordApp
         try
         {
             //Exception handling added as an ArrayIndexOutOfBoundException occurs
-            var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / UIConstants.SquareWidth, (y - nCrossOffsetY) / UIConstants.SquareHeight];
+            var sqSelSquare = sqPuzzleSquares[(x - nCrossOffsetX) / UiConstants.SquareWidth, (y - nCrossOffsetY) / UiConstants.SquareHeight];
 
             if (sqSelSquare is { IsCharAllowed: false }) return true;
             

@@ -18,7 +18,7 @@ public class MouseInputHandler(CrosswordApp crosswordApp) : IMouseHandler
 {
     #region Mouse_Input_Handler
 
-    //CrosswordApp.Application instance
+
 
     public void HandleLeftMouseClick(MouseState mouseState, MouseState origin)
     {

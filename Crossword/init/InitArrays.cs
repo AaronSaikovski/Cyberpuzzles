@@ -34,8 +34,8 @@ public sealed partial class CrosswordApp
 
                     //Create squares
                     sqPuzzleSquares[i, j]
-                        ?.CreateSquare(nCrossOffsetX + i * UIConstants.SquareWidth,
-                            nCrossOffsetY + j * UIConstants.SquareHeight);
+                        ?.CreateSquare(nCrossOffsetX + i * UiConstants.SquareWidth,
+                            nCrossOffsetY + j * UiConstants.SquareHeight);
                 }
             }
         

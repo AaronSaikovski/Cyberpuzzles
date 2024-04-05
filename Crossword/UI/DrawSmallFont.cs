@@ -25,8 +25,8 @@ public sealed partial class CrosswordApp
             if (_puzzleSquares is not null)
                 _spriteBatch.DrawString(_fntnumFont,
                     sqPuzzleSquares[i, j]?.ClueAnswerAcross?.QuestionNumber.ToString(),
-                    new Vector2(_puzzleSquares[i, j].X + UIConstants.SmlNumOffsetX,
-                        _puzzleSquares[i, j].Y + UIConstants.SmlNumOffsetY), UIConstants.SmallFontColor);
+                    new Vector2(_puzzleSquares[i, j].X + UiConstants.SmlNumOffsetX,
+                        _puzzleSquares[i, j].Y + UiConstants.SmlNumOffsetY), UiConstants.SmallFontColor);
         }
         catch (Exception ex)
         {
@@ -70,8 +70,8 @@ public sealed partial class CrosswordApp
             if (sqPuzzleSquares?[i, j].ClueAnswerDown?.SqAnswerSquares?[0] != sqPuzzleSquares[i, j]) return;
             _spriteBatch.DrawString(_fntnumFont,
                 sqPuzzleSquares[i, j]?.ClueAnswerDown?.QuestionNumber.ToString(),
-                new Vector2(_puzzleSquares[i, j].X + UIConstants.SmlNumOffsetX,
-                    _puzzleSquares[i, j].Y + UIConstants.SmlNumOffsetY), UIConstants.SmallFontColor);
+                new Vector2(_puzzleSquares[i, j].X + UiConstants.SmlNumOffsetX,
+                    _puzzleSquares[i, j].Y + UiConstants.SmlNumOffsetY), UiConstants.SmallFontColor);
         }
         catch (Exception ex)
         {

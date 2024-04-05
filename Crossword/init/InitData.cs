@@ -31,12 +31,12 @@ public sealed partial class CrosswordApp
             //_szBlurb = _mrParserData?.Blurb;
 
             //Initialise dimension variables
-            _nCrosswordWidth = _NumCols * (UIConstants.SquareWidth + (int)UIConstants.SquareSpacer);
-            _nCrosswordHeight = _NumRows * (UIConstants.SquareHeight + (int)UIConstants.SquareSpacer);
+            _nCrosswordWidth = _NumCols * (UiConstants.SquareWidth + (int)UiConstants.SquareSpacer);
+            _nCrosswordHeight = _NumRows * (UiConstants.SquareHeight + (int)UiConstants.SquareSpacer);
             
             // offsets
-            nCrossOffsetX = UIConstants.MainOffsetX;
-            nCrossOffsetY = UIConstants.MainOffsetY;
+            nCrossOffsetX = UiConstants.MainOffsetX;
+            nCrossOffsetY = UiConstants.MainOffsetY;
 
             //set squares as dirty
             InitSquares();

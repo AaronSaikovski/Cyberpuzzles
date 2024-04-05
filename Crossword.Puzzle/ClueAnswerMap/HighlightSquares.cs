@@ -1,5 +1,4 @@
-using System;
-using System.Threading.Tasks;
+
 using Crossword.Puzzle.Squares;
 using Crossword.Shared.Constants;
 
@@ -35,13 +34,13 @@ public sealed partial class ClueAnswer
         Parallel.For(0, Answer.Length, i =>
         {
             if (!setHighLighted)
-                SqAnswerSquares?[i]?.SetHighlighted(UIConstants.CurrentNone);
+                SqAnswerSquares?[i]?.SetHighlighted(UiConstants.CurrentNone);
             else
             {
                 SqAnswerSquares?[i]
                 ?.SetHighlighted(SqAnswerSquares?[i] == sq
-                ? UIConstants.CurrentLetter
-                : UIConstants.CurrentWord);
+                ? UiConstants.CurrentLetter
+                : UiConstants.CurrentWord);
             }
         });
     }

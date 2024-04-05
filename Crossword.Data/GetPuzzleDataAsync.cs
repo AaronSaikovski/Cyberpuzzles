@@ -18,7 +18,7 @@ public static class GetPuzzleDataAsync
     private static async Task<string?> CallDataApiAsync()
     {
         //Init the logger and get the active config
-        var logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
+        using var logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
 
         //Use the HttpClient
         using var client = new HttpClient();
@@ -45,11 +45,9 @@ public static class GetPuzzleDataAsync
                     //get the response from the API call result as a string
                     return response.Content.ReadAsStringAsync().Result;
                 }
-                else
-                {
-                    throw new Exception($"Failed to call the API. Status code: {response.StatusCode}");
-                }
-                    
+
+                throw new Exception($"Failed to call the API. Status code: {response.StatusCode}");
+
             }
             //catch http request exception
             catch (HttpRequestException httpex)
@@ -63,10 +61,10 @@ public static class GetPuzzleDataAsync
             logger.LogError(ex, ex.Message);
             return string.Empty;
         }
-        finally
-        {
-            logger.Dispose();
-        }
+        // finally
+        // {
+        //     logger.Dispose();
+        // }
     }
 
     #endregion
@@ -81,7 +79,7 @@ public static class GetPuzzleDataAsync
     public static async Task<string?> GetCrosswordDataAsync()
     {
         //Init the logger and get the active config
-        var logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
+        using var logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
 
         //Call the API to get the puzzledata....otherwise use default values
         try
@@ -99,10 +97,10 @@ public static class GetPuzzleDataAsync
             logger.LogError(ex, ex.Message);
             throw;
         }
-        finally
-        {
-            logger.Dispose();   
-        }
+        // finally
+        // {
+        //     logger.Dispose();   
+        // }
     }
 
     #endregion

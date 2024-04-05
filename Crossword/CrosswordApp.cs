@@ -191,8 +191,8 @@ namespace Crossword.App;
             Content.RootDirectory = "Content";
             
             // Set the desired window size here
-            _graphics.PreferredBackBufferWidth = UIConstants.CrosswordWindowWidth; // Width
-            _graphics.PreferredBackBufferHeight = UIConstants.CrosswordWindowHeight; // Height
+            _graphics.PreferredBackBufferWidth = UiConstants.CrosswordWindowWidth; // Width
+            _graphics.PreferredBackBufferHeight = UiConstants.CrosswordWindowHeight; // Height
             IsMouseVisible = true;
             
             IsFixedTimeStep = true; // Set to true to use fixed time step

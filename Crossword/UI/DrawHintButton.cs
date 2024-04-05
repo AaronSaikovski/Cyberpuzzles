@@ -21,7 +21,7 @@ public sealed partial class CrosswordApp
             var hintPos =
                 new Vector2(rectCrossWord.Left,
                     rectCrossWord.Bottom +
-                    UIConstants.ClListSpacer *
+                    UiConstants.ClListSpacer *
                     2); 
 
             //init the PuzzleButton

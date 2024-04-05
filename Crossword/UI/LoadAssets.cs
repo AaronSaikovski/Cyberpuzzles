@@ -17,14 +17,14 @@ public sealed partial class CrosswordApp
         try
         {
             //load squares
-            _imgBlackSquare = Content.Load<Texture2D>(UIConstants.BlackSquare);
-            _imgHighliteSquare = Content.Load<Texture2D>(UIConstants.HighliteSquare);
-            _imgSquareWord = Content.Load<Texture2D>(UIConstants.SquareWord);
-            _imgNormalSquare = Content.Load<Texture2D>(UIConstants.NormalSquare);
+            _imgBlackSquare = Content.Load<Texture2D>(UiConstants.BlackSquare);
+            _imgHighliteSquare = Content.Load<Texture2D>(UiConstants.HighliteSquare);
+            _imgSquareWord = Content.Load<Texture2D>(UiConstants.SquareWord);
+            _imgNormalSquare = Content.Load<Texture2D>(UiConstants.NormalSquare);
         
             //load buttons
-            _imgHintButton = Content.Load<Texture2D>(UIConstants.HintButtonImage);
-            _imgNextPuzzButton = Content.Load<Texture2D>(UIConstants.NextPuzzleButtonImage);
+            _imgHintButton = Content.Load<Texture2D>(UiConstants.HintButtonImage);
+            _imgNextPuzzButton = Content.Load<Texture2D>(UiConstants.NextPuzzleButtonImage);
         }
         catch (Exception e)
         {
@@ -47,8 +47,8 @@ public sealed partial class CrosswordApp
             logger.LogInformation("Start LoadFonts()");
             
             //Read fonts from FS
-            var fntHelveticaBold = File.ReadAllBytes(UIConstants.HelveticaBold);
-            var fntHelveticaPlain = File.ReadAllBytes(UIConstants.HelveticaPlain);
+            var fntHelveticaBold = File.ReadAllBytes(UiConstants.HelveticaBold);
+            var fntHelveticaPlain = File.ReadAllBytes(UiConstants.HelveticaPlain);
 
             //Add the Bold font
             var fntHelveticaBoldSystem = new FontSystem();
@@ -59,22 +59,22 @@ public sealed partial class CrosswordApp
             fntHelveticaSystem.AddFont(fntHelveticaPlain);
 
             //Small number font
-            _fntnumFont = fntHelveticaBoldSystem.GetFont(UIConstants.FntSml);
+            _fntnumFont = fntHelveticaBoldSystem.GetFont(UiConstants.FntSml);
 
             //Char entered by user.    
-            _fntFont = fntHelveticaBoldSystem.GetFont(UIConstants.FntLge);
+            _fntFont = fntHelveticaBoldSystem.GetFont(UiConstants.FntLge);
 
             //CrosswordApp.Application score      
-            _fntScore = fntHelveticaBoldSystem.GetFont(UIConstants.FntLge);
+            _fntScore = fntHelveticaBoldSystem.GetFont(UiConstants.FntLge);
 
             //Across/Down listbox Headers
-            _fntListhead = fntHelveticaBoldSystem.GetFont(UIConstants.FntMed);
+            _fntListhead = fntHelveticaBoldSystem.GetFont(UiConstants.FntMed);
 
             //List font
-            _fntListFont = fntHelveticaSystem.GetFont(UIConstants.FntMed);
+            _fntListFont = fntHelveticaSystem.GetFont(UiConstants.FntMed);
             
             //Credits font
-            _fntCredits = fntHelveticaSystem.GetFont(UIConstants.FntCredits);
+            _fntCredits = fntHelveticaSystem.GetFont(UiConstants.FntCredits);
         
         }
         catch (Exception ex)

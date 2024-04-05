@@ -6,11 +6,7 @@ public sealed partial class Square
 {
     #region SetLetter
 
-    /// <summary>
-    /// Set the colour for a letter.
-    /// </summary>
-    /// <param name="letter"></param>
-    /// <param name="isAcross"></param>
+
     // public void SetLetter(char letter, bool isAcross)
     // {
     //     Letter = letter;
@@ -18,11 +14,15 @@ public sealed partial class Square
     //     ForeColour = UIConstants.SquareHighlightDefault;
     // }
     
+    /// <summary>
+    /// Set the colour for a letter.
+    /// </summary>
+    /// <param name="letter"></param>
     public void SetLetter(char letter)
     {
         Letter = letter;
         IsDirty = true;
-        ForeColour = UIConstants.SquareHighlightDefault;
+        ForeColour = UiConstants.SquareHighlightDefault;
     }
 
     #endregion
