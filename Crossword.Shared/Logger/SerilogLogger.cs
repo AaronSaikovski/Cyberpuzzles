@@ -76,7 +76,9 @@ public class SerilogLogger : ILoggerService, IDisposable
     /// </summary>
     public void Dispose()
     {
-        Log.CloseAndFlush();
+        _logger.DisposeAsync();
+
+        //Log.CloseAndFlush();
     }
 
 }

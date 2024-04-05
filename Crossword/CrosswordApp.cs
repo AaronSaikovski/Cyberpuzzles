@@ -11,7 +11,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Myra.Graphics2D.UI;
 using Crossword.Shared.Logger;
-
 using Crossword.Shared.Config;
 
 ////////////////////////////////////////////////////////////////////////////
@@ -159,9 +158,7 @@ public sealed partial class CrosswordApp : Game
     //Rectangle variable
     public Rectangle rectCrossWord;
 
-
-
-
+    
     //CrosswordApp.Application Width and Height variables
     private int _nCrosswordWidth;
     private int _nCrosswordHeight;
