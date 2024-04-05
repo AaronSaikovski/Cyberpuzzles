@@ -52,9 +52,9 @@ public sealed partial class Square
         }
     }
     
-    // public void SetHighlighted(SquareBackColour SquareHighlightType)
+    // public void SetHighlighted(HighlightSquare SquareHighlightType)
     // {
-    //     SquareSelColour = SquareHighlightType;
+    //     HighlightSquareSelColour = SquareHighlightType;
     //     IsDirty = true;
     // }
 

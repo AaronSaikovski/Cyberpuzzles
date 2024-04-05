@@ -20,9 +20,9 @@ public static class UiConstants
     public const float SquareSpacer = 1.5f;
 
     //Highlight Constants
-    public const int CurrentLetter = 1;
-    public const int CurrentWord = 2;
-    public const int CurrentNone = 3;
+    // public const int CurrentLetter = 1;
+    // public const int CurrentWord = 2;
+    // public const int CurrentNone = 3;
 
 
     //Font sizes

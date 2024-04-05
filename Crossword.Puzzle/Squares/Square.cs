@@ -29,7 +29,7 @@ public sealed partial class Square
     public ClueAnswer? ClueAnswerAcross { get; set; }
     public ClueAnswer? ClueAnswerDown { get; set; }
     
-    public SquareBackColour SquareSelColour { get; set; }
+    public HighlightSquare HighlightSquareSelColour { get; set; }
     
     #endregion
 

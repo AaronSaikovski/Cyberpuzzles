@@ -32,32 +32,44 @@ public sealed partial class ClueAnswer
         //     }
         // }
 
+        // Parallel.For(0, Answer.Length, i =>
+        // {
+        //     if (!setHighLighted)
+        //         SqAnswerSquares?[i]?.SetHighlighted(UiConstants.CurrentNone);
+        //     else
+        //     {
+        //         SqAnswerSquares?[i]
+        //         ?.SetHighlighted(SqAnswerSquares?[i] == sq
+        //         ? UiConstants.CurrentLetter
+        //         : UiConstants.CurrentWord);
+        //     }
+        // });
+        
         Parallel.For(0, Answer.Length, i =>
         {
             if (!setHighLighted)
-                SqAnswerSquares?[i]?.SetHighlighted(UiConstants.CurrentNone);
+                SqAnswerSquares?[i]?.SetHighlighted((int)HighlightSquare.CurrentNone);
             else
             {
                 SqAnswerSquares?[i]
-                ?.SetHighlighted(SqAnswerSquares?[i] == sq
-                ? UiConstants.CurrentLetter
-                : UiConstants.CurrentWord);
+                    ?.SetHighlighted(SqAnswerSquares?[i] == sq
+                        ? (int)HighlightSquare.CurrentLetter
+                        : (int)HighlightSquare.CurrentWord);
             }
         });
-        
         
       
         
         // Parallel.For(0, Answer.Length, i =>
         // {
         //     if (!setHighLighted)
-        //         SqAnswerSquares?[i]?.SetHighlighted(SquareBackColour.SquareHighlightNone);
+        //         SqAnswerSquares?[i]?.SetHighlighted(HighlightSquare.SquareHighlightNone);
         //     else
         //     {
         //         SqAnswerSquares?[i]
         //             ?.SetHighlighted(SqAnswerSquares?[i] == sq
-        //                 ? SquareBackColour.SquareHighlightCurrent
-        //                 : SquareBackColour.SquareHighlightWord);
+        //                 ? HighlightSquare.SquareHighlightCurrent
+        //                 : HighlightSquare.SquareHighlightWord);
         //     }
         // });
     }

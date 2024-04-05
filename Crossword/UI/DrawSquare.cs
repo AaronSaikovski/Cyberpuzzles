@@ -83,17 +83,17 @@ public sealed partial class CrosswordApp
     // private bool DrawSquare(Square sqPuzzleSquare, Rectangle rectSquare, SpriteBatch spriteBatch)
     // {
     //     if (!sqPuzzleSquare.IsDirty) return true;
-    //     if (sqPuzzleSquare.SquareSelColour == SquareBackColour.SquareHighlightNone)
+    //     if (sqPuzzleSquare.HighlightSquareSelColour == HighlightSquare.SquareHighlightNone)
     //     { 
     //         spriteBatch.Draw(_imgNormalSquare,rectSquare, _rectangleColor);
     //     }
     //
-    //     if (sqPuzzleSquare.SquareSelColour == SquareBackColour.SquareHighlightWord)
+    //     if (sqPuzzleSquare.HighlightSquareSelColour == HighlightSquare.SquareHighlightWord)
     //     { 
     //         spriteBatch.Draw(_imgSquareWord, rectSquare, _rectangleColor);
     //     }
     //
-    //     if (sqPuzzleSquare.SquareSelColour != SquareBackColour.SquareHighlightCurrent) return false;
+    //     if (sqPuzzleSquare.HighlightSquareSelColour != HighlightSquare.SquareHighlightCurrent) return false;
     //     spriteBatch.Draw(_imgHighliteSquare, rectSquare, _rectangleColor);
     //
     //     return false;
