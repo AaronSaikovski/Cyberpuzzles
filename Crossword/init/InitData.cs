@@ -16,7 +16,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start InitData()");
-            
+
             //Initialise arrays of crossword data
             InitDataArrays();
 
@@ -33,18 +33,18 @@ public sealed partial class CrosswordApp
             //Initialise dimension variables
             _nCrosswordWidth = _NumCols * (UiConstants.SquareWidth + (int)UiConstants.SquareSpacer);
             _nCrosswordHeight = _NumRows * (UiConstants.SquareHeight + (int)UiConstants.SquareSpacer);
-            
+
             // offsets
             nCrossOffsetX = UiConstants.MainOffsetX;
             nCrossOffsetY = UiConstants.MainOffsetY;
 
             //set squares as dirty
             InitSquares();
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -59,7 +59,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start InitDirtySquares()");
-            
+
             //set squares as dirty
             if (!NewBackFlush) return;
             {
@@ -68,11 +68,11 @@ public sealed partial class CrosswordApp
                 //Forces dirty squares
                 InitDirtySquares();
             }
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -87,7 +87,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start InitCosts()");
-            
+
             // Initialise Cybersilver costs
             for (var i = 0; i < 6; i++)
             {
@@ -96,10 +96,10 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
-       
+
     }
     #endregion
 
@@ -112,7 +112,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start InitDataArrays()");
-            
+
             Parallel.For(0, _numQuestions, i =>
             {
                 if (_mrParserData?.ColRef is not null) _colRef[i] = _mrParserData.ColRef[i];
@@ -128,11 +128,11 @@ public sealed partial class CrosswordApp
                 if (_mrParserData?.Clues is not null) _szClues[i] = _mrParserData.Clues[i];
                 if (_mrParserData?.Answers is not null) _szAnswers[i] = _mrParserData.Answers[i];
             });
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

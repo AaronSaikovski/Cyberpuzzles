@@ -68,8 +68,8 @@ public static class GetPuzzleDataAsync
     }
 
     #endregion
-    
-    
+
+
     #region GetCrosswordDataAsync
 
     /// <summary>

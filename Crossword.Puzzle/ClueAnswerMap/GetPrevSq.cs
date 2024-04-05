@@ -15,7 +15,7 @@ public sealed partial class ClueAnswer
     public Square? GetPrevSq(Square? sq)
     {
         ArgumentNullException.ThrowIfNull(sq);
-        
+
         if (Answer is null) return sq;
         var i = Answer.Length - 1;
         while (i > -1)

@@ -15,7 +15,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start DrawCrossword()");
-            
+
             // Begin drawing
             _spriteBatch.Begin();
 
@@ -29,25 +29,25 @@ public sealed partial class CrosswordApp
                 {
                     if (_sqPuzzleSquares is null) continue;
                     if (_puzzleSquares is null) continue;
-                    
+
                     //Main puzzle squares array
                     //Draw crossword with squares with spaces
                     _puzzleSquares[i, j] = new Rectangle(
                         _sqPuzzleSquares[i, j]!.xCoord + i * (int)UiConstants.SquareSpacer,
-                        _sqPuzzleSquares[i, j]!.yCoord + j * (int) UiConstants.SquareSpacer,
+                        _sqPuzzleSquares[i, j]!.yCoord + j * (int)UiConstants.SquareSpacer,
                         UiConstants.SquareWidth,
                         UiConstants.SquareHeight);
-            
+
                     //Check to see if a char is allowed
                     if (_sqPuzzleSquares[i, j]!.IsCharAllowed)
                     {
                         //Draws the squares
                         if (DrawSquares(i, j)) continue;
-            
+
                         //small number font
                         DrawSmallFontAcross(i, j);
                         DrawSmallFontDown(i, j);
-            
+
                         //check if squares are dirty
                         if (_sqPuzzleSquares[i, j]!.IsDirty)
                         {
@@ -67,7 +67,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

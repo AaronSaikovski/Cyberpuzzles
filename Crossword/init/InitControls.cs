@@ -18,13 +18,13 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start InitControls()");
-            
+
             //Init the main rectangle
             rectCrossWord = new Rectangle(nCrossOffsetX, nCrossOffsetY, _nCrosswordWidth, _nCrosswordHeight);
 
             //List box elements
             InitListBoxes();
-            
+
             //Dimension array for crossword data
             _puzzleDataset = new CrosswordState[_numQuestions];
             Parallel.For(0, _numQuestions, i =>
@@ -41,7 +41,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

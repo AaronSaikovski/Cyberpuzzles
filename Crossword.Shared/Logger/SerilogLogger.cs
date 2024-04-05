@@ -19,9 +19,9 @@ public class SerilogLogger : ILoggerService, IDisposable
         _logger = new LoggerConfiguration()
             .ReadFrom.Configuration(configuration) // Load configuration settings
             .CreateLogger();
-        
+
     }
-    
+
     /// <summary>
     /// LogInformation
     /// </summary>
@@ -38,7 +38,7 @@ public class SerilogLogger : ILoggerService, IDisposable
     public void LogWarning(string message)
     {
         _logger.Warning(message);
-        
+
     }
 
     /// <summary>
@@ -60,7 +60,7 @@ public class SerilogLogger : ILoggerService, IDisposable
     {
         _logger.Verbose(ex, message);
     }
-    
+
     /// <summary>
     /// fatal
     /// </summary>
@@ -70,7 +70,7 @@ public class SerilogLogger : ILoggerService, IDisposable
     {
         _logger.Fatal(ex, message);
     }
-    
+
     /// <summary>
     /// cleanup
     /// </summary>
@@ -78,5 +78,5 @@ public class SerilogLogger : ILoggerService, IDisposable
     {
         Log.CloseAndFlush();
     }
-    
+
 }

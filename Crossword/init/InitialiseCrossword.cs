@@ -16,13 +16,13 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start BuildCrossword()");
-            
+
             //Init squares
             _sqPuzzleSquares = new Square[_NumRows, _NumCols];
             _puzzleSquares = new Rectangle[_NumRows, _NumCols];
 
             //Init ClueAnswers
-            _caPuzzleClueAnswers = new ClueAnswer[_numQuestions]; 
+            _caPuzzleClueAnswers = new ClueAnswer[_numQuestions];
 
             //Initialise the arrays
             InitArrays();
@@ -34,10 +34,10 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
-       
+
     }
     #endregion
 }

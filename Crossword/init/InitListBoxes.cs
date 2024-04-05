@@ -17,7 +17,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start InitListBoxes()");
-            
+
             //List box elements
 
             //List box across
@@ -35,11 +35,11 @@ public sealed partial class CrosswordApp
             LstClueDown.SelectedIndex = -1;
             LstClueAcross.Visible = false;
             LstClueDown.Visible = false;
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -55,7 +55,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start InitListBoxDown()");
-            
+
             //Down Label
             _clueDownLabel = new Label
             {
@@ -92,11 +92,11 @@ public sealed partial class CrosswordApp
 
             //List box event handlers
             LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -111,7 +111,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start InitListBoxAcross()");
-            
+
             //Across Label
             _clueAcrossLabel = new Label
             {
@@ -146,11 +146,11 @@ public sealed partial class CrosswordApp
 
             //List box event handlers
             LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

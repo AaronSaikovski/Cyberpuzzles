@@ -17,7 +17,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start GetHintLetters()");
-            
+
             while (!hintSupplied && !allHintLettersChecked)
             {
 
@@ -25,7 +25,7 @@ public sealed partial class CrosswordApp
                 {
                     var chHintLetter = _szTmpGetLetters[0];
                     _szTmpGetLetters = _szTmpGetLetters[1..];
-                    
+
                     //loop over hint letters
                     Parallel.For(0, _numQuestions, i =>
                     {
@@ -50,7 +50,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

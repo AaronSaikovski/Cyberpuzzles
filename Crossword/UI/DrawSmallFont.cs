@@ -34,7 +34,7 @@ public sealed partial class CrosswordApp
             throw;
         }
     }
-    
+
     // private void DrawSmallFontAcross(SpriteBatch spriteBatch, Square sqPuzzleSquare, Rectangle? puzzleSquare)
     // {
     //     try

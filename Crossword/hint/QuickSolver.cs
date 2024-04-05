@@ -15,7 +15,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start QuickSolver()");
-            
+
             if (PuzzleFinished || SetFinished) return;
             for (var p = 0; p < _numQuestions; p++)
             {
@@ -54,7 +54,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

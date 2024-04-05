@@ -20,7 +20,7 @@ public sealed partial class Square
             default:
                 return false;
         }
-        
+
         //if square is an intersection
         // if ((isAcross) && (ClueAnswerDown != null))
         //     return true;
@@ -28,7 +28,7 @@ public sealed partial class Square
         //     return true;
         // else
         //     return false;
- 
+
     }
 
     #endregion

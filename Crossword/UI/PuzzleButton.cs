@@ -8,23 +8,23 @@ namespace Crossword.App;
 /// <summary>
 /// Custom image button - thanks ChatGPT :-)
 /// </summary>
-public class PuzzleButton 
+public class PuzzleButton
 {
     #region Fields
-    
+
     // Event handler for button click
-    public event EventHandler? Click; 
+    public event EventHandler? Click;
 
     //Image for button
     private Texture2D Texture { get; set; }
-        
+
     // Vector fo x,y coords
     private Vector2 Position { get; set; }
-        
+
     // Rect bounds
     public Rectangle Bounds => new((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
 
-    
+
     #endregion
 
     #region Constructor

@@ -16,7 +16,7 @@ public sealed partial class ClueAnswer
     public void HighlightSquares(Square? sq, bool setHighLighted)
     {
         ArgumentNullException.ThrowIfNull(sq);
-        
+
         if (Answer is null) return;
         // for (var i = 0; i < Answer.Length; i++)
         // {
@@ -30,7 +30,7 @@ public sealed partial class ClueAnswer
         //                 : CWSettings.CurrentWord);
         //     }
         // }
-        
+
         Parallel.For(0, Answer.Length, i =>
         {
             if (!setHighLighted)

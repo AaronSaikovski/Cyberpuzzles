@@ -21,7 +21,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start Initialize()");
-            
+
             //Panel for UI
             _mainPanel = new Panel();
 
@@ -36,10 +36,10 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
-        
+
     }
     #endregion
 
@@ -52,13 +52,13 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start LoadContent()");
-            
+
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             MyraEnvironment.Game = this;
 
             _blackTexture = new Texture2D(GraphicsDevice, 1, 1);
             _blackTexture.SetData(new[] { Color.Black });
-           
+
             //Initialise everything
             MainInit();
 
@@ -67,11 +67,11 @@ public sealed partial class CrosswordApp
             {
                 Root = _mainPanel
             };
-            
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -87,10 +87,10 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start Update()");
-            
+
             //get mouse state
             var mouseState = Mouse.GetState();
-            
+
             // Game Logic lives here
             _keyboardInput.Poll(Keyboard.GetState());
             _mouseInput.Poll(Mouse.GetState());
@@ -98,7 +98,7 @@ public sealed partial class CrosswordApp
             //update button mouse states
             _HintButton.Update(mouseState);
             _NextPuzzButton.Update(mouseState);
-                
+
             //update game logic
             UpdateCrosswordScore();
             //DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel);
@@ -107,14 +107,14 @@ public sealed partial class CrosswordApp
 
             //draw the credits
             //DrawCreditsLabel(_mainPanel, _creditsLabel);
-            CrosswordUi.DrawCreditsLabel(_mainPanel,_creditsLabel,rectCrossWord.Left,rectCrossWord.Bottom,_fntCredits);
-            
+            CrosswordUi.DrawCreditsLabel(_mainPanel, _creditsLabel, rectCrossWord.Left, rectCrossWord.Bottom, _fntCredits);
+
             base.Update(gameTime);
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -130,7 +130,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start Draw()");
-            
+
             GraphicsDevice.Clear(Color.White);
 
             //If buffer dirty...draw the crossword
@@ -146,11 +146,11 @@ public sealed partial class CrosswordApp
             // End drawing        
             _desktop.Render();
             base.Draw(gameTime);
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

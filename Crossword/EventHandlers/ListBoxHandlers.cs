@@ -32,8 +32,8 @@ public sealed partial class CrosswordApp
         //     SqCurrentSquare = caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].GetSquare();
         //     caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(SqCurrentSquare, true);
         // }
-        
-       
+
+
     }
 
     #endregion

@@ -16,7 +16,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start InitArrays()");
-            
+
             //loop over rows
             for (var i = 0; i < _NumRows; i++)
             {
@@ -38,11 +38,11 @@ public sealed partial class CrosswordApp
                             nCrossOffsetY + j * UiConstants.SquareHeight);
                 }
             }
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

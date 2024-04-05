@@ -9,11 +9,11 @@ namespace Crossword.Shared.Constants;
 /// </summary>
 public static class UiConstants
 {
-    
+
     //Crossword dimension constants
     public const int CrosswordWindowHeight = 600;
     public const int CrosswordWindowWidth = 800;
-    
+
     //Square width and height constants
     public const int SquareWidth = 40;
     public const int SquareHeight = 40;
@@ -31,7 +31,7 @@ public static class UiConstants
     public const int FntLge = 20;
     public const int FntCredits = 13;
 
-   
+
 
     //main game offsets
     public const int MainOffsetX = 30;
@@ -55,45 +55,45 @@ public static class UiConstants
     //Colors for square letters
     public static Color SqCorrect = Color.Green;
     public static Color SqError = Color.Black;
-    
+
     //Puzzle tile images
     public const string BlackSquare = "images/tile_black";
     public const string HighliteSquare = "images/tile_yellow";
     public const string SquareWord = "images/tile_orange";
     public const string NormalSquare = "images/tile_grey";
-    
+
     //Link Buttons
     public const string HintButtonImage = "images/btn_get_hint";
     public const string NextPuzzleButtonImage = "images/btn_next_puzzle";
-    
-    
+
+
     //Fonts
     public const string HelveticaBold = "content/fonts/Helvetica-Bold.ttf";
     public const string HelveticaPlain = "content/fonts/Helvetica.ttf";
-    
-    
+
+
     //Score color
     public static Color ScoreColor = Color.Red;
-    
+
     //Credits Colo
     public static Color CreditsColor = Color.Black;
-    
+
     //Button colours
     public static Color ButtonTextColor = Color.White;
     public static Color ButtonHoverTextColor = Color.Yellow;
-    
- 
+
+
     //Listbox text colors
     public static Color ListBoxTextColor = Color.Black;
-    
+
     //Square highlight colors
     public static Color SquareHighlightCurrent = Color.Cyan;
     public static Color SquareHighlightWord = Color.Yellow;
     public static Color SquareHighlightNone = Color.White;
     public static Color SquareHighlightErr = Color.Red;
     public static Color SquareHighlightDefault = Color.Black;
-    
+
     //Font colors
     public static Color SmallFontColor = Color.Black;
-    
+
 }

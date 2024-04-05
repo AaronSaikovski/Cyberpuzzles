@@ -16,14 +16,15 @@ public sealed partial class ClueAnswer
     {
         ArgumentNullException.ThrowIfNull(sq);
         var i = 0;
-        while (Answer != null && i < Answer.Length){
+        while (Answer != null && i < Answer.Length)
+        {
             if (SqAnswerSquares != null && sq == SqAnswerSquares[i])
                 if (i < Answer.Length - 1)
                     return SqAnswerSquares[i + 1];
             i++;
         }
         return sq;
-        
+
         // ArgumentNullException.ThrowIfNull(sq);
         // var i = 0;
         // while (i < Answer.Length){

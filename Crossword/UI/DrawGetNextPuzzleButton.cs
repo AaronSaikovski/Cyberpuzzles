@@ -17,25 +17,25 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start DrawGetNextPuzzleButton()");
-            
-            var leftPos = rectCrossWord.Left+ _HintButton.Bounds.Width + UiConstants.ClListSpacer;
+
+            var leftPos = rectCrossWord.Left + _HintButton.Bounds.Width + UiConstants.ClListSpacer;
             // set the position of the button
             var nextPos =
                 new Vector2(leftPos,
                     rectCrossWord.Bottom +
                     UiConstants.ClListSpacer *
-                    2); 
-            
+                    2);
+
             //init the PuzzleButton
             _NextPuzzButton = new PuzzleButton(_imgNextPuzzButton, nextPos);
-            
+
             //assign event handler
             _NextPuzzButton.Click += NextPuzzleButton_Click;
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

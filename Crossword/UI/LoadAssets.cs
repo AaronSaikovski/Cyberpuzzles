@@ -21,7 +21,7 @@ public sealed partial class CrosswordApp
             _imgHighliteSquare = Content.Load<Texture2D>(UiConstants.HighliteSquare);
             _imgSquareWord = Content.Load<Texture2D>(UiConstants.SquareWord);
             _imgNormalSquare = Content.Load<Texture2D>(UiConstants.NormalSquare);
-        
+
             //load buttons
             _imgHintButton = Content.Load<Texture2D>(UiConstants.HintButtonImage);
             _imgNextPuzzButton = Content.Load<Texture2D>(UiConstants.NextPuzzleButtonImage);
@@ -31,8 +31,8 @@ public sealed partial class CrosswordApp
             Console.WriteLine(e);
             throw;
         }
-        
-    }    
+
+    }
 
     #endregion
 
@@ -45,7 +45,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start LoadFonts()");
-            
+
             //Read fonts from FS
             var fntHelveticaBold = File.ReadAllBytes(UiConstants.HelveticaBold);
             var fntHelveticaPlain = File.ReadAllBytes(UiConstants.HelveticaPlain);
@@ -72,14 +72,14 @@ public sealed partial class CrosswordApp
 
             //List font
             _fntListFont = fntHelveticaSystem.GetFont(UiConstants.FntMed);
-            
+
             //Credits font
             _fntCredits = fntHelveticaSystem.GetFont(UiConstants.FntCredits);
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

@@ -18,7 +18,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start InitClueAnswers()");
-            
+
             //loop over the questions
             for (var i = 0; i < _numQuestions; i++)
             {
@@ -54,11 +54,11 @@ public sealed partial class CrosswordApp
                     _puzzleDataset[i].Clue, _puzzleDataset[i].QuestionNum,
                     _puzzleDataset[i].IsAcross, sqAnswerSquares);
             }
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

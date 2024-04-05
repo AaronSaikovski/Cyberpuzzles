@@ -16,7 +16,7 @@ public sealed partial class Square
     public void SetObjectRef(bool isAcross, ClueAnswer clueAnswer)
     {
         ArgumentNullException.ThrowIfNull(clueAnswer);
-        
+
         if (isAcross)
             ClueAnswerAcross = clueAnswer;
         else

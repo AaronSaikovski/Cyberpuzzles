@@ -22,7 +22,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start GetPuzzleData()");
-            
+
             // Get the Puzzle Data..ASync and wait
             var task = Task.Run(async () =>
             {
@@ -34,29 +34,29 @@ public sealed partial class CrosswordApp
                 }
                 catch (Exception ex)
                 {
-                    logger.LogError(ex,ex.Message);
+                    logger.LogError(ex, ex.Message);
                     return null;
                 }
             });
-            
+
             // Wait for the task to complete
             task.Wait();
 
             //Check for the result
             return task is { IsCompleted: true, IsFaulted: false, IsCanceled: false } ? task.Result : null;
-            
-           
-            
+
+
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
-       
+
     }
     #endregion
-    
+
     #region InitPuzzleData
 
     /// <summary>
@@ -67,10 +67,10 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start InitPuzzleData()");
-            
+
             //Parser class
             _mrParserData = new CrosswordData();
-           
+
             //////////////////////////////////////////
             // Get the Puzzle Data..ASync and wait
             PuzzleData = GetPuzzleData();
@@ -91,8 +91,8 @@ public sealed partial class CrosswordApp
             {
                 throw new ApplicationException("Parser object is null");
             }
-            
-        
+
+
             //PuzzleType
             PuzzleType = _mrParserData.PuzzleType;
 
@@ -121,11 +121,11 @@ public sealed partial class CrosswordApp
             _rowRef = new int[_numQuestions];
             _bDataIsAcross = new bool[_numQuestions];
             _quesNum = new int[_numQuestions];
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
 

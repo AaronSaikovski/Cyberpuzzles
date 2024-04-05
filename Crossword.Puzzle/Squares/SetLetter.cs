@@ -13,7 +13,7 @@ public sealed partial class Square
     //     IsDirty = true;
     //     ForeColour = UIConstants.SquareHighlightDefault;
     // }
-    
+
     /// <summary>
     /// Set the colour for a letter.
     /// </summary>

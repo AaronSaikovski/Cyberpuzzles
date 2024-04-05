@@ -16,7 +16,7 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start NavigateList()");
-            
+
             switch (bIsAcross)
             {
                 case true:
@@ -24,14 +24,14 @@ public sealed partial class CrosswordApp
                     {
                         //If Across then allow operations on the across list
                         case Keys.Up:
-                        {
-                            if (LstClueAcross.SelectedIndex is not null)
                             {
-                                LstClueAcross.SelectedIndex--;
-                            }
+                                if (LstClueAcross.SelectedIndex is not null)
+                                {
+                                    LstClueAcross.SelectedIndex--;
+                                }
 
-                            break;
-                        }
+                                break;
+                            }
                         case Keys.Down:
                             LstClueAcross.SelectedIndex++;
                             break;
@@ -40,29 +40,29 @@ public sealed partial class CrosswordApp
                     break;
                 //if Down
                 case false when keyInFocus == Keys.Up:
-                {
-                    if (LstClueDown.SelectedIndex is not null)
                     {
-                        LstClueDown.SelectedIndex--;
-                    }
+                        if (LstClueDown.SelectedIndex is not null)
+                        {
+                            LstClueDown.SelectedIndex--;
+                        }
 
-                    break;
-                }
+                        break;
+                    }
                 case false:
-                {
-                    if (keyInFocus == Keys.Down)
                     {
-                        LstClueDown.SelectedIndex++;
-                        
-                    }
+                        if (keyInFocus == Keys.Down)
+                        {
+                            LstClueDown.SelectedIndex++;
 
-                    break;
-                }
+                        }
+
+                        break;
+                    }
             }
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

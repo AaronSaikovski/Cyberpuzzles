@@ -16,25 +16,25 @@ public sealed partial class CrosswordApp
         try
         {
             logger.LogInformation("Start DrawHintButton()");
-            
+
             // set the position of the button
             var hintPos =
                 new Vector2(rectCrossWord.Left,
                     rectCrossWord.Bottom +
                     UiConstants.ClListSpacer *
-                    2); 
+                    2);
 
             //init the PuzzleButton
             _HintButton = new PuzzleButton(_imgHintButton, hintPos);
             _HintButton.Click += HintButton_Click;
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
-        
+
     }
 
     #endregion

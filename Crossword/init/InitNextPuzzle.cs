@@ -14,29 +14,29 @@ public sealed partial class CrosswordApp
         {
             //Reset everything and reinitialise
             logger.LogInformation("Start GetNextPuzzle()");
-         
-             //Repaint variables
-             bBufferDirty = true;
-             InitCrossword = true;
-             IsFinished = true;
-             NewBackFlush = true;
-             PuzzleFinished = false;
-             SetFinished = false;
 
-             //get the new data set
-             _mrParserData = null;
-             InitPuzzleData();
-               
-             //Next Puzzle is currently unavailable flag
-             //IsNextPuzzleReady = true;
+            //Repaint variables
+            bBufferDirty = true;
+            InitCrossword = true;
+            IsFinished = true;
+            NewBackFlush = true;
+            PuzzleFinished = false;
+            SetFinished = false;
+
+            //get the new data set
+            _mrParserData = null;
+            InitPuzzleData();
+
+            //Next Puzzle is currently unavailable flag
+            //IsNextPuzzleReady = true;
 
             //list boxes
             LstClueAcross.Items.Clear();
             LstClueDown.Items.Clear();
-               
+
             //Init the data
             InitData();
-            
+
             //remove all widgets from the main panel
             _mainPanel.Widgets.Clear();
 
@@ -45,7 +45,7 @@ public sealed partial class CrosswordApp
 
             //build the crossword data
             InitialiseCrossword();
-            
+
             NewBackFlush = true;
 
             //Show the lists
@@ -82,7 +82,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            logger.LogError(ex, ex.Message);
             throw;
         }
     }

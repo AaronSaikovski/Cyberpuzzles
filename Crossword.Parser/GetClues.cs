@@ -19,7 +19,7 @@ public sealed partial class CrosswordParser
         {
             _crosswordData.Clues[j] = cluetemp[j];
         }
-        
+
         // string[] cluetemp;
         // var puzzletempstr = strData[4];
         // cluetemp = puzzletempstr.Split("#");
