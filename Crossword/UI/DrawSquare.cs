@@ -1,6 +1,7 @@
-using System;
+
 using Crossword.Puzzle.Squares;
 using Crossword.Shared.Constants;
+using Crossword.Shared.enums;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -16,7 +17,7 @@ public sealed partial class CrosswordApp
     /// <param name="i"></param>
     /// <param name="j"></param>
     /// <returns></returns>
-    // private bool DrawSquares(int i, int j)
+    // private bool DrawSquare(int i, int j)
     // {
     //     try
     //     {
@@ -49,6 +50,29 @@ public sealed partial class CrosswordApp
     //     }
     // }
 
+    private bool DrawSquare(int i, int j)
+    {
+        //Check to see if a repaint is required
+        if (!_sqPuzzleSquares[i, j]!.IsDirty) return true;
+        if (_sqPuzzleSquares[i, j]!.BackColour.Equals(UiConstants.SquareHighlightNone))
+        {
+            if (_puzzleSquares is not null)
+                _spriteBatch.Draw(_imgNormalSquare, _puzzleSquares[i, j], _rectangleColor);
+        }
+    
+        if (_sqPuzzleSquares[i, j]!.BackColour.Equals(UiConstants.SquareHighlightWord))
+        {
+            if (_puzzleSquares is not null)
+                _spriteBatch.Draw(_imgSquareWord, _puzzleSquares[i, j], _rectangleColor);
+        }
+    
+        if (!_sqPuzzleSquares[i, j]!.BackColour.Equals(UiConstants.SquareHighlightCurrent)) return false;
+        if (_puzzleSquares is not null)
+            _spriteBatch.Draw(_imgHighliteSquare, _puzzleSquares[i, j], _rectangleColor);
+    
+        return false;
+    }
+    
     /// <summary>
     /// Draws the crossword square
     /// </summary>
@@ -56,27 +80,24 @@ public sealed partial class CrosswordApp
     /// <param name="rectSquare"></param>
     /// <param name="spriteBatch"></param>
     /// <returns></returns>
-    private bool DrawSquare(Square sqPuzzleSquare, Rectangle rectSquare, SpriteBatch spriteBatch)
-    {
-        if (!sqPuzzleSquare.IsDirty) return true;
-        if (sqPuzzleSquare.BackColour.Equals(UiConstants.SquareHighlightNone))
-        {
-            //if (rectSquare != null)
-                spriteBatch.Draw(_imgNormalSquare,rectSquare, _rectangleColor);
-        }
-
-        if (sqPuzzleSquare.BackColour.Equals(UiConstants.SquareHighlightWord))
-        {
-            //if (rectSquare != null)
-                spriteBatch.Draw(_imgSquareWord, rectSquare, _rectangleColor);
-        }
-
-        if (!sqPuzzleSquare.BackColour.Equals(UiConstants.SquareHighlightCurrent)) return false;
-        //if (rectSquare != null)
-            spriteBatch.Draw(_imgHighliteSquare, rectSquare, _rectangleColor);
-
-        return false;
-    }
+    // private bool DrawSquare(Square sqPuzzleSquare, Rectangle rectSquare, SpriteBatch spriteBatch)
+    // {
+    //     if (!sqPuzzleSquare.IsDirty) return true;
+    //     if (sqPuzzleSquare.SquareSelColour == SquareBackColour.SquareHighlightNone)
+    //     { 
+    //         spriteBatch.Draw(_imgNormalSquare,rectSquare, _rectangleColor);
+    //     }
+    //
+    //     if (sqPuzzleSquare.SquareSelColour == SquareBackColour.SquareHighlightWord)
+    //     { 
+    //         spriteBatch.Draw(_imgSquareWord, rectSquare, _rectangleColor);
+    //     }
+    //
+    //     if (sqPuzzleSquare.SquareSelColour != SquareBackColour.SquareHighlightCurrent) return false;
+    //     spriteBatch.Draw(_imgHighliteSquare, rectSquare, _rectangleColor);
+    //
+    //     return false;
+    //}
     
     #endregion
 }

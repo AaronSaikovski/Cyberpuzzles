@@ -1,6 +1,7 @@
 
 using Crossword.Puzzle.Squares;
 using Crossword.Shared.Constants;
+using Crossword.Shared.enums;
 
 namespace Crossword.Puzzle.ClueAnswerMap;
 
@@ -43,6 +44,22 @@ public sealed partial class ClueAnswer
                 : UiConstants.CurrentWord);
             }
         });
+        
+        
+      
+        
+        // Parallel.For(0, Answer.Length, i =>
+        // {
+        //     if (!setHighLighted)
+        //         SqAnswerSquares?[i]?.SetHighlighted(SquareBackColour.SquareHighlightNone);
+        //     else
+        //     {
+        //         SqAnswerSquares?[i]
+        //             ?.SetHighlighted(SqAnswerSquares?[i] == sq
+        //                 ? SquareBackColour.SquareHighlightCurrent
+        //                 : SquareBackColour.SquareHighlightWord);
+        //     }
+        // });
     }
 
     #endregion

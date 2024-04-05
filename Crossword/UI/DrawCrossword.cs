@@ -42,8 +42,8 @@ public sealed partial class CrosswordApp
                     if (_sqPuzzleSquares[i, j]!.IsCharAllowed)
                     {
                         //Draws the squares
-                        //if (DrawSquare(i, j)) continue;
-                        if (DrawSquare(_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _spriteBatch)) continue;
+                        if (DrawSquare(i, j)) continue;
+                        //if (DrawSquare(_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _spriteBatch)) continue;
 
                         //small number font
                         DrawSmallFontAcross(i, j);

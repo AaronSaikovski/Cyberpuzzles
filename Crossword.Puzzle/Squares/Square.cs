@@ -1,15 +1,9 @@
-////////////////////////////////////////////////////////////////////////////
-//                                                                        //
-//      Module:             Square.cs                                     //
-//      Authors:            Aaron Saikovski & Bryan Richards              //
-//      Original Date:      23/01/97                                      //
-//      Version:            1.0                                           //
-//      Purpose:           Defines a Square and it's attributes            //
-//                                                                        //
-////////////////////////////////////////////////////////////////////////////
 
-using Crossword.Puzzle.ClueAnswerMap;
 using Microsoft.Xna.Framework;
+
+using Crossword.Shared.enums;
+using Crossword.Puzzle.ClueAnswerMap;
+
 
 namespace Crossword.Puzzle.Squares;
 
@@ -34,6 +28,9 @@ public sealed partial class Square
 
     public ClueAnswer? ClueAnswerAcross { get; set; }
     public ClueAnswer? ClueAnswerDown { get; set; }
-
+    
+    public SquareBackColour SquareSelColour { get; set; }
+    
     #endregion
+
 }
