@@ -13,30 +13,34 @@ public sealed partial class CrosswordApp
     /// </summary>
     private void UpdateCrosswordScore()
     {
-        CrosswordScore = 0;
+        _crosswordScore = 0;
         try
         {
-            logger.LogInformation("Start UpdateCrosswordScore()");
+            _logger.LogInformation("Start UpdateCrosswordScore()");
 
             Parallel.For(0, _numQuestions, i =>
             {
-                if (_caPuzzleClueAnswers[i].IsCorrect())
+                if (_caPuzzleClueAnswers[i] != null)
                 {
-                    Interlocked.Increment(ref CrosswordScore);
-                }
+                    if (_caPuzzleClueAnswers[i].IsCorrect())
+                    {
+                        Interlocked.Increment(ref _crosswordScore);
+                    }
 
-                _caPuzzleClueAnswers[i].CheckWord();
+                    _caPuzzleClueAnswers[i].CheckWord();
+                }
+                
             });
 
 
-            if (CrosswordScore == _numQuestions)
+            if (_crosswordScore == _numQuestions)
             {
                 IsFinished = true;
             }
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

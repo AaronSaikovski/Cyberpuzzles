@@ -15,7 +15,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start BuildCrossword()");
+            _logger.LogInformation("Start BuildCrossword()");
 
             //Init squares
             _sqPuzzleSquares = new Square[_NumRows, _NumCols];
@@ -30,11 +30,11 @@ public sealed partial class CrosswordApp
             //Init the ClueAnswers
             InitClueAnswers();
 
-            InitCrossword = true;
+            _initCrossword = true;
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 

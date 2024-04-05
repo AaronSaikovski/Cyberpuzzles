@@ -14,9 +14,9 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start QuickSolver()");
+            _logger.LogInformation("Start QuickSolver()");
 
-            if (PuzzleFinished || SetFinished) return;
+            if (_puzzleFinished || _setFinished) return;
             for (var p = 0; p < _numQuestions; p++)
             {
                 for (var j = 0; j < _numQuestions; j++)
@@ -46,15 +46,15 @@ public sealed partial class CrosswordApp
             });
 
             //If the crossword score == the number of questions, then it is the end of the game
-            if (CrosswordScore == _numQuestions)
+            if (_crosswordScore == _numQuestions)
             {
                 //Flag that we have finished
-                PuzzleFinished = true;
+                _puzzleFinished = true;
             }
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

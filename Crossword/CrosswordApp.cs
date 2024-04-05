@@ -31,18 +31,18 @@ public sealed partial class CrosswordApp : Game
     #region Fields       
 
     //Puzzle State machines
-    private bool PuzzleFinished;
-    private bool SetFinished;
+    private bool _puzzleFinished;
+    private bool _setFinished;
 
     //String for Puzzle ID of last puzzle in set
-    private string? PuzzleData;
+    private string? _puzzleData;
 
     //Repaint variables
-    private bool bBufferDirty;
-    private bool InitCrossword;
+    private bool _bBufferDirty;
+    private bool _initCrossword;
 
     //Image imBackBuffer;
-    private bool NewBackFlush;
+    private bool _newBackFlush;
 
     //Data set variables
     public string? PuzzleType;
@@ -79,12 +79,12 @@ public sealed partial class CrosswordApp : Game
 
 
     //Component focus variable
-    private int FocusState;
+    private int _focusState;
 
 
 
     // CrosswordApp.Application score
-    private int CrosswordScore;
+    private int _crosswordScore;
 
 
 
@@ -109,8 +109,8 @@ public sealed partial class CrosswordApp : Game
     private Texture2D? _imgNextPuzzButton;
 
     //list boxes
-    private ListBox? LstClueAcross;
-    private ListBox? LstClueDown;
+    private ListBox? _lstClueAcross;
+    private ListBox? _lstClueDown;
     // private ListView LstClueAcross;
     // private ListView LstClueDown;
 
@@ -169,11 +169,11 @@ public sealed partial class CrosswordApp : Game
 
     //Offset constants
     //private readonly int _nCrossBorderWidth = 3;
-    private int nCrossOffsetX = 5;
-    private int nCrossOffsetY = 5;
+    private int _nCrossOffsetX = 5;
+    private int _nCrossOffsetY = 5;
 
     //Logging implementation
-    private SerilogLogger logger;
+    private SerilogLogger _logger;
 
 
     #endregion
@@ -183,7 +183,7 @@ public sealed partial class CrosswordApp : Game
     public CrosswordApp()
     {
         //Init the logger and get the active config
-        logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
+        _logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
 
         //Prepare Graphics
         _graphics = new GraphicsDeviceManager(this);

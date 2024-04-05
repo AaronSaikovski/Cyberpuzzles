@@ -13,28 +13,28 @@ public sealed partial class CrosswordApp
     /// <param name="keyInFocus"></param>
     public void KeyDown(Keys keyInFocus)
     {
-        if (PuzzleFinished) return;
+        if (_puzzleFinished) return;
         //need to set the focus state
         //reset focus state
-        FocusState = 0;
+        _focusState = 0;
 
         try
         {
-            logger.LogInformation("Start KeyDown()");
+            _logger.LogInformation("Start KeyDown()");
 
             //Spacebar pressed to change orientation...bIsAcross.
             GetSpaceKey(keyInFocus);
 
             //Only allow list box navigation if they have the focus.
             //Up and down arrows for the listbox navigation
-            if (FocusState is 1 or 2)
+            if (_focusState is 1 or 2)
             {
                 NavigateList(_isAcross, keyInFocus);
             }
 
 
             //If the applet has the focus then allow the arrow keys to navigate around
-            if (FocusState == 0)
+            if (_focusState == 0)
             {
                 NavigatePuzzle(keyInFocus);
             }
@@ -53,7 +53,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -68,15 +68,15 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start GetSpaceKey()");
+            _logger.LogInformation("Start GetSpaceKey()");
 
             //Spacebar pressed to change orientation...bIsAcross.
             if (keyInFocus != Keys.Space) return;
             //Deselect the listbox based on direction
             if (!_isAcross)
-                LstClueDown.SelectedIndex = -1;
+                _lstClueDown.SelectedIndex = -1;
             else
-                LstClueAcross.SelectedIndex = -1;
+                _lstClueAcross.SelectedIndex = -1;
 
             //Sets the highlighting of the square.
             if (_sqCurrentSquare is null) return;
@@ -100,7 +100,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -115,7 +115,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start GetDeleteKey()");
+            _logger.LogInformation("Start GetDeleteKey()");
 
             //Delete present square's contents if Delete key is pressed
             if (keyInFocus == Keys.Delete)
@@ -126,7 +126,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -142,7 +142,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start GetBackspaceKey()");
+            _logger.LogInformation("Start GetBackspaceKey()");
 
             //Check to see if a backspace was entered
             if (keyInFocus != Keys.Back) return;
@@ -153,7 +153,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -169,7 +169,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start GetCharKey()");
+            _logger.LogInformation("Start GetCharKey()");
 
             //Check that the char falls into our range.
             if (keyInFocus is < Keys.A or > Keys.Z) return;
@@ -187,7 +187,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

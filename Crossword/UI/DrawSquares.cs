@@ -17,7 +17,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start DrawSquares()");
+            _logger.LogInformation("Start DrawSquares()");
 
             //Check to see if a repaint is required
             if (!_sqPuzzleSquares[i, j]!.IsDirty) return true;
@@ -41,7 +41,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

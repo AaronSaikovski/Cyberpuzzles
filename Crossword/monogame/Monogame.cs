@@ -20,7 +20,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start Initialize()");
+            _logger.LogInformation("Start Initialize()");
 
             //Panel for UI
             _mainPanel = new Panel();
@@ -36,7 +36,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -51,7 +51,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start LoadContent()");
+            _logger.LogInformation("Start LoadContent()");
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             MyraEnvironment.Game = this;
@@ -71,7 +71,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -86,7 +86,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start Update()");
+            _logger.LogInformation("Start Update()");
 
             //get mouse state
             var mouseState = Mouse.GetState();
@@ -102,7 +102,7 @@ public sealed partial class CrosswordApp
             //update game logic
             UpdateCrosswordScore();
             //DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel);
-            CrosswordUi.DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel, IsFinished, CrosswordScore,
+            CrosswordUi.DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel, IsFinished, _crosswordScore,
                 _numQuestions, _fntScore, rectCrossWord.Bottom);
 
             //draw the credits
@@ -114,7 +114,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -129,12 +129,12 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start Draw()");
+            _logger.LogInformation("Start Draw()");
 
             GraphicsDevice.Clear(Color.White);
 
             //If buffer dirty...draw the crossword
-            if (bBufferDirty)
+            if (_bBufferDirty)
             {
                 DrawCrossword();
             }
@@ -150,7 +150,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

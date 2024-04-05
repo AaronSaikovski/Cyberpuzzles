@@ -17,7 +17,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start InitClueAnswers()");
+            _logger.LogInformation("Start InitClueAnswers()");
 
             //loop over the questions
             for (var i = 0; i < _numQuestions; i++)
@@ -33,7 +33,7 @@ public sealed partial class CrosswordApp
                         sqAnswerSquares[j] =
                             _sqPuzzleSquares[_puzzleDataset[i].CoordDown + j, _puzzleDataset[i].CoordAcross];
                         if (j == 0)
-                            LstClueAcross.Items.Add(new ListItem(
+                            _lstClueAcross.Items.Add(new ListItem(
                                 _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
                                 Color.White));
                     }
@@ -42,7 +42,7 @@ public sealed partial class CrosswordApp
                         sqAnswerSquares[j] =
                             _sqPuzzleSquares[_puzzleDataset[i].CoordDown, _puzzleDataset[i].CoordAcross + j];
                         if (j == 0)
-                            LstClueDown.Items.Add(new ListItem(
+                            _lstClueDown.Items.Add(new ListItem(
                                 _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
                                 Color.White));
                     }
@@ -58,7 +58,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

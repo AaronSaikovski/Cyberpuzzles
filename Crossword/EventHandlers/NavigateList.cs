@@ -15,7 +15,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start NavigateList()");
+            _logger.LogInformation("Start NavigateList()");
 
             switch (bIsAcross)
             {
@@ -25,15 +25,15 @@ public sealed partial class CrosswordApp
                         //If Across then allow operations on the across list
                         case Keys.Up:
                             {
-                                if (LstClueAcross.SelectedIndex is not null)
+                                if (_lstClueAcross.SelectedIndex is not null)
                                 {
-                                    LstClueAcross.SelectedIndex--;
+                                    _lstClueAcross.SelectedIndex--;
                                 }
 
                                 break;
                             }
                         case Keys.Down:
-                            LstClueAcross.SelectedIndex++;
+                            _lstClueAcross.SelectedIndex++;
                             break;
                     }
 
@@ -41,9 +41,9 @@ public sealed partial class CrosswordApp
                 //if Down
                 case false when keyInFocus == Keys.Up:
                     {
-                        if (LstClueDown.SelectedIndex is not null)
+                        if (_lstClueDown.SelectedIndex is not null)
                         {
-                            LstClueDown.SelectedIndex--;
+                            _lstClueDown.SelectedIndex--;
                         }
 
                         break;
@@ -52,7 +52,7 @@ public sealed partial class CrosswordApp
                     {
                         if (keyInFocus == Keys.Down)
                         {
-                            LstClueDown.SelectedIndex++;
+                            _lstClueDown.SelectedIndex++;
 
                         }
 
@@ -62,7 +62,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

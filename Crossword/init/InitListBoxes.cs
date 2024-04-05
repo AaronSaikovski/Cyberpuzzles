@@ -16,7 +16,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start InitListBoxes()");
+            _logger.LogInformation("Start InitListBoxes()");
 
             //List box elements
 
@@ -28,18 +28,18 @@ public sealed partial class CrosswordApp
 
             //Populate and add lists
             _mainPanel.Widgets.Add(_clueAcrossLabel);
-            _mainPanel.Widgets.Add(LstClueAcross);
+            _mainPanel.Widgets.Add(_lstClueAcross);
             _mainPanel.Widgets.Add(_clueDownLabel);
-            _mainPanel.Widgets.Add(LstClueDown);
-            LstClueAcross.SelectedIndex = 0;
-            LstClueDown.SelectedIndex = -1;
-            LstClueAcross.Visible = false;
-            LstClueDown.Visible = false;
+            _mainPanel.Widgets.Add(_lstClueDown);
+            _lstClueAcross.SelectedIndex = 0;
+            _lstClueDown.SelectedIndex = -1;
+            _lstClueAcross.Visible = false;
+            _lstClueDown.Visible = false;
 
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -54,7 +54,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start InitListBoxDown()");
+            _logger.LogInformation("Start InitListBoxDown()");
 
             //Down Label
             _clueDownLabel = new Label
@@ -68,7 +68,7 @@ public sealed partial class CrosswordApp
             };
 
             //Down
-            LstClueDown = new ListBox
+            _lstClueDown = new ListBox
             {
                 Left = rectCrossWord.Right + UiConstants.MainOffsetY,
                 Top = UiConstants.ClListboxHeight + UiConstants.ClLabelHeight + UiConstants.ClListSpacer * 2 +
@@ -88,15 +88,15 @@ public sealed partial class CrosswordApp
             // };
 
             //set the font
-            LstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
+            _lstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
 
             //List box event handlers
-            LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
+            _lstClueDown.SelectedIndexChanged += SelChangeListClueDown;
 
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -110,7 +110,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start InitListBoxAcross()");
+            _logger.LogInformation("Start InitListBoxAcross()");
 
             //Across Label
             _clueAcrossLabel = new Label
@@ -124,7 +124,7 @@ public sealed partial class CrosswordApp
             };
 
             //Across ListBox
-            LstClueAcross = new ListBox
+            _lstClueAcross = new ListBox
             {
                 Left = rectCrossWord.Right + UiConstants.MainOffsetX,
                 Top = UiConstants.MainOffsetY,
@@ -142,15 +142,15 @@ public sealed partial class CrosswordApp
             // };
 
             //set the font
-            LstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
+            _lstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
 
             //List box event handlers
-            LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
+            _lstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
 
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

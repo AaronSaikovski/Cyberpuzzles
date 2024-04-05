@@ -17,10 +17,10 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start InitControls()");
+            _logger.LogInformation("Start InitControls()");
 
             //Init the main rectangle
-            rectCrossWord = new Rectangle(nCrossOffsetX, nCrossOffsetY, _nCrosswordWidth, _nCrosswordHeight);
+            rectCrossWord = new Rectangle(_nCrossOffsetX, _nCrossOffsetY, _nCrosswordWidth, _nCrosswordHeight);
 
             //List box elements
             InitListBoxes();
@@ -41,7 +41,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

@@ -17,23 +17,23 @@ public sealed partial class CrosswordApp
     /// <returns></returns>
     public bool MouseUp(int x, int y)
     {
-        logger.LogInformation("Start MouseUp()");
+        _logger.LogInformation("Start MouseUp()");
 
-        bBufferDirty = true;
+        _bBufferDirty = true;
 
         //if puzzle is finished...eat the event
-        if (SetFinished) return true;
+        if (_setFinished) return true;
 
         //Check that the mouse event occurred within our specified rectangle
         if (!rectCrossWord.Contains(x, y)) return true;
 
         //If the individual puzzle has finished...eat the event
-        if (PuzzleFinished) return true;
+        if (_puzzleFinished) return true;
 
         try
         {
             //Exception handling added as an ArrayIndexOutOfBoundException occurs
-            var sqSelSquare = _sqPuzzleSquares?[(x - nCrossOffsetX) / UiConstants.SquareWidth, (y - nCrossOffsetY) / UiConstants.SquareHeight];
+            var sqSelSquare = _sqPuzzleSquares?[(x - _nCrossOffsetX) / UiConstants.SquareWidth, (y - _nCrossOffsetY) / UiConstants.SquareHeight];
 
             if (sqSelSquare is { IsCharAllowed: false }) return true;
 
@@ -61,7 +61,7 @@ public sealed partial class CrosswordApp
 
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -76,17 +76,17 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start DeselectListBoxItem()");
+            _logger.LogInformation("Start DeselectListBoxItem()");
 
             //Deselect the listbox based on direction
             if (!_isAcross)
-                LstClueDown.SelectedIndex = 0;
+                _lstClueDown.SelectedIndex = 0;
             else
-                LstClueAcross.SelectedIndex = 0;
+                _lstClueAcross.SelectedIndex = 0;
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -102,17 +102,17 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start SetListBoxClueAnswer()");
+            _logger.LogInformation("Start SetListBoxClueAnswer()");
 
             //Selects the item in the list box relative to ClueAnswerMap and direction
             if (_isAcross)
-                LstClueAcross.SelectedIndex = clueAnswerIdx;
+                _lstClueAcross.SelectedIndex = clueAnswerIdx;
             else
-                LstClueDown.SelectedIndex = clueAnswerIdx - LstClueAcross.Items.Count;
+                _lstClueDown.SelectedIndex = clueAnswerIdx - _lstClueAcross.Items.Count;
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -128,7 +128,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start SetNewCurrentSquare()");
+            _logger.LogInformation("Start SetNewCurrentSquare()");
 
             ArgumentNullException.ThrowIfNull(sqSelSquare);
 
@@ -138,7 +138,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -155,7 +155,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start FindClueAnswerIdx()");
+            _logger.LogInformation("Start FindClueAnswerIdx()");
 
             ArgumentNullException.ThrowIfNull(sqSelSquare);
 
@@ -174,7 +174,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -191,7 +191,7 @@ public sealed partial class CrosswordApp
 
         try
         {
-            logger.LogInformation("Start CheckFlip()");
+            _logger.LogInformation("Start CheckFlip()");
 
             ArgumentNullException.ThrowIfNull(sqSelSquare);
 
@@ -214,7 +214,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 

@@ -12,7 +12,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("**Start MainInit()**");
+            _logger.LogInformation("**Start MainInit()**");
 
             //load fonts
             LoadFonts();
@@ -35,30 +35,33 @@ public sealed partial class CrosswordApp
             //build the crossword data
             InitialiseCrossword();
 
-            NewBackFlush = true;
+            _newBackFlush = true;
 
             //Show the lists
-            if (LstClueAcross is not null) LstClueAcross.Visible = true;
-            if (LstClueDown is not null)LstClueDown.Visible = true;
+            if (_lstClueAcross is not null) _lstClueAcross.Visible = true;
+            if (_lstClueDown is not null)_lstClueDown.Visible = true;
 
             //Set the initial active square
             _sqCurrentSquare = _caPuzzleClueAnswers?[0].GetSquare();
 
             //Return the orientation
-            _isAcross = _caPuzzleClueAnswers[0].IsAcross;
+            if (_caPuzzleClueAnswers != null)
+            {
+                _isAcross = _caPuzzleClueAnswers[0].IsAcross;
 
-            //Highlight the default square...if allowed
-            _caPuzzleClueAnswers[0].HighlightSquares(_sqCurrentSquare, true);
+                //Highlight the default square...if allowed
+                _caPuzzleClueAnswers[0].HighlightSquares(_sqCurrentSquare, true);
+            }
 
             //Set the default across list item to be the first item in the list
-            if (LstClueAcross is not null) LstClueAcross.SelectedIndex = 0;
+            if (_lstClueAcross is not null) _lstClueAcross.SelectedIndex = 0;
 
             //Forces dirty squares
             InitDirtySquares();
 
             //Set index to bubble out
-            bBufferDirty = true;
-            NewBackFlush = true;
+            _bBufferDirty = true;
+            _newBackFlush = true;
 
             //Get next puzzle ID
             //_bMorePuzzles = true; 
@@ -69,7 +72,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

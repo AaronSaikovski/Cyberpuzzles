@@ -15,7 +15,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start DrawHintButton()");
+            _logger.LogInformation("Start DrawHintButton()");
 
             // set the position of the button
             var hintPos =
@@ -31,7 +31,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 

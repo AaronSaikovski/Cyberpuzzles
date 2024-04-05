@@ -14,7 +14,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start DrawCrossword()");
+            _logger.LogInformation("Start DrawCrossword()");
 
             // Begin drawing
             _spriteBatch.Begin();
@@ -63,11 +63,11 @@ public sealed partial class CrosswordApp
                 }
             }
             _spriteBatch.End();
-            NewBackFlush = false;
+            _newBackFlush = false;
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

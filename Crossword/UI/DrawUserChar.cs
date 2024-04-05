@@ -18,7 +18,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start DrawUserChar()");
+            _logger.LogInformation("Start DrawUserChar()");
 
             //check for null
             if (_puzzleSquares != null && _sqPuzzleSquares[i, j] != null && _puzzleSquares[i, j] != null)
@@ -32,7 +32,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

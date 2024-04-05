@@ -46,7 +46,7 @@ public class PuzzleButton
     /// </summary>
     /// <param name="mouseState"></param>
     /// <returns></returns>
-    public bool IsMouseOver(MouseState mouseState)
+    private bool IsMouseOver(MouseState mouseState)
     {
         var mouseRectangle = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
         return mouseRectangle.Intersects(Bounds);

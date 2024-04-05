@@ -16,7 +16,7 @@ public sealed partial class CrosswordApp
         var allHintLettersChecked = false;
         try
         {
-            logger.LogInformation("Start GetHintLetters()");
+            _logger.LogInformation("Start GetHintLetters()");
 
             while (!hintSupplied && !allHintLettersChecked)
             {
@@ -50,7 +50,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

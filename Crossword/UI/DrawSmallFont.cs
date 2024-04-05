@@ -19,7 +19,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start DrawSmallFontAcross()");
+            _logger.LogInformation("Start DrawSmallFontAcross()");
             if (_sqPuzzleSquares[i, j]?.ClueAnswerAcross is null) return;
             if (_sqPuzzleSquares[i, j]?.ClueAnswerAcross?.SqAnswerSquares?[0] != _sqPuzzleSquares[i, j]) return;
             if (_puzzleSquares is not null)
@@ -30,7 +30,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -64,7 +64,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start DrawSmallFontDown()");
+            _logger.LogInformation("Start DrawSmallFontDown()");
 
             if (_sqPuzzleSquares?[i, j].ClueAnswerDown is null) return;
             if (_sqPuzzleSquares?[i, j].ClueAnswerDown?.SqAnswerSquares?[0] != _sqPuzzleSquares[i, j]) return;
@@ -75,7 +75,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

@@ -15,7 +15,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start InitData()");
+            _logger.LogInformation("Start InitData()");
 
             //Initialise arrays of crossword data
             InitDataArrays();
@@ -35,8 +35,8 @@ public sealed partial class CrosswordApp
             _nCrosswordHeight = _NumRows * (UiConstants.SquareHeight + (int)UiConstants.SquareSpacer);
 
             // offsets
-            nCrossOffsetX = UiConstants.MainOffsetX;
-            nCrossOffsetY = UiConstants.MainOffsetY;
+            _nCrossOffsetX = UiConstants.MainOffsetX;
+            _nCrossOffsetY = UiConstants.MainOffsetY;
 
             //set squares as dirty
             InitSquares();
@@ -44,7 +44,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -58,12 +58,12 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start InitDirtySquares()");
+            _logger.LogInformation("Start InitDirtySquares()");
 
             //set squares as dirty
-            if (!NewBackFlush) return;
+            if (!_newBackFlush) return;
             {
-                if (!InitCrossword) return;
+                if (!_initCrossword) return;
 
                 //Forces dirty squares
                 InitDirtySquares();
@@ -72,7 +72,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -86,7 +86,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start InitCosts()");
+            _logger.LogInformation("Start InitCosts()");
 
             // Initialise Cybersilver costs
             for (var i = 0; i < 6; i++)
@@ -96,7 +96,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -111,7 +111,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start InitDataArrays()");
+            _logger.LogInformation("Start InitDataArrays()");
 
             Parallel.For(0, _numQuestions, i =>
             {
@@ -132,7 +132,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

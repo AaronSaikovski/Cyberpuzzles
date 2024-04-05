@@ -21,7 +21,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start GetPuzzleData()");
+            _logger.LogInformation("Start GetPuzzleData()");
 
             // Get the Puzzle Data..ASync and wait
             var task = Task.Run(async () =>
@@ -34,7 +34,7 @@ public sealed partial class CrosswordApp
                 }
                 catch (Exception ex)
                 {
-                    logger.LogError(ex, ex.Message);
+                    _logger.LogError(ex, ex.Message);
                     return null;
                 }
             });
@@ -50,7 +50,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -66,24 +66,24 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start InitPuzzleData()");
+            _logger.LogInformation("Start InitPuzzleData()");
 
             //Parser class
             _mrParserData = new CrosswordData();
 
             //////////////////////////////////////////
             // Get the Puzzle Data..ASync and wait
-            PuzzleData = GetPuzzleData();
+            _puzzleData = GetPuzzleData();
 
             //check if we have a non null valua
-            if (string.IsNullOrEmpty(PuzzleData))
+            if (string.IsNullOrEmpty(_puzzleData))
             {
                 throw new DataException("Crossword puzzle data error!!.");
             }
 
             // Parse the Data
             _crosswordParser = new CrosswordParser();
-            _mrParserData = _crosswordParser.ParsePuzzleData(PuzzleData);
+            _mrParserData = _crosswordParser.ParsePuzzleData(_puzzleData);
 
 
             //check if the parser object is null
@@ -125,7 +125,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 

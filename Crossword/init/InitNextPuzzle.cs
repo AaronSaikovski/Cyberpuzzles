@@ -13,15 +13,15 @@ public sealed partial class CrosswordApp
         try
         {
             //Reset everything and reinitialise
-            logger.LogInformation("Start GetNextPuzzle()");
+            _logger.LogInformation("Start GetNextPuzzle()");
 
             //Repaint variables
-            bBufferDirty = true;
-            InitCrossword = true;
+            _bBufferDirty = true;
+            _initCrossword = true;
             IsFinished = true;
-            NewBackFlush = true;
-            PuzzleFinished = false;
-            SetFinished = false;
+            _newBackFlush = true;
+            _puzzleFinished = false;
+            _setFinished = false;
 
             //get the new data set
             _mrParserData = null;
@@ -31,8 +31,8 @@ public sealed partial class CrosswordApp
             //IsNextPuzzleReady = true;
 
             //list boxes
-            LstClueAcross.Items.Clear();
-            LstClueDown.Items.Clear();
+            _lstClueAcross.Items.Clear();
+            _lstClueDown.Items.Clear();
 
             //Init the data
             InitData();
@@ -46,11 +46,11 @@ public sealed partial class CrosswordApp
             //build the crossword data
             InitialiseCrossword();
 
-            NewBackFlush = true;
+            _newBackFlush = true;
 
             //Show the lists
-            LstClueAcross.Visible = true;
-            LstClueDown.Visible = true;
+            _lstClueAcross.Visible = true;
+            _lstClueDown.Visible = true;
 
             //Set the initial active square
             _sqCurrentSquare = _caPuzzleClueAnswers[0].GetSquare();
@@ -62,14 +62,14 @@ public sealed partial class CrosswordApp
             _caPuzzleClueAnswers[0].HighlightSquares(_sqCurrentSquare, true);
 
             //Set the default across list item to be the first item in the list
-            LstClueAcross.SelectedIndex = 0;
+            _lstClueAcross.SelectedIndex = 0;
 
             //Forces dirty squares
             InitDirtySquares();
 
             //Set index to bubble out
-            bBufferDirty = true;
-            NewBackFlush = true;
+            _bBufferDirty = true;
+            _newBackFlush = true;
 
             //Get next puzzle ID
             //_bMorePuzzles = true;
@@ -82,7 +82,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

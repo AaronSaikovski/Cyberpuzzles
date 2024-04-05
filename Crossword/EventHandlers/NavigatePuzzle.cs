@@ -14,7 +14,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start NavigatePuzzle()");
+            _logger.LogInformation("Start NavigatePuzzle()");
 
             //Deselect the listbox based on direction
             DeselectListBox();
@@ -43,7 +43,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -57,17 +57,17 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start DeselectListBox()");
+            _logger.LogInformation("Start DeselectListBox()");
 
             //Deselect the listbox based on direction
             if (!_isAcross)
-                LstClueDown.SelectedIndex = -1;
+                _lstClueDown.SelectedIndex = -1;
             else
-                LstClueAcross.SelectedIndex = -1;
+                _lstClueAcross.SelectedIndex = -1;
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -82,7 +82,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start UpdateListBoxLinkage()");
+            _logger.LogInformation("Start UpdateListBoxLinkage()");
 
             ///////////////////////////////////////
             //Listbox linkage stuff
@@ -100,13 +100,13 @@ public sealed partial class CrosswordApp
             //Selects the item in the list box relative to the ClueAnswerMap
             //and the orientation.
             if (_isAcross)
-                LstClueAcross.SelectedIndex = clueAnswerIdx;
+                _lstClueAcross.SelectedIndex = clueAnswerIdx;
             else
-                LstClueDown.SelectedIndex = clueAnswerIdx - LstClueAcross.Items.Count;
+                _lstClueDown.SelectedIndex = clueAnswerIdx - _lstClueAcross.Items.Count;
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -121,7 +121,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start GetDownArrow()");
+            _logger.LogInformation("Start GetDownArrow()");
 
             //If down arrow pressed get next sq
             if (keyInFocus != Keys.Down) return;
@@ -141,7 +141,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -157,7 +157,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start GetUpArrow()");
+            _logger.LogInformation("Start GetUpArrow()");
 
             //If up arrow key pressed
             if (keyInFocus != Keys.Up) return;
@@ -177,7 +177,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -193,7 +193,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start GetRightArrow()");
+            _logger.LogInformation("Start GetRightArrow()");
 
             //If right arrow pressed get next sq
             if (keyInFocus != Keys.Right) return;
@@ -211,7 +211,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
@@ -227,7 +227,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            logger.LogInformation("Start GetLeftArrow()");
+            _logger.LogInformation("Start GetLeftArrow()");
 
             //If left arrow key pressed get prev sq
             if (keyInFocus != Keys.Left) return;
@@ -244,7 +244,7 @@ public sealed partial class CrosswordApp
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 
