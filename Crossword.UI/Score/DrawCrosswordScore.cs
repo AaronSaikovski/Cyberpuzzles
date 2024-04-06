@@ -1,17 +1,15 @@
-
-
 using Crossword.Shared.Constants;
 using FontStashSharp;
 using Myra.Graphics2D.UI;
 
-namespace Crossword.UI;
+namespace Crossword.UI.Score;
 
-public static partial class CrosswordUi
+public static class CrosswordScore
 {
     #region DrawCrosswordScore
 
     /// Draws the crossword score and updates the values
-    public static void DrawCrosswordScore(Panel mainPanel, Label currentScoreLabel, Label maxScoreLabel, bool isFinished, int crosswordScore, int numQuestions, DynamicSpriteFont labelFont, int posBottom)
+    public static void DrawCrosswordScore(Panel mainPanel, Myra.Graphics2D.UI.Label currentScoreLabel, Myra.Graphics2D.UI.Label maxScoreLabel, bool isFinished, int crosswordScore, int numQuestions, DynamicSpriteFont labelFont, int posBottom)
     {
         if (!isFinished)
         {

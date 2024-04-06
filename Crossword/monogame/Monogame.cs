@@ -7,6 +7,8 @@ using Myra;
 using Myra.Graphics2D.UI;
 
 using Crossword.UI;
+using Crossword.UI.Label;
+using Crossword.UI.Score;
 
 namespace Crossword.App;
 
@@ -102,12 +104,12 @@ public sealed partial class CrosswordApp
             //update game logic
             UpdateCrosswordScore();
             //DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel);
-            CrosswordUi.DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel, IsFinished, _crosswordScore,
+            CrosswordScore.DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel, IsFinished, _crosswordScore,
                 _numQuestions, _fntScore, rectCrossWord.Bottom);
 
             //draw the credits
             //DrawCreditsLabel(_mainPanel, _creditsLabel);
-            CrosswordUi.DrawCreditsLabel(_mainPanel, _creditsLabel, rectCrossWord.Left, rectCrossWord.Bottom, _fntCredits);
+            CrosswordLabel.DrawCreditsLabel(_mainPanel, _creditsLabel, rectCrossWord.Left, rectCrossWord.Bottom, _fntCredits);
 
             base.Update(gameTime);
 

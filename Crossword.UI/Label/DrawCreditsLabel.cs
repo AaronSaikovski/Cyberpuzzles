@@ -1,11 +1,10 @@
-
 using Crossword.Shared.Constants;
 using FontStashSharp;
 using Myra.Graphics2D.UI;
 
-namespace Crossword.UI;
+namespace Crossword.UI.Label;
 
-public static partial class CrosswordUi
+public static class CrosswordLabel
 {
     #region DrawCreditsLabel
 
@@ -17,7 +16,7 @@ public static partial class CrosswordUi
     /// <param name="posLeft"></param>
     /// <param name="posBottom"></param>
     /// <param name="labelFont"></param>
-    public static void DrawCreditsLabel(Panel mainPanel, Label creditsLabel, int posLeft, int posBottom, DynamicSpriteFont labelFont)
+    public static void DrawCreditsLabel(Panel mainPanel, Myra.Graphics2D.UI.Label creditsLabel, int posLeft, int posBottom, DynamicSpriteFont labelFont)
     {
 
         //Max score label
