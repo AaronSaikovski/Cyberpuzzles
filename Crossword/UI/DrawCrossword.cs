@@ -2,6 +2,9 @@ using System;
 using Crossword.Shared.Constants;
 using Microsoft.Xna.Framework;
 
+
+using Crossword.UI.SmallFont;
+
 namespace Crossword.App;
 
 public sealed partial class CrosswordApp
@@ -12,6 +15,9 @@ public sealed partial class CrosswordApp
     /// </summary>
     private void DrawCrossword()
     {
+        //small font class
+        DrawSmallFont drawFont;
+        
         try
         {
             _logger.LogInformation("Start DrawCrossword()");
@@ -42,12 +48,15 @@ public sealed partial class CrosswordApp
                     if (_sqPuzzleSquares[i, j]!.IsCharAllowed)
                     {
                         //Draws the squares
-                        if (DrawSquare(i, j)) continue;
-                        //if (DrawSquare(_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _spriteBatch)) continue;
+                        //if (DrawSquare(i, j)) continue;
+                        if (DrawSquare(_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _spriteBatch)) continue;
 
                         //small number font
-                        DrawSmallFontAcross(i, j);
-                        DrawSmallFontDown(i, j);
+                        //DrawSmallFontAcross(i, j);
+                        //DrawSmallFontDown(i, j);
+                        drawFont = new DrawSmallFont();
+                        drawFont.DrawSmallFontAcross(_sqPuzzleSquares?[i, j].ClueAnswerAcross,_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _fntnumFont,_spriteBatch);
+                        drawFont.DrawSmallFontDown(_sqPuzzleSquares?[i, j].ClueAnswerDown,_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _fntnumFont,_spriteBatch);
 
                         //check if squares are dirty
                         if (_sqPuzzleSquares[i, j]!.IsDirty)
