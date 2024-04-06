@@ -1,7 +1,7 @@
 ﻿
 namespace Crossword.Entities;
 
-public sealed class CrosswordData
+public sealed record CrosswordData
 {
     #region Fields
 
