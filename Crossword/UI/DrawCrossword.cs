@@ -1,5 +1,4 @@
 using System;
-using System.Net;
 using Crossword.Shared.Constants;
 using Microsoft.Xna.Framework;
 
