@@ -29,8 +29,6 @@ public sealed partial class CrosswordApp
     /// <param name="j"></param>
     internal void DrawSquares(int i, int j)
     {
-
-
         //Check to see if a char is allowed
         if (_sqPuzzleSquares[i, j]!.IsCharAllowed)
         {
@@ -40,7 +38,6 @@ public sealed partial class CrosswordApp
             // {
             //     //do nothing;
             // }
-
             DrawSquare(_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _spriteBatch);
 
             //small number font

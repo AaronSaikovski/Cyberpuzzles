@@ -3,6 +3,7 @@ using Crossword.Puzzle.ClueAnswerMap;
 using Crossword.Puzzle.Squares;
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
+using System.Threading.Tasks;
 
 namespace Crossword.App;
 
@@ -47,13 +48,14 @@ public sealed partial class CrosswordApp
                                 Color.White));
                     }
                 }
-
+            
                 //Build the Clue/Answer references
                 _caPuzzleClueAnswers[i] = new ClueAnswer();
                 _caPuzzleClueAnswers[i].SetObjectRef(_puzzleDataset[i].Answer,
                     _puzzleDataset[i].Clue, _puzzleDataset[i].QuestionNum,
                     _puzzleDataset[i].IsAcross, sqAnswerSquares);
             }
+            
 
         }
         catch (Exception ex)
