@@ -1,4 +1,4 @@
-using System;
+
 using Crossword.Puzzle.ClueAnswerMap;
 using Crossword.Shared.Constants;
 
@@ -16,7 +16,7 @@ public sealed partial class Square
     public void SetObjectRef(bool isAcross, ClueAnswer clueAnswer)
     {
         ArgumentNullException.ThrowIfNull(clueAnswer);
-        
+
         if (isAcross)
             ClueAnswerAcross = clueAnswer;
         else
@@ -24,7 +24,7 @@ public sealed partial class Square
 
         IsCharAllowed = true;
         IsDirty = true;
-        BackColour = UIConstants.SquareHighlightNone;
+        BackColour = UiConstants.SquareHighlightNone;
     }
 
     #endregion

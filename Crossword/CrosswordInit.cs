@@ -2,7 +2,7 @@ using System;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region MainInit
     /// <summary>
@@ -12,64 +12,67 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("**Start MainInit()**");
-            
+            _logger.LogInformation("**Start MainInit()**");
+
             //load fonts
             LoadFonts();
-            
+
             //Load images
             LoadImages();
-            
+
             //Init the data
             InitData();
-            
+
             //Init the controls
             InitControls();
-            
+
             //init the hint button
             DrawHintButton();
 
             //init the Get Next Puzzle button
             DrawGetNextPuzzleButton();
-      
+
             //build the crossword data
             InitialiseCrossword();
 
-            NewBackFlush = true;
+            _newBackFlush = true;
 
             //Show the lists
-            LstClueAcross.Visible = true;
-            LstClueDown.Visible = true;
+            if (_lstClueAcross is not null) _lstClueAcross.Visible = true;
+            if (_lstClueDown is not null) _lstClueDown.Visible = true;
 
             //Set the initial active square
-            SqCurrentSquare = caPuzzleClueAnswers[0].GetSquare();
+            _sqCurrentSquare = _caPuzzleClueAnswers?[0].GetSquare();
 
             //Return the orientation
-            IsAcross = caPuzzleClueAnswers[0].IsAcross;
+            if (_caPuzzleClueAnswers != null)
+            {
+                _isAcross = _caPuzzleClueAnswers[0].IsAcross;
 
-            //Highlight the default square...if allowed
-            caPuzzleClueAnswers[0].HighlightSquares(SqCurrentSquare, true);
+                //Highlight the default square...if allowed
+                _caPuzzleClueAnswers[0].HighlightSquares(_sqCurrentSquare, true);
+            }
 
             //Set the default across list item to be the first item in the list
-            LstClueAcross.SelectedIndex = 0;
+            if (_lstClueAcross is not null) _lstClueAcross.SelectedIndex = 0;
 
             //Forces dirty squares
             InitDirtySquares();
 
             //Set index to bubble out
-            bBufferDirty = true;
-            NewBackFlush = true;
+            _bBufferDirty = true;
+            _newBackFlush = true;
 
             //Get next puzzle ID
             //_bMorePuzzles = true; 
-            
+
             //Cleanup
             GC.Collect();
-            
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

@@ -9,7 +9,7 @@ using Crossword.Data;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
 
     #region GetPuzzleDataASync
@@ -21,41 +21,41 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start GetPuzzleData()");
-            
+            _logger.LogInformation("Start GetPuzzleData()");
+
             // Get the Puzzle Data..ASync and wait
             var task = Task.Run(async () =>
             {
                 try
                 {
                     // Await the asynchronous method inside Task.Run
-                    return await FetchCrosswordData.GetCrosswordDataAsync();
+                    return await GetPuzzleDataAsync.GetCrosswordDataAsync();
                 }
                 catch (Exception ex)
                 {
-                    logger.LogError(ex,ex.Message);
+                    _logger.LogError(ex, ex.Message);
                     return null;
                 }
             });
-            
+
             // Wait for the task to complete
             task.Wait();
 
             //Check for the result
             return task is { IsCompleted: true, IsFaulted: false, IsCanceled: false } ? task.Result : null;
-            
-           
-            
+
+
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
-       
+
     }
     #endregion
-    
+
     #region InitPuzzleData
 
     /// <summary>
@@ -65,24 +65,24 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start InitPuzzleData()");
-            
+            _logger.LogInformation("Start InitPuzzleData()");
+
             //Parser class
             _mrParserData = new CrosswordData();
-           
+
             //////////////////////////////////////////
             // Get the Puzzle Data..ASync and wait
-            PuzzleData = GetPuzzleData();
+            _puzzleData = GetPuzzleData();
 
             //check if we have a non null valua
-            if (string.IsNullOrEmpty(PuzzleData))
+            if (string.IsNullOrEmpty(_puzzleData))
             {
                 throw new DataException("Crossword puzzle data error!!.");
             }
 
             // Parse the Data
             _crosswordParser = new CrosswordParser();
-            _mrParserData = _crosswordParser.ParsePuzzleData(PuzzleData);
+            _mrParserData = _crosswordParser.ParsePuzzleData(_puzzleData);
 
 
             //check if the parser object is null
@@ -90,8 +90,8 @@ public sealed partial class CrosswordMain
             {
                 throw new ApplicationException("Parser object is null");
             }
-            
-        
+
+
             //PuzzleType
             PuzzleType = _mrParserData.PuzzleType;
 
@@ -111,20 +111,20 @@ public sealed partial class CrosswordMain
             _PuzzleId = _mrParserData.PuzzleId;
 
             //Number of questions
-            NumQuestions = _mrParserData.NumQuestions;
+            _numQuestions = _mrParserData.NumQuestions;
 
             //Declare dimensions for arrays of crossword data
-            _szClues = new string[NumQuestions];
-            _szAnswers = new string[NumQuestions];
-            _colRef = new int[NumQuestions];
-            _rowRef = new int[NumQuestions];
-            _bDataIsAcross = new bool[NumQuestions];
-            _quesNum = new int[NumQuestions];
-        
+            _szClues = new string[_numQuestions];
+            _szAnswers = new string[_numQuestions];
+            _colRef = new int[_numQuestions];
+            _rowRef = new int[_numQuestions];
+            _bDataIsAcross = new bool[_numQuestions];
+            _quesNum = new int[_numQuestions];
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
 

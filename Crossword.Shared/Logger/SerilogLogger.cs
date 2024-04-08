@@ -6,7 +6,7 @@ namespace Crossword.Shared.Logger;
 /// <summary>
 /// Implements logging via Serilog
 /// </summary>
-public class SerilogLogger : ILoggerService
+public class SerilogLogger : ILoggerService, IDisposable
 {
     private readonly Serilog.Core.Logger _logger;
 
@@ -19,9 +19,9 @@ public class SerilogLogger : ILoggerService
         _logger = new LoggerConfiguration()
             .ReadFrom.Configuration(configuration) // Load configuration settings
             .CreateLogger();
-        
+
     }
-    
+
     /// <summary>
     /// LogInformation
     /// </summary>
@@ -38,7 +38,7 @@ public class SerilogLogger : ILoggerService
     public void LogWarning(string message)
     {
         _logger.Warning(message);
-        
+
     }
 
     /// <summary>
@@ -60,7 +60,7 @@ public class SerilogLogger : ILoggerService
     {
         _logger.Verbose(ex, message);
     }
-    
+
     /// <summary>
     /// fatal
     /// </summary>
@@ -70,13 +70,15 @@ public class SerilogLogger : ILoggerService
     {
         _logger.Fatal(ex, message);
     }
-    
+
     /// <summary>
     /// cleanup
     /// </summary>
     public void Dispose()
     {
-        Log.CloseAndFlush();
+        _logger.DisposeAsync();
+
+        //Log.CloseAndFlush();
     }
-    
+
 }

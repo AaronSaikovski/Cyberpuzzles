@@ -1,24 +1,24 @@
-
-using Crossword.Shared.Config;
-using Crossword.Shared.Logger;
 using Crossword.Shared.Constants;
+using Crossword.Shared.Logger;
+using Crossword.Shared.Config;
+
 namespace Crossword.Data;
 
 /// <summary>
-/// Fetches data from the Data API
+/// Calls the Crossword.API to get the Puzzledata as a string
 /// </summary>
-public partial class FetchCrosswordData
+public static class GetPuzzleDataAsync
 {
     #region CallDataApiAsync
 
     /// <summary>
-    /// CallDataApiAsync
+    /// CallDataApiAsync 
     /// </summary>
     /// <returns></returns>
     private static async Task<string?> CallDataApiAsync()
     {
         //Init the logger and get the active config
-        var logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
+        using var logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
 
         //Use the HttpClient
         using var client = new HttpClient();
@@ -45,11 +45,9 @@ public partial class FetchCrosswordData
                     //get the response from the API call result as a string
                     return response.Content.ReadAsStringAsync().Result;
                 }
-                else
-                {
-                    throw new Exception($"Failed to call the API. Status code: {response.StatusCode}");
-                }
-                    
+
+                throw new Exception($"Failed to call the API. Status code: {response.StatusCode}");
+
             }
             //catch http request exception
             catch (HttpRequestException httpex)
@@ -63,10 +61,40 @@ public partial class FetchCrosswordData
             logger.LogError(ex, ex.Message);
             return string.Empty;
         }
-        finally
+
+    }
+
+    #endregion
+
+
+    #region GetCrosswordDataAsync
+
+    /// <summary>
+    /// GetCrosswordDataAsync
+    /// </summary>
+    /// <returns></returns>
+    public static async Task<string?> GetCrosswordDataAsync()
+    {
+        //Init the logger and get the active config
+        using var logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
+
+        //Call the API to get the puzzledata....otherwise use default values
+        try
         {
-            logger.Dispose();
+            logger.LogInformation("Start GetCrosswordDataAsync()");
+
+            //call the API
+            var apiResponse = await CallDataApiAsync();
+
+            //check what was returned
+            return string.IsNullOrEmpty(apiResponse) ? GameConstants.DefaultPuzzleData : apiResponse;
         }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, ex.Message);
+            throw;
+        }
+
     }
 
     #endregion

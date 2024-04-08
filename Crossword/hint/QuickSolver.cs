@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region QuickSolver
 
@@ -14,12 +14,12 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start QuickSolver()");
-            
-            if (PuzzleFinished || SetFinished) return;
-            for (var p = 0; p < NumQuestions; p++)
+            _logger.LogInformation("Start QuickSolver()");
+
+            if (_puzzleFinished || _setFinished) return;
+            for (var p = 0; p < _numQuestions; p++)
             {
-                for (var j = 0; j < NumQuestions; j++)
+                for (var j = 0; j < _numQuestions; j++)
                 {
                     switch (_szTmpGetLetters)
                     {
@@ -30,8 +30,8 @@ public sealed partial class CrosswordMain
 
                     var chHintLetter = _szTmpGetLetters[0];
                     _szTmpGetLetters = _szTmpGetLetters[1..];
-                    for (var i = 0; i < NumQuestions; i++)
-                        caPuzzleClueAnswers[i].CheckHint(chHintLetter);
+                    for (var i = 0; i < _numQuestions; i++)
+                        _caPuzzleClueAnswers[i].CheckHint(chHintLetter);
                 }
             }
 
@@ -40,21 +40,21 @@ public sealed partial class CrosswordMain
 
             // for (var i = 0; i < NumQuestions; i++)
             //     caPuzzleClueAnswers[i].CheckWord();
-            Parallel.For(0, NumQuestions, i =>
+            Parallel.For(0, _numQuestions, i =>
             {
-                caPuzzleClueAnswers[i].CheckWord();
+                _caPuzzleClueAnswers[i].CheckWord();
             });
 
             //If the crossword score == the number of questions, then it is the end of the game
-            if (CrosswordScore == NumQuestions)
+            if (_crosswordScore == _numQuestions)
             {
                 //Flag that we have finished
-                PuzzleFinished = true;
+                _puzzleFinished = true;
             }
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

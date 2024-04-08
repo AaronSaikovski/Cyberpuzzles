@@ -2,7 +2,7 @@ using System;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region InitNextPuzzle
     /// <summary>
@@ -13,30 +13,30 @@ public sealed partial class CrosswordMain
         try
         {
             //Reset everything and reinitialise
-            logger.LogInformation("Start GetNextPuzzle()");
-         
-             //Repaint variables
-             bBufferDirty = true;
-             InitCrossword = true;
-             IsFinished = true;
-             NewBackFlush = true;
-             PuzzleFinished = false;
-             SetFinished = false;
+            _logger.LogInformation("Start GetNextPuzzle()");
 
-             //get the new data set
-             _mrParserData = null;
-             InitPuzzleData();
-               
-             //Next Puzzle is currently unavailable flag
-             //IsNextPuzzleReady = true;
+            //Repaint variables
+            _bBufferDirty = true;
+            _initCrossword = true;
+            IsFinished = true;
+            _newBackFlush = true;
+            _puzzleFinished = false;
+            _setFinished = false;
+
+            //get the new data set
+            _mrParserData = null;
+            InitPuzzleData();
+
+            //Next Puzzle is currently unavailable flag
+            //IsNextPuzzleReady = true;
 
             //list boxes
-            LstClueAcross.Items.Clear();
-            LstClueDown.Items.Clear();
-               
+            _lstClueAcross.Items.Clear();
+            _lstClueDown.Items.Clear();
+
             //Init the data
             InitData();
-            
+
             //remove all widgets from the main panel
             _mainPanel.Widgets.Clear();
 
@@ -45,31 +45,31 @@ public sealed partial class CrosswordMain
 
             //build the crossword data
             InitialiseCrossword();
-            
-            NewBackFlush = true;
+
+            _newBackFlush = true;
 
             //Show the lists
-            LstClueAcross.Visible = true;
-            LstClueDown.Visible = true;
+            _lstClueAcross.Visible = true;
+            _lstClueDown.Visible = true;
 
             //Set the initial active square
-            SqCurrentSquare = caPuzzleClueAnswers[0].GetSquare();
+            _sqCurrentSquare = _caPuzzleClueAnswers[0].GetSquare();
 
             //Return the orientation
-            IsAcross = caPuzzleClueAnswers[0].IsAcross;
+            _isAcross = _caPuzzleClueAnswers[0].IsAcross;
 
             //Highlight the default square...if allowed
-            caPuzzleClueAnswers[0].HighlightSquares(SqCurrentSquare, true);
+            _caPuzzleClueAnswers[0].HighlightSquares(_sqCurrentSquare, true);
 
             //Set the default across list item to be the first item in the list
-            LstClueAcross.SelectedIndex = 0;
+            _lstClueAcross.SelectedIndex = 0;
 
             //Forces dirty squares
             InitDirtySquares();
 
             //Set index to bubble out
-            bBufferDirty = true;
-            NewBackFlush = true;
+            _bBufferDirty = true;
+            _newBackFlush = true;
 
             //Get next puzzle ID
             //_bMorePuzzles = true;
@@ -82,7 +82,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

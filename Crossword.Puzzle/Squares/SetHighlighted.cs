@@ -1,5 +1,6 @@
-using System;
+
 using Crossword.Shared.Constants;
+using Crossword.Shared.enums;
 
 namespace Crossword.Puzzle.Squares;
 
@@ -16,40 +17,46 @@ public sealed partial class Square
         switch (highlightType)
         {
             case 1: //Current Letter
-                if (!BackColour.Equals(UIConstants.SquareHighlightCurrent))
+                if (!BackColour.Equals(UiConstants.SquareHighlightCurrent))
                 {
-                    BackColour = UIConstants.SquareHighlightCurrent;
+                    BackColour = UiConstants.SquareHighlightCurrent;
                     IsDirty = true;
                 }
 
                 break;
             case 2: //Current Word
-                if (!BackColour.Equals(UIConstants.SquareHighlightWord))
+                if (!BackColour.Equals(UiConstants.SquareHighlightWord))
                 {
-                    BackColour = UIConstants.SquareHighlightWord;
+                    BackColour = UiConstants.SquareHighlightWord;
                     IsDirty = true;
                 }
 
                 break;
             case 3: //Current None
-                if (!BackColour.Equals(UIConstants.SquareHighlightNone))
+                if (!BackColour.Equals(UiConstants.SquareHighlightNone))
                 {
-                    BackColour = UIConstants.SquareHighlightNone;
+                    BackColour = UiConstants.SquareHighlightNone;
                     IsDirty = true;
                 }
 
                 break;
             default: //Something went wrong....
-                if (BackColour.Equals(UIConstants.SquareHighlightErr))
+                if (BackColour.Equals(UiConstants.SquareHighlightErr))
                 {
                     //Console.WriteLine($"Bogus color: {highlightType}");
-                    BackColour = UIConstants.SquareHighlightErr;
+                    BackColour = UiConstants.SquareHighlightErr;
                     IsDirty = true;
                 }
 
                 break;
         }
     }
+
+    // public void SetHighlighted(HighlightSquare SquareHighlightType)
+    // {
+    //     HighlightSquareSelColour = SquareHighlightType;
+    //     IsDirty = true;
+    // }
 
     #endregion
 }

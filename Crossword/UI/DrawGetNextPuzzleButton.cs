@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region DrawGetNextPuzzleButton
 
@@ -16,26 +16,26 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start DrawGetNextPuzzleButton()");
-            
-            var leftPos = rectCrossWord.Left+ _HintButton.Bounds.Width + UIConstants.ClListSpacer;
+            _logger.LogInformation("Start DrawGetNextPuzzleButton()");
+
+            var leftPos = rectCrossWord.Left + _HintButton.Bounds.Width + UiConstants.ClListSpacer;
             // set the position of the button
             var nextPos =
                 new Vector2(leftPos,
                     rectCrossWord.Bottom +
-                    UIConstants.ClListSpacer *
-                    2); 
-            
+                    UiConstants.ClListSpacer *
+                    2);
+
             //init the PuzzleButton
             _NextPuzzButton = new PuzzleButton(_imgNextPuzzButton, nextPos);
-            
+
             //assign event handler
             _NextPuzzButton.Click += NextPuzzleButton_Click;
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

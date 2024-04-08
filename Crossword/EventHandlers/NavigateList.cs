@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region NavigateList
     /// <summary>
@@ -15,8 +15,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start NavigateList()");
-            
+            _logger.LogInformation("Start NavigateList()");
+
             switch (bIsAcross)
             {
                 case true:
@@ -24,45 +24,45 @@ public sealed partial class CrosswordMain
                     {
                         //If Across then allow operations on the across list
                         case Keys.Up:
-                        {
-                            if (LstClueAcross.SelectedIndex is not null)
                             {
-                                LstClueAcross.SelectedIndex--;
-                            }
+                                if (_lstClueAcross.SelectedIndex is not null)
+                                {
+                                    _lstClueAcross.SelectedIndex--;
+                                }
 
-                            break;
-                        }
+                                break;
+                            }
                         case Keys.Down:
-                            LstClueAcross.SelectedIndex++;
+                            _lstClueAcross.SelectedIndex++;
                             break;
                     }
 
                     break;
                 //if Down
                 case false when keyInFocus == Keys.Up:
-                {
-                    if (LstClueDown.SelectedIndex is not null)
                     {
-                        LstClueDown.SelectedIndex--;
-                    }
+                        if (_lstClueDown.SelectedIndex is not null)
+                        {
+                            _lstClueDown.SelectedIndex--;
+                        }
 
-                    break;
-                }
+                        break;
+                    }
                 case false:
-                {
-                    if (keyInFocus == Keys.Down)
                     {
-                        LstClueDown.SelectedIndex++;
-                        
-                    }
+                        if (keyInFocus == Keys.Down)
+                        {
+                            _lstClueDown.SelectedIndex++;
 
-                    break;
-                }
+                        }
+
+                        break;
+                    }
             }
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

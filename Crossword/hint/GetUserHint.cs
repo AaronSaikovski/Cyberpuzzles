@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region GetHintLetters
     /// <summary>
@@ -16,8 +16,8 @@ public sealed partial class CrosswordMain
         var allHintLettersChecked = false;
         try
         {
-            logger.LogInformation("Start GetHintLetters()");
-            
+            _logger.LogInformation("Start GetHintLetters()");
+
             while (!hintSupplied && !allHintLettersChecked)
             {
 
@@ -25,11 +25,11 @@ public sealed partial class CrosswordMain
                 {
                     var chHintLetter = _szTmpGetLetters[0];
                     _szTmpGetLetters = _szTmpGetLetters[1..];
-                    
+
                     //loop over hint letters
-                    Parallel.For(0, NumQuestions, i =>
+                    Parallel.For(0, _numQuestions, i =>
                     {
-                        var bTmpResult = caPuzzleClueAnswers[i].CheckHint(chHintLetter);
+                        var bTmpResult = _caPuzzleClueAnswers[i].CheckHint(chHintLetter);
                         if (bTmpResult)
                         {
                             hintSupplied = true;
@@ -50,7 +50,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

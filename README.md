@@ -1,6 +1,6 @@
 <div align="center">
 
-# CyberPuzzles - Crossword - v1.0.0-beta2
+# CyberPuzzles - Crossword - v1.0.0-beta3
 
 A Monogame C# .Net 8.0 Core port of a Java Applet game I co-wrote back in 1997.
 

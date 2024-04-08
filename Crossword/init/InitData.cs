@@ -5,18 +5,18 @@ using Crossword.Shared.Constants;
 namespace Crossword.App;
 
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region InitData
     /// <summary>
-    /// Inits the CrosswordMain.Application data
+    /// Inits the CrosswordApp.Application data
     /// </summary>
     private void InitData()
     {
         try
         {
-            logger.LogInformation("Start InitData()");
-            
+            _logger.LogInformation("Start InitData()");
+
             //Initialise arrays of crossword data
             InitDataArrays();
 
@@ -31,20 +31,20 @@ public sealed partial class CrosswordMain
             //_szBlurb = _mrParserData?.Blurb;
 
             //Initialise dimension variables
-            _nCrosswordWidth = _NumCols * (UIConstants.SquareWidth + (int)UIConstants.SquareSpacer);
-            _nCrosswordHeight = _NumRows * (UIConstants.SquareHeight + (int)UIConstants.SquareSpacer);
-            
+            _nCrosswordWidth = _NumCols * (UiConstants.SquareWidth + (int)UiConstants.SquareSpacer);
+            _nCrosswordHeight = _NumRows * (UiConstants.SquareHeight + (int)UiConstants.SquareSpacer);
+
             // offsets
-            nCrossOffsetX = UIConstants.MainOffsetX;
-            nCrossOffsetY = UIConstants.MainOffsetY;
+            _nCrossOffsetX = UiConstants.MainOffsetX;
+            _nCrossOffsetY = UiConstants.MainOffsetY;
 
             //set squares as dirty
             InitSquares();
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -58,21 +58,21 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start InitDirtySquares()");
-            
+            _logger.LogInformation("Start InitDirtySquares()");
+
             //set squares as dirty
-            if (!NewBackFlush) return;
+            if (!_newBackFlush) return;
             {
-                if (!InitCrossword) return;
+                if (!_initCrossword) return;
 
                 //Forces dirty squares
                 InitDirtySquares();
             }
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -86,8 +86,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start InitCosts()");
-            
+            _logger.LogInformation("Start InitCosts()");
+
             // Initialise Cybersilver costs
             for (var i = 0; i < 6; i++)
             {
@@ -96,10 +96,10 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
-       
+
     }
     #endregion
 
@@ -111,9 +111,9 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start InitDataArrays()");
-            
-            Parallel.For(0, NumQuestions, i =>
+            _logger.LogInformation("Start InitDataArrays()");
+
+            Parallel.For(0, _numQuestions, i =>
             {
                 if (_mrParserData?.ColRef is not null) _colRef[i] = _mrParserData.ColRef[i];
                 if (_mrParserData?.RowRef is not null) _rowRef[i] = _mrParserData.RowRef[i];
@@ -128,11 +128,11 @@ public sealed partial class CrosswordMain
                 if (_mrParserData?.Clues is not null) _szClues[i] = _mrParserData.Clues[i];
                 if (_mrParserData?.Answers is not null) _szAnswers[i] = _mrParserData.Answers[i];
             });
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

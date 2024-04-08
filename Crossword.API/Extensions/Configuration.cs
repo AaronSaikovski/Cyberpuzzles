@@ -1,3 +1,5 @@
+using Crossword.API.Middleware;
+
 namespace Crossword.API.Extensions;
 
 //Source: https://blog.treblle.com/how-to-structure-your-minimal-api-in-net/

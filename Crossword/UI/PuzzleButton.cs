@@ -8,23 +8,23 @@ namespace Crossword.App;
 /// <summary>
 /// Custom image button - thanks ChatGPT :-)
 /// </summary>
-public class PuzzleButton 
+public class PuzzleButton
 {
     #region Fields
-    
+
     // Event handler for button click
-    public event EventHandler? Click; 
+    public event EventHandler? Click;
 
     //Image for button
     private Texture2D Texture { get; set; }
-        
+
     // Vector fo x,y coords
     private Vector2 Position { get; set; }
-        
+
     // Rect bounds
     public Rectangle Bounds => new((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
 
-    
+
     #endregion
 
     #region Constructor
@@ -46,22 +46,13 @@ public class PuzzleButton
     /// </summary>
     /// <param name="mouseState"></param>
     /// <returns></returns>
-    public bool IsMouseOver(MouseState mouseState)
+    private bool IsMouseOver(MouseState mouseState)
     {
         var mouseRectangle = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
         return mouseRectangle.Intersects(Bounds);
     }
 
-    /// <summary>
-    /// IsClicked
-    /// </summary>
-    /// <param name="mouseState"></param>
-    /// <returns></returns>
-    public bool IsClicked(MouseState mouseState)
-    {
-        var mouseRectangle = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
-        return mouseRectangle.Intersects(Bounds) && mouseState.LeftButton == ButtonState.Pressed;
-    }
+
     #endregion
 
     #region Graphics_Handlers

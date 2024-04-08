@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region DrawUserChar
 
@@ -18,21 +18,21 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start DrawUserChar()");
+            _logger.LogInformation("Start DrawUserChar()");
 
             //check for null
-            if (_puzzleSquares != null && sqPuzzleSquares[i, j] != null && _puzzleSquares[i, j] != null)
+            if (_puzzleSquares != null && _sqPuzzleSquares[i, j] != null && _puzzleSquares[i, j] != null)
             {
                 //Char entered by user.
-                _spriteBatch.DrawString(_fntFont, char.ToUpper(sqPuzzleSquares[i, j].Letter).ToString(),
-                    new Vector2(_puzzleSquares[i, j].X + UIConstants.SqCharOffsetX,
-                        _puzzleSquares[i, j].Y + UIConstants.SqCharOffsetY),
-                    sqPuzzleSquares[i, j].ForeColour);
+                _spriteBatch.DrawString(_fntFont, char.ToUpper(_sqPuzzleSquares[i, j].Letter).ToString(),
+                    new Vector2(_puzzleSquares[i, j].X + UiConstants.SqCharOffsetX,
+                        _puzzleSquares[i, j].Y + UiConstants.SqCharOffsetY),
+                    _sqPuzzleSquares[i, j].ForeColour);
             }
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 
 namespace Crossword.Puzzle.ClueAnswerMap;
 
@@ -15,7 +13,7 @@ public sealed partial class ClueAnswer
     public bool CheckHint(char hintLetter)
     {
         if (hintLetter <= 0) throw new ArgumentOutOfRangeException(nameof(hintLetter));
-        
+
         var foundResult = false;
 
         // Assuming szAnswer and sqAnswerSquares are declared and initialized somewhere
@@ -27,7 +25,8 @@ public sealed partial class ClueAnswer
         {
             if (SqAnswerSquares is null || Answer[i] != hintLetter ||
                 SqAnswerSquares[i]!.Letter == hintLetter) return;
-            SqAnswerSquares[i]?.SetLetter(hintLetter, IsAcross);
+            //SqAnswerSquares[i]?.SetLetter(hintLetter, IsAcross);
+            SqAnswerSquares[i]?.SetLetter(hintLetter);
             foundResult = true;
         });
 

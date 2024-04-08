@@ -6,7 +6,7 @@ using Myra.Graphics2D.UI;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region InitListBoxes
     /// <summary>
@@ -16,8 +16,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start InitListBoxes()");
-            
+            _logger.LogInformation("Start InitListBoxes()");
+
             //List box elements
 
             //List box across
@@ -28,18 +28,18 @@ public sealed partial class CrosswordMain
 
             //Populate and add lists
             _mainPanel.Widgets.Add(_clueAcrossLabel);
-            _mainPanel.Widgets.Add(LstClueAcross);
+            _mainPanel.Widgets.Add(_lstClueAcross);
             _mainPanel.Widgets.Add(_clueDownLabel);
-            _mainPanel.Widgets.Add(LstClueDown);
-            LstClueAcross.SelectedIndex = 0;
-            LstClueDown.SelectedIndex = -1;
-            LstClueAcross.Visible = false;
-            LstClueDown.Visible = false;
-        
+            _mainPanel.Widgets.Add(_lstClueDown);
+            _lstClueAcross.SelectedIndex = 0;
+            _lstClueDown.SelectedIndex = -1;
+            _lstClueAcross.Visible = false;
+            _lstClueDown.Visible = false;
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -54,28 +54,28 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start InitListBoxDown()");
-            
+            _logger.LogInformation("Start InitListBoxDown()");
+
             //Down Label
             _clueDownLabel = new Label
             {
                 Text = "Clues Down",
                 Font = _fntListhead,
-                Left = rectCrossWord.Right + UIConstants.MainOffsetX,
-                TextColor = UIConstants.ListBoxTextColor,
-                Height = UIConstants.ClLabelHeight,
-                Top = UIConstants.ClListboxHeight + UIConstants.ClLabelHeight + UIConstants.ClListSpacer * 3
+                Left = rectCrossWord.Right + UiConstants.MainOffsetX,
+                TextColor = UiConstants.ListBoxTextColor,
+                Height = UiConstants.ClLabelHeight,
+                Top = UiConstants.ClListboxHeight + UiConstants.ClLabelHeight + UiConstants.ClListSpacer * 3
             };
 
             //Down
-            LstClueDown = new ListBox
+            _lstClueDown = new ListBox
             {
-                Left = rectCrossWord.Right + UIConstants.MainOffsetY,
-                Top = UIConstants.ClListboxHeight + UIConstants.ClLabelHeight + UIConstants.ClListSpacer * 2 +
-                      UIConstants.ClLabelHeight,
+                Left = rectCrossWord.Right + UiConstants.MainOffsetY,
+                Top = UiConstants.ClListboxHeight + UiConstants.ClLabelHeight + UiConstants.ClListSpacer * 2 +
+                      UiConstants.ClLabelHeight,
                 AcceptsKeyboardFocus = true,
                 SelectionMode = SelectionMode.Single,
-                Height = UIConstants.ClListboxHeight
+                Height = UiConstants.ClListboxHeight
             };
             // LstClueDown = new ListView
             // {
@@ -88,15 +88,15 @@ public sealed partial class CrosswordMain
             // };
 
             //set the font
-            LstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
+            _lstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
 
             //List box event handlers
-            LstClueDown.SelectedIndexChanged += SelChangeListClueDown;
-        
+            _lstClueDown.SelectedIndexChanged += SelChangeListClueDown;
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -110,27 +110,27 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start InitListBoxAcross()");
-            
+            _logger.LogInformation("Start InitListBoxAcross()");
+
             //Across Label
             _clueAcrossLabel = new Label
             {
                 Text = "Clues Across",
                 Font = _fntListhead,
-                Left = rectCrossWord.Right + UIConstants.MainOffsetX,
-                TextColor = UIConstants.ListBoxTextColor,
-                Height = UIConstants.ClLabelHeight,
-                Top = UIConstants.MainOffsetY - UIConstants.ClListSpacer * 3
+                Left = rectCrossWord.Right + UiConstants.MainOffsetX,
+                TextColor = UiConstants.ListBoxTextColor,
+                Height = UiConstants.ClLabelHeight,
+                Top = UiConstants.MainOffsetY - UiConstants.ClListSpacer * 3
             };
 
             //Across ListBox
-            LstClueAcross = new ListBox
+            _lstClueAcross = new ListBox
             {
-                Left = rectCrossWord.Right + UIConstants.MainOffsetX,
-                Top = UIConstants.MainOffsetY,
+                Left = rectCrossWord.Right + UiConstants.MainOffsetX,
+                Top = UiConstants.MainOffsetY,
                 AcceptsKeyboardFocus = true,
                 SelectionMode = SelectionMode.Single,
-                Height = UIConstants.ClListboxHeight
+                Height = UiConstants.ClListboxHeight
             };
             // LstClueAcross = new ListView
             // {
@@ -142,15 +142,15 @@ public sealed partial class CrosswordMain
             // };
 
             //set the font
-            LstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
+            _lstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
 
             //List box event handlers
-            LstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
-        
+            _lstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

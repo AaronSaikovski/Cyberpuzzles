@@ -3,10 +3,11 @@ using Crossword.Puzzle.ClueAnswerMap;
 using Crossword.Puzzle.Squares;
 using Microsoft.Xna.Framework;
 using Myra.Graphics2D.UI;
+using System.Threading.Tasks;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region InitClueAnswers
 
@@ -17,10 +18,10 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start InitClueAnswers()");
-            
+            _logger.LogInformation("Start InitClueAnswers()");
+
             //loop over the questions
-            for (var i = 0; i < NumQuestions; i++)
+            for (var i = 0; i < _numQuestions; i++)
             {
                 //Need to build a temp object of sqAnswerSquares[]
                 var sqAnswerSquares = new Square?[_puzzleDataset[i].Answer.Length];
@@ -31,34 +32,35 @@ public sealed partial class CrosswordMain
                     if (_puzzleDataset[i].IsAcross)
                     {
                         sqAnswerSquares[j] =
-                            sqPuzzleSquares[_puzzleDataset[i].CoordDown + j, _puzzleDataset[i].CoordAcross];
+                            _sqPuzzleSquares[_puzzleDataset[i].CoordDown + j, _puzzleDataset[i].CoordAcross];
                         if (j == 0)
-                            LstClueAcross.Items.Add(new ListItem(
+                            _lstClueAcross.Items.Add(new ListItem(
                                 _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
                                 Color.White));
                     }
                     else
                     {
                         sqAnswerSquares[j] =
-                            sqPuzzleSquares[_puzzleDataset[i].CoordDown, _puzzleDataset[i].CoordAcross + j];
+                            _sqPuzzleSquares[_puzzleDataset[i].CoordDown, _puzzleDataset[i].CoordAcross + j];
                         if (j == 0)
-                            LstClueDown.Items.Add(new ListItem(
+                            _lstClueDown.Items.Add(new ListItem(
                                 _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
                                 Color.White));
                     }
                 }
-
+            
                 //Build the Clue/Answer references
-                caPuzzleClueAnswers[i] = new ClueAnswer();
-                caPuzzleClueAnswers[i].SetObjectRef(_puzzleDataset[i].Answer,
+                _caPuzzleClueAnswers[i] = new ClueAnswer();
+                _caPuzzleClueAnswers[i].SetObjectRef(_puzzleDataset[i].Answer,
                     _puzzleDataset[i].Clue, _puzzleDataset[i].QuestionNum,
                     _puzzleDataset[i].IsAcross, sqAnswerSquares);
             }
-        
+            
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

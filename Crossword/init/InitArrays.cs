@@ -1,10 +1,11 @@
 using System;
 using Crossword.Puzzle.Squares;
 using Crossword.Shared.Constants;
+using System.Threading.Tasks;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region InitArrays
 
@@ -15,34 +16,55 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start InitArrays()");
-            
+            _logger.LogInformation("Start InitArrays()");
+
             //loop over rows
-            for (var i = 0; i < _NumRows; i++)
+            // for (var i = 0; i < _NumRows; i++)
+            // {
+            //     //loop over columns
+            //     for (var j = 0; j < _NumCols; j++)
+            //     {
+            //         if (_sqPuzzleSquares is null) continue;
+            //         _sqPuzzleSquares[i, j] = new Square();
+            //
+            //         //Set SQs to dirty
+            //         if (_newBackFlush || _initCrossword)
+            //         {
+            //             _sqPuzzleSquares[i, j]!.IsDirty = true;
+            //         }
+            //
+            //         //Create squares
+            //         _sqPuzzleSquares[i, j]
+            //             ?.CreateSquare(_nCrossOffsetX + i * UiConstants.SquareWidth,
+            //                 _nCrossOffsetY + j * UiConstants.SquareHeight);
+            //     }
+            // }
+            
+            
+            Parallel.For(0, _NumRows, i =>
             {
-                //loop over columns
-                for (var j = 0; j < _NumCols; j++)
+                Parallel.For(0, _NumCols, j =>
                 {
-                    if (sqPuzzleSquares is null) continue;
-                    sqPuzzleSquares[i, j] = new Square();
+                  
+                    _sqPuzzleSquares[i, j] = new Square();
 
                     //Set SQs to dirty
-                    if (NewBackFlush || InitCrossword)
+                    if (_newBackFlush || _initCrossword)
                     {
-                        sqPuzzleSquares[i, j]!.IsDirty = true;
+                        _sqPuzzleSquares[i, j]!.IsDirty = true;
                     }
 
                     //Create squares
-                    sqPuzzleSquares[i, j]
-                        ?.CreateSquare(nCrossOffsetX + i * UIConstants.SquareWidth,
-                            nCrossOffsetY + j * UIConstants.SquareHeight);
-                }
-            }
-        
+                    _sqPuzzleSquares[i, j]
+                        ?.CreateSquare(_nCrossOffsetX + i * UiConstants.SquareWidth,
+                            _nCrossOffsetY + j * UiConstants.SquareHeight);
+                });
+            });
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

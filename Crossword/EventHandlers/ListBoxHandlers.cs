@@ -3,7 +3,7 @@ using System;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
 
     #region SelChangeListClueAcross
@@ -32,8 +32,8 @@ public sealed partial class CrosswordMain
         //     SqCurrentSquare = caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].GetSquare();
         //     caPuzzleClueAnswers[(int)LstClueAcross.SelectedIndex].HighlightSquares(SqCurrentSquare, true);
         // }
-        
-       
+
+
     }
 
     #endregion

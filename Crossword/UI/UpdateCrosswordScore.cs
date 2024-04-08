@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region UpdateCrosswordScore
 
@@ -13,30 +13,32 @@ public sealed partial class CrosswordMain
     /// </summary>
     private void UpdateCrosswordScore()
     {
-        CrosswordScore = 0;
+        _crosswordScore = 0;
         try
         {
-            logger.LogInformation("Start UpdateCrosswordScore()");
+            _logger.LogInformation("Start UpdateCrosswordScore()");
 
-            Parallel.For(0, NumQuestions, i =>
+            Parallel.For(0, _numQuestions, i =>
             {
-                if (caPuzzleClueAnswers[i].IsCorrect())
+                if (_caPuzzleClueAnswers[i] == null) return;
+                if (_caPuzzleClueAnswers[i].IsCorrect())
                 {
-                    Interlocked.Increment(ref CrosswordScore);
+                    Interlocked.Increment(ref _crosswordScore);
                 }
 
-                caPuzzleClueAnswers[i].CheckWord();
+                _caPuzzleClueAnswers[i].CheckWord();
+
             });
 
 
-            if (CrosswordScore == NumQuestions)
+            if (_crosswordScore == _numQuestions)
             {
                 IsFinished = true;
             }
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

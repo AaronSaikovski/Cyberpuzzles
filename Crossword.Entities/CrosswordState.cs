@@ -16,12 +16,12 @@ public sealed class CrosswordState(int coordAcross, int coordDown, string answer
 {
     #region getters_setters
 
-    public int CoordAcross { get;} = coordAcross;
-    public int CoordDown { get;  } = coordDown;
-    public string Answer { get;  } = answer;
-    public string Clue { get;  } = clue;
-    public bool IsAcross { get;  } = isAcross;
+    public int CoordAcross { get; } = coordAcross;
+    public int CoordDown { get; } = coordDown;
+    public string Answer { get; } = answer;
+    public string Clue { get; } = clue;
+    public bool IsAcross { get; } = isAcross;
     public int QuestionNum { get; } = questionNum;
-    
+
     #endregion
 }

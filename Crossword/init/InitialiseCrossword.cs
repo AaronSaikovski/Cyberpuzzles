@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region InitialiseCrossword
     /// <summary>
@@ -15,14 +15,14 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start BuildCrossword()");
-            
+            _logger.LogInformation("Start BuildCrossword()");
+
             //Init squares
-            sqPuzzleSquares = new Square[_NumRows, _NumCols];
+            _sqPuzzleSquares = new Square[_NumRows, _NumCols];
             _puzzleSquares = new Rectangle[_NumRows, _NumCols];
 
             //Init ClueAnswers
-            caPuzzleClueAnswers = new ClueAnswer[NumQuestions]; 
+            _caPuzzleClueAnswers = new ClueAnswer[_numQuestions];
 
             //Initialise the arrays
             InitArrays();
@@ -30,14 +30,14 @@ public sealed partial class CrosswordMain
             //Init the ClueAnswers
             InitClueAnswers();
 
-            InitCrossword = true;
+            _initCrossword = true;
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
-       
+
     }
     #endregion
 }

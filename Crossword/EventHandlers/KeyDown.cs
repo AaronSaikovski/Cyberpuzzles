@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region KeyDown
 
@@ -13,28 +13,28 @@ public sealed partial class CrosswordMain
     /// <param name="keyInFocus"></param>
     public void KeyDown(Keys keyInFocus)
     {
-        if (PuzzleFinished) return;
+        if (_puzzleFinished) return;
         //need to set the focus state
         //reset focus state
-        FocusState = 0;
+        _focusState = 0;
 
         try
         {
-            logger.LogInformation("Start KeyDown()");
-            
+            _logger.LogInformation("Start KeyDown()");
+
             //Spacebar pressed to change orientation...bIsAcross.
             GetSpaceKey(keyInFocus);
 
             //Only allow list box navigation if they have the focus.
             //Up and down arrows for the listbox navigation
-            if (FocusState is 1 or 2)
+            if (_focusState is 1 or 2)
             {
-                NavigateList(IsAcross, keyInFocus);
+                NavigateList(_isAcross, keyInFocus);
             }
 
 
             //If the applet has the focus then allow the arrow keys to navigate around
-            if (FocusState == 0)
+            if (_focusState == 0)
             {
                 NavigatePuzzle(keyInFocus);
             }
@@ -44,7 +44,7 @@ public sealed partial class CrosswordMain
 
             //Check to see if a backspace was entered
             GetBackspaceKey(keyInFocus);
-            
+
             //Check that the char falls into our range.
             GetCharKey(keyInFocus);
 
@@ -53,7 +53,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -68,39 +68,39 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start GetSpaceKey()");
-            
+            _logger.LogInformation("Start GetSpaceKey()");
+
             //Spacebar pressed to change orientation...bIsAcross.
             if (keyInFocus != Keys.Space) return;
             //Deselect the listbox based on direction
-            if (!IsAcross)
-                LstClueDown.SelectedIndex = -1;
+            if (!_isAcross)
+                _lstClueDown.SelectedIndex = -1;
             else
-                LstClueAcross.SelectedIndex = -1;
+                _lstClueAcross.SelectedIndex = -1;
 
             //Sets the highlighting of the square.
-            if (SqCurrentSquare is null) return;
-            SqCurrentSquare.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
+            if (_sqCurrentSquare is null) return;
+            _sqCurrentSquare.GetClueAnswerRef(_isAcross)?.HighlightSquares(_sqCurrentSquare, false);
 
             //Change orientation if possible
-            if (IsAcross)
+            if (_isAcross)
             {
-                if (SqCurrentSquare.CanFlipDirection(IsAcross))
-                    IsAcross = false;
+                if (_sqCurrentSquare.CanFlipDirection(_isAcross))
+                    _isAcross = false;
             }
             else
             {
-                if (SqCurrentSquare.CanFlipDirection(IsAcross))
-                    IsAcross = true;
+                if (_sqCurrentSquare.CanFlipDirection(_isAcross))
+                    _isAcross = true;
             }
 
             //Sets the highlighting of the square.
-            SqCurrentSquare.GetClueAnswerRef(IsAcross)
-                ?.HighlightSquares(SqCurrentSquare, true);
+            _sqCurrentSquare.GetClueAnswerRef(_isAcross)
+                ?.HighlightSquares(_sqCurrentSquare, true);
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -115,20 +115,21 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start GetDeleteKey()");
-            
+            _logger.LogInformation("Start GetDeleteKey()");
+
             //Delete present square's contents if Delete key is pressed
             if (keyInFocus == Keys.Delete)
             {
-                SqCurrentSquare?.SetLetter(' ', IsAcross);
+                //SqCurrentSquare?.SetLetter(' ', IsAcross);
+                _sqCurrentSquare?.SetLetter(' ');
             }
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
-        
+
     }
     #endregion
 
@@ -141,20 +142,21 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start GetBackspaceKey()");
-            
+            _logger.LogInformation("Start GetBackspaceKey()");
+
             //Check to see if a backspace was entered
             if (keyInFocus != Keys.Back) return;
-            SqCurrentSquare?.SetLetter(' ', IsAcross);
-            SqCurrentSquare = SqCurrentSquare?.GetPrevSq(IsAcross);
-            SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
+            //SqCurrentSquare?.SetLetter(' ', IsAcross);
+            _sqCurrentSquare?.SetLetter(' ');
+            _sqCurrentSquare = _sqCurrentSquare?.GetPrevSq(_isAcross);
+            _sqCurrentSquare?.GetClueAnswerRef(_isAcross)?.HighlightSquares(_sqCurrentSquare, true);
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
-       
+
     }
     #endregion
 
@@ -167,24 +169,25 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start GetCharKey()");
-            
+            _logger.LogInformation("Start GetCharKey()");
+
             //Check that the char falls into our range.
             if (keyInFocus is < Keys.A or > Keys.Z) return;
-            
+
             //Sets the letter in the current square
-            SqCurrentSquare?.SetLetter(char.ToUpper((char)keyInFocus), IsAcross);
+            //SqCurrentSquare?.SetLetter(char.ToUpper((char)keyInFocus), IsAcross);
+            _sqCurrentSquare?.SetLetter(char.ToUpper((char)keyInFocus));
 
             //get next sq or myself(same sq)  if not available
-            SqCurrentSquare = SqCurrentSquare?.GetNextSq(IsAcross);
+            _sqCurrentSquare = _sqCurrentSquare?.GetNextSq(_isAcross);
 
             //Sets the highlighting of the square.
-            SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
-            
+            _sqCurrentSquare?.GetClueAnswerRef(_isAcross)?.HighlightSquares(_sqCurrentSquare, true);
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

@@ -6,7 +6,7 @@ using Myra.Graphics2D.UI;
 using Crossword.Entities;
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region InitControls
 
@@ -17,17 +17,17 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start InitControls()");
-            
+            _logger.LogInformation("Start InitControls()");
+
             //Init the main rectangle
-            rectCrossWord = new Rectangle(nCrossOffsetX, nCrossOffsetY, _nCrosswordWidth, _nCrosswordHeight);
+            rectCrossWord = new Rectangle(_nCrossOffsetX, _nCrossOffsetY, _nCrosswordWidth, _nCrosswordHeight);
 
             //List box elements
             InitListBoxes();
-            
+
             //Dimension array for crossword data
-            _puzzleDataset = new CrosswordState[NumQuestions];
-            Parallel.For(0, NumQuestions, i =>
+            _puzzleDataset = new CrosswordState[_numQuestions];
+            Parallel.For(0, _numQuestions, i =>
             {
                 _puzzleDataset[i] = new CrosswordState(_rowRef[i], _colRef[i], _szAnswers[i], _szClues[i], _bDataIsAcross[i],
                 _quesNum[i]);
@@ -41,7 +41,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

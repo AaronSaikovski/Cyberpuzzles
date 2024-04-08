@@ -7,10 +7,12 @@ using Myra;
 using Myra.Graphics2D.UI;
 
 using Crossword.UI;
+using Crossword.UI.Label;
+using Crossword.UI.Score;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region Initialize
     /// <summary>
@@ -20,8 +22,8 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start Initialize()");
-            
+            _logger.LogInformation("Start Initialize()");
+
             //Panel for UI
             _mainPanel = new Panel();
 
@@ -36,10 +38,10 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
-        
+
     }
     #endregion
 
@@ -51,14 +53,14 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start LoadContent()");
-            
+            _logger.LogInformation("Start LoadContent()");
+
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             MyraEnvironment.Game = this;
 
             _blackTexture = new Texture2D(GraphicsDevice, 1, 1);
             _blackTexture.SetData(new[] { Color.Black });
-           
+
             //Initialise everything
             MainInit();
 
@@ -67,11 +69,11 @@ public sealed partial class CrosswordMain
             {
                 Root = _mainPanel
             };
-            
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -86,11 +88,11 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start Update()");
-            
+            _logger.LogInformation("Start Update()");
+
             //get mouse state
             var mouseState = Mouse.GetState();
-            
+
             // Game Logic lives here
             _keyboardInput.Poll(Keyboard.GetState());
             _mouseInput.Poll(Mouse.GetState());
@@ -98,23 +100,23 @@ public sealed partial class CrosswordMain
             //update button mouse states
             _HintButton.Update(mouseState);
             _NextPuzzButton.Update(mouseState);
-                
+
             //update game logic
             UpdateCrosswordScore();
             //DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel);
-            CrosswordUI.DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel, IsFinished, CrosswordScore,
-                NumQuestions, _fntScore, rectCrossWord.Bottom);
+            CrosswordScore.DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel, IsFinished, _crosswordScore,
+                _numQuestions, _fntScore, rectCrossWord.Bottom);
 
             //draw the credits
             //DrawCreditsLabel(_mainPanel, _creditsLabel);
-            CrosswordUI.DrawCreditsLabel(_mainPanel,_creditsLabel,rectCrossWord.Left,rectCrossWord.Bottom,_fntCredits);
-            
+            CrosswordLabel.DrawCreditsLabel(_mainPanel, _creditsLabel, rectCrossWord.Left, rectCrossWord.Bottom, _fntCredits);
+
             base.Update(gameTime);
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -129,12 +131,12 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start Draw()");
-            
+            _logger.LogInformation("Start Draw()");
+
             GraphicsDevice.Clear(Color.White);
 
             //If buffer dirty...draw the crossword
-            if (bBufferDirty)
+            if (_bBufferDirty)
             {
                 DrawCrossword();
             }
@@ -146,11 +148,11 @@ public sealed partial class CrosswordMain
             // End drawing        
             _desktop.Render();
             base.Draw(gameTime);
-        
+
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }

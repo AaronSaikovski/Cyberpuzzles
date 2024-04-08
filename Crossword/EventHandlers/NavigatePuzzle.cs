@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Crossword.App;
 
-public sealed partial class CrosswordMain
+public sealed partial class CrosswordApp
 {
     #region NavigatePuzzle
     /// <summary>
@@ -14,13 +14,13 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start NavigatePuzzle()");
-            
+            _logger.LogInformation("Start NavigatePuzzle()");
+
             //Deselect the listbox based on direction
             DeselectListBox();
 
             //Sets the highlighting of the square.
-            SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, false);
+            _sqCurrentSquare?.GetClueAnswerRef(_isAcross)?.HighlightSquares(_sqCurrentSquare, false);
 
             //If left arrow key pressed get prev sq
             GetLeftArrow(keyInFocus);
@@ -35,7 +35,7 @@ public sealed partial class CrosswordMain
             GetDownArrow(keyInFocus);
 
             //Sets the highlighting of the square.
-            SqCurrentSquare?.GetClueAnswerRef(IsAcross)?.HighlightSquares(SqCurrentSquare, true);
+            _sqCurrentSquare?.GetClueAnswerRef(_isAcross)?.HighlightSquares(_sqCurrentSquare, true);
 
             //Listbox linkage stuff
             UpdateListBoxLinkage();
@@ -43,7 +43,7 @@ public sealed partial class CrosswordMain
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -57,20 +57,20 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start DeselectListBox()");
-            
+            _logger.LogInformation("Start DeselectListBox()");
+
             //Deselect the listbox based on direction
-            if (!IsAcross)
-                LstClueDown.SelectedIndex = -1;
+            if (!_isAcross)
+                _lstClueDown.SelectedIndex = -1;
             else
-                LstClueAcross.SelectedIndex = -1;
+                _lstClueAcross.SelectedIndex = -1;
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
-        
+
     }
     #endregion
 
@@ -82,31 +82,31 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start UpdateListBoxLinkage()");
-            
+            _logger.LogInformation("Start UpdateListBoxLinkage()");
+
             ///////////////////////////////////////
             //Listbox linkage stuff
             //
             //Find index to Clue Answer for highlighting in List boxes
-            var tmp = SqCurrentSquare?.GetClueAnswerRef(IsAcross);
+            var tmp = _sqCurrentSquare?.GetClueAnswerRef(_isAcross);
             var clueAnswerIdx = 0;
-            for (var k = 0; k < NumQuestions; k++)
+            for (var k = 0; k < _numQuestions; k++)
             {
-                if (tmp != caPuzzleClueAnswers[k]) continue;
+                if (tmp != _caPuzzleClueAnswers[k]) continue;
                 clueAnswerIdx = k;
                 break;
             }
 
             //Selects the item in the list box relative to the ClueAnswerMap
             //and the orientation.
-            if (IsAcross)
-                LstClueAcross.SelectedIndex = clueAnswerIdx;
+            if (_isAcross)
+                _lstClueAcross.SelectedIndex = clueAnswerIdx;
             else
-                LstClueDown.SelectedIndex = clueAnswerIdx - LstClueAcross.Items.Count;
+                _lstClueDown.SelectedIndex = clueAnswerIdx - _lstClueAcross.Items.Count;
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -121,30 +121,30 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start GetDownArrow()");
-            
+            _logger.LogInformation("Start GetDownArrow()");
+
             //If down arrow pressed get next sq
             if (keyInFocus != Keys.Down) return;
-            if (IsAcross)
+            if (_isAcross)
             {
-                SqCurrentSquare = SqCurrentSquare?.GetNextSq(!IsAcross);
-                if (SqCurrentSquare?.ClueAnswerAcross is null)
+                _sqCurrentSquare = _sqCurrentSquare?.GetNextSq(!_isAcross);
+                if (_sqCurrentSquare?.ClueAnswerAcross is null)
                 {
-                    IsAcross = !IsAcross;
+                    _isAcross = !_isAcross;
                 }
             }
             else
             {
-                SqCurrentSquare = SqCurrentSquare?.GetNextSq(IsAcross);
+                _sqCurrentSquare = _sqCurrentSquare?.GetNextSq(_isAcross);
             }
 
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
-       
+
     }
     #endregion
 
@@ -157,30 +157,30 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start GetUpArrow()");
-            
+            _logger.LogInformation("Start GetUpArrow()");
+
             //If up arrow key pressed
             if (keyInFocus != Keys.Up) return;
-            if (IsAcross)
+            if (_isAcross)
             {
-                SqCurrentSquare = SqCurrentSquare?.GetPrevSq(!IsAcross);
-                if (SqCurrentSquare?.ClueAnswerAcross is null)
+                _sqCurrentSquare = _sqCurrentSquare?.GetPrevSq(!_isAcross);
+                if (_sqCurrentSquare?.ClueAnswerAcross is null)
                 {
-                    IsAcross = !IsAcross;
+                    _isAcross = !_isAcross;
                 }
             }
             else
             {
-                SqCurrentSquare = SqCurrentSquare?.GetPrevSq(IsAcross);
+                _sqCurrentSquare = _sqCurrentSquare?.GetPrevSq(_isAcross);
             }
 
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
-        
+
     }
     #endregion
 
@@ -193,28 +193,28 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start GetRightArrow()");
-            
+            _logger.LogInformation("Start GetRightArrow()");
+
             //If right arrow pressed get next sq
             if (keyInFocus != Keys.Right) return;
-            if (IsAcross)
+            if (_isAcross)
             {
-                SqCurrentSquare = SqCurrentSquare?.GetNextSq(IsAcross);
+                _sqCurrentSquare = _sqCurrentSquare?.GetNextSq(_isAcross);
             }
             else
             {
-                SqCurrentSquare = SqCurrentSquare?.GetNextSq(!IsAcross);
-                if (SqCurrentSquare?.ClueAnswerDown is null)
-                    IsAcross = !IsAcross;
+                _sqCurrentSquare = _sqCurrentSquare?.GetNextSq(!_isAcross);
+                if (_sqCurrentSquare?.ClueAnswerDown is null)
+                    _isAcross = !_isAcross;
             }
 
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
-       
+
     }
     #endregion
 
@@ -227,27 +227,27 @@ public sealed partial class CrosswordMain
     {
         try
         {
-            logger.LogInformation("Start GetLeftArrow()");
-            
+            _logger.LogInformation("Start GetLeftArrow()");
+
             //If left arrow key pressed get prev sq
             if (keyInFocus != Keys.Left) return;
-            if (!IsAcross)
+            if (!_isAcross)
             {
-                SqCurrentSquare = SqCurrentSquare?.GetPrevSq(!IsAcross);
-                if (SqCurrentSquare?.ClueAnswerDown is null)
-                    IsAcross = !IsAcross;
+                _sqCurrentSquare = _sqCurrentSquare?.GetPrevSq(!_isAcross);
+                if (_sqCurrentSquare?.ClueAnswerDown is null)
+                    _isAcross = !_isAcross;
             }
             else
             {
-                SqCurrentSquare = SqCurrentSquare?.GetPrevSq(IsAcross);
+                _sqCurrentSquare = _sqCurrentSquare?.GetPrevSq(_isAcross);
             }
         }
         catch (Exception ex)
         {
-            logger.LogError(ex,ex.Message);
+            _logger.LogError(ex, ex.Message);
             throw;
         }
-        
+
     }
     #endregion
 
