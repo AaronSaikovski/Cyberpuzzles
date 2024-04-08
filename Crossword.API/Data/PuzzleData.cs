@@ -11,12 +11,7 @@ public static class PuzzleData
     /// <returns></returns>
     public static string? GetCrosswordPuzzleData(string? puzzleDataFile)
     {
-        //check for null data file result
-        // if (puzzleDataFile is null)
-        // {
-        //    throw new ApplicationException("Datafile is empty or invalid.");
-        // }
-
+        
         ArgumentException.ThrowIfNullOrEmpty(puzzleDataFile);
 
         //get the data file

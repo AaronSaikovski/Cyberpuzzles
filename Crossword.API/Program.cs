@@ -23,7 +23,3 @@ catch (Exception ex)
 {
     logger.LogFatal(ex, ex.Message);
 }
-// finally
-// {
-//     logger.Dispose();
-// }

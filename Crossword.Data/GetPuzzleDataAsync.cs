@@ -61,10 +61,7 @@ public static class GetPuzzleDataAsync
             logger.LogError(ex, ex.Message);
             return string.Empty;
         }
-        // finally
-        // {
-        //     logger.Dispose();
-        // }
+    
     }
 
     #endregion
@@ -97,10 +94,7 @@ public static class GetPuzzleDataAsync
             logger.LogError(ex, ex.Message);
             throw;
         }
-        // finally
-        // {
-        //     logger.Dispose();   
-        // }
+       
     }
 
     #endregion

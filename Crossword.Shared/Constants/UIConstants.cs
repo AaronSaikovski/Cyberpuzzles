@@ -19,11 +19,6 @@ public static class UiConstants
     public const int SquareHeight = 40;
     public const float SquareSpacer = 1.5f;
 
-    //Highlight Constants
-    // public const int CurrentLetter = 1;
-    // public const int CurrentWord = 2;
-    // public const int CurrentNone = 3;
-
 
     //Font sizes
     public const int FntSml = 9;
@@ -77,12 +72,7 @@ public static class UiConstants
 
     //Credits Colo
     public static Color CreditsColor = Color.Black;
-
-    //Button colours
-    //public static Color ButtonTextColor = Color.White;
-    //public static Color ButtonHoverTextColor = Color.Yellow;
-
-
+    
     //Listbox text colors
     public static Color ListBoxTextColor = Color.Black;
 
