@@ -1,8 +1,6 @@
 using System;
 using Crossword.Shared.Constants;
 using Microsoft.Xna.Framework;
-
-
 using Crossword.UI.SmallFont;
 
 namespace Crossword.App;
@@ -31,21 +29,22 @@ public sealed partial class CrosswordApp
     /// <param name="j"></param>
     internal void DrawSquares(int i, int j)
     {
-        //small font class
-        DrawSmallFont drawFont;
+
 
         //Check to see if a char is allowed
         if (_sqPuzzleSquares[i, j]!.IsCharAllowed)
         {
             //Draws the squares
             //if (DrawSquare(i, j)) continue;
-            if (DrawSquare(_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _spriteBatch))
-            {
-                //do nothing;
-            }
+            // if (DrawSquare(_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _spriteBatch))
+            // {
+            //     //do nothing;
+            // }
+
+            DrawSquare(_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _spriteBatch);
 
             //small number font
-            drawFont = new DrawSmallFont();
+            var drawFont = new DrawSmallFont();
             drawFont.DrawSmallFontAcross(_sqPuzzleSquares?[i, j].ClueAnswerAcross, _sqPuzzleSquares[i, j], _puzzleSquares[i, j], _fntnumFont, _spriteBatch);
             drawFont.DrawSmallFontDown(_sqPuzzleSquares?[i, j].ClueAnswerDown, _sqPuzzleSquares[i, j], _puzzleSquares[i, j], _fntnumFont, _spriteBatch);
 
