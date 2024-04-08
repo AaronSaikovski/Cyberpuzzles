@@ -11,7 +11,7 @@ public static class PuzzleData
     /// <returns></returns>
     public static string? GetCrosswordPuzzleData(string? puzzleDataFile)
     {
-        
+
         ArgumentException.ThrowIfNullOrEmpty(puzzleDataFile);
 
         //get the data file

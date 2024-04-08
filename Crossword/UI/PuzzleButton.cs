@@ -52,16 +52,7 @@ public class PuzzleButton
         return mouseRectangle.Intersects(Bounds);
     }
 
-    /// <summary>
-    /// IsClicked
-    /// </summary>
-    /// <param name="mouseState"></param>
-    /// <returns></returns>
-    // public bool IsClicked(MouseState mouseState)
-    // {
-    //     var mouseRectangle = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
-    //     return mouseRectangle.Intersects(Bounds) && mouseState.LeftButton == ButtonState.Pressed;
-    // }
+
     #endregion
 
     #region Graphics_Handlers

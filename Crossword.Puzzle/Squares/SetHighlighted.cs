@@ -22,7 +22,7 @@ public sealed partial class Square
                     BackColour = UiConstants.SquareHighlightCurrent;
                     IsDirty = true;
                 }
-    
+
                 break;
             case 2: //Current Word
                 if (!BackColour.Equals(UiConstants.SquareHighlightWord))
@@ -30,7 +30,7 @@ public sealed partial class Square
                     BackColour = UiConstants.SquareHighlightWord;
                     IsDirty = true;
                 }
-    
+
                 break;
             case 3: //Current None
                 if (!BackColour.Equals(UiConstants.SquareHighlightNone))
@@ -38,7 +38,7 @@ public sealed partial class Square
                     BackColour = UiConstants.SquareHighlightNone;
                     IsDirty = true;
                 }
-    
+
                 break;
             default: //Something went wrong....
                 if (BackColour.Equals(UiConstants.SquareHighlightErr))
@@ -47,11 +47,11 @@ public sealed partial class Square
                     BackColour = UiConstants.SquareHighlightErr;
                     IsDirty = true;
                 }
-    
+
                 break;
         }
     }
-    
+
     // public void SetHighlighted(HighlightSquare SquareHighlightType)
     // {
     //     HighlightSquareSelColour = SquareHighlightType;

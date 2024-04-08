@@ -2,7 +2,7 @@ namespace Crossword.Shared.enums;
 
 public enum HighlightSquare
 {
-    
+
     /// <summary>
     /// Current Letter
     /// </summary>
@@ -12,7 +12,7 @@ public enum HighlightSquare
     /// Current Word
     /// </summary>
     CurrentWord = 2,
-    
+
     /// <summary>
     /// Current None
     /// </summary>

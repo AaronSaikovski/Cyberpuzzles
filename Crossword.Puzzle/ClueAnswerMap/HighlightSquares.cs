@@ -43,7 +43,7 @@ public sealed partial class ClueAnswer
         //         : UiConstants.CurrentWord);
         //     }
         // });
-        
+
         Parallel.For(0, Answer.Length, i =>
         {
             if (!setHighLighted)
@@ -56,9 +56,9 @@ public sealed partial class ClueAnswer
                         : (int)HighlightSquare.CurrentWord);
             }
         });
-        
-      
-        
+
+
+
         // Parallel.For(0, Answer.Length, i =>
         // {
         //     if (!setHighLighted)

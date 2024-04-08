@@ -15,7 +15,7 @@ public sealed partial class ClueAnswer
     //         return !Answer.Where((t, i) => SqAnswerSquares is not null && SqAnswerSquares[i]!.Letter != t).Any();
     //     return true;
     // }
-    
+
     public bool IsCorrect()
     {
         if (Answer is not null)

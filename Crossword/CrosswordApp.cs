@@ -158,7 +158,7 @@ public sealed partial class CrosswordApp : Game
     //Rectangle variable
     public Rectangle rectCrossWord;
 
-    
+
     //CrosswordApp.Application Width and Height variables
     private int _nCrosswordWidth;
     private int _nCrosswordHeight;

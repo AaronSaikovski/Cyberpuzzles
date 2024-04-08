@@ -72,7 +72,7 @@ public static class UiConstants
 
     //Credits Colo
     public static Color CreditsColor = Color.Black;
-    
+
     //Listbox text colors
     public static Color ListBoxTextColor = Color.Black;
 

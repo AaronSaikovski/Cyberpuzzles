@@ -23,7 +23,7 @@ public class DrawSmallFont : IDrawSmallFont
     {
         if (puzzleSquare.ClueAnswerAcross is null) return;
         if (puzzleSquare.ClueAnswerAcross?.SqAnswerSquares?[0] != puzzleSquare) return;
-        
+
         spriteBatch.DrawString(numFont,
             puzzleSquare.ClueAnswerAcross?.QuestionNumber.ToString(),
             new Vector2(rectSquare.X + UiConstants.SmlNumOffsetX,
@@ -31,7 +31,7 @@ public class DrawSmallFont : IDrawSmallFont
     }
 
     #endregion
-    
+
     #region DrawSmallFontDown
     /// <summary>
     /// Draws a small font downt

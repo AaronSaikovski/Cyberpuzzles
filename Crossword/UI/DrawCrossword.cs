@@ -16,7 +16,7 @@ public sealed partial class CrosswordApp
     /// </summary>
     /// <param name="i"></param>
     /// <param name="j"></param>
-     internal void InitPuzzleSquares(int i, int j)
+    internal void InitPuzzleSquares(int i, int j)
     {
         _puzzleSquares[i, j] = new Rectangle(
             _sqPuzzleSquares[i, j]!.xCoord + i * (int)UiConstants.SquareSpacer,
@@ -34,7 +34,7 @@ public sealed partial class CrosswordApp
     {
         //small font class
         DrawSmallFont drawFont;
-        
+
         //Check to see if a char is allowed
         if (_sqPuzzleSquares[i, j]!.IsCharAllowed)
         {
@@ -46,11 +46,9 @@ public sealed partial class CrosswordApp
             }
 
             //small number font
-            //DrawSmallFontAcross(i, j);
-            //DrawSmallFontDown(i, j);
             drawFont = new DrawSmallFont();
-            drawFont.DrawSmallFontAcross(_sqPuzzleSquares?[i, j].ClueAnswerAcross,_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _fntnumFont,_spriteBatch);
-            drawFont.DrawSmallFontDown(_sqPuzzleSquares?[i, j].ClueAnswerDown,_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _fntnumFont,_spriteBatch);
+            drawFont.DrawSmallFontAcross(_sqPuzzleSquares?[i, j].ClueAnswerAcross, _sqPuzzleSquares[i, j], _puzzleSquares[i, j], _fntnumFont, _spriteBatch);
+            drawFont.DrawSmallFontDown(_sqPuzzleSquares?[i, j].ClueAnswerDown, _sqPuzzleSquares[i, j], _puzzleSquares[i, j], _fntnumFont, _spriteBatch);
 
             //check if squares are dirty
             if (_sqPuzzleSquares[i, j]!.IsDirty)
@@ -65,7 +63,7 @@ public sealed partial class CrosswordApp
             _spriteBatch.Draw(_imgBlackSquare, _puzzleSquares[i, j], _rectangleColor);
         }
     }
-     
+
     #region DrawCrossword
     /// <summary>
     /// Draws the crossword graphics
@@ -92,40 +90,10 @@ public sealed partial class CrosswordApp
 
                     //Main puzzle squares array
                     //Draw crossword with squares with spaces
-                    // _puzzleSquares[i, j] = new Rectangle(
-                    //     _sqPuzzleSquares[i, j]!.xCoord + i * (int)UiConstants.SquareSpacer,
-                    //     _sqPuzzleSquares[i, j]!.yCoord + j * (int)UiConstants.SquareSpacer,
-                    //     UiConstants.SquareWidth,
-                    //     UiConstants.SquareHeight);
-                    InitPuzzleSquares(i,j);
+                    InitPuzzleSquares(i, j);
 
                     //Check to see if a char is allowed
-                    // if (_sqPuzzleSquares[i, j]!.IsCharAllowed)
-                    // {
-                    //     //Draws the squares
-                    //     //if (DrawSquare(i, j)) continue;
-                    //     if (DrawSquare(_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _spriteBatch)) continue;
-                    //
-                    //     //small number font
-                    //     //DrawSmallFontAcross(i, j);
-                    //     //DrawSmallFontDown(i, j);
-                    //     drawFont = new DrawSmallFont();
-                    //     drawFont.DrawSmallFontAcross(_sqPuzzleSquares?[i, j].ClueAnswerAcross,_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _fntnumFont,_spriteBatch);
-                    //     drawFont.DrawSmallFontDown(_sqPuzzleSquares?[i, j].ClueAnswerDown,_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _fntnumFont,_spriteBatch);
-                    //
-                    //     //check if squares are dirty
-                    //     if (_sqPuzzleSquares[i, j]!.IsDirty)
-                    //     {
-                    //         //Char entered by user.
-                    //         DrawUserChar(i, j);
-                    //     }
-                    // }
-                    // else
-                    // {
-                    //     // Black square
-                    //     _spriteBatch.Draw(_imgBlackSquare, _puzzleSquares[i, j], _rectangleColor);
-                    // }
-                    DrawSquares(i,j);
+                    DrawSquares(i, j);
                 }
             }
             _spriteBatch.End();

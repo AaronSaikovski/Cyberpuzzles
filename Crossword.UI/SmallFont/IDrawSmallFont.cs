@@ -13,7 +13,7 @@ public interface IDrawSmallFont
 {
     void DrawSmallFontAcross(ClueAnswer clueAnswer, Square puzzleSquare, Rectangle rectSquare,
         DynamicSpriteFont numFont, SpriteBatch spriteBatch);
-    
+
     void DrawSmallFontDown(ClueAnswer clueAnswer, Square puzzleSquare, Rectangle rectSquare,
         DynamicSpriteFont numFont, SpriteBatch spriteBatch);
 }

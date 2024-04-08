@@ -28,20 +28,20 @@ public sealed partial class CrosswordApp
             if (_puzzleSquares is not null)
                 spriteBatch.Draw(_imgNormalSquare, rectSquare, _rectangleColor);
         }
-    
+
         if (sqPuzzleSquare!.BackColour.Equals(UiConstants.SquareHighlightWord))
         {
             if (_puzzleSquares is not null)
                 spriteBatch.Draw(_imgSquareWord, rectSquare, _rectangleColor);
         }
-    
+
         if (!sqPuzzleSquare!.BackColour.Equals(UiConstants.SquareHighlightCurrent)) return false;
         if (_puzzleSquares is not null)
             spriteBatch.Draw(_imgHighliteSquare, rectSquare, _rectangleColor);
-    
+
         return false;
     }
-    
-    
+
+
     #endregion
 }

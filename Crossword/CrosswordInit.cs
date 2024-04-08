@@ -39,7 +39,7 @@ public sealed partial class CrosswordApp
 
             //Show the lists
             if (_lstClueAcross is not null) _lstClueAcross.Visible = true;
-            if (_lstClueDown is not null)_lstClueDown.Visible = true;
+            if (_lstClueDown is not null) _lstClueDown.Visible = true;
 
             //Set the initial active square
             _sqCurrentSquare = _caPuzzleClueAnswers?[0].GetSquare();
