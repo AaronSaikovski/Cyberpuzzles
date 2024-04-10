@@ -93,7 +93,7 @@ public sealed partial class CrosswordApp
 
 
             //PuzzleType
-            PuzzleType = _mrParserData.PuzzleType;
+            _puzzleType = _mrParserData.PuzzleType;
 
             //Number of Columns
             _NumCols = _mrParserData.NumCols;

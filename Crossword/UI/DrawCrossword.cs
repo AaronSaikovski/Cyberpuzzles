@@ -17,8 +17,8 @@ public sealed partial class CrosswordApp
     internal void InitPuzzleSquares(int i, int j)
     {
         _puzzleSquares[i, j] = new Rectangle(
-            _sqPuzzleSquares[i, j]!.xCoord + i * (int)UiConstants.SquareSpacer,
-            _sqPuzzleSquares[i, j]!.yCoord + j * (int)UiConstants.SquareSpacer,
+            _sqPuzzleSquares[i, j]!.XCoord + i * (int)UiConstants.SquareSpacer,
+            _sqPuzzleSquares[i, j]!.YCoord + j * (int)UiConstants.SquareSpacer,
             UiConstants.SquareWidth,
             UiConstants.SquareHeight);
     }

@@ -1,17 +1,18 @@
 using System;
+using Crossword.App;
 using Crossword.Entities;
+using Crossword.Parser;
 using Crossword.Puzzle.ClueAnswerMap;
 using Crossword.Puzzle.Squares;
+using Crossword.Shared.Config;
 using Crossword.Shared.Constants;
-using Crossword.Parser;
+using Crossword.Shared.Logger;
 using FontStashSharp;
 using InputHandlers.Keyboard;
 using InputHandlers.Mouse;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Myra.Graphics2D.UI;
-using Crossword.Shared.Logger;
-using Crossword.Shared.Config;
 
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
@@ -44,12 +45,12 @@ public sealed partial class CrosswordApp : Game
     private bool _newBackFlush;
 
     //Data set variables
-    public string? PuzzleType;
+    public string? _puzzleType;
     public int _NumCols, _NumRows, _NumAcross, _NumDown, _PuzzleId;
     private int[]? _colRef, _rowRef, _quesNum;
     private bool[]? _bDataIsAcross;
     private string[]? _szClues, _szAnswers;
-    private int[]? _nCosts = [0, 0, 0, 0, 0, 0];
+    //private int[]? _nCosts = [0, 0, 0, 0, 0, 0];
     private string? _szGetLetters;
     private string? _szTmpGetLetters;
     private int _numQuestions;
@@ -139,10 +140,10 @@ public sealed partial class CrosswordApp : Game
     private DynamicSpriteFont? _fntCredits;  // Credits
 
 
-    //Keyboard handler
+    // //Keyboard handler
     private readonly KeyboardInput? _keyboardInput;
     private readonly KeyboardInputHandler? _keyboardInputHandler;
-
+    
     //Mouse handler
     private readonly MouseInput? _mouseInput;
     private readonly MouseInputHandler? _mouseInputHandler;
@@ -170,7 +171,7 @@ public sealed partial class CrosswordApp : Game
     private int _nCrossOffsetY = 5;
 
     //Logging implementation
-    private SerilogLogger _logger;
+    private readonly SerilogLogger _logger;
 
 
     #endregion
@@ -193,7 +194,7 @@ public sealed partial class CrosswordApp : Game
 
         IsFixedTimeStep = true; // Set to true to use fixed time step
         TargetElapsedTime = TimeSpan.FromMilliseconds(1000.0 / 30); // Set the desired refresh rate (e.g., 30 FPS)
-
+    
         //Keyboard handlers
         _keyboardInput = new KeyboardInput();
         _keyboardInputHandler = new KeyboardInputHandler(this); //Pass in crossword instance object

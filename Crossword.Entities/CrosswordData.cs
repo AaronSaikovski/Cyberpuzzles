@@ -23,7 +23,7 @@ public sealed record CrosswordData
     public string[]? Answers { get; set; }
 
     //public int[]? Costs { get; set; }
-    public int[]? Costs { get; }
+    //public int[]? Costs { get; }
 
     public string? GetLetters { get; set; }
     public string? Blurb { get; set; }
