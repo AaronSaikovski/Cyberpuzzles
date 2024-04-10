@@ -27,12 +27,12 @@ public sealed partial class CrosswordApp
             InitListBoxDown();
 
             //Populate and add lists
-            _mainPanel.Widgets.Add(_clueAcrossLabel);
-            _mainPanel.Widgets.Add(_lstClueAcross);
-            _mainPanel.Widgets.Add(_clueDownLabel);
-            _mainPanel.Widgets.Add(_lstClueDown);
-            _lstClueAcross.SelectedIndex = 0;
-            _lstClueDown.SelectedIndex = -1;
+            _mainPanel!.Widgets.Add(_clueAcrossLabel);
+            _mainPanel!.Widgets.Add(_lstClueAcross);
+            _mainPanel!.Widgets.Add(_clueDownLabel);
+            _mainPanel!.Widgets.Add(_lstClueDown);
+            _lstClueAcross!.SelectedIndex = 0;
+            _lstClueDown!.SelectedIndex = -1;
             _lstClueAcross.Visible = false;
             _lstClueDown.Visible = false;
 
@@ -83,7 +83,7 @@ public sealed partial class CrosswordApp
             _lstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
 
             //List box event handlers
-            _lstClueDown.SelectedIndexChanged += SelChangeListClueDown;
+            _lstClueDown.SelectedIndexChanged += SelChangeListClueDown!;
 
         }
         catch (Exception ex)
@@ -137,7 +137,7 @@ public sealed partial class CrosswordApp
             _lstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
 
             //List box event handlers
-            _lstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
+            _lstClueAcross.SelectedIndexChanged += SelChangeListClueAcross!;
 
         }
         catch (Exception ex)

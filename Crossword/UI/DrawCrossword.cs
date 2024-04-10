@@ -16,9 +16,9 @@ public sealed partial class CrosswordApp
     /// <param name="j"></param>
     internal void InitPuzzleSquares(int i, int j)
     {
-        _puzzleSquares[i, j] = new Rectangle(
-            _sqPuzzleSquares[i, j]!.XCoord + i * (int)UiConstants.SquareSpacer,
-            _sqPuzzleSquares[i, j]!.YCoord + j * (int)UiConstants.SquareSpacer,
+        _puzzleSquares![i, j] = new Rectangle(
+            _sqPuzzleSquares![i, j]!.XCoord + i * (int)UiConstants.SquareSpacer,
+            _sqPuzzleSquares![i, j]!.YCoord + j * (int)UiConstants.SquareSpacer,
             UiConstants.SquareWidth,
             UiConstants.SquareHeight);
     }
@@ -31,15 +31,15 @@ public sealed partial class CrosswordApp
     internal void DrawSquares(int i, int j)
     {
         //Check to see if a char is allowed
-        if (_sqPuzzleSquares[i, j]!.IsCharAllowed)
+        if (_sqPuzzleSquares![i, j]!.IsCharAllowed)
         {
             //Draws the squares
-            DrawSquare(_sqPuzzleSquares[i, j], _puzzleSquares[i, j], _spriteBatch);
+            DrawSquare(_sqPuzzleSquares[i, j], _puzzleSquares![i, j], _spriteBatch!);
 
             //small number font
             var drawFont = new DrawSmallFont();
-            drawFont.DrawSmallFontAcross(_sqPuzzleSquares?[i, j].ClueAnswerAcross, _sqPuzzleSquares[i, j], _puzzleSquares[i, j], _fntnumFont, _spriteBatch);
-            drawFont.DrawSmallFontDown(_sqPuzzleSquares?[i, j].ClueAnswerDown, _sqPuzzleSquares[i, j], _puzzleSquares[i, j], _fntnumFont, _spriteBatch);
+            drawFont.DrawSmallFontAcross(_sqPuzzleSquares?[i, j].ClueAnswerAcross!, _sqPuzzleSquares![i, j], _puzzleSquares[i, j], _fntnumFont!, _spriteBatch!);
+            drawFont.DrawSmallFontDown(_sqPuzzleSquares?[i, j].ClueAnswerDown!, _sqPuzzleSquares![i, j], _puzzleSquares[i, j], _fntnumFont!, _spriteBatch!);
 
             //check if squares are dirty
             if (_sqPuzzleSquares[i, j]!.IsDirty)
@@ -51,7 +51,7 @@ public sealed partial class CrosswordApp
         else
         {
             // Black square
-            _spriteBatch.Draw(_imgBlackSquare, _puzzleSquares[i, j], _rectangleColor);
+            _spriteBatch!.Draw(_imgBlackSquare, _puzzleSquares![i, j], _rectangleColor);
         }
     }
 
@@ -66,10 +66,10 @@ public sealed partial class CrosswordApp
             _logger.LogInformation("Start DrawCrossword()");
 
             // Begin drawing
-            _spriteBatch.Begin();
+            _spriteBatch!.Begin();
 
             //Draw the main rectangle
-            _spriteBatch.Draw(_blackTexture, rectCrossWord, _rectangleColor);
+            _spriteBatch!.Draw(_blackTexture, rectCrossWord, _rectangleColor);
 
             //Build the squares
             for (var i = 0; i < _NumRows; i++)

@@ -21,7 +21,7 @@ public sealed partial class CrosswordApp
             _logger.LogInformation("Start DrawUserChar()");
 
             //check for null
-            if (_puzzleSquares != null && _sqPuzzleSquares[i, j] != null && _puzzleSquares[i, j] != null)
+            if (_puzzleSquares != null && _sqPuzzleSquares != null)
             {
                 //Char entered by user.
                 _spriteBatch.DrawString(_fntFont, char.ToUpper(_sqPuzzleSquares[i, j].Letter).ToString(),

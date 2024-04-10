@@ -29,14 +29,14 @@ public sealed partial class CrosswordApp
 
 
             //list boxes
-            _lstClueAcross.Items.Clear();
-            _lstClueDown.Items.Clear();
+            _lstClueAcross!.Items.Clear();
+            _lstClueDown!.Items.Clear();
 
             //Init the data
             InitData();
 
             //remove all widgets from the main panel
-            _mainPanel.Widgets.Clear();
+            _mainPanel!.Widgets.Clear();
 
             //Init the controls
             InitControls();
@@ -51,7 +51,7 @@ public sealed partial class CrosswordApp
             _lstClueDown.Visible = true;
 
             //Set the initial active square
-            _sqCurrentSquare = _caPuzzleClueAnswers[0].GetSquare();
+            _sqCurrentSquare = _caPuzzleClueAnswers![0].GetSquare();
 
             //Return the orientation
             _isAcross = _caPuzzleClueAnswers[0].IsAcross;

@@ -94,20 +94,20 @@ public sealed partial class CrosswordApp
             var mouseState = Mouse.GetState();
 
             // Game Logic lives here
-            _keyboardInput.Poll(Keyboard.GetState());
-            _mouseInput.Poll(Mouse.GetState());
+            _keyboardInput!.Poll(Keyboard.GetState());
+            _mouseInput!.Poll(Mouse.GetState());
 
             //update button mouse states
-            _HintButton.Update(mouseState);
-            _NextPuzzButton.Update(mouseState);
+            _HintButton!.Update(mouseState);
+            _NextPuzzButton!.Update(mouseState);
 
             //update game logic
             UpdateCrosswordScore();
-            CrosswordScore.DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel, IsFinished, _crosswordScore,
-                _numQuestions, _fntScore, rectCrossWord.Bottom);
+            CrosswordScore.DrawCrosswordScore(_mainPanel!, _currentScoreLabel!, _maxScoreLabel!, IsFinished, _crosswordScore,
+                _numQuestions, _fntScore!, rectCrossWord.Bottom);
 
             //draw the credits
-            CrosswordLabel.DrawCreditsLabel(_mainPanel, _creditsLabel, rectCrossWord.Left, rectCrossWord.Bottom, _fntCredits);
+            CrosswordLabel.DrawCreditsLabel(_mainPanel!, _creditsLabel!, rectCrossWord.Left, rectCrossWord.Bottom, _fntCredits!);
 
             base.Update(gameTime);
 
@@ -140,13 +140,13 @@ public sealed partial class CrosswordApp
             }
 
             //Draw the buttons
-            _HintButton?.Draw(_spriteBatch);
-            _NextPuzzButton?.Draw(_spriteBatch);
+            _HintButton?.Draw(_spriteBatch!);
+            _NextPuzzButton?.Draw(_spriteBatch!);
 
 
 
             // End drawing        
-            _desktop.Render();
+            _desktop!.Render();
             base.Draw(gameTime);
 
         }

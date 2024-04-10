@@ -20,8 +20,7 @@ public sealed partial class CrosswordApp
 
             Parallel.For(0, _numQuestions, i =>
             {
-                if (_caPuzzleClueAnswers[i] == null) return;
-                if (_caPuzzleClueAnswers[i].IsCorrect())
+                if (_caPuzzleClueAnswers![i].IsCorrect())
                 {
                     Interlocked.Increment(ref _crosswordScore);
                 }
