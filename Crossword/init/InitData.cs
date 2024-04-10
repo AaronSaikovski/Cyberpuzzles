@@ -20,9 +20,6 @@ public sealed partial class CrosswordApp
             //Initialise arrays of crossword data
             InitDataArrays();
 
-            // Initialise Cybersilver costs
-            //InitCosts();
-
             //Initialise Hint letters
             _szGetLetters = _mrParserData?.GetLetters;
             _szTmpGetLetters = _mrParserData?.GetLetters;

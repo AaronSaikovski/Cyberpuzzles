@@ -110,8 +110,6 @@ public sealed partial class CrosswordApp : Game
     //list boxes
     private ListBox? _lstClueAcross;
     private ListBox? _lstClueDown;
-    // private ListView LstClueAcross;
-    // private ListView LstClueDown;
 
     //Panel for UI
     private Panel? _mainPanel;

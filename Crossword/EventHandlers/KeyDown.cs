@@ -147,7 +147,6 @@ public sealed partial class CrosswordApp
 
             //Check to see if a backspace was entered
             if (keyInFocus != Keys.Back) return;
-            //SqCurrentSquare?.SetLetter(' ', IsAcross);
             _sqCurrentSquare?.SetLetter(' ');
             _sqCurrentSquare = _sqCurrentSquare?.GetPrevSq(_isAcross);
             _sqCurrentSquare?.GetClueAnswerRef(_isAcross)?.HighlightSquares(_sqCurrentSquare, true);
@@ -176,7 +175,6 @@ public sealed partial class CrosswordApp
             if (keyInFocus is < Keys.A or > Keys.Z) return;
 
             //Sets the letter in the current square
-            //SqCurrentSquare?.SetLetter(char.ToUpper((char)keyInFocus), IsAcross);
             _sqCurrentSquare?.SetLetter(char.ToUpper((char)keyInFocus));
 
             //get next sq or myself(same sq)  if not available

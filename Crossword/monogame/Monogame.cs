@@ -103,12 +103,10 @@ public sealed partial class CrosswordApp
 
             //update game logic
             UpdateCrosswordScore();
-            //DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel);
             CrosswordScore.DrawCrosswordScore(_mainPanel, _currentScoreLabel, _maxScoreLabel, IsFinished, _crosswordScore,
                 _numQuestions, _fntScore, rectCrossWord.Bottom);
 
             //draw the credits
-            //DrawCreditsLabel(_mainPanel, _creditsLabel);
             CrosswordLabel.DrawCreditsLabel(_mainPanel, _creditsLabel, rectCrossWord.Left, rectCrossWord.Bottom, _fntCredits);
 
             base.Update(gameTime);

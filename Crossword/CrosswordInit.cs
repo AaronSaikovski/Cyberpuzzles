@@ -63,9 +63,6 @@ public sealed partial class CrosswordApp
             _bBufferDirty = true;
             _newBackFlush = true;
 
-            //Get next puzzle ID
-            //_bMorePuzzles = true; 
-
             //Cleanup
             GC.Collect();
 

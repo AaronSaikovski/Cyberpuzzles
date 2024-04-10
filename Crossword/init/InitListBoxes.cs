@@ -77,15 +77,7 @@ public sealed partial class CrosswordApp
                 SelectionMode = SelectionMode.Single,
                 Height = UiConstants.ClListboxHeight
             };
-            // LstClueDown = new ListView
-            // {
-            //     Left = rectCrossWord.Right + UIConstants.MainOffsetY,
-            //     Top = UIConstants.ClListboxHeight + UIConstants.ClLabelHeight + UIConstants.ClListSpacer * 2 +
-            //           UIConstants.ClLabelHeight,
-            //     AcceptsKeyboardFocus = true,
-            //     SelectionMode = SelectionMode.Single,
-            //     Height = UIConstants.ClListboxHeight
-            // };
+            
 
             //set the font
             _lstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;

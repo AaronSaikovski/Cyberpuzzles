@@ -26,9 +26,7 @@ public sealed partial class CrosswordApp
             //get the new data set
             _mrParserData = null;
             InitPuzzleData();
-
-            //Next Puzzle is currently unavailable flag
-            //IsNextPuzzleReady = true;
+     
 
             //list boxes
             _lstClueAcross.Items.Clear();
@@ -70,9 +68,6 @@ public sealed partial class CrosswordApp
             //Set index to bubble out
             _bBufferDirty = true;
             _newBackFlush = true;
-
-            //Get next puzzle ID
-            //_bMorePuzzles = true;
 
             IsFinished = false;
 
