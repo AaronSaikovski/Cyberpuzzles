@@ -74,9 +74,10 @@ public sealed partial class CrosswordApp
             if (keyInFocus != Keys.Space) return;
             //Deselect the listbox based on direction
             if (!_isAcross)
-                _lstClueDown.SelectedIndex = -1;
-            else
-                _lstClueAcross.SelectedIndex = -1;
+            {
+                if (_lstClueDown != null) _lstClueDown.SelectedIndex = -1;
+            }
+            else if (_lstClueAcross != null) _lstClueAcross.SelectedIndex = -1;
 
             //Sets the highlighting of the square.
             if (_sqCurrentSquare is null) return;
@@ -146,7 +147,6 @@ public sealed partial class CrosswordApp
 
             //Check to see if a backspace was entered
             if (keyInFocus != Keys.Back) return;
-            //SqCurrentSquare?.SetLetter(' ', IsAcross);
             _sqCurrentSquare?.SetLetter(' ');
             _sqCurrentSquare = _sqCurrentSquare?.GetPrevSq(_isAcross);
             _sqCurrentSquare?.GetClueAnswerRef(_isAcross)?.HighlightSquares(_sqCurrentSquare, true);
@@ -175,7 +175,6 @@ public sealed partial class CrosswordApp
             if (keyInFocus is < Keys.A or > Keys.Z) return;
 
             //Sets the letter in the current square
-            //SqCurrentSquare?.SetLetter(char.ToUpper((char)keyInFocus), IsAcross);
             _sqCurrentSquare?.SetLetter(char.ToUpper((char)keyInFocus));
 
             //get next sq or myself(same sq)  if not available

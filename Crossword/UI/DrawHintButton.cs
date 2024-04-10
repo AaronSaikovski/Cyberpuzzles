@@ -25,8 +25,8 @@ public sealed partial class CrosswordApp
                     2);
 
             //init the PuzzleButton
-            _HintButton = new PuzzleButton(_imgHintButton, hintPos);
-            _HintButton.Click += HintButton_Click;
+            _HintButton = new PuzzleButton(_imgHintButton!, hintPos);
+            _HintButton.Click += HintButton_Click!;
 
         }
         catch (Exception ex)

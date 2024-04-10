@@ -18,31 +18,7 @@ public sealed partial class ClueAnswer
         ArgumentNullException.ThrowIfNull(sq);
 
         if (Answer is null) return;
-        // for (var i = 0; i < Answer.Length; i++)
-        // {
-        //     if (!setHighLighted)
-        //         SqAnswerSquares?[i]?.SetHighlighted(CWSettings.CurrentNone);
-        //     else
-        //     {
-        //         SqAnswerSquares?[i]
-        //             ?.SetHighlighted(SqAnswerSquares?[i] == sq
-        //                 ? CWSettings.CurrentLetter
-        //                 : CWSettings.CurrentWord);
-        //     }
-        // }
 
-        // Parallel.For(0, Answer.Length, i =>
-        // {
-        //     if (!setHighLighted)
-        //         SqAnswerSquares?[i]?.SetHighlighted(UiConstants.CurrentNone);
-        //     else
-        //     {
-        //         SqAnswerSquares?[i]
-        //         ?.SetHighlighted(SqAnswerSquares?[i] == sq
-        //         ? UiConstants.CurrentLetter
-        //         : UiConstants.CurrentWord);
-        //     }
-        // });
 
         Parallel.For(0, Answer.Length, i =>
         {
@@ -58,19 +34,6 @@ public sealed partial class ClueAnswer
         });
 
 
-
-        // Parallel.For(0, Answer.Length, i =>
-        // {
-        //     if (!setHighLighted)
-        //         SqAnswerSquares?[i]?.SetHighlighted(HighlightSquare.SquareHighlightNone);
-        //     else
-        //     {
-        //         SqAnswerSquares?[i]
-        //             ?.SetHighlighted(SqAnswerSquares?[i] == sq
-        //                 ? HighlightSquare.SquareHighlightCurrent
-        //                 : HighlightSquare.SquareHighlightWord);
-        //     }
-        // });
     }
 
     #endregion

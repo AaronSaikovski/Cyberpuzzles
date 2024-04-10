@@ -27,18 +27,16 @@ public sealed partial class CrosswordApp
             _mrParserData = null;
             InitPuzzleData();
 
-            //Next Puzzle is currently unavailable flag
-            //IsNextPuzzleReady = true;
 
             //list boxes
-            _lstClueAcross.Items.Clear();
-            _lstClueDown.Items.Clear();
+            _lstClueAcross!.Items.Clear();
+            _lstClueDown!.Items.Clear();
 
             //Init the data
             InitData();
 
             //remove all widgets from the main panel
-            _mainPanel.Widgets.Clear();
+            _mainPanel!.Widgets.Clear();
 
             //Init the controls
             InitControls();
@@ -53,7 +51,7 @@ public sealed partial class CrosswordApp
             _lstClueDown.Visible = true;
 
             //Set the initial active square
-            _sqCurrentSquare = _caPuzzleClueAnswers[0].GetSquare();
+            _sqCurrentSquare = _caPuzzleClueAnswers![0].GetSquare();
 
             //Return the orientation
             _isAcross = _caPuzzleClueAnswers[0].IsAcross;
@@ -70,9 +68,6 @@ public sealed partial class CrosswordApp
             //Set index to bubble out
             _bBufferDirty = true;
             _newBackFlush = true;
-
-            //Get next puzzle ID
-            //_bMorePuzzles = true;
 
             IsFinished = false;
 

@@ -29,8 +29,8 @@ public sealed partial class CrosswordApp
             _puzzleDataset = new CrosswordState[_numQuestions];
             Parallel.For(0, _numQuestions, i =>
             {
-                _puzzleDataset[i] = new CrosswordState(_rowRef[i], _colRef[i], _szAnswers[i], _szClues[i], _bDataIsAcross[i],
-                _quesNum[i]);
+                _puzzleDataset[i] = new CrosswordState(_rowRef![i], _colRef![i], _szAnswers![i], _szClues![i], _bDataIsAcross![i],
+                _quesNum![i]);
             });
 
             // init labels

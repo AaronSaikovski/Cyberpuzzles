@@ -12,10 +12,6 @@ public sealed partial class ClueAnswer
     public void CheckWord()
     {
         if (Answer is null) return;
-        // for (var i = 0; i < Answer.Length; i++)
-        // {
-        //     SqAnswerSquares?[i]?.CheckLetter(Answer[i]);
-        // }
 
         Parallel.For(0, Answer.Length, i =>
         {

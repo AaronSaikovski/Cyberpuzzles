@@ -49,7 +49,7 @@ public static class UiConstants
 
     //Colors for square letters
     public static Color SqCorrect = Color.Green;
-    public static Color SqError = Color.Black;
+    public static Color SqError = Color.DarkRed;
 
     //Puzzle tile images
     public const string BlackSquare = "images/tile_black";

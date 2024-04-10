@@ -24,38 +24,52 @@ public sealed partial class CrosswordApp
             for (var i = 0; i < _numQuestions; i++)
             {
                 //Need to build a temp object of sqAnswerSquares[]
-                var sqAnswerSquares = new Square?[_puzzleDataset[i].Answer.Length];
-                for (var j = 0; j < _puzzleDataset[i].Answer.Length; j++)
+                if (_puzzleDataset != null)
                 {
-                    //Need to work out number
-                    //Build the Clue/Answer sets
-                    if (_puzzleDataset[i].IsAcross)
+                    var sqAnswerSquares = new Square?[_puzzleDataset[i].Answer.Length];
+                    for (var j = 0; j < _puzzleDataset[i].Answer.Length; j++)
                     {
-                        sqAnswerSquares[j] =
-                            _sqPuzzleSquares[_puzzleDataset[i].CoordDown + j, _puzzleDataset[i].CoordAcross];
-                        if (j == 0)
-                            _lstClueAcross.Items.Add(new ListItem(
-                                _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
-                                Color.White));
+                        //Need to work out number
+                        //Build the Clue/Answer sets
+                        if (_puzzleDataset[i].IsAcross)
+                        {
+                            if (_sqPuzzleSquares != null)
+                                sqAnswerSquares[j] =
+                                    _sqPuzzleSquares[_puzzleDataset[i].CoordDown + j, _puzzleDataset[i].CoordAcross];
+                            if (j == 0)
+                                if (_lstClueAcross != null)
+#pragma warning disable CS0618 // Type or member is obsolete
+                                    _lstClueAcross.Items.Add(new ListItem(
+#pragma warning restore CS0618 // Type or member is obsolete
+                                        _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
+                                        Color.White));
+                        }
+                        else
+                        {
+                            if (_sqPuzzleSquares != null)
+                                sqAnswerSquares[j] =
+                                    _sqPuzzleSquares[_puzzleDataset[i].CoordDown, _puzzleDataset[i].CoordAcross + j];
+                            if (j == 0)
+                                if (_lstClueDown != null)
+#pragma warning disable CS0618 // Type or member is obsolete
+                                    _lstClueDown.Items.Add(new ListItem(
+#pragma warning restore CS0618 // Type or member is obsolete
+                                        _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
+                                        Color.White));
+                        }
                     }
-                    else
+
+                    //Build the Clue/Answer references
+                    if (_caPuzzleClueAnswers != null)
                     {
-                        sqAnswerSquares[j] =
-                            _sqPuzzleSquares[_puzzleDataset[i].CoordDown, _puzzleDataset[i].CoordAcross + j];
-                        if (j == 0)
-                            _lstClueDown.Items.Add(new ListItem(
-                                _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
-                                Color.White));
+                        _caPuzzleClueAnswers[i] = new ClueAnswer();
+                        _caPuzzleClueAnswers[i].SetObjectRef(_puzzleDataset[i].Answer,
+                            _puzzleDataset[i].Clue, _puzzleDataset[i].QuestionNum,
+                            _puzzleDataset[i].IsAcross, sqAnswerSquares);
                     }
                 }
-            
-                //Build the Clue/Answer references
-                _caPuzzleClueAnswers[i] = new ClueAnswer();
-                _caPuzzleClueAnswers[i].SetObjectRef(_puzzleDataset[i].Answer,
-                    _puzzleDataset[i].Clue, _puzzleDataset[i].QuestionNum,
-                    _puzzleDataset[i].IsAcross, sqAnswerSquares);
             }
-            
+
 
         }
         catch (Exception ex)

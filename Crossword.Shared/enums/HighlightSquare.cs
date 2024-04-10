@@ -1,5 +1,6 @@
 namespace Crossword.Shared.enums;
 
+#region HighlightSquare
 public enum HighlightSquare
 {
 
@@ -18,3 +19,4 @@ public enum HighlightSquare
     /// </summary>
     CurrentNone = 3
 }
+#endregion

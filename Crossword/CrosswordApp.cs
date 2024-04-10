@@ -1,17 +1,17 @@
 using System;
 using Crossword.Entities;
+using Crossword.Parser;
 using Crossword.Puzzle.ClueAnswerMap;
 using Crossword.Puzzle.Squares;
+using Crossword.Shared.Config;
 using Crossword.Shared.Constants;
-using Crossword.Parser;
+using Crossword.Shared.Logger;
 using FontStashSharp;
 using InputHandlers.Keyboard;
 using InputHandlers.Mouse;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Myra.Graphics2D.UI;
-using Crossword.Shared.Logger;
-using Crossword.Shared.Config;
 
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
@@ -44,12 +44,12 @@ public sealed partial class CrosswordApp : Game
     private bool _newBackFlush;
 
     //Data set variables
-    public string? PuzzleType;
+    public string? _puzzleType;
     public int _NumCols, _NumRows, _NumAcross, _NumDown, _PuzzleId;
     private int[]? _colRef, _rowRef, _quesNum;
     private bool[]? _bDataIsAcross;
     private string[]? _szClues, _szAnswers;
-    private int[]? _nCosts = [0, 0, 0, 0, 0, 0];
+    //private int[]? _nCosts = [0, 0, 0, 0, 0, 0];
     private string? _szGetLetters;
     private string? _szTmpGetLetters;
     private int _numQuestions;
@@ -108,10 +108,15 @@ public sealed partial class CrosswordApp : Game
     private Texture2D? _imgNextPuzzButton;
 
     //list boxes
+#pragma warning disable CS0618 // Type or member is obsolete
     private ListBox? _lstClueAcross;
+
+#pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
     private ListBox? _lstClueDown;
-    // private ListView LstClueAcross;
-    // private ListView LstClueDown;
+#pragma warning restore CS0618 // Type or member is obsolete
+    // private ListView? _lstClueAcross;
+    // private ListView? _lstClueDown;
 
     //Panel for UI
     private Panel? _mainPanel;
@@ -121,9 +126,9 @@ public sealed partial class CrosswordApp : Game
     private Rectangle[,]? _puzzleSquares;
 
     // Monogame graphics
-    public readonly GraphicsDeviceManager? _graphics;
-    public SpriteBatch? _spriteBatch;
-    public Desktop? _desktop;
+    private readonly GraphicsDeviceManager? _graphics;
+    private SpriteBatch? _spriteBatch;
+    private Desktop? _desktop;
 
 
     // Define a color for the rectangles
@@ -139,7 +144,7 @@ public sealed partial class CrosswordApp : Game
     private DynamicSpriteFont? _fntCredits;  // Credits
 
 
-    //Keyboard handler
+    // //Keyboard handler
     private readonly KeyboardInput? _keyboardInput;
     private readonly KeyboardInputHandler? _keyboardInputHandler;
 
@@ -170,7 +175,7 @@ public sealed partial class CrosswordApp : Game
     private int _nCrossOffsetY = 5;
 
     //Logging implementation
-    private SerilogLogger _logger;
+    private readonly SerilogLogger _logger;
 
 
     #endregion

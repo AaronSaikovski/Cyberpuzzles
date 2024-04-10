@@ -25,7 +25,7 @@ public sealed partial class CrosswordApp
                         //If Across then allow operations on the across list
                         case Keys.Up:
                             {
-                                if (_lstClueAcross.SelectedIndex is not null)
+                                if (_lstClueAcross != null && _lstClueAcross.SelectedIndex is not null)
                                 {
                                     _lstClueAcross.SelectedIndex--;
                                 }
@@ -33,7 +33,7 @@ public sealed partial class CrosswordApp
                                 break;
                             }
                         case Keys.Down:
-                            _lstClueAcross.SelectedIndex++;
+                            if (_lstClueAcross != null) _lstClueAcross.SelectedIndex++;
                             break;
                     }
 
@@ -41,7 +41,7 @@ public sealed partial class CrosswordApp
                 //if Down
                 case false when keyInFocus == Keys.Up:
                     {
-                        if (_lstClueDown.SelectedIndex is not null)
+                        if (_lstClueDown != null && _lstClueDown.SelectedIndex is not null)
                         {
                             _lstClueDown.SelectedIndex--;
                         }
@@ -52,8 +52,7 @@ public sealed partial class CrosswordApp
                     {
                         if (keyInFocus == Keys.Down)
                         {
-                            _lstClueDown.SelectedIndex++;
-
+                            if (_lstClueDown != null) _lstClueDown.SelectedIndex++;
                         }
 
                         break;

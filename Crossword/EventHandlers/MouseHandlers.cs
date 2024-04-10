@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Crossword.Puzzle.Squares;
 using Crossword.Shared.Constants;
@@ -80,9 +81,10 @@ public sealed partial class CrosswordApp
 
             //Deselect the listbox based on direction
             if (!_isAcross)
-                _lstClueDown.SelectedIndex = 0;
-            else
-                _lstClueAcross.SelectedIndex = 0;
+            {
+                if (_lstClueDown != null) _lstClueDown.SelectedIndex = 0;
+            }
+            else if (_lstClueAcross != null) _lstClueAcross.SelectedIndex = 0;
         }
         catch (Exception ex)
         {
@@ -106,9 +108,12 @@ public sealed partial class CrosswordApp
 
             //Selects the item in the list box relative to ClueAnswerMap and direction
             if (_isAcross)
-                _lstClueAcross.SelectedIndex = clueAnswerIdx;
-            else
-                _lstClueDown.SelectedIndex = clueAnswerIdx - _lstClueAcross.Items.Count;
+            {
+                if (_lstClueAcross != null) _lstClueAcross.SelectedIndex = clueAnswerIdx;
+            }
+            else if (_lstClueDown != null)
+                if (_lstClueAcross != null)
+                    _lstClueDown.SelectedIndex = clueAnswerIdx - _lstClueAcross.Items.Count();
         }
         catch (Exception ex)
         {
@@ -165,7 +170,7 @@ public sealed partial class CrosswordApp
 
             Parallel.For(0, _numQuestions, (k, loopState) =>
             {
-                if (tmpClueAnswer == _caPuzzleClueAnswers[k]) loopState.Stop();
+                if (_caPuzzleClueAnswers != null && tmpClueAnswer == _caPuzzleClueAnswers[k]) loopState.Stop();
                 clueAnswerIdx = k;
                 loopState.Stop();
             });

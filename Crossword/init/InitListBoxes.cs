@@ -27,12 +27,12 @@ public sealed partial class CrosswordApp
             InitListBoxDown();
 
             //Populate and add lists
-            _mainPanel.Widgets.Add(_clueAcrossLabel);
-            _mainPanel.Widgets.Add(_lstClueAcross);
-            _mainPanel.Widgets.Add(_clueDownLabel);
-            _mainPanel.Widgets.Add(_lstClueDown);
-            _lstClueAcross.SelectedIndex = 0;
-            _lstClueDown.SelectedIndex = -1;
+            _mainPanel!.Widgets.Add(_clueAcrossLabel);
+            _mainPanel!.Widgets.Add(_lstClueAcross);
+            _mainPanel!.Widgets.Add(_clueDownLabel);
+            _mainPanel!.Widgets.Add(_lstClueDown);
+            _lstClueAcross!.SelectedIndex = 0;
+            _lstClueDown!.SelectedIndex = -1;
             _lstClueAcross.Visible = false;
             _lstClueDown.Visible = false;
 
@@ -68,7 +68,9 @@ public sealed partial class CrosswordApp
             };
 
             //Down
+#pragma warning disable CS0618 // Type or member is obsolete
             _lstClueDown = new ListBox
+#pragma warning restore CS0618 // Type or member is obsolete
             {
                 Left = rectCrossWord.Right + UiConstants.MainOffsetY,
                 Top = UiConstants.ClListboxHeight + UiConstants.ClLabelHeight + UiConstants.ClListSpacer * 2 +
@@ -77,21 +79,13 @@ public sealed partial class CrosswordApp
                 SelectionMode = SelectionMode.Single,
                 Height = UiConstants.ClListboxHeight
             };
-            // LstClueDown = new ListView
-            // {
-            //     Left = rectCrossWord.Right + UIConstants.MainOffsetY,
-            //     Top = UIConstants.ClListboxHeight + UIConstants.ClLabelHeight + UIConstants.ClListSpacer * 2 +
-            //           UIConstants.ClLabelHeight,
-            //     AcceptsKeyboardFocus = true,
-            //     SelectionMode = SelectionMode.Single,
-            //     Height = UIConstants.ClListboxHeight
-            // };
+
 
             //set the font
             _lstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
 
             //List box event handlers
-            _lstClueDown.SelectedIndexChanged += SelChangeListClueDown;
+            _lstClueDown.SelectedIndexChanged += SelChangeListClueDown!;
 
         }
         catch (Exception ex)
@@ -124,7 +118,9 @@ public sealed partial class CrosswordApp
             };
 
             //Across ListBox
+#pragma warning disable CS0618 // Type or member is obsolete
             _lstClueAcross = new ListBox
+#pragma warning restore CS0618 // Type or member is obsolete
             {
                 Left = rectCrossWord.Right + UiConstants.MainOffsetX,
                 Top = UiConstants.MainOffsetY,
@@ -132,20 +128,13 @@ public sealed partial class CrosswordApp
                 SelectionMode = SelectionMode.Single,
                 Height = UiConstants.ClListboxHeight
             };
-            // LstClueAcross = new ListView
-            // {
-            //     Left = rectCrossWord.Right + UIConstants.MainOffsetX,
-            //     Top = UIConstants.MainOffsetY,
-            //     AcceptsKeyboardFocus = true,
-            //     SelectionMode = SelectionMode.Single,
-            //     Height = UIConstants.ClListboxHeight
-            // };
+
 
             //set the font
             _lstClueAcross.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;
 
             //List box event handlers
-            _lstClueAcross.SelectedIndexChanged += SelChangeListClueAcross;
+            _lstClueAcross.SelectedIndexChanged += SelChangeListClueAcross!;
 
         }
         catch (Exception ex)
