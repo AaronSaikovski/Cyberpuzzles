@@ -1,6 +1,6 @@
 <div align="center">
 
-# CyberPuzzles - Crossword - v1.0.0-beta3
+# CyberPuzzles - Crossword - v1.0.0 - beta3
 
 A Monogame C# .Net 8.0 Core port of a Java Applet game I co-wrote back in 1997.
 
@@ -10,7 +10,8 @@ A Monogame C# .Net 8.0 Core port of a Java Applet game I co-wrote back in 1997.
 
 ## Version History:
 
-- 1.0.0-beta2- Major refactor- restructured code with a focus on performance and reduced memory usage.
+- 1.0.0-beta3 - restructured code with a focus on performance and reduced memory usage.
+- 1.0.0-beta2 - Major refactor- restructured code with a focus on performance and reduced memory usage.
 - 1.0.0 - Initial release for initial feedback.
 
 ---
@@ -59,7 +60,6 @@ The Crossword solution is structured with the following projects:
 - Crossword.Puzzle - The core puzzle state machine - Square and ClueAnswer reference mapping for the in-play crossword.
 - Crossword.Shared - A shared class library that has Config, Constants, Logger and ParserUtils functions that are shared across the projects.
 - Crossword.UI - Provides the supporting UI elements of the crossword.
-- Crossword.EventHandlers - Provides the Event handling for the crossword such as mouse and keyboard input.
 
 ---
 
