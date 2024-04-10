@@ -67,7 +67,7 @@ public sealed partial class CrosswordParser
 
                 //CyberSilver level costs & bonuses - eg. "30 1 1 0 1 5"
                 case 7:
-                    //GetCybersilver(strData);
+                    //nothing
                     break;
 
                 //Jim's crappy blurb - eg. "Use the clues to solve this crossword and earn CyberSilver. If you have not played our crosswords before and want help, then click the HELP button. Have fun!"

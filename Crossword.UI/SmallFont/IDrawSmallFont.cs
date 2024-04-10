@@ -6,6 +6,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Crossword.UI.SmallFont;
 
+#region IDrawSmallFont
+
 /// <summary>
 /// Small font drawing interface
 /// </summary>
@@ -17,3 +19,4 @@ public interface IDrawSmallFont
     void DrawSmallFontDown(ClueAnswer clueAnswer, Square puzzleSquare, Rectangle rectSquare,
         DynamicSpriteFont numFont, SpriteBatch spriteBatch);
 }
+#endregion

@@ -26,7 +26,7 @@ public sealed partial class CrosswordApp
             //get the new data set
             _mrParserData = null;
             InitPuzzleData();
-     
+
 
             //list boxes
             _lstClueAcross.Items.Clear();

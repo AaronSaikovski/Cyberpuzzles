@@ -39,7 +39,7 @@ public sealed partial class CrosswordApp
             //Increment the score if the answer is correct
             UpdateCrosswordScore();
 
-           
+
             Parallel.For(0, _numQuestions, i =>
             {
                 if (_caPuzzleClueAnswers != null) _caPuzzleClueAnswers[i].CheckWord();

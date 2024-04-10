@@ -77,7 +77,7 @@ public sealed partial class CrosswordApp
                 SelectionMode = SelectionMode.Single,
                 Height = UiConstants.ClListboxHeight
             };
-            
+
 
             //set the font
             _lstClueDown.ListBoxStyle.ListItemStyle.LabelStyle.Font = _fntListFont;

@@ -1,5 +1,6 @@
 namespace Crossword.Shared.Logger;
 
+#region ILoggerService
 /// <summary>
 /// Logging Interface
 /// </summary>
@@ -11,3 +12,4 @@ public interface ILoggerService
     void LogVerbose(Exception ex, string message);
     void LogFatal(Exception ex, string message);
 }
+#endregion
