@@ -27,7 +27,6 @@ public sealed partial class CrosswordApp
                 }
 
                 _caPuzzleClueAnswers[i].CheckWord();
-
             });
 
 

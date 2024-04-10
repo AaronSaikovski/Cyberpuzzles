@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Input;
 using Myra;
 using Myra.Graphics2D.UI;
 
-using Crossword.UI;
+
 using Crossword.UI.Label;
 using Crossword.UI.Score;
 
@@ -59,7 +59,7 @@ public sealed partial class CrosswordApp
             MyraEnvironment.Game = this;
 
             _blackTexture = new Texture2D(GraphicsDevice, 1, 1);
-            _blackTexture.SetData(new[] { Color.Black });
+            _blackTexture.SetData([Color.Black]);
 
             //Initialise everything
             MainInit();
@@ -142,8 +142,10 @@ public sealed partial class CrosswordApp
             }
 
             //Draw the buttons
-            _HintButton.Draw(_spriteBatch);
-            _NextPuzzButton.Draw(_spriteBatch);
+            _HintButton?.Draw(_spriteBatch);
+            _NextPuzzButton?.Draw(_spriteBatch);
+
+
 
             // End drawing        
             _desktop.Render();

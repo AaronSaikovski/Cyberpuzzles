@@ -1,5 +1,4 @@
 using System;
-using Crossword.App;
 using Crossword.Entities;
 using Crossword.Parser;
 using Crossword.Puzzle.ClueAnswerMap;
@@ -122,9 +121,9 @@ public sealed partial class CrosswordApp : Game
     private Rectangle[,]? _puzzleSquares;
 
     // Monogame graphics
-    public readonly GraphicsDeviceManager? _graphics;
-    public SpriteBatch? _spriteBatch;
-    public Desktop? _desktop;
+    private readonly GraphicsDeviceManager? _graphics;
+    private SpriteBatch? _spriteBatch;
+    private Desktop? _desktop;
 
 
     // Define a color for the rectangles

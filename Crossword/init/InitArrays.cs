@@ -17,28 +17,6 @@ public sealed partial class CrosswordApp
         try
         {
             _logger.LogInformation("Start InitArrays()");
-
-            //loop over rows
-            // for (var i = 0; i < _NumRows; i++)
-            // {
-            //     //loop over columns
-            //     for (var j = 0; j < _NumCols; j++)
-            //     {
-            //         if (_sqPuzzleSquares is null) continue;
-            //         _sqPuzzleSquares[i, j] = new Square();
-            //
-            //         //Set SQs to dirty
-            //         if (_newBackFlush || _initCrossword)
-            //         {
-            //             _sqPuzzleSquares[i, j]!.IsDirty = true;
-            //         }
-            //
-            //         //Create squares
-            //         _sqPuzzleSquares[i, j]
-            //             ?.CreateSquare(_nCrossOffsetX + i * UiConstants.SquareWidth,
-            //                 _nCrossOffsetY + j * UiConstants.SquareHeight);
-            //     }
-            // }
             
             
             Parallel.For(0, _NumRows, i =>

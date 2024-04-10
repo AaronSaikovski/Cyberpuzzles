@@ -78,30 +78,7 @@ public sealed partial class CrosswordApp
     }
     #endregion
 
-    #region InitCosts
-    /// <summary>
-    /// Inits the costs
-    /// </summary>
-    // private void InitCosts()
-    // {
-    //     try
-    //     {
-    //         _logger.LogInformation("Start InitCosts()");
-    //
-    //         // Initialise Cybersilver costs
-    //         for (var i = 0; i < 6; i++)
-    //         {
-    //             if (_mrParserData?.Costs is not null) _nCosts[i] = _mrParserData.Costs[i];
-    //         }
-    //     }
-    //     catch (Exception ex)
-    //     {
-    //         _logger.LogError(ex, ex.Message);
-    //         throw;
-    //     }
-    //
-    // }
-    #endregion
+   
 
     #region InitDataArrays
     /// <summary>
