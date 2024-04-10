@@ -61,9 +61,10 @@ public sealed partial class CrosswordApp
 
             //Deselect the listbox based on direction
             if (!_isAcross)
-                _lstClueDown.SelectedIndex = -1;
-            else
-                _lstClueAcross.SelectedIndex = -1;
+            {
+                if (_lstClueDown != null) _lstClueDown.SelectedIndex = -1;
+            }
+            else if (_lstClueAcross != null) _lstClueAcross.SelectedIndex = -1;
         }
         catch (Exception ex)
         {
@@ -92,7 +93,7 @@ public sealed partial class CrosswordApp
             var clueAnswerIdx = 0;
             for (var k = 0; k < _numQuestions; k++)
             {
-                if (tmp != _caPuzzleClueAnswers[k]) continue;
+                if (_caPuzzleClueAnswers != null && tmp != _caPuzzleClueAnswers[k]) continue;
                 clueAnswerIdx = k;
                 break;
             }
@@ -100,9 +101,12 @@ public sealed partial class CrosswordApp
             //Selects the item in the list box relative to the ClueAnswerMap
             //and the orientation.
             if (_isAcross)
-                _lstClueAcross.SelectedIndex = clueAnswerIdx;
-            else
-                _lstClueDown.SelectedIndex = clueAnswerIdx - _lstClueAcross.Items.Count;
+            {
+                if (_lstClueAcross != null) _lstClueAcross.SelectedIndex = clueAnswerIdx;
+            }
+            else if (_lstClueDown != null)
+                if (_lstClueAcross != null)
+                    _lstClueDown.SelectedIndex = clueAnswerIdx - _lstClueAcross.Items.Count;
         }
         catch (Exception ex)
         {

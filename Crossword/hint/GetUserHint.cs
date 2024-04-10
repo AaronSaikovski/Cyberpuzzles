@@ -29,7 +29,7 @@ public sealed partial class CrosswordApp
                     //loop over hint letters
                     Parallel.For(0, _numQuestions, i =>
                     {
-                        var bTmpResult = _caPuzzleClueAnswers[i].CheckHint(chHintLetter);
+                        var bTmpResult = _caPuzzleClueAnswers != null && _caPuzzleClueAnswers[i].CheckHint(chHintLetter);
                         if (bTmpResult)
                         {
                             hintSupplied = true;

@@ -23,19 +23,21 @@ public sealed partial class CrosswordApp
             {
                 Parallel.For(0, _NumCols, j =>
                 {
-
-                    _sqPuzzleSquares[i, j] = new Square();
-
-                    //Set SQs to dirty
-                    if (_newBackFlush || _initCrossword)
+                    if (_sqPuzzleSquares != null)
                     {
-                        _sqPuzzleSquares[i, j]!.IsDirty = true;
-                    }
+                        _sqPuzzleSquares[i, j] = new Square();
 
-                    //Create squares
-                    _sqPuzzleSquares[i, j]
-                        ?.CreateSquare(_nCrossOffsetX + i * UiConstants.SquareWidth,
-                            _nCrossOffsetY + j * UiConstants.SquareHeight);
+                        //Set SQs to dirty
+                        if (_newBackFlush || _initCrossword)
+                        {
+                            _sqPuzzleSquares[i, j]!.IsDirty = true;
+                        }
+
+                        //Create squares
+                        _sqPuzzleSquares[i, j]
+                            ?.CreateSquare(_nCrossOffsetX + i * UiConstants.SquareWidth,
+                                _nCrossOffsetY + j * UiConstants.SquareHeight);
+                    }
                 });
             });
 

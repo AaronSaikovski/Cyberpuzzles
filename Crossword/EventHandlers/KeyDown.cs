@@ -74,9 +74,10 @@ public sealed partial class CrosswordApp
             if (keyInFocus != Keys.Space) return;
             //Deselect the listbox based on direction
             if (!_isAcross)
-                _lstClueDown.SelectedIndex = -1;
-            else
-                _lstClueAcross.SelectedIndex = -1;
+            {
+                if (_lstClueDown != null) _lstClueDown.SelectedIndex = -1;
+            }
+            else if (_lstClueAcross != null) _lstClueAcross.SelectedIndex = -1;
 
             //Sets the highlighting of the square.
             if (_sqCurrentSquare is null) return;

@@ -31,7 +31,8 @@ public sealed partial class CrosswordApp
                     var chHintLetter = _szTmpGetLetters[0];
                     _szTmpGetLetters = _szTmpGetLetters[1..];
                     for (var i = 0; i < _numQuestions; i++)
-                        _caPuzzleClueAnswers[i].CheckHint(chHintLetter);
+                        if (_caPuzzleClueAnswers != null)
+                            _caPuzzleClueAnswers[i].CheckHint(chHintLetter);
                 }
             }
 
@@ -42,7 +43,7 @@ public sealed partial class CrosswordApp
             //     caPuzzleClueAnswers[i].CheckWord();
             Parallel.For(0, _numQuestions, i =>
             {
-                _caPuzzleClueAnswers[i].CheckWord();
+                if (_caPuzzleClueAnswers != null) _caPuzzleClueAnswers[i].CheckWord();
             });
 
             //If the crossword score == the number of questions, then it is the end of the game
