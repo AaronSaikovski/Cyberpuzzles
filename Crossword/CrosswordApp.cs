@@ -142,7 +142,7 @@ public sealed partial class CrosswordApp : Game
     // //Keyboard handler
     private readonly KeyboardInput? _keyboardInput;
     private readonly KeyboardInputHandler? _keyboardInputHandler;
-    
+
     //Mouse handler
     private readonly MouseInput? _mouseInput;
     private readonly MouseInputHandler? _mouseInputHandler;
@@ -193,7 +193,7 @@ public sealed partial class CrosswordApp : Game
 
         IsFixedTimeStep = true; // Set to true to use fixed time step
         TargetElapsedTime = TimeSpan.FromMilliseconds(1000.0 / 30); // Set the desired refresh rate (e.g., 30 FPS)
-    
+
         //Keyboard handlers
         _keyboardInput = new KeyboardInput();
         _keyboardInputHandler = new KeyboardInputHandler(this); //Pass in crossword instance object

@@ -83,16 +83,16 @@ public sealed partial class CrosswordApp
                 {
                     if (_sqPuzzleSquares is null) continue;
                     if (_puzzleSquares is null) continue;
-            
+
                     //Main puzzle squares array
                     //Draw crossword with squares with spaces
                     InitPuzzleSquares(i, j);
-            
+
                     //Check to see if a char is allowed
                     DrawSquares(i, j);
                 }
             }
-            
+
             _spriteBatch.End();
             _newBackFlush = false;
         }

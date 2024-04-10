@@ -18,7 +18,7 @@ public sealed partial class ClueAnswer
         ArgumentNullException.ThrowIfNull(sq);
 
         if (Answer is null) return;
-        
+
 
         Parallel.For(0, Answer.Length, i =>
         {

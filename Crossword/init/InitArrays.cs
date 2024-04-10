@@ -17,13 +17,13 @@ public sealed partial class CrosswordApp
         try
         {
             _logger.LogInformation("Start InitArrays()");
-            
-            
+
+
             Parallel.For(0, _NumRows, i =>
             {
                 Parallel.For(0, _NumCols, j =>
                 {
-                  
+
                     _sqPuzzleSquares[i, j] = new Square();
 
                     //Set SQs to dirty

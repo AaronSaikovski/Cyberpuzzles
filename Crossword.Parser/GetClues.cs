@@ -11,7 +11,7 @@ public sealed partial class CrosswordParser
     private void GetClues(IReadOnlyList<string> strData)
     {
         var puzzletempstr = strData[4];
- 
+
         var cluetemp = puzzletempstr.Split("#");
         if (_crosswordData == null) return;
         _crosswordData.Clues = new string[_crosswordData.NumQuestions];

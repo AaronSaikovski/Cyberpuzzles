@@ -78,7 +78,7 @@ public sealed partial class CrosswordApp
     }
     #endregion
 
-   
+
 
     #region InitDataArrays
     /// <summary>

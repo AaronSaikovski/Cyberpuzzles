@@ -11,7 +11,7 @@ namespace Crossword.App;
 public sealed partial class CrosswordApp
 {
     #region DrawSquare
-    
+
     /// <summary>
     /// Draws a square
     /// </summary>
@@ -38,7 +38,7 @@ public sealed partial class CrosswordApp
         if (_puzzleSquares is not null)
             spriteBatch.Draw(_imgHighliteSquare, rectSquare, _rectangleColor);
 
-      
+
     }
 
 

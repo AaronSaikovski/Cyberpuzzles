@@ -48,14 +48,14 @@ public sealed partial class CrosswordApp
                                 Color.White));
                     }
                 }
-            
+
                 //Build the Clue/Answer references
                 _caPuzzleClueAnswers[i] = new ClueAnswer();
                 _caPuzzleClueAnswers[i].SetObjectRef(_puzzleDataset[i].Answer,
                     _puzzleDataset[i].Clue, _puzzleDataset[i].QuestionNum,
                     _puzzleDataset[i].IsAcross, sqAnswerSquares);
             }
-            
+
 
         }
         catch (Exception ex)
