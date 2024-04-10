@@ -38,7 +38,9 @@ public sealed partial class CrosswordApp
                                     _sqPuzzleSquares[_puzzleDataset[i].CoordDown + j, _puzzleDataset[i].CoordAcross];
                             if (j == 0)
                                 if (_lstClueAcross != null)
+#pragma warning disable CS0618 // Type or member is obsolete
                                     _lstClueAcross.Items.Add(new ListItem(
+#pragma warning restore CS0618 // Type or member is obsolete
                                         _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
                                         Color.White));
                         }
@@ -49,7 +51,9 @@ public sealed partial class CrosswordApp
                                     _sqPuzzleSquares[_puzzleDataset[i].CoordDown, _puzzleDataset[i].CoordAcross + j];
                             if (j == 0)
                                 if (_lstClueDown != null)
+#pragma warning disable CS0618 // Type or member is obsolete
                                     _lstClueDown.Items.Add(new ListItem(
+#pragma warning restore CS0618 // Type or member is obsolete
                                         _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
                                         Color.White));
                         }

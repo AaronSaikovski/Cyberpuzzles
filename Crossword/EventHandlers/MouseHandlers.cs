@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Crossword.Puzzle.Squares;
 using Crossword.Shared.Constants;
@@ -112,7 +113,7 @@ public sealed partial class CrosswordApp
             }
             else if (_lstClueDown != null)
                 if (_lstClueAcross != null)
-                    _lstClueDown.SelectedIndex = clueAnswerIdx - _lstClueAcross.Items.Count;
+                    _lstClueDown.SelectedIndex = clueAnswerIdx - _lstClueAcross.Items.Count();
         }
         catch (Exception ex)
         {

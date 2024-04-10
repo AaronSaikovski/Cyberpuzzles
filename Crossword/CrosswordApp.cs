@@ -108,9 +108,16 @@ public sealed partial class CrosswordApp : Game
     private Texture2D? _imgNextPuzzButton;
 
     //list boxes
+#pragma warning disable CS0618 // Type or member is obsolete
     private ListBox? _lstClueAcross;
+    
+#pragma warning restore CS0618 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
     private ListBox? _lstClueDown;
-
+#pragma warning restore CS0618 // Type or member is obsolete
+    // private ListView? _lstClueAcross;
+    // private ListView? _lstClueDown;
+    
     //Panel for UI
     private Panel? _mainPanel;
 
