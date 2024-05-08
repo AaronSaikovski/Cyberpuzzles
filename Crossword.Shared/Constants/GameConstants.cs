@@ -29,7 +29,7 @@ public sealed class GameConstants
                                        "Dedicated to Neil Reading (neilski) RIP.";
 
     //game title string
-    public const string GameTitle = "CyberPuzzles Crossword v1.0.0-beta3";
+    public const string GameTitle = "CyberPuzzles Crossword v1.0.0";
 }
 
 

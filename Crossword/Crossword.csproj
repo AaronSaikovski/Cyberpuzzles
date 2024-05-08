@@ -63,7 +63,7 @@
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
     <PackageReference Include="Myra" Version="1.5.5" />
-    <PackageReference Include="FontStashSharp.MonoGame" Version="1.3.6" />
+    <PackageReference Include="FontStashSharp.MonoGame" Version="1.3.7" />
   </ItemGroup>
   <ItemGroup>
     <None Update="fonts\Dialog.ttf">
