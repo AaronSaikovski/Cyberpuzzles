@@ -16,6 +16,7 @@ public sealed partial class CrosswordApp
     /// <param name="j"></param>
     internal void InitPuzzleSquares(int i, int j)
     {
+        
         _puzzleSquares![i, j] = new Rectangle(
             _sqPuzzleSquares![i, j]!.XCoord + i * (int)UiConstants.SquareSpacer,
             _sqPuzzleSquares![i, j]!.YCoord + j * (int)UiConstants.SquareSpacer,

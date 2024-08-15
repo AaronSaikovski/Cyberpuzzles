@@ -171,11 +171,11 @@ public sealed partial class CrosswordApp : Game
 
     //Offset constants
     //private readonly int _nCrossBorderWidth = 3;
-    private int _nCrossOffsetX = 5;
+    private int _nCrossOffsetX = 5;  //Logging implementation
+                                       private readonly SerilogLogger _logger;
     private int _nCrossOffsetY = 5;
 
-    //Logging implementation
-    private readonly SerilogLogger _logger;
+  
 
 
     #endregion
