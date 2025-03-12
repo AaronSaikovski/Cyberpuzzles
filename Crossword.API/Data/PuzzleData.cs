@@ -9,13 +9,14 @@ public static class PuzzleData
     /// </summary>
     /// <param name="puzzleDataFile"></param>
     /// <returns></returns>
-    public static string? GetCrosswordPuzzleData(string? puzzleDataFile)
+    public static async Task<string?> GetCrosswordPuzzleData(string? puzzleDataFile)
     {
 
-        ArgumentException.ThrowIfNullOrEmpty(puzzleDataFile);
-
-        //get the data file
-        var fileResult = ParserHelper.GetRandomDataFile(puzzleDataFile);
-        return fileResult;
+        // ArgumentException.ThrowIfNullOrEmpty(puzzleDataFile);
+        //
+        // //get the data file
+        // var fileResult = ParserHelper.GetRandomDataFile(puzzleDataFile);
+        // return fileResult;
+        return ParserHelper.GetRandomDataFile(puzzleDataFile);
     }
 }

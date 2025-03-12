@@ -17,34 +17,52 @@ public sealed partial class CrosswordApp
     /// Gets the CrosswordData from the API ASync
     /// </summary>
     /// <returns></returns>
-    private string? GetPuzzleData()
+    // private string? GetPuzzleData()
+    // {
+    //     try
+    //     {
+    //         _logger.LogInformation("Start GetPuzzleData()");
+    //
+    //         // Get the Puzzle Data..ASync and wait
+    //         var task = Task.Run(async () =>
+    //         {
+    //             try
+    //             {
+    //                 // Await the asynchronous method inside Task.Run
+    //                 return await GetPuzzleDataAsync.GetCrosswordDataAsync();
+    //             }
+    //             catch (Exception ex)
+    //             {
+    //                 _logger.LogError(ex, ex.Message);
+    //                 return null;
+    //             }
+    //         });
+    //
+    //         // Wait for the task to complete
+    //         task.Wait();
+    //
+    //         //Check for the result
+    //         return task is { IsCompleted: true, IsFaulted: false, IsCanceled: false } ? task.Result : null;
+    //
+    //
+    //
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         _logger.LogError(ex, ex.Message);
+    //         throw;
+    //     }
+    //
+    // }
+    
+    private async Task<string> GetPuzzleDataASync()
     {
         try
         {
             _logger.LogInformation("Start GetPuzzleData()");
 
-            // Get the Puzzle Data..ASync and wait
-            var task = Task.Run(async () =>
-            {
-                try
-                {
-                    // Await the asynchronous method inside Task.Run
-                    return await GetPuzzleDataAsync.GetCrosswordDataAsync();
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex, ex.Message);
-                    return null;
-                }
-            });
-
-            // Wait for the task to complete
-            task.Wait();
-
-            //Check for the result
-            return task is { IsCompleted: true, IsFaulted: false, IsCanceled: false } ? task.Result : null;
-
-
+            // Await the asynchronous method inside Task.Run
+            return await GetPuzzleDataAsync.GetCrosswordDataAsync();
 
         }
         catch (Exception ex)
@@ -61,7 +79,7 @@ public sealed partial class CrosswordApp
     /// <summary>
     /// Inits the puzzle data
     /// </summary>
-    private void InitPuzzleData()
+    private async Task InitPuzzleDataAsync()
     {
         try
         {
@@ -72,7 +90,7 @@ public sealed partial class CrosswordApp
 
             //////////////////////////////////////////
             // Get the Puzzle Data..ASync and wait
-            _puzzleData = GetPuzzleData();
+            _puzzleData = await GetPuzzleDataASync();
 
             //check if we have a non null valua
             if (string.IsNullOrEmpty(_puzzleData))
@@ -82,7 +100,7 @@ public sealed partial class CrosswordApp
 
             // Parse the Data
             _crosswordParser = new CrosswordParser();
-            _mrParserData = _crosswordParser.ParsePuzzleData(_puzzleData);
+            _mrParserData = await _crosswordParser.ParsePuzzleDataASync(_puzzleData);
 
 
             //check if the parser object is null

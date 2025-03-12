@@ -16,7 +16,7 @@ public static class CrosswordData
     {
         var crosswordData = routes.MapGroup("/api/v1/crosswordpuzzledata");
 
-        crosswordData.MapGet("/getcrosswordpuzzledata", (IConfiguration configuration) => PuzzleData.GetCrosswordPuzzleData(configuration["DatafilePath"])).WithName("GetCrosswordPuzzleData");
+        crosswordData.MapGet("/getcrosswordpuzzledata", async (IConfiguration configuration) => await PuzzleData.GetCrosswordPuzzleData(configuration["DatafilePath"])).WithName("GetCrosswordPuzzleData");
     }
     #endregion
 }
