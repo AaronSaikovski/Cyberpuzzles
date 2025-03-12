@@ -31,7 +31,7 @@ public sealed partial class CrosswordApp
             Window.Title = GameConstants.GameTitle;
 
             //Init the puzzle data
-            InitPuzzleData();
+            await InitPuzzleDataAsync();
 
             base.Initialize();
 
@@ -62,7 +62,8 @@ public sealed partial class CrosswordApp
             _blackTexture.SetData([Color.Black]);
 
             //Initialise everything
-            MainInit();
+            //MainInit();
+            await MainInitASync();
 
             // add panel to desktop
             _desktop = new Desktop
