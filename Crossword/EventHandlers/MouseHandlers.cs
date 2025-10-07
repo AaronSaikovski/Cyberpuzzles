@@ -166,16 +166,15 @@ public sealed partial class CrosswordApp
 
             //Find index to Clue Answer for highlighting in List boxes
             var tmpClueAnswer = sqSelSquare?.GetClueAnswerRef(_isAcross);
-            var clueAnswerIdx = 0;
 
-            Parallel.For(0, _numQuestions, (k, loopState) =>
+            // Use Array.IndexOf instead of Parallel.For for simple linear search
+            if (_caPuzzleClueAnswers != null && tmpClueAnswer != null)
             {
-                if (_caPuzzleClueAnswers != null && tmpClueAnswer == _caPuzzleClueAnswers[k]) loopState.Stop();
-                clueAnswerIdx = k;
-                loopState.Stop();
-            });
+                var clueAnswerIdx = Array.IndexOf(_caPuzzleClueAnswers, tmpClueAnswer);
+                return clueAnswerIdx >= 0 ? clueAnswerIdx : 0;
+            }
 
-            return clueAnswerIdx;
+            return 0;
         }
         catch (Exception ex)
         {

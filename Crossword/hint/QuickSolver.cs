@@ -39,11 +39,14 @@ public sealed partial class CrosswordApp
             //Increment the score if the answer is correct
             UpdateCrosswordScore();
 
-
-            Parallel.For(0, _numQuestions, i =>
+            // Use regular loop instead of Parallel.For (_numQuestions is typically small)
+            if (_caPuzzleClueAnswers != null)
             {
-                if (_caPuzzleClueAnswers != null) _caPuzzleClueAnswers[i].CheckWord();
-            });
+                for (var i = 0; i < _numQuestions; i++)
+                {
+                    _caPuzzleClueAnswers[i].CheckWord();
+                }
+            }
 
             //If the crossword score == the number of questions, then it is the end of the game
             if (_crosswordScore == _numQuestions)

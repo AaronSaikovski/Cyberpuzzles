@@ -11,12 +11,14 @@ public sealed partial class ClueAnswer
     /// </summary>
     public void CheckWord()
     {
-        if (Answer is null) return;
+        if (Answer is null || SqAnswerSquares is null)
+            return;
 
-        Parallel.For(0, Answer.Length, i =>
+        // Use regular loop instead of Parallel.For (answer length is typically small)
+        for (var i = 0; i < Answer.Length; i++)
         {
-            SqAnswerSquares?[i]?.CheckLetter(Answer[i]);
-        });
+            SqAnswerSquares[i]?.CheckLetter(Answer[i]);
+        }
     }
 
     #endregion

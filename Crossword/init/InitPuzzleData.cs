@@ -14,7 +14,8 @@ public sealed partial class CrosswordApp
 
     #region GetPuzzleDataASync
     /// <summary>
-    /// Gets the CrosswordData from the API ASync
+    /// Gets the CrosswordData from the API Synchronously (blocks until complete)
+    /// Note: Uses GetAwaiter().GetResult() which is more efficient than Task.Wait() + .Result
     /// </summary>
     /// <returns></returns>
     private string? GetPuzzleData()
@@ -23,36 +24,15 @@ public sealed partial class CrosswordApp
         {
             _logger.LogInformation("Start GetPuzzleData()");
 
-            // Get the Puzzle Data..ASync and wait
-            var task = Task.Run(async () =>
-            {
-                try
-                {
-                    // Await the asynchronous method inside Task.Run
-                    return await GetPuzzleDataAsync.GetCrosswordDataAsync();
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex, ex.Message);
-                    return null;
-                }
-            });
-
-            // Wait for the task to complete
-            task.Wait();
-
-            //Check for the result
-            return task is { IsCompleted: true, IsFaulted: false, IsCanceled: false } ? task.Result : null;
-
-
-
+            // Use GetAwaiter().GetResult() instead of Task.Wait() + .Result
+            // This is more efficient and doesn't wrap exceptions in AggregateException
+            return GetPuzzleDataAsync.GetCrosswordDataAsync().GetAwaiter().GetResult();
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, ex.Message);
-            throw;
+            return null;
         }
-
     }
     #endregion
 

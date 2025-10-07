@@ -17,23 +17,24 @@ public sealed partial class ClueAnswer
     {
         ArgumentNullException.ThrowIfNull(sq);
 
-        if (Answer is null) return;
+        if (Answer is null || SqAnswerSquares is null)
+            return;
 
-
-        Parallel.For(0, Answer.Length, i =>
+        // Use regular loop instead of Parallel.For (answer length is typically small)
+        for (var i = 0; i < Answer.Length; i++)
         {
             if (!setHighLighted)
-                SqAnswerSquares?[i]?.SetHighlighted((int)HighlightSquare.CurrentNone);
+            {
+                SqAnswerSquares[i]?.SetHighlighted((int)HighlightSquare.CurrentNone);
+            }
             else
             {
-                SqAnswerSquares?[i]
-                    ?.SetHighlighted(SqAnswerSquares?[i] == sq
-                        ? (int)HighlightSquare.CurrentLetter
-                        : (int)HighlightSquare.CurrentWord);
+                var highlightType = SqAnswerSquares[i] == sq
+                    ? (int)HighlightSquare.CurrentLetter
+                    : (int)HighlightSquare.CurrentWord;
+                SqAnswerSquares[i]?.SetHighlighted(highlightType);
             }
-        });
-
-
+        }
     }
 
     #endregion

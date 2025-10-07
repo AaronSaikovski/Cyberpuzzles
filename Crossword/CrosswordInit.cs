@@ -59,12 +59,15 @@ public sealed partial class CrosswordApp
             //Forces dirty squares
             InitDirtySquares();
 
+            //Initialize all puzzle square rectangles (done once, not in draw loop)
+            InitAllPuzzleSquares();
+
             //Set index to bubble out
             _bBufferDirty = true;
             _newBackFlush = true;
 
-            //Cleanup
-            GC.Collect();
+            // Note: Manual GC.Collect() removed - let the GC manage memory automatically
+            // If memory pressure is an issue, fix the actual leaks instead
 
         }
         catch (Exception ex)

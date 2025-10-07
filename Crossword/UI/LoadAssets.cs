@@ -76,6 +76,9 @@ public sealed partial class CrosswordApp
             //Credits font
             _fntCredits = fntHelveticaSystem.GetFont(UiConstants.FntCredits);
 
+            //Initialize DrawSmallFont instance (reused to avoid allocations in draw loop)
+            _drawFont = new Crossword.UI.SmallFont.DrawSmallFont();
+
         }
         catch (Exception ex)
         {

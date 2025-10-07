@@ -88,7 +88,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start Update()");
+            // Removed excessive logging in hot path (runs 30-60 times per second)
 
             //get mouse state
             var mouseState = Mouse.GetState();
@@ -129,23 +129,26 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start Draw()");
+            // Removed excessive logging in hot path (runs 30-60 times per second)
 
             GraphicsDevice.Clear(Color.White);
 
-            //If buffer dirty...draw the crossword
+            // Single SpriteBatch Begin/End for all drawing operations (batching optimization)
+            _spriteBatch!.Begin();
+
+            //If buffer dirty...draw the crossword (without Begin/End now)
             if (_bBufferDirty)
             {
-                DrawCrossword();
+                DrawCrosswordInternal();
             }
 
-            //Draw the buttons
-            _HintButton?.Draw(_spriteBatch!);
-            _NextPuzzButton?.Draw(_spriteBatch!);
+            //Draw the buttons (batched together now)
+            _HintButton?.Draw(_spriteBatch);
+            _NextPuzzButton?.Draw(_spriteBatch);
 
+            _spriteBatch.End();
 
-
-            // End drawing        
+            // UI rendering (separate from sprite batch)
             _desktop!.Render();
             base.Draw(gameTime);
 

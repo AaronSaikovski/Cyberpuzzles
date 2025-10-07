@@ -43,7 +43,7 @@ public static partial class GetPuzzleDataAsync
                 if (response.IsSuccessStatusCode)
                 {
                     //get the response from the API call result as a string
-                    return response.Content.ReadAsStringAsync().Result;
+                    return await response.Content.ReadAsStringAsync();
                 }
 
                 throw new Exception($"Failed to call the API. Status code: {response.StatusCode}");

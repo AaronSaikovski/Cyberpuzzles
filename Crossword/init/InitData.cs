@@ -87,7 +87,8 @@ public sealed partial class CrosswordApp
         {
             _logger.LogInformation("Start InitDataArrays()");
 
-            Parallel.For(0, _numQuestions, i =>
+            // Use regular loop instead of Parallel.For (_numQuestions is typically small)
+            for (var i = 0; i < _numQuestions; i++)
             {
                 if (_mrParserData?.ColRef is not null) _colRef![i] = _mrParserData.ColRef[i];
                 if (_mrParserData?.RowRef is not null) _rowRef![i] = _mrParserData.RowRef[i];
@@ -101,7 +102,7 @@ public sealed partial class CrosswordApp
                 if (_mrParserData?.QuesNum is not null) _quesNum![i] = _mrParserData.QuesNum[i];
                 if (_mrParserData?.Clues is not null) _szClues![i] = _mrParserData.Clues[i];
                 if (_mrParserData?.Answers is not null) _szAnswers![i] = _mrParserData.Answers[i];
-            });
+            }
 
         }
         catch (Exception ex)

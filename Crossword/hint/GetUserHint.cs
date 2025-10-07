@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 
 namespace Crossword.App;
 
@@ -26,15 +25,20 @@ public sealed partial class CrosswordApp
                     var chHintLetter = _szTmpGetLetters[0];
                     _szTmpGetLetters = _szTmpGetLetters[1..];
 
-                    //loop over hint letters
-                    Parallel.For(0, _numQuestions, i =>
+                    // Use regular loop instead of Parallel.For to avoid race condition
+                    // and because _numQuestions is typically small (< 100)
+                    if (_caPuzzleClueAnswers != null)
                     {
-                        var bTmpResult = _caPuzzleClueAnswers != null && _caPuzzleClueAnswers[i].CheckHint(chHintLetter);
-                        if (bTmpResult)
+                        for (var i = 0; i < _numQuestions; i++)
                         {
-                            hintSupplied = true;
+                            if (_caPuzzleClueAnswers[i].CheckHint(chHintLetter))
+                            {
+                                hintSupplied = true;
+                                break; // Can exit early when hint is found
+                            }
                         }
-                    });
+                    }
+
                     count++;
                     if (_szGetLetters is not null && count == _szGetLetters.Length)
                         allHintLettersChecked = true;

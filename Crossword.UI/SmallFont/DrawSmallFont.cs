@@ -9,6 +9,15 @@ namespace Crossword.UI.SmallFont;
 
 public class DrawSmallFont : IDrawSmallFont
 {
+    // Cache for question number strings (0-99) to avoid ToString() allocations
+    private static readonly string[] _questionNumberCache = new string[100];
+
+    static DrawSmallFont()
+    {
+        for (int i = 0; i < 100; i++)
+            _questionNumberCache[i] = i.ToString();
+    }
+
     #region DrawSmallFontAcross
     /// <summary>
     /// Draws a small font across
@@ -24,8 +33,10 @@ public class DrawSmallFont : IDrawSmallFont
         if (puzzleSquare.ClueAnswerAcross is null) return;
         if (puzzleSquare.ClueAnswerAcross?.SqAnswerSquares?[0] != puzzleSquare) return;
 
-        spriteBatch.DrawString(numFont,
-            puzzleSquare.ClueAnswerAcross?.QuestionNumber.ToString(),
+        var questionNum = puzzleSquare.ClueAnswerAcross.QuestionNumber;
+        var questionText = questionNum < 100 ? _questionNumberCache[questionNum] : questionNum.ToString();
+
+        spriteBatch.DrawString(numFont, questionText,
             new Vector2(rectSquare.X + UiConstants.SmlNumOffsetX,
                 rectSquare.Y + UiConstants.SmlNumOffsetY), UiConstants.SmallFontColor);
     }
@@ -46,8 +57,11 @@ public class DrawSmallFont : IDrawSmallFont
     {
         if (puzzleSquare.ClueAnswerDown is null) return;
         if (puzzleSquare.ClueAnswerDown?.SqAnswerSquares?[0] != puzzleSquare) return;
-        spriteBatch.DrawString(numFont,
-            puzzleSquare.ClueAnswerDown?.QuestionNumber.ToString(),
+
+        var questionNum = puzzleSquare.ClueAnswerDown.QuestionNumber;
+        var questionText = questionNum < 100 ? _questionNumberCache[questionNum] : questionNum.ToString();
+
+        spriteBatch.DrawString(numFont, questionText,
             new Vector2(rectSquare.X + UiConstants.SmlNumOffsetX,
                 rectSquare.Y + UiConstants.SmlNumOffsetY), UiConstants.SmallFontColor);
     }

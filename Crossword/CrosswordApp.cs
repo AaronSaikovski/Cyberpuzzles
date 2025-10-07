@@ -143,6 +143,19 @@ public sealed partial class CrosswordApp : Game
     private DynamicSpriteFont? _fntListFont;  // ListBox font
     private DynamicSpriteFont? _fntCredits;  // Credits
 
+    //DrawSmallFont instance (reused to avoid allocations in draw loop)
+    private Crossword.UI.SmallFont.DrawSmallFont? _drawFont;
+
+    // Cache for single character strings (A-Z) to avoid ToString() allocations in draw loop
+    private static readonly string[] _charCache = new string[26];
+
+    static CrosswordApp()
+    {
+        // Pre-cache strings for A-Z
+        for (int i = 0; i < 26; i++)
+            _charCache[i] = ((char)('A' + i)).ToString();
+    }
+
 
     // //Keyboard handler
     private readonly KeyboardInput? _keyboardInput;
@@ -208,6 +221,30 @@ public sealed partial class CrosswordApp : Game
         _mouseInput = new MouseInput();
         _mouseInputHandler = new MouseInputHandler(this); //Pass in crossword instance object
         _mouseInput.Subscribe(_mouseInputHandler);
+    }
+    #endregion
+
+    #region Dispose
+    /// <summary>
+    /// Dispose of resources to prevent memory leaks
+    /// </summary>
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            // Dispose managed resources
+            _logger?.Dispose();
+            _spriteBatch?.Dispose();
+            _blackTexture?.Dispose();
+            _imgSquareWord?.Dispose();
+            _imgHighliteSquare?.Dispose();
+            _imgNormalSquare?.Dispose();
+            _imgBlackSquare?.Dispose();
+            _imgHintButton?.Dispose();
+            _imgNextPuzzButton?.Dispose();
+            _desktop?.Dispose();
+        }
+        base.Dispose(disposing);
     }
     #endregion
 
