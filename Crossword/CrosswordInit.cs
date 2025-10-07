@@ -63,8 +63,8 @@ public sealed partial class CrosswordApp
             _bBufferDirty = true;
             _newBackFlush = true;
 
-            //Cleanup
-            GC.Collect();
+            // Note: Manual GC.Collect() removed - let the GC manage memory automatically
+            // If memory pressure is an issue, fix the actual leaks instead
 
         }
         catch (Exception ex)

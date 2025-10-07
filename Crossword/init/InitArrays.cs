@@ -1,7 +1,6 @@
 using System;
 using Crossword.Puzzle.Squares;
 using Crossword.Shared.Constants;
-using System.Threading.Tasks;
 
 namespace Crossword.App;
 
@@ -18,28 +17,29 @@ public sealed partial class CrosswordApp
         {
             _logger.LogInformation("Start InitArrays()");
 
+            if (_sqPuzzleSquares is null)
+                return;
 
-            Parallel.For(0, _NumRows, i =>
+            // Use regular loops instead of nested Parallel.For
+            // Parallel.For adds overhead for small arrays (typically 9x9 grids)
+            for (var i = 0; i < _NumRows; i++)
             {
-                Parallel.For(0, _NumCols, j =>
+                for (var j = 0; j < _NumCols; j++)
                 {
-                    if (_sqPuzzleSquares != null)
+                    _sqPuzzleSquares[i, j] = new Square();
+
+                    //Set SQs to dirty
+                    if (_newBackFlush || _initCrossword)
                     {
-                        _sqPuzzleSquares[i, j] = new Square();
-
-                        //Set SQs to dirty
-                        if (_newBackFlush || _initCrossword)
-                        {
-                            _sqPuzzleSquares[i, j]!.IsDirty = true;
-                        }
-
-                        //Create squares
-                        _sqPuzzleSquares[i, j]
-                            ?.CreateSquare(_nCrossOffsetX + i * UiConstants.SquareWidth,
-                                _nCrossOffsetY + j * UiConstants.SquareHeight);
+                        _sqPuzzleSquares[i, j].IsDirty = true;
                     }
-                });
-            });
+
+                    //Create squares
+                    _sqPuzzleSquares[i, j].CreateSquare(
+                        _nCrossOffsetX + i * UiConstants.SquareWidth,
+                        _nCrossOffsetY + j * UiConstants.SquareHeight);
+                }
+            }
 
         }
         catch (Exception ex)

@@ -6,9 +6,10 @@ namespace Crossword.Shared.Logger;
 /// <summary>
 /// Implements logging via Serilog
 /// </summary>
-public class SerilogLogger : ILoggerService, IDisposable
+public class SerilogLogger : ILoggerService, IDisposable, IAsyncDisposable
 {
     private readonly Serilog.Core.Logger _logger;
+    private bool _disposed;
 
     /// <summary>
     /// Pass in Appsettings config
@@ -72,13 +73,27 @@ public class SerilogLogger : ILoggerService, IDisposable
     }
 
     /// <summary>
-    /// cleanup
+    /// Synchronous cleanup - disposes the logger synchronously
     /// </summary>
     public void Dispose()
     {
-        _logger.DisposeAsync();
+        if (_disposed) return;
 
-        //Log.CloseAndFlush();
+        _logger.Dispose();
+        _disposed = true;
+        GC.SuppressFinalize(this);
+    }
+
+    /// <summary>
+    /// Asynchronous cleanup - disposes the logger asynchronously
+    /// </summary>
+    public async ValueTask DisposeAsync()
+    {
+        if (_disposed) return;
+
+        await _logger.DisposeAsync();
+        _disposed = true;
+        GC.SuppressFinalize(this);
     }
 
 }

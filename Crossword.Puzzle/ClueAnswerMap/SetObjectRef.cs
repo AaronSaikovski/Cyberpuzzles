@@ -31,25 +31,14 @@ public sealed partial class ClueAnswer
         this.SqAnswerSquares = new Square[answer.Length];
 
         //Copy the array
-        // Assuming szAnswer and sqAnswerSquares are declared and initialized somewhere
         var szAnswerLength = answer.Length;
 
-        //Parallel for loop
-        Parallel.For(0, szAnswerLength, k =>
+        // Use regular loop instead of Parallel.For (answer length is typically small)
+        for (var k = 0; k < szAnswerLength; k++)
         {
-            // Create a new Square instance
-            var sqAnswerSquares = this.SqAnswerSquares;
-            if (sqAnswerSquares is not null)
-            {
-                sqAnswerSquares[k] = new Square();
-                sqAnswerSquares[k]?.CreateSquare(0, 0);
-                sqAnswerSquares[k] = SqAnswerSquares[k];
-            }
-
-            // Assign the created Square to the array element
-            // The original code `this.sqAnswerSquares[k] = sqAnswerSquares[k];` seems redundant, so omitted
+            this.SqAnswerSquares[k] = SqAnswerSquares[k];
             SqAnswerSquares[k]?.SetObjectRef(this.IsAcross, this);
-        });
+        }
     }
 
     #endregion

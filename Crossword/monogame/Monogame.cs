@@ -88,7 +88,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start Update()");
+            // Removed excessive logging in hot path (runs 30-60 times per second)
 
             //get mouse state
             var mouseState = Mouse.GetState();
@@ -129,7 +129,7 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start Draw()");
+            // Removed excessive logging in hot path (runs 30-60 times per second)
 
             GraphicsDevice.Clear(Color.White);
 

@@ -27,11 +27,13 @@ public sealed partial class CrosswordApp
 
             //Dimension array for crossword data
             _puzzleDataset = new CrosswordState[_numQuestions];
-            Parallel.For(0, _numQuestions, i =>
+
+            // Use regular loop instead of Parallel.For (_numQuestions is typically small)
+            for (var i = 0; i < _numQuestions; i++)
             {
                 _puzzleDataset[i] = new CrosswordState(_rowRef![i], _colRef![i], _szAnswers![i], _szClues![i], _bDataIsAcross![i],
                 _quesNum![i]);
-            });
+            }
 
             // init labels
             _currentScoreLabel = new Label();

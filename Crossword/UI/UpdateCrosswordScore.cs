@@ -1,6 +1,4 @@
 using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Crossword.App;
 
@@ -18,16 +16,19 @@ public sealed partial class CrosswordApp
         {
             _logger.LogInformation("Start UpdateCrosswordScore()");
 
-            Parallel.For(0, _numQuestions, i =>
+            // Use regular loop instead of Parallel.For (_numQuestions is typically small)
+            if (_caPuzzleClueAnswers != null)
             {
-                if (_caPuzzleClueAnswers![i].IsCorrect())
+                for (var i = 0; i < _numQuestions; i++)
                 {
-                    Interlocked.Increment(ref _crosswordScore);
+                    if (_caPuzzleClueAnswers[i].IsCorrect())
+                    {
+                        _crosswordScore++;
+                    }
+
+                    _caPuzzleClueAnswers[i].CheckWord();
                 }
-
-                _caPuzzleClueAnswers[i].CheckWord();
-            });
-
+            }
 
             if (_crosswordScore == _numQuestions)
             {

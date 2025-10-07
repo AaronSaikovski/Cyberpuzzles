@@ -17,18 +17,20 @@ public sealed partial class ClueAnswer
         var foundResult = false;
 
         // Assuming szAnswer and sqAnswerSquares are declared and initialized somewhere
-        if (Answer is null) return foundResult;
+        if (Answer is null || SqAnswerSquares is null)
+            return foundResult;
+
         var szAnswerLength = Answer.Length;
 
-        //Parallel for loop
-        Parallel.For(0, szAnswerLength, i =>
+        // Use regular loop instead of Parallel.For (answer length is typically small)
+        for (var i = 0; i < szAnswerLength; i++)
         {
-            if (SqAnswerSquares is null || Answer[i] != hintLetter ||
-                SqAnswerSquares[i]!.Letter == hintLetter) return;
-            //SqAnswerSquares[i]?.SetLetter(hintLetter, IsAcross);
-            SqAnswerSquares[i]?.SetLetter(hintLetter);
-            foundResult = true;
-        });
+            if (Answer[i] == hintLetter && SqAnswerSquares[i]!.Letter != hintLetter)
+            {
+                SqAnswerSquares[i]?.SetLetter(hintLetter);
+                foundResult = true;
+            }
+        }
 
         return foundResult;
     }

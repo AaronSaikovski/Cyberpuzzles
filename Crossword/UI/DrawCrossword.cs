@@ -31,19 +31,23 @@ public sealed partial class CrosswordApp
     /// <param name="j"></param>
     internal void DrawSquares(int i, int j)
     {
+        var square = _sqPuzzleSquares![i, j];
+        var rectangle = _puzzleSquares![i, j];
+
         //Check to see if a char is allowed
-        if (_sqPuzzleSquares![i, j]!.IsCharAllowed)
+        if (square.IsCharAllowed)
         {
             //Draws the squares
-            DrawSquare(_sqPuzzleSquares[i, j], _puzzleSquares![i, j], _spriteBatch!);
+            DrawSquare(square, rectangle, _spriteBatch!);
 
-            //small number font
-            var drawFont = new DrawSmallFont();
-            drawFont.DrawSmallFontAcross(_sqPuzzleSquares?[i, j].ClueAnswerAcross!, _sqPuzzleSquares![i, j], _puzzleSquares[i, j], _fntnumFont!, _spriteBatch!);
-            drawFont.DrawSmallFontDown(_sqPuzzleSquares?[i, j].ClueAnswerDown!, _sqPuzzleSquares![i, j], _puzzleSquares[i, j], _fntnumFont!, _spriteBatch!);
+            //small number font - reuse instance to avoid allocations
+            if (square.ClueAnswerAcross != null)
+                _drawFont!.DrawSmallFontAcross(square.ClueAnswerAcross, square, rectangle, _fntnumFont!, _spriteBatch!);
+            if (square.ClueAnswerDown != null)
+                _drawFont!.DrawSmallFontDown(square.ClueAnswerDown, square, rectangle, _fntnumFont!, _spriteBatch!);
 
             //check if squares are dirty
-            if (_sqPuzzleSquares[i, j]!.IsDirty)
+            if (square.IsDirty)
             {
                 //Char entered by user.
                 DrawUserChar(i, j);
@@ -52,7 +56,7 @@ public sealed partial class CrosswordApp
         else
         {
             // Black square
-            _spriteBatch!.Draw(_imgBlackSquare, _puzzleSquares![i, j], _rectangleColor);
+            _spriteBatch!.Draw(_imgBlackSquare, rectangle, _rectangleColor);
         }
     }
 
@@ -62,24 +66,23 @@ public sealed partial class CrosswordApp
     /// </summary>
     private void DrawCrossword()
     {
+        // Move null checks outside loops for better performance
+        if (_sqPuzzleSquares is null || _puzzleSquares is null)
+            return;
+
         try
         {
-            _logger.LogInformation("Start DrawCrossword()");
-
             // Begin drawing
             _spriteBatch!.Begin();
 
             //Draw the main rectangle
-            _spriteBatch!.Draw(_blackTexture, rectCrossWord, _rectangleColor);
+            _spriteBatch.Draw(_blackTexture, rectCrossWord, _rectangleColor);
 
             //Build the squares
             for (var i = 0; i < _NumRows; i++)
             {
                 for (var j = 0; j < _NumCols; j++)
                 {
-                    if (_sqPuzzleSquares is null) continue;
-                    if (_puzzleSquares is null) continue;
-
                     //Main puzzle squares array
                     //Draw crossword with squares with spaces
                     InitPuzzleSquares(i, j);

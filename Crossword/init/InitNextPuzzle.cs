@@ -71,8 +71,8 @@ public sealed partial class CrosswordApp
 
             IsFinished = false;
 
-            //Cleanup
-            GC.Collect();
+            // Note: Manual GC.Collect() removed - let the GC manage memory automatically
+            // If memory pressure is an issue, fix the actual leaks instead
 
         }
         catch (Exception ex)

@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 
 namespace Crossword.App;
 
@@ -19,14 +18,18 @@ public sealed partial class CrosswordApp
         {
             _logger.LogInformation("Start ForceDirtySquares()");
 
-            //Forces dirty squares
-            Parallel.For(0, _NumRows, i =>
+            if (_sqPuzzleSquares is null)
+                return;
+
+            // Use regular loops instead of nested Parallel.For
+            // Parallel.For adds overhead for small arrays (typically 9x9 grids)
+            for (var i = 0; i < _NumRows; i++)
             {
-                Parallel.For(0, _NumCols, j =>
+                for (var j = 0; j < _NumCols; j++)
                 {
-                    if (_sqPuzzleSquares != null) _sqPuzzleSquares[i, j].IsDirty = true;
-                });
-            });
+                    _sqPuzzleSquares[i, j].IsDirty = true;
+                }
+            }
         }
         catch (Exception ex)
         {
