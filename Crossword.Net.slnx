@@ -1,0 +1,10 @@
+﻿<Solution>
+  <Project Path="Crossword.API\Crossword.API.csproj" Type="Classic C#" />
+  <Project Path="Crossword.Data\Crossword.Data.csproj" Type="Classic C#" />
+  <Project Path="Crossword.Entities\Crossword.Entities.csproj" Type="Classic C#" />
+  <Project Path="Crossword.Parser\Crossword.Parser.csproj" Type="Classic C#" />
+  <Project Path="Crossword.Puzzle\Crossword.Puzzle.csproj" Type="Classic C#" />
+  <Project Path="Crossword.Shared\Crossword.Shared.csproj" Type="Classic C#" />
+  <Project Path="Crossword.UI\Crossword.UI.csproj" Type="Classic C#" />
+  <Project Path="Crossword\Crossword.csproj" Type="Classic C#" />
+</Solution>
