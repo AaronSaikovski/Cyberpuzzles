@@ -1,6 +1,6 @@
 <div align="center">
 
-# CyberPuzzles - Crossword - v1.0.0 - beta3
+# CyberPuzzles - Crossword - v1.1.0 
 
 A Monogame C# .Net 8.0 Core port of a Java Applet game I co-wrote back in 1997.
 
@@ -13,6 +13,7 @@ A Monogame C# .Net 8.0 Core port of a Java Applet game I co-wrote back in 1997.
 - 1.0.0-beta3 - restructured code with a focus on performance and reduced memory usage.
 - 1.0.0-beta2 - Major refactor- restructured code with a focus on performance and reduced memory usage.
 - 1.0.0 - Initial release for initial feedback.
+- 1.1.0 - Big refactor and performance fixes
 
 ---
 
