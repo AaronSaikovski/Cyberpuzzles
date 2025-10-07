@@ -2,7 +2,6 @@ using System;
 using Crossword.Shared.Constants;
 using Microsoft.Xna.Framework;
 using Crossword.UI.SmallFont;
-using System.Threading.Tasks;
 
 namespace Crossword.App;
 
@@ -10,18 +9,24 @@ public sealed partial class CrosswordApp
 {
 
     /// <summary>
-    /// Init the puzzle squares
+    /// Init all puzzle square rectangles - called once during initialization
     /// </summary>
-    /// <param name="i"></param>
-    /// <param name="j"></param>
-    internal void InitPuzzleSquares(int i, int j)
+    internal void InitAllPuzzleSquares()
     {
-        
-        _puzzleSquares![i, j] = new Rectangle(
-            _sqPuzzleSquares![i, j]!.XCoord + i * (int)UiConstants.SquareSpacer,
-            _sqPuzzleSquares![i, j]!.YCoord + j * (int)UiConstants.SquareSpacer,
-            UiConstants.SquareWidth,
-            UiConstants.SquareHeight);
+        if (_puzzleSquares is null || _sqPuzzleSquares is null)
+            return;
+
+        for (var i = 0; i < _NumRows; i++)
+        {
+            for (var j = 0; j < _NumCols; j++)
+            {
+                _puzzleSquares[i, j] = new Rectangle(
+                    _sqPuzzleSquares[i, j].XCoord + i * (int)UiConstants.SquareSpacer,
+                    _sqPuzzleSquares[i, j].YCoord + j * (int)UiConstants.SquareSpacer,
+                    UiConstants.SquareWidth,
+                    UiConstants.SquareHeight);
+            }
+        }
     }
 
     /// <summary>
@@ -62,44 +67,27 @@ public sealed partial class CrosswordApp
 
     #region DrawCrossword
     /// <summary>
-    /// Draws the crossword graphics
+    /// Draws the crossword graphics - caller manages SpriteBatch Begin/End
     /// </summary>
-    private void DrawCrossword()
+    private void DrawCrosswordInternal()
     {
         // Move null checks outside loops for better performance
         if (_sqPuzzleSquares is null || _puzzleSquares is null)
             return;
 
-        try
+        //Draw the main rectangle
+        _spriteBatch!.Draw(_blackTexture, rectCrossWord, _rectangleColor);
+
+        //Draw the squares (Rectangles already initialized once during setup)
+        for (var i = 0; i < _NumRows; i++)
         {
-            // Begin drawing
-            _spriteBatch!.Begin();
-
-            //Draw the main rectangle
-            _spriteBatch.Draw(_blackTexture, rectCrossWord, _rectangleColor);
-
-            //Build the squares
-            for (var i = 0; i < _NumRows; i++)
+            for (var j = 0; j < _NumCols; j++)
             {
-                for (var j = 0; j < _NumCols; j++)
-                {
-                    //Main puzzle squares array
-                    //Draw crossword with squares with spaces
-                    InitPuzzleSquares(i, j);
-
-                    //Check to see if a char is allowed
-                    DrawSquares(i, j);
-                }
+                DrawSquares(i, j);
             }
+        }
 
-            _spriteBatch.End();
-            _newBackFlush = false;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, ex.Message);
-            throw;
-        }
+        _newBackFlush = false;
     }
 
     #endregion

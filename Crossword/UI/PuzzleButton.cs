@@ -21,8 +21,9 @@ public class PuzzleButton
     // Vector fo x,y coords
     private Vector2 Position { get; set; }
 
-    // Rect bounds
-    public Rectangle Bounds => new((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
+    // Cached bounds rectangle
+    private Rectangle _bounds;
+    public Rectangle Bounds => _bounds;
 
 
     #endregion
@@ -37,19 +38,28 @@ public class PuzzleButton
     {
         Texture = texture;
         Position = position;
+        UpdateBounds();
     }
     #endregion
 
     #region Event_Handlers
+
     /// <summary>
-    /// IsMouseOver
+    /// Update bounds when position changes
+    /// </summary>
+    private void UpdateBounds()
+    {
+        _bounds = new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
+    }
+
+    /// <summary>
+    /// IsMouseOver - optimized to use point containment instead of Rectangle intersection
     /// </summary>
     /// <param name="mouseState"></param>
     /// <returns></returns>
     private bool IsMouseOver(MouseState mouseState)
     {
-        var mouseRectangle = new Rectangle(mouseState.X, mouseState.Y, 1, 1);
-        return mouseRectangle.Intersects(Bounds);
+        return _bounds.Contains(mouseState.X, mouseState.Y);
     }
 
 
@@ -57,14 +67,12 @@ public class PuzzleButton
 
     #region Graphics_Handlers
     /// <summary>
-    /// Draw
+    /// Draw - Caller is responsible for SpriteBatch Begin/End to enable batching
     /// </summary>
     /// <param name="spriteBatch"></param>
     public void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.Begin();
         spriteBatch.Draw(Texture, Position, Color.White);
-        spriteBatch.End();
     }
 
     /// <summary>

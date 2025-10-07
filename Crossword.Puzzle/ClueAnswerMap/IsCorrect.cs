@@ -7,19 +7,20 @@ public sealed partial class ClueAnswer
 
     /// <summary>
     /// Returns true if all answer letters are correct and false otherwise
+    /// Optimized to use simple loop instead of LINQ to avoid allocations
     /// </summary>
     /// <returns></returns>
-    // public bool IsCorrect()
-    // {
-    //     if (Answer is not null)
-    //         return !Answer.Where((t, i) => SqAnswerSquares is not null && SqAnswerSquares[i]!.Letter != t).Any();
-    //     return true;
-    // }
-
     public bool IsCorrect()
     {
-        if (Answer is not null)
-            return !Answer.Where((t, i) => SqAnswerSquares is not null && SqAnswerSquares[i]!.Letter != t).Any();
+        if (Answer is null || SqAnswerSquares is null)
+            return true;
+
+        // Simple loop - no LINQ allocations
+        for (int i = 0; i < Answer.Length; i++)
+        {
+            if (SqAnswerSquares[i]?.Letter != Answer[i])
+                return false;
+        }
         return true;
     }
 

@@ -133,19 +133,22 @@ public sealed partial class CrosswordApp
 
             GraphicsDevice.Clear(Color.White);
 
-            //If buffer dirty...draw the crossword
+            // Single SpriteBatch Begin/End for all drawing operations (batching optimization)
+            _spriteBatch!.Begin();
+
+            //If buffer dirty...draw the crossword (without Begin/End now)
             if (_bBufferDirty)
             {
-                DrawCrossword();
+                DrawCrosswordInternal();
             }
 
-            //Draw the buttons
-            _HintButton?.Draw(_spriteBatch!);
-            _NextPuzzButton?.Draw(_spriteBatch!);
+            //Draw the buttons (batched together now)
+            _HintButton?.Draw(_spriteBatch);
+            _NextPuzzButton?.Draw(_spriteBatch);
 
+            _spriteBatch.End();
 
-
-            // End drawing        
+            // UI rendering (separate from sprite batch)
             _desktop!.Render();
             base.Draw(gameTime);
 

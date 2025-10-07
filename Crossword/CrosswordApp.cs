@@ -146,6 +146,16 @@ public sealed partial class CrosswordApp : Game
     //DrawSmallFont instance (reused to avoid allocations in draw loop)
     private Crossword.UI.SmallFont.DrawSmallFont? _drawFont;
 
+    // Cache for single character strings (A-Z) to avoid ToString() allocations in draw loop
+    private static readonly string[] _charCache = new string[26];
+
+    static CrosswordApp()
+    {
+        // Pre-cache strings for A-Z
+        for (int i = 0; i < 26; i++)
+            _charCache[i] = ((char)('A' + i)).ToString();
+    }
+
 
     // //Keyboard handler
     private readonly KeyboardInput? _keyboardInput;
