@@ -15,8 +15,6 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start NavigateList()");
-
             switch (bIsAcross)
             {
                 case true:

@@ -6,6 +6,8 @@ namespace Crossword.Shared.ParserUtils;
 /// </summary>
 public static class ParserHelper
 {
+    private static readonly Random RandomGenerator = new();
+
     #region CountOccurrences
     /// <summary>
     /// Counts the occurrences of a char in a word
@@ -39,8 +41,7 @@ public static class ParserHelper
         // Check if there are any files in the folder
         if (files.Length <= 0) return null;
         // Generate a random number to select a file
-        var random = new Random();
-        var randomIndex = random.Next(0, files.Length);
+        var randomIndex = RandomGenerator.Next(0, files.Length);
 
         // Get the randomly selected file path
         var selectedFilePath = files[randomIndex];

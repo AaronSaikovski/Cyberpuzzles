@@ -20,8 +20,6 @@ public sealed partial class CrosswordApp
 
         try
         {
-            _logger.LogInformation("Start KeyDown()");
-
             //Spacebar pressed to change orientation...bIsAcross.
             GetSpaceKey(keyInFocus);
 
@@ -68,8 +66,6 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start GetSpaceKey()");
-
             //Spacebar pressed to change orientation...bIsAcross.
             if (keyInFocus != Keys.Space) return;
             //Deselect the listbox based on direction
@@ -84,16 +80,8 @@ public sealed partial class CrosswordApp
             _sqCurrentSquare.GetClueAnswerRef(_isAcross)?.HighlightSquares(_sqCurrentSquare, false);
 
             //Change orientation if possible
-            if (_isAcross)
-            {
-                if (_sqCurrentSquare.CanFlipDirection(_isAcross))
-                    _isAcross = false;
-            }
-            else
-            {
-                if (_sqCurrentSquare.CanFlipDirection(_isAcross))
-                    _isAcross = true;
-            }
+            if (_sqCurrentSquare.CanFlipDirection(_isAcross))
+                _isAcross = !_isAcross;
 
             //Sets the highlighting of the square.
             _sqCurrentSquare.GetClueAnswerRef(_isAcross)
@@ -116,8 +104,6 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start GetDeleteKey()");
-
             //Delete present square's contents if Delete key is pressed
             if (keyInFocus == Keys.Delete)
             {
@@ -143,8 +129,6 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start GetBackspaceKey()");
-
             //Check to see if a backspace was entered
             if (keyInFocus != Keys.Back) return;
             _sqCurrentSquare?.SetLetter(' ');
@@ -169,8 +153,6 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start GetCharKey()");
-
             //Check that the char falls into our range.
             if (keyInFocus is < Keys.A or > Keys.Z) return;
 

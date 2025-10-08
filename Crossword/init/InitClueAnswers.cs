@@ -41,7 +41,7 @@ public sealed partial class CrosswordApp
 #pragma warning disable CS0618 // Type or member is obsolete
                                     _lstClueAcross.Items.Add(new ListItem(
 #pragma warning restore CS0618 // Type or member is obsolete
-                                        _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
+                                        $"{_puzzleDataset[i].QuestionNum}. {_puzzleDataset[i].Clue}",
                                         Color.White));
                         }
                         else
@@ -54,7 +54,7 @@ public sealed partial class CrosswordApp
 #pragma warning disable CS0618 // Type or member is obsolete
                                     _lstClueDown.Items.Add(new ListItem(
 #pragma warning restore CS0618 // Type or member is obsolete
-                                        _puzzleDataset[i].QuestionNum + ". " + _puzzleDataset[i].Clue,
+                                        $"{_puzzleDataset[i].QuestionNum}. {_puzzleDataset[i].Clue}",
                                         Color.White));
                         }
                     }

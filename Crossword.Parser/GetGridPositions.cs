@@ -26,25 +26,10 @@ public sealed partial class CrosswordParser
         {
             var subGridDataTemp = gridPosTmp[tokIdx].Split(" ");
 
-            for (var i = 0; i < 4; i++)
-            {
-                switch (i)
-                {
-                    case 0:
-                        _crosswordData.ColRef[tokIdx] = int.Parse(subGridDataTemp[0]);
-                        break;
-
-                    case 1:
-                        _crosswordData.RowRef[tokIdx] = int.Parse(subGridDataTemp[1]);
-                        break;
-                    case 2:
-                        _crosswordData.IsAcross[tokIdx] = int.Parse(subGridDataTemp[2]);
-                        break;
-                    case 3:
-                        _crosswordData.QuesNum[tokIdx] = int.Parse(subGridDataTemp[3]);
-                        break;
-                }
-            }
+            _crosswordData.ColRef[tokIdx] = int.Parse(subGridDataTemp[0]);
+            _crosswordData.RowRef[tokIdx] = int.Parse(subGridDataTemp[1]);
+            _crosswordData.IsAcross[tokIdx] = int.Parse(subGridDataTemp[2]);
+            _crosswordData.QuesNum[tokIdx] = int.Parse(subGridDataTemp[3]);
         }
     }
 }

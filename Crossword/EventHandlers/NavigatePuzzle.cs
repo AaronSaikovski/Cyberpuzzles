@@ -14,8 +14,6 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start NavigatePuzzle()");
-
             //Deselect the listbox based on direction
             DeselectListBox();
 
@@ -57,8 +55,6 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start DeselectListBox()");
-
             //Deselect the listbox based on direction
             if (!_isAcross)
             {
@@ -83,20 +79,13 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start UpdateListBoxLinkage()");
-
             ///////////////////////////////////////
             //Listbox linkage stuff
             //
             //Find index to Clue Answer for highlighting in List boxes
             var tmp = _sqCurrentSquare?.GetClueAnswerRef(_isAcross);
-            var clueAnswerIdx = 0;
-            for (var k = 0; k < _numQuestions; k++)
-            {
-                if (_caPuzzleClueAnswers != null && tmp != _caPuzzleClueAnswers[k]) continue;
-                clueAnswerIdx = k;
-                break;
-            }
+            var clueAnswerIdx = _caPuzzleClueAnswers != null ? Array.IndexOf(_caPuzzleClueAnswers, tmp) : -1;
+            if (clueAnswerIdx == -1) clueAnswerIdx = 0;
 
             //Selects the item in the list box relative to the ClueAnswerMap
             //and the orientation.
@@ -125,8 +114,6 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start GetDownArrow()");
-
             //If down arrow pressed get next sq
             if (keyInFocus != Keys.Down) return;
             if (_isAcross)
@@ -161,8 +148,6 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start GetUpArrow()");
-
             //If up arrow key pressed
             if (keyInFocus != Keys.Up) return;
             if (_isAcross)
@@ -197,8 +182,6 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start GetRightArrow()");
-
             //If right arrow pressed get next sq
             if (keyInFocus != Keys.Right) return;
             if (_isAcross)
@@ -231,8 +214,6 @@ public sealed partial class CrosswordApp
     {
         try
         {
-            _logger.LogInformation("Start GetLeftArrow()");
-
             //If left arrow key pressed get prev sq
             if (keyInFocus != Keys.Left) return;
             if (!_isAcross)

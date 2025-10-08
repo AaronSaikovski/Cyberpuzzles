@@ -25,11 +25,11 @@ public sealed class GameConstants
     public const string? CreditsText = "**CREDITS**\n" +
                                        "Original Authors: Bryan Richards & Aaron Saikovski\n" +
                                        "Original date: 24th March 1997\n" +
-                                       "Description: A Monogame and .Net 8 Core port of the original OzEmail Cyberpuzzles Java based crossword Applet.\n" +
+                                       "Description: A Monogame and .Net Core port of the original OzEmail Cyberpuzzles Java based crossword Applet.\n" +
                                        "Dedicated to Neil Reading (neilski) RIP.";
 
     //game title string
-    public const string GameTitle = "CyberPuzzles Crossword v1.0.0";
+    public const string GameTitle = "CyberPuzzles Crossword v1.1.0";
 }
 
 

@@ -14,11 +14,7 @@ public sealed partial class CrosswordParser
         var puzzletempstr = strData[5];
         var answertemp = puzzletempstr.Split("#");
         if (_crosswordData == null) return;
-        _crosswordData.Answers = new string[_crosswordData.NumQuestions];
-        for (var k = 0; k < _crosswordData.NumQuestions; k++)
-        {
-            _crosswordData.Answers[k] = answertemp[k];
-        }
+        _crosswordData.Answers = answertemp.AsSpan(0, _crosswordData.NumQuestions).ToArray();
     }
     #endregion
 }

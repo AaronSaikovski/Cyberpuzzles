@@ -9,10 +9,12 @@ namespace Crossword.Data;
 /// </summary>
 public static partial class GetPuzzleDataAsync
 {
+    private static readonly HttpClient HttpClientInstance = new();
+
     #region CallDataApiAsync
 
     /// <summary>
-    /// CallDataApiAsync 
+    /// CallDataApiAsync
     /// </summary>
     /// <returns></returns>
     private static async Task<string?> CallDataApiAsync()
@@ -21,7 +23,7 @@ public static partial class GetPuzzleDataAsync
         using var logger = new SerilogLogger(ConfigurationHelper.ActiveConfiguration);
 
         //Use the HttpClient
-        using var client = new HttpClient();
+        var client = HttpClientInstance;
         try
         {
             logger.LogInformation("Start CallDataApiAsync()");
